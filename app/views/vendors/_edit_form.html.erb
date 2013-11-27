@@ -1,0 +1,28 @@
+<%= simple_form_for @vendor, :method => "put", :html => { :multipart => true }, :remote => true do |f| %>
+  <% if @vendor.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@vendor.errors.count, "error") %> prohibited this vendor from being saved:</h2>
+
+      <ul>
+      <% @vendor.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+  <div class="one-half pull-left">
+    <%= f.input :name, :required => true, :input_html => { :tabindex => 1 } %>
+    <%= f.input :contact_name, :input_html => { :tabindex => 3 } %>
+    <%= f.input :city, :input_html => { :tabindex => 5 } %>
+    <%= f.input :zip_code, :as => :string, :input_html => { :tabindex => 7 } %>
+    <%= f.input :invoice_number, :input_html => { :tabindex => 9 } %>
+    <%= f.input :documentation, :input_html => { :tabindex => 11 } %>
+  </div><!-- left -->
+  <div class="one-half pull-right">
+    <%= f.input :amount, :as => :string, :required => true, :input_html => { :tabindex => 2 } %>
+    <%= f.input :address, :input_html => { :tabindex => 4 } %>
+    <%= f.input :state, :as => :select, :collection => us_states, :input_html => { :tabindex => 6 } %>
+    <%= f.input :phone, :as => :string, :input_html => { :tabindex => 8 } %>
+    <%= f.input :description, :input_html => { :rows => 3, :tabindex => 10 } %>
+  </div><!-- right -->
+<% end %>

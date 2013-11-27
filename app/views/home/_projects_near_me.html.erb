@@ -1,0 +1,16 @@
+<div id="home-near-wrap" class="home-projects-wrap">
+  <div class="title">
+    <h4>Near Me (<%= @location_city %>)</h4>
+  </div>
+  <% if @projects_near_me.any? %>
+  <%= render partial: 'projects/project', :collection => @projects_near_me %>
+  <% else %>
+  <p>Sorry, there are no projects in <%= @location_city || "your area" %> yet...</p>
+  <% end %>
+  <div class="clearfix"></div>
+  <div class="divider"></div>
+  <% if @projects_near_me.any? %>
+    <%= link_to "See All", category_path(:id => "nearby"), :class => "btn btn-success btn-mini pull-right" %>
+  <% end %>
+  <div class="clearfix"></div>
+</div><!-- home-near-wrap -->

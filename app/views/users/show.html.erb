@@ -1,0 +1,26 @@
+<div class="profile-info">
+  <div id="profile-image-wrapper" class="span4">
+    <img src="<%= @user.facebook_image(220, 220) %>" height="220" width="220" alt="" class="thumbnail">
+  </div><!-- span3 -->
+      <div class="span8 pull-right">
+        <div class="profile_top">
+          <h2><%= @user.name %></h2>
+          <p>Member since: <%= @user.join_date %></p>
+        </div><!-- profile-top -->
+        <div class="divider"></div>
+        <div class="profile_bottom">
+          <ul>
+            <li><i class="icon-tag"></i> Member of projects</li>
+            <li><i class="icon-tag"></i> Started <%= @user.projects.size %> projects</li>
+            <li><i class="icon-tag"></i> <%= @user.projects_in_progress.size %> projects in progress</li>
+          </ul>
+        </div><!-- profile_bottom -->
+      </div><!-- /.span9 -->
+      <div class="clearfix"></div>
+</div><!-- profile-info -->
+<div class="divider"></div>
+<div class="span10 offset1">
+  <h2><%= @user.name %>'s Projects</h2>
+  <div class="divider"></div>
+  <%= render @projects %>
+</div>

@@ -1,0 +1,39 @@
+</div><!-- /.row -->
+<div id="root_footer"></div>
+</div><!-- root -->
+<div id="footer">
+<footer>
+  <div class="container">
+    <div class="footer_widget span3">
+      <h3>Why we rock!</h3>
+      <div class="textwidget">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent ut orci mauris. Sed ligula mi, sollicitudin quis imperdiet et, rutrum at orci. In hac habitasse platea dictumst. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent ut orci mauris. Sed ligula mi, sollicitudin quis imperdiet et, rutrum at orci. In hac habitasse platea dictumst. </div><!-- textwidget -->
+    </div><!-- footer-widget -->
+    <div class="footer_widget span3">
+      <div class="menu-footer-container">
+        <% unless user_signed_in? || contractor_signed_in? || adjuster_signed_in? %>
+          <ul>
+            <li><%= link_to "Register as an Adjuster", new_adjuster_registration_path %></li>
+            <li><%= link_to "Adjuster Log In", adjuster_session_path %></li>
+            <li><%= link_to "Contractor Log In", contractor_session_path %></li>
+          </ul>
+        <% end %>
+      </div><!-- menu-footer-container -->
+    </div><!-- footer_widget -->
+    <div class="footer_widget span3">
+      <!-- RECENT POSTS WERE HERE -->
+    </div><!-- footer-widget -->
+    <div class="footer_widget span3">
+      <!-- TAGS WERE HERE -->
+    </div><!-- footer_widget -->
+    </div><!-- container -->
+  </footer>
+  <div class="copyright">
+    <div class="container">
+      <p class="pull-right"><a href="#">Back to top</a></p>
+      <p>&copy; <%= footer_year %> compassionforhumanity.org ||
+        <%= link_to "Website Policies", page_path('policies') %>
+      </p>
+      </div><!-- container -->
+</div><!-- copyright -->
+</div><!-- footer -->
+<%= yield :scripts %>

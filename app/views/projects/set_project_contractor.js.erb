@@ -1,0 +1,3 @@
+$("#contractor_selected_modal_wrap").html("<%= j render 'contractor_selected_modal', :contractor => @contractor %>");
+$("#contractor").html("<%= j render 'selected_contractor', :contractor => @contractor %>");
+$("#contractor_selected_modal").modal('show');

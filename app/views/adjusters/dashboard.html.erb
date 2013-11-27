@@ -1,0 +1,32 @@
+<div class="span8">
+  <% if @adjuster.license.blank? %>
+    <div class="alert alert-error" id="license-alert">
+      You need to complete your licensing information!
+    </div>
+  <% end %>
+  <ul id="adjuster-tabs" class="nav nav-tabs">
+     <li class="active">
+       <a href="#news" data-toggle="tab">News</a>
+     </li>
+     <li><a href="#assignments" data-toggle="tab">Assignments</a></li>
+     <li><a href="#estimates" data-toggle="tab">Estimates</a></li>
+     <li><a href="#profile" data-toggle="tab">Edit Profile</a></li>
+   </ul>
+   <div class="tab-content">
+      <%= render 'adjusters/tabs/news_tab' %>
+      <%= render 'adjusters/tabs/assignments_tab' %>
+      <%= render 'adjusters/tabs/estimates_tab' %>
+      <%= render 'adjusters/tabs/profile_tab' %>
+    </div><!-- tab-content -->
+</div><!-- primary -->
+<div class="span3 pull-right">
+  <div class="well">
+    <h3>Status</h3>
+    <% if @adjuster.approved? %>
+      <p>Approved</p>
+    <% else %>
+      <p>Pending</p>
+    <% end %>
+  </div>
+</div><!-- sidebar -->
+<div class="clearfix"></div>

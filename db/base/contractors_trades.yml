@@ -1,0 +1,11 @@
+
+---
+contractors_trades:
+  columns:
+  - contractor_id
+  - trade_id
+  records: 
+  - - '1'
+    - '4'
+  - - '1'
+    - '5'

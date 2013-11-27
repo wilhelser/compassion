@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta content='text/html; charset=UTF-8' http-equiv='Content-Type' />
+  </head>
+  <body>
+    <h1>You have been selected for a new project!</h1>
+    <p><%= @contractor.owner_first_name %>, you have been selected by <%= @user.name %> as the contractor for their project <%= @project.page_title %>!</p>
+    <p>
+      An adjuster has not been assigned to this project yet.
+    </p>
+    <p>
+      To view the project, just follow <a href="http://compassionforhumanity.org/projects/<%= @project.slug %>">this link</a>.
+    </p>
+    <p>Thanks for being a Contractor with Compassion for Humanity and have a great day!</p>
+  </body>
+</html>

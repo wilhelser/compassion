@@ -1,0 +1,8 @@
+<p>These are our approved contractors. <%= link_to "Apply here", new_contractor_registration_path %> to apply to become an approved contractor.</p>
+<div class="divider"></div>
+<h5>I think I'm going to put a search feature here for searching by state, zip code, trades, etc.</h5>
+<div class="divider"></div>
+<%= render @contractors %>
+<% content_for :contractor_login_button do %>
+  <%= link_to "Contractor Login", new_contractor_session_path, :class => "btn btn-success pull-right", :id => "contractor-login-btn" %>
+<% end %>

@@ -1,0 +1,41 @@
+<%= div_for(project, :class => "thumbnail") do %>
+    <% if can? :manage, project %>
+        <div class="project_manage_btns">
+            <%= link_to "View", project, :class => "btn btn-success btn-mini pull-left" %>
+            <%= link_to "Dashboard", dashboard_project_path(project), :class => "btn btn-success btn-mini pull-right" %>
+        </div><!-- project_manage_btns -->
+    <% end %>
+    <div class="project-thumb-wrapper">
+        <%= link_to project do %>
+        <%= filepicker_image_tag project.featured_image, w: 260, h: 250, fit: 'crop' %>
+        <% end %>
+    </div><!-- project-thumb-wrapper -->
+    <div class="clearfix"></div>
+    <h5 class="bbcard_name">
+        <%= project.page_title %>
+    </h5>
+    <div class="divider"></div>
+    <div class="project_excerpt">
+    </div><!-- project_excerpt -->
+    <div class="clearfix"></div>
+<div class="divider"></div>
+<div class="project_index_statswrap">
+    <% if project.contributions.any? %>
+    <div class="pi_stats_top">
+        <span class="pi_stats_funded">$<%= project.total_contributions.to_i %>.00</span>
+        <span class="pi_stats_percent">
+            <%= project.percent_funded.to_i %>%
+        </span>
+    </div><!-- pi_stats_top -->
+    <% end %>
+    <div class="clearfix"></div>
+    <div class="project-index-progress progress progress-striped active bar-green">
+        <div style="width: <%= project.percent_funded %>%" class="bar"></div>
+    </div><!-- progress -->
+    <div class="clearfix"></div>
+    <span class="pi_stats_backers">
+        <%= project.contributions.size %> backers
+    </span>
+</div><!--project_index_statswrap -->
+<div class="clear"></div>
+<% end %>

@@ -1,0 +1,72 @@
+ActiveAdmin.register Project do
+  scope :all
+  scope :approved
+  scope :funded
+
+  sidebar "Contractor", only: [:show, :edit] do
+    "#{project.contractors.first.name}" if project.contractors.any?
+  end
+
+  sidebar "Contributions", only: [:show, :edit] do
+    ul do
+      project.contributions.each do |c|
+        li "#{c.amount}"
+      end
+    end
+  end
+
+  # Filters
+  filter :user
+  filter :goal_amount
+  filter :project_total_contributions
+  filter :categories
+  filter :status
+  filter :page_title
+  filter :city
+  filter :state
+  filter :zip_code
+  filter :contractors
+  filter :vendors
+  filter :adjusters
+  filter :created_at
+  filter :funded_date
+  filter :project_deadline
+
+  # Index
+  index do
+    selectable_column
+    column :id
+    column :user
+    column :goal_amount
+    column :total_contributions
+    column :page_title
+    column :status
+    column :city
+    column :state
+    column :project_deadline
+    default_actions
+  end
+
+  # Form
+  form do |f|
+    f.inputs "Project Details" do
+      f.input :goal_amount
+      f.input :status
+      f.input :project_deadline, :as => :date_picker
+    end
+    f.actions
+  end
+
+  # Show
+  show do |project|
+    attributes_table do
+      row :id
+      row :page_title
+      row :page_message do
+        project.page_message.html_safe
+      end
+      row :user
+      row :status
+    end
+  end
+end

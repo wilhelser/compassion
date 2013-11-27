@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta content='text/html; charset=UTF-8' http-equiv='Content-Type' />
+  </head>
+  <body>
+    <h1>You have been selected for a new project!</h1>
+    <p><%= @contractor.owner_first_name %>, you have been selected by <%= @user.name %> as the contractor for their project <%= @project.page_title %>!</p>
+    <h3>Adjuster Information:</h3>
+    <hr>
+    <p><strong>Adjuster Name: </strong><%= @adjuster.first_name %> <%= @adjuster.last_name %></p>
+    <p><strong>Adjuster Phone: <%= @adjuster.phone %></strong></p>
+    <% if @adjuster.fax %>
+      <p><strong>Adjuster Fax: </strong><%= @adjuster.fax %></p>
+    <% end %>
+    <% if @adjuster.cell_phone %>
+      <p><strong>Adjuster Cell: </strong><%= @adjuster.cell_phone %></p>
+    <% end %>
+    <p>
+      To view the project, just follow <a href="http://compassionforhumanity.org/projects/<%= @project.slug %>">this link</a>.
+    </p>
+    <p>Thanks for being a Contractor with Compassion for Humanity and have a great day!</p>
+  </body>
+</html>

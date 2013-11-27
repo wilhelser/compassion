@@ -1,0 +1,20 @@
+<div class="tab-pane" id="vendors">
+<div class="page-header">
+  <h1 class="pull-left">Vendors <small>Add vendors to your action</small></h1>
+  <a href="#new_vendor_modal" class="pull-right btn btn-primary" data-toggle="modal">Add Vendor</a>
+  <div class="clearfix"></div>
+</div><!-- page-header -->
+<p>All funds raised will be paid by <strong>CHECK</strong> and mailed to the main mailing address given for the Action.</p>
+<table class="table table-hover" id="vendors-table">
+  <th>Name</th>
+  <th>Amount</th>
+  <th>Description</th>
+  <th>Documentation</th>
+  <th>Actions</th>
+  <th></th>
+  <%= render @vendors %>
+</table>
+
+<%= render 'vendors/new_vendor_modal' %>
+<%= render 'vendors/edit_vendor_modal' %>
+</div><!-- vendors -->

@@ -1,0 +1,16 @@
+<%= content_tag_for(:tr, vendor) do %>
+  <td><%= vendor.name %></td>
+  <td><%= vendor.amount %></td>
+  <td><%= vendor.description %></td>
+  <td>
+  <% unless vendor.documentation.blank? %>
+    <a href="<%= vendor.documentation %>" target="_blank">View Document</a>
+  <% end %>
+  </td>
+  <td>
+      <%= button_to "delete", vendor, :method => :delete, :class => "btn btn-mini btn-danger", :remote => true, "data-confirm" => "Are you sure you want to delete this vendor?" %>
+  </td>
+  <td>
+      <%= link_to "edit", edit_vendor_path(vendor), :remote => true, :class => "btn btn-success btn-mini" %>
+  </td>
+<% end %>

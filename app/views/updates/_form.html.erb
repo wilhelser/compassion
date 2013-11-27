@@ -1,0 +1,27 @@
+<div class="modal hide fade" id="new_update_modal">
+  <div class="modal-header">
+    <button aria-hidden="true" class="close" data-dismiss="modal">&times;</button>
+    <h3>Post a new Update</h3>
+  </div>
+  <div class="modal-body">
+    <%= simple_form_for [@project, Update.new], :remote => true do |f| %>
+      <%= f.error_notification %>
+      <%= f.input :project_id, :as => :hidden, :input_html => { :value => @project.id } %>
+      <%= f.input :title, :label => "Update Title" %>
+      <%= f.input :body, :label => "Update Body", :input_html => { :rows => "4", :cols => "10" } %>
+      <div class="divider"></div>
+        <%= f.label :facebook, "Post this update to your Facebook wall?" %>
+      <div class="make-switch" data-on-label="YES" data-off-label="NO">
+        <%= f.check_box :facebook %>
+      </div>
+      <div class="divider"></div>
+      <div class="hide">
+        <%= f.input :twitter %>
+        <%= f.input :email %>
+      </div>
+      <%= f.button :submit, "Post Update", :class => "btn btn-primary pull-right" %>
+      <div class="clearfix"></div>
+    <% end %>
+  </div>
+</div>
+

@@ -1,0 +1,2 @@
+module ContractorSelectionsHelper
+end

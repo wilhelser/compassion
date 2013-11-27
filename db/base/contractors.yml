@@ -1,0 +1,67 @@
+
+---
+contractors:
+  columns:
+  - id
+  - name
+  - street_address
+  - city
+  - state
+  - zip_code
+  - latitude
+  - longitude
+  - coverage_radius
+  - logo
+  - created_at
+  - updated_at
+  - business_legal_name
+  - business_dba_name
+  - date_of_incorporation
+  - owner_first_name
+  - owner_last_name
+  - owner_phone
+  - owner_email
+  - mailing_address
+  - mailing_address2
+  - mailing_zip_code
+  - mailing_city
+  - mailing_state
+  - mailing_same
+  - business_tax_id_no
+  - ein
+  - number_of_employees
+  - contractor_license_number
+  - gross_anual_sales_last_year
+  - description
+  records: 
+  - - '1'
+    - Compassion Construction
+    - 1120 Wales Drive
+    - Keller
+    - TX
+    - '76248'
+    - '32.91819'
+    - '-97.22174'
+    - '50'
+    - https://www.filepicker.io/api/file/ibC8mo66QKuA9XeaFkoj
+    - '2013-09-06 20:27:37.944391'
+    - '2013-09-06 20:27:37.944391'
+    - ''
+    - ''
+    - '2013-09-06'
+    - ''
+    - ''
+    - ''
+    - ''
+    - ''
+    - ''
+    - 
+    - ''
+    - ''
+    - false
+    - ''
+    - ''
+    - 
+    - ''
+    - ''
+    - 

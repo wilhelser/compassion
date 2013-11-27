@@ -1,0 +1,11 @@
+$("#new_photo_modal").modal('hide');
+$("#new_photo_form_wrap").html("");
+$("#new_photo_form_wrap").html("<%= j render 'photos/form' %>");
+$("#gallery-images-wrap").html("<%= j render @photos %>");
+
+var element = document.getElementById('photo_image')
+element.type="filepicker-dragdrop";
+element.onchange = function(e){
+    console.log(JSON.stringify(e.fpfile));
+};
+filepicker.constructWidget(element);

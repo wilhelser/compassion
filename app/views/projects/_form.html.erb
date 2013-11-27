@@ -1,0 +1,84 @@
+      <%= render "preview" %>
+<%= simple_form_for @project do |f| %>
+  <fieldset class="span9 offset1">
+    <legend>Project Category <small>Select all that apply</small></legend>
+    <%= f.association :categories, :as => :check_boxes, :label => false %>
+    <div class="divider"></div>
+  </fieldset>
+<div class="clearfix"></div>
+    <fieldset class="span9 offset1 np-section">
+      <legend>Project Info <small>Basic project information.</small></legend>
+      <p><strong>Goal Amount</strong> will be automatically set once estimates are uploaded, for construction projects or vendor information has been uploaded, for non-construction projects.</p>
+      <%= f.input :goal_amount, :as => :hidden, :input_html => { :value => 0 } %>
+    <%=f.input :page_title, :placeholder => "Page Title", "data-ideal" => "required", :input_html => { "ng-model" => "page_title", :maxlength => 60, :class => "input-large" } %>
+    <div class="clearfix"></div>
+    <%= render 'toolbar' %>
+    <%=f.input :page_message, :class => "span8", :rows => "10", "data-ideal" => "required", :input_html => { :id => "wysihtml5-textarea", "ng-model" => "page_message" }, :label => false %>
+    <div class="clearfix"></div>
+    <p><small>Make this project private. ( Your project will not show up in searches )</small></p>
+    <div class="make-switch" data-on-label="YES" data-off-label="NO">
+       <%= f.check_box :private, :label => "Make this project private" %>
+      </div>
+
+    <div class="divider"></div>
+    </fieldset>
+  <div class="clearfix"></div>
+  <fieldset class="span9 offset1 np-section" id="address_info_wrap">
+    <legend>Address Info <small>Required only for construction projects</small></legend>
+        <div class="span4">
+          <%= f.input :street_address, :placeholder => "Street Address", :label => "Street Address ( construction projects only )" %>
+          <%= f.input :state, :as => :select, :collection => us_states, :placeholder => "State", :selected => @user.state, :input_html => { :value => "#{@user.state}" } %>
+        </div><!-- span4 -->
+        <div class="span4 pull-right">
+          <%= f.input :city, :placeholder => "City", :input_html => { :value => "#{@user.city}" } %>
+          <%= f.input :zip_code, :as => :string, :placeholder => "Zip Code" %>
+        </div><!-- span4 -->
+        <div class="clearfix"></div>
+        <div class="divider"></div>
+    </fieldset><!-- address_info_wrap -->
+    <fieldset class="span9 offset1 np-section">
+      <legend>Project Deadline <small>Set a funding deadline for your project if you want.</small></legend>
+      <div class="span4 pull-left">
+        <%= f.input :project_deadline, :as => :string, :input_html => { "data-behavior" => "datepicker" } %>
+      </div>
+      <div class="span4 pull-right">
+        <%= f.input :reason_for_deadline, :input_html => { :rows => 3 } %>
+      </div>
+    </fieldset>
+    <fieldset class="span9 offset1 np-section">
+      <legend>Media</legend>
+    <p><small>Here you can upload an image for your project or add a YouTube or Vimeo video.</small></p>
+    <ul id="media_select">
+      <li>
+        <input type="radio" name="media" value="image" ng-model="media">I want to upload an image</input></li>
+      </li>
+      <li>
+        <input type="radio" name="media" value="video" ng-model="media">YouTube/Vimeo Video</input>
+      </li>
+    </ul>
+    <div class="clearfix"></div>
+    <div id="upload_options_wrap">
+      <div id="featured_upload" ng-show="media == 'image'">
+          <%= f.label :featured_image, "Upload Your Image:" %>
+          <%= f.filepicker_field :featured_image, :button_class => "btn btn-primary", :input_html => { "ng-model" => "featured_image" }%>
+      </div><!-- featured_upload -->
+      <div id="youtube_add" ng-show="media == 'video'">
+        <div>
+          <%=f.input :featured_video, :placeholder => "YouTube/Vimeo Link", :label => false, :input_html => { "ng-model" => "featured_video"} %>
+        </div>
+      </div><!-- youtube-add -->
+    </div><!-- upload_options_wrap -->
+  <div class="clearfix"></div>
+  <div class="divider"></div>
+    </fieldset>
+<div class="span9 offset1 np-section well">
+  <div class="submit_project_wrap">
+    <button id="send_new_project" class="btn btn-primary btn-large needs-acceptance">Create Project</button>
+  <div class="clearfix"></div>
+  <small>
+    By clicking Create Project, you are indicating that you have read and agree to the <%= link_to "Terms of Use and Privacy Policy", page_path('policies') %>.
+  </small>
+</div>
+</div><!-- np-section -->
+<%= render 'wysiwyg' %>
+<%- end %>

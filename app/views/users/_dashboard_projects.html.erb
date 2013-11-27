@@ -1,0 +1,16 @@
+<% @projects.each do |project| %>
+    <div class="dashboard_project">
+       <div class="dp_image_wrap">
+            <div class="thumbnail">
+                <%= filepicker_image_tag project.featured_image, w: 250, h: 150, fit: 'clip' %>
+            </div>
+       </div><!-- dp_image_wrap -->
+       <div class="dp_middle">
+          <h5><%= project.page_title %></h5>
+          <div class="divider"></div>
+            <%= link_to "View", project, :class => "btn btn-success pull-left" %>
+            <%= link_to "Dashboard", dashboard_project_path(project), :class => "btn btn-success pull-right" %>
+            <div class="clearfix"></div>
+       </div><!-- dp_middle -->
+    </div><!-- dashboard_project -->
+<% end %>

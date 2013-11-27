@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta content='text/html; charset=UTF-8' http-equiv='Content-Type' />
+  </head>
+  <body>
+    <h1><%= @contractor.owner_first_name %>, you've received a review!</h1>
+
+    <p>
+      <strong>User: </strong><%= @user.name %><br/>
+      <strong>Project: </strong><%= @project.page_title %><br/>
+      <strong>Rating: </strong><%= @review.rating %> stars<br/>
+      <strong>Review: </strong><%= @review.comments %>
+    </p>
+
+    <% if @review.rating < 3 %>
+    <p>Since the review was rated at less than 3 stars, you will have a chance to repond to the review and hopefully work things out with the reviewer before the review is posted live on your profile page.</p>
+    <% else %>
+      <p>Since your review was rated 3 stars or higher, the review has been automatically approved and has been posted live on your profile! Great job!</p>
+    <% end %>
+
+    <p>Thanks for being a Contractor with Compassion for Humanity and have a great day!</p>
+  </body>
+</html>

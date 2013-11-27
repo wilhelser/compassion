@@ -1,0 +1,13 @@
+<div class="tab-pane" id="galleries">
+  <div id="project_galleries_wrap">
+    <% if @project.has_galleries? %>
+    <%= render partial: 'galleries/gallery', :collection => @galleries %>
+    <% else %>
+    <p>You don't have any galleries yet.</p>
+    <% end %>
+  </div><!-- project_galleries_wrap -->
+  <div class="clearfix"></div>
+  <hr>
+  <a data-toggle="modal" href="#new_gallery_modal" class="btn btn-success">Add Gallery</a>
+  <%= render partial: 'galleries/new_gallery_modal', :project => @project %>
+</div><!-- galleries -->

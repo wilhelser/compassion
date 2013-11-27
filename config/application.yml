@@ -1,0 +1,22 @@
+# Add account credentials and API keys here.
+# See http://railsapps.github.io/rails-environment-variables.html
+# This file should be listed in .gitignore to keep your settings secret!
+# Each entry sets a local environment variable and overrides ENV variables in the Unix shell.
+# For example, setting:
+# GMAIL_USERNAME: Your_Gmail_Username
+# makes 'Your_Gmail_Username' available as ENV["GMAIL_USERNAME"]
+# Add application configuration variables here, as shown below.
+#
+development:
+  FB_APP_ID: 289217204546185
+  FB_SECRET_KEY: e3cb3ff7340769b75f1b2ebf0fa45c98
+  COMP_PUBLISHABLE_KEY: pk_test_LDU35zyYNYk37LvnPL5afGjJ
+  COMP_SECRET_KEY: sk_test_n58clkOso4a8mncVMYfNT01F
+production:
+  FB_APP_ID: 231408540317089
+  FB_SECRET_KEY: 7758a40a88cf75e51df02496c4390078
+  COMP_PUBLISHABLE_KEY: pk_test_LDU35zyYNYk37LvnPL5afGjJ
+  COMP_SECRET_KEY: sk_test_n58clkOso4a8mncVMYfNT01F
+
+ROLES: [admin, user, VIP]
+

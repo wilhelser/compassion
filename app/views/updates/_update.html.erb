@@ -1,0 +1,21 @@
+<%= div_for update, :class => "project_update" do %>
+<%if @deletable == true %>
+  <%= button_to "Delete", update, :method => :delete, :remote => true, :confirm => "Are you sure you want to delete this update?", :class => "btn btn-danger btn-mini delete_update_button" %>
+  <% end %>
+  <div class="project_update_info">
+    <div class="project_update_left">
+     <div class="project_update_profile_image thumbnail">
+       <img src="<%= update.project.user.facebook_image(250, 250) %>" alt="">
+     </div><!-- project_updates_profile_image -->
+    </div><!-- project_update_left -->
+    <div class="project_update_right">
+     <h4 class="update_title"><%= update.title %></h4>
+     <p><%= update.body %></p>
+     <div class="clearfix"></div>
+     <div class="divider"></div>
+    <span class="update_created"><small><strong><%= time_ago_in_words(update.created_at) %> ago</strong></small></span>
+    </div><!-- project_update_right -->
+  </div><!-- project_update_info -->
+  <div class="clearfix"></div>
+  <div class="divider"></div>
+<% end %>

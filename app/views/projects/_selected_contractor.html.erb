@@ -1,0 +1,27 @@
+<div class="contractor_small">
+  <div class="ci_logo">
+    <div class="thumbnail">
+      <%= filepicker_image_tag @contractor.logo, h: 75, fit: 'clip', :class => "thumbnail" %>
+    </div>
+  </div><!-- ci_logo -->
+  <div class="ci_namelink">
+    <h5><%= @contractor.name %> - <%= @contractor.city %>, <%= @contractor.state %></h5>
+    <p><%= @contractor.address %><br/>
+      Phone: <%= @contractor.owner_phone %><br/>
+    </p>
+  </div><!-- ci_namelink -->
+  <div class="ci_tradeslist">
+    <p><strong>Services:</strong>
+      <% @contractor.trades.each do |trade| %>
+      <%= trade.name + "," %>
+      <% end %>
+    </p>
+  </div><!-- ci_tradeslist -->
+  <div class="ci_button_wrap pull-right">
+    <%= link_to "Profile", contractor_path(@contractor), :class => "btn btn-success btn-block btn-top", :target => "_blank" %>
+    <div class="clearfix"></div>
+    <% unless @project.has_reviewed_contractor? %>
+      <a href="#contractor_review_modal" data-toggle="modal" class="btn btn-primary btn-block">Review</a>
+      <% end %>
+  </div><!-- ci_button_wrap -->
+</div><!-- contractor_index_main_container -->

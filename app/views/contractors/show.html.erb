@@ -1,0 +1,80 @@
+<p id="notice">
+  <%= notice %>
+</p>
+<div class="span7">
+  <div id="contractor_profile_image" class="thumbnail">
+    <%= filepicker_image_tag @contractor.logo, w: 300, h: 200, fit: 'clip', :class => "thumbnail" %>
+  </div><!-- thumbnail -->
+  <p><strong>Coverage radius: </strong><%= @contractor.coverage_radius %></p>
+  <% unless @contractor.website_url.blank? %>
+  <p><strong>Website: <%= link_to "#{@contractor.website_url}", "http://#{@contractor.website_url}", :target => "_blank" %></strong></p>
+  <% end %>
+<div id="contractor_profile_description_wrap">
+  <%= @contractor.description.html_safe %>
+</div><!-- contractor_profile_description_wrap -->
+<div id="contractor_profile_reviews_wrap">
+  <% if @contractor.has_reviews? %>
+      <div class="title">
+        <h4>Reviews ( <%= @contractor.review_count %> ) <span class="contractor-rating" data-score="<%= @contractor.rating %>" id="contractor_title_ranking"></span> </h4>
+      </div>
+      <%= render @contractor_reviews %>
+  <% end %>
+</div><!-- contractor_profile_reviews_wrap -->
+</div><!-- span7 -->
+<div class="span4 pull-right show-on-desktop">
+  <div class="contractor-sb">
+    <div class="title">
+    <h4>Location</h4>
+  </div><!-- title -->
+    <%= gmaps(
+      :markers => { :data => @gmap},
+      :map_options => { :auto_adjust => true, :auto_zoom => false, :zoom => 15 }
+    ) %>
+  </div>
+    <div class="clearfix"></div>
+
+<div class="contractor-sb">
+ <div class="title">
+    <h4>Trades</h4>
+  </div>
+  <ul>
+  <% @contractor.trades.each do |t| %>
+  <li><%= t.name %></li>
+  <% end %>
+</ul>
+</div><!-- trades -->
+<div class="contractor-sb">
+  <div class="title">
+  <h4>Projects</h4>
+</div>
+  <% if @projects.size == 0 %>
+  <p><small>This contractor doesn't have any projects yet.</small></p>
+  <% else %>
+<ul>
+<% @projects.each do |p| %>
+<li>
+  <%= link_to "#{p.page_title}", p %>
+</li>
+<% end %>
+</ul>
+<% end %>
+</div><!-- projects -->
+<div class="clearfix"></div>
+<div class="contractor-sb">
+  <div class="title">
+    <h4>Contact Info</h4>
+  </div>
+<p><strong><%= @contractor.name %></strong><br/>
+<%= @contractor.address %><br/>
+<%= @contractor.city %>, <%= @contractor.state %>  <%= @contractor.zip_code %><br/>
+Phone: <%= @contractor.owner_phone %><br/>
+<% unless @contractor.website_url.blank? %>
+<%= link_to "#{@contractor.website_url}", "http://#{@contractor.website_url}", :target => "_blank" %>
+<% end %>
+</p>
+<div class="clearfix"></div>
+  <% content_for :select_contractor_button do %>
+    <%= link_to "Select Contractor", '/', :class => "btn btn-success pull-right contractor_subhead_button" %>
+  <% end %>
+</div>
+</div><!-- contractor-sb-wrap -->

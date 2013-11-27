@@ -1,0 +1,4 @@
+$("#update_response").html("<p>Update added!</p>").show(200).delay(1000).hide(200);
+$("#new_update_modal").modal('hide');
+$("#dashboard_updates_form_wrap").html("<%= j render 'updates/form' %>");
+$("#dashboard_updates_wrap").html("<%= j render @updates %>");

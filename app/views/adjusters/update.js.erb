@@ -1,0 +1,10 @@
+<% if @adjuster.errors.any? %>
+  $("#adjuster_update_errors").html("<%= j raw(@adjuster.errors.full_messages) %>").show();
+<% else %>
+  $("#adjuster_update_errors").html("Profile updated!").addClass('success').show();
+
+<% unless @adjuster.license.blank? %>
+  $("#license-alert").fadeOut();
+  $("#adjuster_license_display").html("<p><a href='<%= @adjuster.license %>' target='_blank'><%= @adjuster.license %></a></p>").effect("highlight");
+<% end %>
+<% end %>

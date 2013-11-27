@@ -1,0 +1,19 @@
+<div class="span7">
+  <ul id="wizard-nav">
+    <li>
+      <%= link_to "Your Info", wizard_path(:backer_info) %>
+    </li>
+    <li class="current_wizard">
+      <%= link_to "Payment Info", wizard_path(:payment_info) %>
+    </li>
+    <li>
+      <%= link_to "Thank You", wizard_path(:thank_you) %>
+    </li>
+  </ul>
+ <%= render 'backers/form' %>
+</div><!-- span8 -->
+<div class="span4 pull-right">
+ <div class="well">
+   Project
+ </div>
+</div><!-- span4 -->

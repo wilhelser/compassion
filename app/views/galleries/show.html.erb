@@ -1,0 +1,6 @@
+<div class="gallery-wrap">
+  <%= render @photos %>
+</div><!-- gallery-wrap -->
+<% content_for :back_to_project_button do %>
+<%= link_to "Back", :back, :class => "btn btn-success project-dashboard-link pull-right" %>
+<% end %>

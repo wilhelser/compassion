@@ -1,0 +1,5 @@
+$("#vendors-table").html("<%= j render @vendors %>");
+$("#new_vendor_modal").modal("hide");
+$("#new-vendor-form-wrap").html("");
+$("#new-vendor-form-wrap").html("<%= j render 'vendors/form' %>");
+$("#vendors-count").text("<%= @vendors.size %>");

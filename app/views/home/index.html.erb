@@ -1,0 +1,41 @@
+<div id="cta_box">
+  <div class="divider"></div>
+  <%= link_to "Get Started!", new_user_registration_path, :class => "btn btn-large btn-success pull-right" %>
+  <div class="clearfix"></div>
+  <div id="request-debugger" class="hide">
+    <%= request.location.inspect %>
+  </div>
+  <div class="divider"></div>
+</div>
+<div class="clearfix"></div>
+<div id="home_categories_select_wrap">
+  <%= render 'project_nav_search' %>
+  <div class="inner">
+    <ul id="home_categories_select">
+      <% @categories.each do |category| %>
+      <li>
+        <%= link_to "#{category.name}", category %>
+      </li>
+      <% end %>
+    </ul>
+  </div><!-- inner -->
+</div><!-- /.span3 -->
+<div id="home_page_projects" class="pull-right">
+  <div id="home-featured-wrap" class="home-projects-wrap">
+    <div class="title">
+      <h4>Featured Projects</h4>
+    </div>
+    <% if @projects.any? %>
+      <%= render @projects %>
+    <% else %>
+    <p>Sorry, there are no projects in this category yet...</p>
+    <% end %>
+    <div class="clearfix"></div>
+    <div class="divider"></div>
+    <%= link_to "See All", category_path(:id => "all"), :class => "btn btn-success btn-mini pull-right" %>
+    <div class="clearfix"></div>
+  </div><!-- home-featured-wrap -->
+  <div class="clearfix"></div>
+ <%= render 'projects_near_me' %>
+</div><!-- span7 -->
+<div class="clearfix"></div>

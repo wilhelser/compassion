@@ -1,0 +1,77 @@
+@include sticky-footer(330px)
+body
+  font-size: 1em!important
+  // background-color: #edf3f2!important
+
+// html
+//   background: #edf3f2 url(bg.jpg) repeat
+
+@mixin box-emboss($opacity, $opacity2)
+  box-shadow: white($opacity) 0 1px 0, inset black($opacity2) 0 1px 0
+
+.navbar-wrapper
+  background-color: #fff!important
+
+@mixin custom-well
+  padding: 2%
+  background-color: whitesmoke
+  border: 1px solid #e3e3e3
+  +border-radius(4px)
+
+.centered
+  text-align: center
+
+.alpha
+  margin-left: 0!important
+
+.tab-pane
+  .page-header
+    margin-top: 0!important
+
+.one-half
+  width: 50%
+  position: relative
+  overflow: hidden
+
+.percent20
+  width: 20%
+  float: left
+  position: relative
+  overflow: hidden
+
+.percent30
+  width: 30%
+  position: relative
+  overflow: hidden
+  float: left
+
+.percent70
+  width: 70%
+  float: left
+  position: relative
+  overflow: hidden
+
+.percent80
+  float: left
+  width: 80%
+  position: relative
+  overflow: hidden
+
+.error
+  color: red
+
+.strip-mini
+  background: url(strip-mini.jpg) repeat-x!important
+  h1
+    color: #fff!important
+
+// button.btn
+//   display: inline-block
+
+.btn-group form
+  display: inline-block
+
+.vertical-divider-wrap
+  background: url(vertical-divider.png) right repeat-y
+  overflow: hidden
+  position: relative

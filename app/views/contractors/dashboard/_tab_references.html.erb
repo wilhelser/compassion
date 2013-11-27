@@ -1,0 +1,18 @@
+<div class="tab-pane" id="references">
+  <a id="add_new_dashboard_reference" class="btn btn-primary pull-right">Add New Reference</a>
+  <h3>References</h3>
+  <p>You need to provide us with 10 customer references and 4 business references.</p>
+  <div class="clearfix"></div>
+  <div class="divider"></div>
+ <div id="dashboard_references_list">
+    <% unless @references.nil? %>
+      <%= render 'references/references_list', :locals => {:references => @references } %>
+    <% else %>
+      <p>You haven't added any references yet.</p>
+      <div class="divider"></div>
+    <% end %>
+ </div><!-- dashboard_references_list -->
+ <div id="new_dashboard_reference">
+
+ </div><!-- new_dashboard_reference -->
+</div><!-- home-tab -->

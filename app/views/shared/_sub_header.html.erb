@@ -1,0 +1,16 @@
+<div class="row page-title visible-desktop <%= @page_class %>">
+  <div class="container">
+    <h1>
+      <%= @page_title %>
+      <%= yield :user_info %>
+    </h1>
+    <%= yield :contractor_login_button %>
+    <%= yield :action_buttons %>
+    <%= yield :category_header_description %>
+    <%= yield :back_to_project_button %>
+    <%= yield :gallery_back_button %>
+  </div><!-- container -->
+</div><!-- page-title -->
+<div class="all-projects container blog">
+  <%= yield :profile_edit_button %>
+  <div class="row">

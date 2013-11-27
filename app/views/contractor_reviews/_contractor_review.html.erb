@@ -1,0 +1,16 @@
+<%= div_for contractor_review do %>
+  <div class="review_image thumbnail">
+    <img src="<%= contractor_review.user.facebook_image(80, 80) %>" alt="<%= contractor_review.user.name %>">
+  </div>
+  <div class="review_content">
+    <div class="review_title">
+      <h4><%= contractor_review.title %></h4>
+      <span class="contractor_review_title_rank">
+        <span class="contractor-rating" data-score="<%= contractor_review.rating %>"></span>
+      </span>
+    </div><!-- review_title -->
+    <div class="divider"></div>
+    <p><%= contractor_review.comments %></p>
+  </div><!-- review_content -->
+<% end %>
+<div class="divider"></div>

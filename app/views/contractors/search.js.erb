@@ -1,0 +1,5 @@
+<% unless @contractor.nil? %>
+  $("#contractor_results_wrap").prepend("<%= j render 'contractors/search_result', :locals => { :contractor => @contractor } %>");
+<% else %>
+  $("#contractor_search_response").html("Sorry, no Contractor found by that name.").show();
+<% end %>

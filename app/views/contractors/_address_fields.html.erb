@@ -1,0 +1,17 @@
+<fieldset>
+  <legend>Address</legend>
+  <%= f.fields_for :address do |address| %>
+  <div class="span4">
+    <%= address.input :address_type, :as => :select, :collection => address_types %>
+    <%= address.input :city %>
+  </div>
+  <div class="span4">
+    <%= address.input :address %>
+    <%= address.input :state %>
+  </div>
+  <div class="span3">
+    <%= address.input :addres2 %>
+    <%= address.input :zip_code %>
+  </div>
+  <% end %>
+</fieldset>

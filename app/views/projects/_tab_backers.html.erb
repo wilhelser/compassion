@@ -1,0 +1,32 @@
+<div id="tab3" class="tab-pane">
+    <div id="project-funders span8">
+      <%- @contributions.each do |c| %>
+      <div class="project_backer">
+            <div class="project_backer_amount">
+              <h4>$<%= c.amount.to_i %>.00</h4>
+            </div><!-- project_backer_amount -->
+            <% unless c.private? %>
+              <div class="donor-class-sm <%= c.donor_class %>">
+                <%= image_tag "donor-class-sm/#{c.donor_class}.png" %>
+              </div><!-- donor-class-sm -->
+            <% end %>
+            <% unless c.image.blank? %>
+              <%= filepicker_image_tag c.image, w: 50, h: 50, fit: 'clip' %>
+            <% else %>
+              <hr>
+            <% end %>
+          <div class="backer_name">
+            <% if c.private? %>
+              <p>Anonymous</p>
+              <% else %>
+            <h5><%= c.first_name %> <%= c.last_name %></h5>
+            <% end %>
+          </div><!-- name -->
+          <div class="loader"></div>
+          <span class="reward"><%= c.comments %></span>
+          <div class="divider"></div>
+          <p class="backer_ago_text"><small><em><strong><%= time_ago_in_words(c.created_at) %> ago</strong></em></small></p>
+      </div><!-- project-backer -->
+      <% end %>
+    </div><!-- project-funders -->
+</div><!-- tab-backers -->

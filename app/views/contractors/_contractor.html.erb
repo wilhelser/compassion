@@ -1,0 +1,30 @@
+<%= div_for(contractor, :class => "contractor_index_main_container") do %>
+<div class="contractor_index_wrap">
+  <div class="ci_logo">
+    <div class="thumbnail">
+      <%= filepicker_image_tag contractor.logo, w: 150, h: 75, fit: 'clip', :class => "thumbnail" %>
+    </div><!-- thumbnail -->
+  </div><!-- ci_logo -->
+  <div class="ci_namelink">
+    <h5><%= contractor.name %> - <%= contractor.city %>, <%= contractor.state %></h5>
+    <p><%= contractor.address %><br/>
+    Phone: <%= contractor.owner_phone %></p>
+  </div><!-- ci_namelink -->
+  <div class="ci_tradeslist">
+    <p><strong>Services:</strong>
+      <% contractor.trades.each do |trade| %>
+      <%= trade.name + "," %>
+      <% end %>
+    </p>
+  </div><!-- ci_tradeslist -->
+  <div class="ci_button_wrap pull-right">
+    <%= link_to "View Profile", contractor, :class => "btn btn-success" %>
+  </div><!-- ci_button_wrap -->
+  <div class="clearfix"></div>
+  <div class="divider"></div>
+  <div class="contractor_index_rating">
+      <div class="contractor-rating" data-score="<%= contractor.rating %>"></div>
+      <p><%= contractor.review_count %> reviews</p>
+    </div><!-- contractor_index_rating -->
+</div><!-- contractor_index_wrap -->
+<% end %>

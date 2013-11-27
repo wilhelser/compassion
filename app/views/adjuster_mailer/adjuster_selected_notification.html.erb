@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta content='text/html; charset=UTF-8' http-equiv='Content-Type' />
+  </head>
+  <body>
+    <h1>You have been selected for a new project!</h1>
+    <hr>
+    <p><strong>Project: </strong><%= @project.page_title %></p>
+    <p><strong>Contractor: </strong><%= @contractor.name %></p>
+    <p>
+      To view the details of this assignment, <%= link_to "log in to your dashboard", dashboard_adjuster_url(@adjuster.id) %>.
+    </p>
+    <p>Thanks for being a Adjuster with Compassion for Humanity and have a great day!</p>
+  </body>
+</html>
