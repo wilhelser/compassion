@@ -6,10 +6,6 @@ class Vendor < ActiveRecord::Base
 
   scope :verified, where(:verified => true)
 
-  def project
-    self.project
-  end
-
   def vendor_total
     project.vendors.sum(:amount)
   end
