@@ -73,5 +73,5 @@ contribution =
       $('#new_contribution')[0].submit()
     else
       $('#stripe_error').text(response.error.message).show()
-      $('input[type=submit]').attr('disabled', false)
+      $('#submit_contribution').attr('disabled', false)
       false
