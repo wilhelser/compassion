@@ -10,7 +10,7 @@ ActiveAdmin.register Project do
   sidebar "Contributions", only: [:show, :edit] do
     ul do
       project.contributions.each do |c|
-        li "#{c.amount}"
+        li "#{c.amount} - #{c.first_name} #{c.last_name}"
       end
     end
   end
