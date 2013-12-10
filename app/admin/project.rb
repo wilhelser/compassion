@@ -18,8 +18,7 @@ ActiveAdmin.register Project do
   sidebar "Vendors", only: [:show, :edit] do
     ul do
       project.vendors.each do |v|
-        li
-          link_to "#{v.name} - $#{v.amount}", admin_vendor_path(v)
+        li link_to "#{v.name} - $ #{v.amount}", admin_vendor_path(v)
       end
     end
   end
