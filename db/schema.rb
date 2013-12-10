@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20131120064911) do
+ActiveRecord::Schema.define(:version => 20131210013052) do
 
   create_table "active_admin_comments", :force => true do |t|
     t.string   "resource_id",   :null => false
@@ -277,7 +277,7 @@ ActiveRecord::Schema.define(:version => 20131120064911) do
     t.integer  "zip_code",                :limit => 8,                             :null => false
     t.text     "page_message",                                                     :null => false
     t.string   "slug"
-    t.boolean  "approved",                              :default => false,         :null => false
+    t.boolean  "approved",                              :default => true,          :null => false
     t.datetime "created_at",                                                       :null => false
     t.datetime "updated_at",                                                       :null => false
     t.string   "featured_image"
