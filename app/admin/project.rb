@@ -4,13 +4,22 @@ ActiveAdmin.register Project do
   scope :funded
 
   sidebar "Contractor", only: [:show, :edit] do
-    "#{project.contractors.first.name}" if project.contractors.any?
+    link_to "#{project.contractors.first.name}", admin_contractor_path(project.contractors.first) if project.contractors.any?
   end
 
   sidebar "Contributions", only: [:show, :edit] do
     ul do
       project.contributions.each do |c|
         li "#{c.amount} - #{c.first_name} #{c.last_name}"
+      end
+    end
+  end
+
+  sidebar "Vendors", only: [:show, :edit] do
+    ul do
+      project.vendors.each do |v|
+        li
+          link_to "#{v.name} - $#{v.amount}", admin_vendor_path(v)
       end
     end
   end
