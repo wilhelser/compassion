@@ -17,24 +17,28 @@ Compassion::Application.routes.draw do
   resources :addresses
   resources :galleries
   resources :references
+
   resources :contractors do
     resources :references
     member do
       get "dashboard"
     end
   end
+
   post "contractors/search"
   resources :updates
   resources :categories
   resources :donate
   get "dashboard/index"
   get "dashboard/projects"
+
   resources :adjusters do
     member do
       get "dashboard"
       post "decline_assignment"
     end
   end
+
   resources :backers
   get "users/show"
   get "users/edit"
@@ -54,6 +58,11 @@ Compassion::Application.routes.draw do
       get "thank_you"
     end
   end
+
+  resources :projects do
+    resources :galleries
+  end
+
   root :to => "home#index"
   resources :users
   resources :users do

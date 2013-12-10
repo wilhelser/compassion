@@ -1,7 +1,7 @@
 <%= div_for(gallery, :class => "span2") do |gallery| %>
   <p><%= gallery.title %></p>
   <div class="gallery_thumb">
-    <%= link_to gallery do %>
+    <%= link_to project_gallery_path(@project,gallery) do %>
       <% if gallery.photos.any? %>
         <img src="<%= gallery.photos.first.image %>" class="thumbnail" alt="">
       <% end %>
