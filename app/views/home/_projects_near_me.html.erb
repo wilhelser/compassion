@@ -3,7 +3,9 @@
     <h4>Near Me (<%= @location_city %>)</h4>
   </div>
   <% if @projects_near_me.any? %>
-  <%= render partial: 'projects/project', :collection => @projects_near_me %>
+    <div class="row">
+      <%= render partial: 'projects/project', :collection => @projects_near_me %>
+    </div><!-- row -->
   <% else %>
   <p>Sorry, there are no projects in <%= @location_city || "your area" %> yet...</p>
   <% end %>

@@ -1,4 +1,4 @@
-<%= div_for(project, :class => "thumbnail") do %>
+<%= div_for(project, :class => "project-card span3") do %>
     <% if can? :manage, project %>
         <div class="project_manage_btns">
             <%= link_to "View", project, :class => "btn btn-success btn-mini pull-left" %>
@@ -7,15 +7,18 @@
     <% end %>
     <div class="project-thumb-wrapper">
         <%= link_to project do %>
-        <%= filepicker_image_tag project.featured_image, w: 260, h: 250, fit: 'crop' %>
+        <%= filepicker_image_tag project.featured_image, w: 300, h: 250, fit: 'crop' %>
         <% end %>
     </div><!-- project-thumb-wrapper -->
     <div class="clearfix"></div>
     <h5 class="bbcard_name">
-        <%= project.page_title %>
+        <%= link_to project do %>
+            <%= project.page_title %>
+        <% end %>
     </h5>
     <div class="divider"></div>
     <div class="project_excerpt">
+        <%= project.page_message.truncate(100).html_safe %>
     </div><!-- project_excerpt -->
     <div class="clearfix"></div>
 <div class="divider"></div>
