@@ -11,7 +11,7 @@ set :user, "deployer"
 set :domain, "compassionforhumanity.org"
 set :application, "compassion"
 set :deploy_to, "/home/#{user}/apps/compassion"
-set :rvm_ruby_string, ENV['GEM_HOME'].gsub(/.*\//,"")
+# set :rvm_ruby_string, ENV['GEM_HOME'].gsub(/.*\//,"")
 set :deploy_via, :remote_cache
 set :use_sudo, false
 
