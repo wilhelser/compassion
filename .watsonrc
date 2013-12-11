@@ -1,0 +1,35 @@
+# watson rc
+# watson - inline issue manager
+# [goosecode] labs
+
+
+# Directories
+[dirs]
+./
+
+
+# Tags
+[tags]
+fix
+review
+todo
+
+
+# Ignores
+[ignore]
+.git
+*.swp
+
+
+[github_api]
+d0ed427a4952f204a8df500ea8b82c5baa579caa
+
+
+[github_repo]
+wilhelser/compassion
+
+
+[github_endpoint]
+https://api.github.com
+
+

@@ -1,7 +1,4 @@
 ActiveAdmin.register Project do
-  scope :all
-  scope :approved
-  scope :funded
 
   sidebar "Contractor", only: [:show, :edit] do
     link_to "#{project.contractors.first.name}", admin_contractor_path(project.contractors.first) if project.contractors.any?
@@ -69,11 +66,21 @@ ActiveAdmin.register Project do
   show do |project|
     attributes_table do
       row :id
+      row :categories
+      row :goal_amount
       row :page_title
       row :page_message do
         project.page_message.html_safe
       end
       row :user
+      row :street_address
+      row :city
+      row :state
+      row :zip_code
+      row :project_deadline
+      row :reason_for_deadline
+      row :funded
+      row :funded_date
       row :status
     end
   end

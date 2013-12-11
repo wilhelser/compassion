@@ -1,5 +1,6 @@
 require 'spec_helper'
 
 describe Donation do
-  pending "add some examples to (or delete) #{__FILE__}"
+  it "should be invalid without amount"
+
 end
