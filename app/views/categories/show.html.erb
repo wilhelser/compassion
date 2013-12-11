@@ -3,8 +3,8 @@
   <div class="inner">
     <ul id="home_categories_select">
       <% @categories.each do |category| %>
-      <li>
-        <%= link_to "#{category.name}", category, :class => current_class?(category_path(category)) %>
+      <li class="<%= current_class?(category_path(category)) %>">
+        <%= link_to "#{category.name}", category %>
       </li>
       <% end %>
     </ul>
