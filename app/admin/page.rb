@@ -1,4 +1,15 @@
 ActiveAdmin.register Page do
+
+  # Index
+  index do
+    selectable_column
+    column :id
+    column :title
+    column :slug
+    default_actions
+  end
+
+  # Form
   form do |f|
     f.inputs do
       f.input :title
