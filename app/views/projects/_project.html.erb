@@ -23,22 +23,24 @@
     <div class="clearfix"></div>
 <div class="divider"></div>
 <div class="project_index_statswrap">
-    <% if project.contributions.any? %>
-    <div class="pi_stats_top">
-        <span class="pi_stats_funded">$<%= project.total_contributions.to_i %>.00</span>
-        <span class="pi_stats_percent">
-            <%= project.percent_funded.to_i %>%
-        </span>
-    </div><!-- pi_stats_top -->
-    <% end %>
     <div class="clearfix"></div>
     <div class="project-index-progress progress progress-striped active bar-green">
         <div style="width: <%= project.percent_funded %>%" class="bar"></div>
     </div><!-- progress -->
     <div class="clearfix"></div>
-    <span class="pi_stats_backers">
-        <%= project.contributions.size %> backers
-    </span>
+    <ul class="project-stats">
+    <li class="first funded">
+        <strong><%= project.percent_funded.to_i %>%</strong>funded
+    </li>
+    <li class="pledged">
+        <strong>$<%= project.goal_amount.to_i %></strong>target
+    </li>
+    <li class="last ksr_page_timer">
+        <strong><%= project.contributions.size %></strong> backers
+    </li>
+</ul>
 </div><!--project_index_statswrap -->
 <div class="clear"></div>
 <% end %>
+
+
