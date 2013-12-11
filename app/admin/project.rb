@@ -1,4 +1,9 @@
-ActiveAdmin.register Project do
+ActiveAdmin.register Project, :as => "Action" do
+
+  # Scopes
+  scope :all
+  scope :in_progress
+  scope :funded
 
   sidebar "Contractor", only: [:show, :edit] do
     link_to "#{project.contractors.first.name}", admin_contractor_path(project.contractors.first) if project.contractors.any?
