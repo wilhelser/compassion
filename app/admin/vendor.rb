@@ -15,7 +15,11 @@ ActiveAdmin.register Vendor do
     column :name
     column :amount
     column :description
-    column :documentation
+    column "Document" do |vendor|
+      unless vendor.documentation.url.nil?
+        link_to "Document", vendor.documentation.url
+      end
+    end
     column :verified
     actions
   end
@@ -24,9 +28,37 @@ ActiveAdmin.register Vendor do
     f.inputs "Details" do
       f.input :name
       f.input :amount, :as => :string
-      f.input :description
       f.input :verified
+      f.input :address
+      f.input :city
+      f.input :state
+      f.input :zip_code, :as => :string
+      f.input :contact_name
+      f.input :phone
+      f.input :description
+      f.input :invoice_number
     end
     f.actions
+  end
+
+  # Show
+  show do |vendor|
+    attributes_table do
+      row :project
+      row :name
+      row :amount, :as => :string
+      row :verified
+      row :address
+      row :city
+      row :state
+      row :zip_code, :as => :string
+      row :contact_name
+      row :phone
+      row :description
+      row :invoice_number
+      row :documentation do
+        link_to "Document", vendor.documentation.url unless vendor.documentation.url.nil?
+      end
+    end
   end
 end

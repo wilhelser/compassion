@@ -25,8 +25,8 @@ ActiveAdmin.register Estimate do
     column :project
     column :amount
     column :description
-    column :document do
-      link_to :document
+    column "Document" do |estimate|
+      link_to "Estimate", estimate.document.url unless estimate.document.url.nil?
     end
     default_actions
   end
@@ -40,7 +40,7 @@ ActiveAdmin.register Estimate do
       row :amount
       row :description
       row :document do
-        link_to :document
+        link_to "Estimate", estimate.document.url unless estimate.document.url.nil?
       end
     end
   end

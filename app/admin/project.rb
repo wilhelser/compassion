@@ -57,7 +57,10 @@ ActiveAdmin.register Project do
     f.inputs "Project Details" do
       f.input :goal_amount
       f.input :status
+      f.input :approved
       f.input :project_deadline, :as => :date_picker
+      f.input :funded
+      f.input :funded_date, :as => :date_picker
     end
     f.actions
   end
