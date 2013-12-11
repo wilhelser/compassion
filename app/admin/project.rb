@@ -1,4 +1,4 @@
-ActiveAdmin.register Project, :as => "Action" do
+ActiveAdmin.register Project do
 
   # Scopes
   scope :all
@@ -30,7 +30,6 @@ ActiveAdmin.register Project, :as => "Action" do
   filter :goal_amount
   filter :project_total_contributions
   filter :categories
-  filter :status
   filter :page_title
   filter :city
   filter :state
@@ -38,6 +37,7 @@ ActiveAdmin.register Project, :as => "Action" do
   filter :contractors
   filter :vendors
   filter :adjusters
+  filter :funded
   filter :created_at
   filter :funded_date
   filter :project_deadline
@@ -54,6 +54,7 @@ ActiveAdmin.register Project, :as => "Action" do
     column :city
     column :state
     column :project_deadline
+    column :funded
     default_actions
   end
 
