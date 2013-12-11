@@ -3,9 +3,9 @@ class HomeController < ApplicationController
   respond_to :html, :json, :js
 
   def index
-    @projects = Project.approved.limit(4)
+    @projects = Project.approved.limit(3)
     @categories = Category.all
-    @projects_near_me = Project.approved.near([@lat, @long], 50).limit(4)
+    @projects_near_me = Project.approved.near([@lat, @long], 50).limit(3)
   end
 
 end
