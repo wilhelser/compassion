@@ -65,6 +65,7 @@ gem "yaml_db"
 gem "bootstrap-datepicker-rails"
 gem 'gmaps4rails', "~> 1.5.6"
 gem "model_un"
+gem 'active_admin_editor'
 gem 'will_paginate', '~> 3.0.5'
 gem 'textacular', '~> 3.0'
 gem 'airbrake'
