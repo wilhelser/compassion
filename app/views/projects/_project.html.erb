@@ -18,29 +18,28 @@
     </h5>
     <div class="divider"></div>
     <div class="project_excerpt">
-        <%= project.page_message.truncate(100).html_safe %>
     </div><!-- project_excerpt -->
     <div class="clearfix"></div>
-<div class="divider"></div>
-<div class="project_index_statswrap">
-    <div class="clearfix"></div>
-    <div class="project-index-progress progress progress-striped active bar-green">
-        <div style="width: <%= project.percent_funded %>%" class="bar"></div>
-    </div><!-- progress -->
-    <div class="clearfix"></div>
-    <ul class="project-stats">
-    <li class="first funded">
-        <strong><%= project.percent_funded.to_i %>%</strong>funded
-    </li>
-    <li class="pledged">
-        <strong>$<%= project.goal_amount.to_i %></strong>target
-    </li>
-    <li class="last ksr_page_timer">
-        <strong><%= project.contributions.size %></strong> backers
-    </li>
-</ul>
-</div><!--project_index_statswrap -->
-<div class="clear"></div>
+    <div class="divider"></div>
+    <div class="project_index_statswrap">
+        <div class="clearfix"></div>
+        <div class="project-index-progress progress progress-striped active bar-green">
+            <div style="width: <%= project.percent_funded %>%" class="bar"></div>
+        </div><!-- progress -->
+        <div class="clearfix"></div>
+        <ul class="project-stats">
+            <li class="first funded">
+                <strong><%= project.percent_funded.to_i %>%</strong>funded
+            </li>
+            <li class="pledged">
+                <strong>$<%= project.goal_amount.to_i %></strong>target
+            </li>
+            <li class="last ksr_page_timer">
+                <strong><%= project.contributions.size %></strong> backers
+            </li>
+        </ul>
+    </div><!--project_index_statswrap -->
+    <div class="clear"></div>
 <% end %>
 
 
