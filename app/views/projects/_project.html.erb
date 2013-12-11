@@ -7,7 +7,7 @@
     <% end %>
     <div class="project-thumb-wrapper">
         <%= link_to project do %>
-        <%= filepicker_image_tag project.featured_image, w: 300, h: 250, fit: 'crop' %>
+        <%= filepicker_image_tag project.featured_image, w: 200, h: 150, fit: 'crop' %>
         <% end %>
     </div><!-- project-thumb-wrapper -->
     <div class="clearfix"></div>
@@ -18,6 +18,7 @@
     </h5>
     <div class="divider"></div>
     <div class="project_excerpt">
+        <%= truncate(project.page_message, length: 100).html_safe %>
     </div><!-- project_excerpt -->
     <div class="clearfix"></div>
     <div class="divider"></div>
