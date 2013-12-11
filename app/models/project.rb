@@ -138,7 +138,8 @@ class Project < ActiveRecord::Base
   end
 
   def set_to_funded
-    self.update_attribute('status', 'funded')
+    self.update_attribute('status', 'Funded')
+    self.update_attribute('funded', true)
     # @graph = Koala::Facebook::API.new(compassion_access_token)
     # @graph.put_wall_post("Another Compassion project funded!", { :name => "#{self.page_title}", :description => "Funded!", :link => "http://compassionforhumanity.org/projects/#{self.slug}"})
   end
