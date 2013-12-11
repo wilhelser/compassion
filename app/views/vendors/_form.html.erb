@@ -13,16 +13,18 @@
   <div class="one-half pull-left">
     <%= f.input :name, :required => true, :input_html => { :tabindex => 1 } %>
     <%= f.input :contact_name, :input_html => { :tabindex => 3 } %>
-    <%= f.input :city, :input_html => { :tabindex => 5 } %>
-    <%= f.input :zip_code, :as => :string, :input_html => { :tabindex => 7 } %>
+    <%= f.input :city, :required => true, :input_html => { :tabindex => 5 } %>
+    <%= f.input :zip_code, :required => true, :as => :string, :input_html => { :tabindex => 7 } %>
     <%= f.input :invoice_number, :input_html => { :tabindex => 9 } %>
     <%= f.input :documentation, :input_html => { :tabindex => 11 } %>
+    <%= f.input :due_date, :as => :string, :input_html => { :tabindex => 13, "data-behavior" => "datepicker" } %>
   </div><!-- left -->
   <div class="one-half pull-right">
     <%= f.input :amount, :as => :string, :required => true, :input_html => { :tabindex => 2 } %>
-    <%= f.input :address, :input_html => { :tabindex => 4 } %>
-    <%= f.input :state, :as => :select, :collection => us_states, :input_html => { :tabindex => 6 } %>
+    <%= f.input :address, :required => true, :input_html => { :tabindex => 4 } %>
+    <%= f.input :state, :required => true, :as => :select, :collection => us_states, :input_html => { :tabindex => 6 } %>
     <%= f.input :phone, :as => :string, :input_html => { :tabindex => 8 } %>
     <%= f.input :description, :input_html => { :rows => 3, :tabindex => 10 } %>
+    <%= f.input :account_no, :input_html => { :tabindex => 12 } %>
   </div><!-- right -->
 <% end %>

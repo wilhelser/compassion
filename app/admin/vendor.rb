@@ -2,12 +2,16 @@ ActiveAdmin.register Vendor do
   # Scopes
   scope :all
   scope :verified
+  scope :paid
 
   # Filters
   filter :name
   filter :amount
   filter :project
   filter :verified
+  filter :paid
+  filter :account_no
+  filter :due_date
 
   # Index
   index do
@@ -15,13 +19,14 @@ ActiveAdmin.register Vendor do
     column :project
     column :name
     column :amount
-    column :description
+    column :due_date
     column "Document" do |vendor|
       unless vendor.documentation.url.nil?
         link_to "Document", vendor.documentation.url
       end
     end
     column :verified
+    column :paid
     actions
   end
 
@@ -38,6 +43,9 @@ ActiveAdmin.register Vendor do
       f.input :phone
       f.input :description
       f.input :invoice_number
+      f.input :account_no
+      f.input :due_date, :as => :date_picker
+      f.input :paid
     end
     f.actions
   end
@@ -57,6 +65,9 @@ ActiveAdmin.register Vendor do
       row :phone
       row :description
       row :invoice_number
+      row :account_no
+      row :due_date
+      row :paid
       row :documentation do
         link_to "Document", vendor.documentation.url unless vendor.documentation.url.nil?
       end
