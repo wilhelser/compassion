@@ -12,6 +12,7 @@ ActiveAdmin.register Vendor do
   # Index
   index do
     selectable_column
+    column :project
     column :name
     column :amount
     column :description
