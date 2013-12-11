@@ -35,6 +35,15 @@ $ ->
     threshold: 30
     })
 
+  $("input[name='media']").change ->
+    if $(@).val() == 'image'
+      $("#featured_upload").show()
+      $("#youtube_add").hide()
+    else
+      $("#featured_upload").hide()
+      $("#youtube_add").show()
+
+
   $(document).delegate "#contractor-search-btn", "click", ->
     $("#contractor_search_response").hide()
     $("#contractor_search_form").submit()
