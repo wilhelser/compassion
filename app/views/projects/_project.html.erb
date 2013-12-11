@@ -1,4 +1,4 @@
-<%= div_for(project, :class => "project-card span3") do %>
+<%= div_for(project, :class => "project-card") do %>
     <% if can? :manage, project %>
         <div class="project_manage_btns">
             <%= link_to "View", project, :class => "btn btn-success btn-mini pull-left" %>
