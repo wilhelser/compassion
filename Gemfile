@@ -60,7 +60,6 @@ gem "geocoder"
 gem "magnific-popup-rails", "~> 0.9.8"
 gem "cocoon"
 gem "prawn"
-gem "high_voltage"
 gem 'chosen-rails'
 gem "yaml_db"
 gem "bootstrap-datepicker-rails"

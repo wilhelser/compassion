@@ -1,4 +1,7 @@
 Compassion::Application.routes.draw do
+  resources :pages
+
+
   ActiveAdmin.routes(self)
   resources :photos
   resources :estimates
