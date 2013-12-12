@@ -57,7 +57,6 @@ gem 'wirb', :group => :console
 gem 'hirb', :group => :console
 gem 'wicked'
 gem "geocoder"
-gem "magnific-popup-rails", "~> 0.9.8"
 gem "cocoon"
 gem "prawn"
 gem 'chosen-rails'

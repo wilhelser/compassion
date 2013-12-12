@@ -1,5 +1,5 @@
 <%= div_for(photo, :class => "span2") do |photo| %>
-  <a class="photo-lightbox-trigger thumbnail" href="<%= photo.image %>"><img src="<%= photo.image %>" title="<%= photo.caption %>"></a>
+  <a class="sb thumbnail" href="<%= photo.image %>" title="<%= photo.caption %>"><img src="<%= photo.image %>"></a>
   <p><small><strong><%= photo.caption %></strong></small></p>
   <% if current_user.can_manage_gallery?(photo.gallery) %>
     <hr>

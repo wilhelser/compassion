@@ -7,7 +7,7 @@
 //= require chosen-jquery
 //= require jquery.remotipart
 //= require jquery.maskedinput
-//= require magnific-popup
+//= require smoothbox
 //= require jquery.validate
 //= require ajaxupload
 //= require wysihtml5
