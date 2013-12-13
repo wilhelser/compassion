@@ -47,7 +47,9 @@ Compassion::Application.routes.draw do
     member do
       post "set_project_contractor"
       post "share_on_facebook"
+      get "end_campaign"
     end
+    resources :galleries
     resources :contractor_selections
     resources :updates
     resources :contributions
@@ -57,10 +59,6 @@ Compassion::Application.routes.draw do
       get "dashboard"
       get "thank_you"
     end
-  end
-
-  resources :projects do
-    resources :galleries
   end
 
   root :to => "home#index"

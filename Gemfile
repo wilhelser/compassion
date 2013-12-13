@@ -18,6 +18,7 @@ gem "inherited_resources"
 gem "database_cleaner", ">= 1.0.0.RC1", :group => :test
 gem "email_spec", ">= 1.4.0", :group => :test
 gem "activeadmin"
+gem 'haml-rails', '>= 0.3.4', :group => :development
 gem 'filepicker-rails'
 gem "devise", ">= 2.2.3"
 gem "cancan", ">= 1.6.9"
