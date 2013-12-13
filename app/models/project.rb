@@ -2,6 +2,7 @@ class Project < ActiveRecord::Base
   include Koala
   extend FriendlyId
   include AutoHtml
+  include ProjectMethods
   friendly_id :page_title, use: :slugged
   has_and_belongs_to_many :categories
 
@@ -31,6 +32,10 @@ class Project < ActiveRecord::Base
 
   def address
     [street_address, city, state, zip_code].compact.join(', ')
+  end
+
+  def construction_project?
+    self.category_ids.include?(8)
   end
 
   def self.text_search(query)
@@ -127,7 +132,12 @@ class Project < ActiveRecord::Base
   end
 
   def compassion_access_token
-    "CAADSdvZCX9aEBAHw9SfEbZCISRdUlumpM6wXUyosx1iUdCaeH7oqjTcCiBVbvYPJdtxZCReZA6EysLPE7J6Y0mHUHSHN32ZBnJQSF3XKtHsE9ZCOo7KDmNsJ4u3J88QVF3gcZCQaYeTt0bPpBpmTiR9tTLG0Ft9lahgSsO3EvPDKdZAdTAl2gQrb5MbIiszzQ1oZD"
+    # "231408540317089|m8oArqgfDqwmu1yS38QjXDUtVvQ%"
+    "289217204546185|SiM5nY_waJtkr9JjpeLBRluESNc"
+  end
+
+  def compassion_fb_page_id
+    "583630311678418"
   end
 
   def post_to_compassion
@@ -140,6 +150,9 @@ class Project < ActiveRecord::Base
   def set_to_funded
     self.update_attribute('status', 'Funded')
     self.update_attribute('funded', true)
+    unless self.construction_project?
+      send_funded_email
+    end
     # @graph = Koala::Facebook::API.new(compassion_access_token)
     # @graph.put_wall_post("Another Compassion project funded!", { :name => "#{self.page_title}", :description => "Funded!", :link => "http://compassionforhumanity.org/projects/#{self.slug}"})
   end
