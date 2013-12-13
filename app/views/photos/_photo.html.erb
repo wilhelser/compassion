@@ -1,5 +1,5 @@
 <%= div_for(photo, :class => "span2") do |photo| %>
-  <a class="sb thumbnail" href="<%= photo.image %>" title="<%= photo.caption %>"><img src="<%= photo.image %>"></a>
+  <a class="sb thumbnail" href="<%= photo.image %>/convert?w=800&h=600&fit=scale" title="<%= photo.caption %>"><%= filepicker_image_tag photo.image, w: 200, h: 200, fit: 'scale' %></a>
   <p><small><strong><%= photo.caption %></strong></small></p>
   <% if user_signed_in? %>
   <% if current_user.can_manage_gallery?(photo.gallery) %>

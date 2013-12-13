@@ -7,7 +7,7 @@
 //= require chosen-jquery
 //= require jquery.remotipart
 //= require jquery.maskedinput
-//= require smoothbox
+//= require nivo-lightbox
 //= require jquery.validate
 //= require ajaxupload
 //= require wysihtml5
