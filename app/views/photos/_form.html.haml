@@ -1,0 +1,5 @@
+= simple_form_for Photo.new, :remote => true do |f|
+  = f.input :gallery_id, :as => :hidden, :input_html => { :value => @gallery.id }
+  = f.input :caption
+  #photo_preview_thumb.thumbnail.hide
+  = f.filepicker_field :image, :button_class => "btn btn-mini"

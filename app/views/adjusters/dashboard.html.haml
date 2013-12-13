@@ -1,0 +1,29 @@
+.span8
+  - if @adjuster.license.blank?
+    #license-alert.alert.alert-error
+      You need to complete your licensing information!
+  %ul#adjuster-tabs.nav.nav-tabs
+    %li.active
+      %a{"data-toggle" => "tab", href: "#news"} News
+    %li
+      %a{"data-toggle" => "tab", href: "#assignments"} Assignments
+    %li
+      %a{"data-toggle" => "tab", href: "#estimates"} Estimates
+    %li
+      %a{"data-toggle" => "tab", href: "#profile"} Edit Profile
+  .tab-content
+    = render 'adjusters/tabs/news_tab'
+    = render 'adjusters/tabs/assignments_tab'
+    = render 'adjusters/tabs/estimates_tab'
+    = render 'adjusters/tabs/profile_tab'
+  / tab-content
+/ primary
+.span3.pull-right
+  .well
+    %h3 Status
+    - if @adjuster.approved?
+      %p Approved
+    - else
+      %p Pending
+/ sidebar
+.clearfix

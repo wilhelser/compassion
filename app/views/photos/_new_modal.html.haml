@@ -1,0 +1,13 @@
+#new_photo_modal.modal.hide.fade
+  .modal-header
+    %button.close{"aria-hidden" => "true", "data-dismiss" => "modal"} &#215;
+    %h3 Add Photo
+  .modal-body
+    #new_photo_form_wrap
+      = render 'photos/form'
+    / new_project_gallery_form_wrap
+    .clearfix
+  / modal-body
+  .modal-footer
+    %button#send_new_photo.btn.btn-success.pull-right{"data-disable-with" => "Saving..."} Add Photo
+  / modal-footer
