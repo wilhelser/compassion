@@ -6,6 +6,16 @@ module ProjectMethods
     ProjectMailer.project_funded_email(self.user, self).deliver
   end
 
+  # clean out any random div tags that may have made their way into the
+  # page message
+  def clean_page_message_content
+    @body = self.page_message
+    if @body.include?('<div>')
+      @newbody = @body.gsub('<div>', '').gsub('</div>', '')
+      self.update_attribute('page_message', @newbody)
+    end
+  end
+
   def email_all_over_thirty_days
     @projects = Project.in_progress.where('created_at < ?', Date.today - 30.days)
     @projects.each do |p|

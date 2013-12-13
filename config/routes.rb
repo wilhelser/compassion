@@ -61,7 +61,6 @@ Compassion::Application.routes.draw do
     end
   end
 
-  root :to => "home#index"
   resources :users
   resources :users do
     member do

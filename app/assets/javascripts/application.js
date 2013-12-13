@@ -5,8 +5,9 @@
 //= require jasny-bootstrap
 //= require bootstrap-datepicker
 //= require chosen-jquery
+//= require turbolinks
 //= require jquery.remotipart
-//= require jquery.maskedinput
+//= require jquery.masked-input
 //= require jquery.easing.min
 //= require jquery.scrollUp
 //= require nivo-lightbox

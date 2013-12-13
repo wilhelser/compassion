@@ -10,7 +10,7 @@ class ProjectsController < InheritedResources::Base
   def index
     @categories = Category.all
     @query = params[:query]
-    @projects = Project.text_search(params[:query]).page(params[:page]).per_page(3)
+    @projects = Project.text_search(params[:query]).page(params[:page]).per_page(4)
     @page_title = "#{@projects.size} Search Results for \"#{@query}\""
     respond_to do |format|
       format.html { render :index }
@@ -44,7 +44,6 @@ class ProjectsController < InheritedResources::Base
 
   def dashboard
     @graph = Koala::Facebook::API.new(current_user.token)
-    @project = Project.find(params[:id])
     session[:project_id] = @project.id
     @page_title = @project.page_title
     @updates = @project.updates
@@ -67,7 +66,7 @@ class ProjectsController < InheritedResources::Base
   end
 
   def show
-    @project = Project.find(params[:id])
+    @project = Project.friendly.find(params[:id])
     @updates = @project.updates
     @page_title = @project.page_title
     @contributions = @project.contributions
@@ -117,7 +116,7 @@ class ProjectsController < InheritedResources::Base
   end
 
   def get_project
-    @project = Project.find(params[:id])
+    @project = Project.friendly.find(params[:id])
   end
 
   def get_categories

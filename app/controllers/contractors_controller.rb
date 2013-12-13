@@ -13,7 +13,7 @@ class ContractorsController < InheritedResources::Base
   end
 
   def show
-    @contractor = Contractor.find(params[:id])
+    @contractor = Contractor.friendly.find(params[:id])
     if params[:fromdash]
       @fromdash = true
     end
@@ -24,7 +24,7 @@ class ContractorsController < InheritedResources::Base
   end
 
   def dashboard
-    @contractor = Contractor.find(params[:id])
+    @contractor = Contractor.current_contractor
     @page_title = "Dashboard - #{@contractor.name}"
     @references = @contractor.references
     @projects = @contractor.projects

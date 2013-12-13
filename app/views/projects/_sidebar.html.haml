@@ -12,7 +12,7 @@
       .divider
       .funding-minimum
         - if @project.can_accept_donations
-          %a#contribute_btn.btn.btn-large.btn-success.sb_main_donate Donate
+          %button#contribute_btn.btn.btn-large.btn-success.sb_main_donate Donate
     .clear
   .author.well
     %img.thumbnail{alt: "", src: @project.user.facebook_image(245, 245)}/

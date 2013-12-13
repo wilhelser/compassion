@@ -1,14 +1,14 @@
-#home_categories_select_wrap
+#home_categories_select_wrap.span3.alpha
   = render 'home/project_nav_search'
   .inner
     %ul#home_categories_select
       - @categories.each do |category|
-        %li
-          = link_to "#{category.name}", category, :class => current_class?(category_path(category))
-.span7
-  #category_index_wrapper
-    - if @projects.any?
-      = render @projects
-    - else
-      %h4
-        Sorry, no results for the query "#{@query}"
+        %li{class: current_class?(category_path(category))}
+          = link_to "#{category.name}", category
+.span9.omega{id: ""}
+  - if @projects.any?
+    = render @projects
+  - else
+    %h4
+      Sorry, no results for the query "#{@query}"
+.clearfix

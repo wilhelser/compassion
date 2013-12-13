@@ -14,7 +14,7 @@
       = project.page_title
   .divider
   .project_excerpt
-    = truncate(project.page_message, length: 100).html_safe
+    = truncate(project.page_message.html_safe, length: 100)
   / project_excerpt
   .clearfix
   .divider

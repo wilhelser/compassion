@@ -2,12 +2,17 @@
 # Many of these configuration options can be set straight in your model.
 Devise.setup do |config|
   require "omniauth-facebook"
+
+  if Rails.env == "development" || Rails.env == "test"
+    config.omniauth :facebook, '289217204546185', 'e3cb3ff7340769b75f1b2ebf0fa45c98', :scope => 'email,publish_actions,user_location', :image_size => "large", :display => "popup"
+  else
+    config.omniauth :facebook, '231408540317089', '7758a40a88cf75e51df02496c4390078', :scope => 'email,publish_actions,user_location', :image_size => "large", :display => "popup"
+  end
   # ==> Mailer Configuration
   # Configure the e-mail address which will be shown in Devise::Mailer,
   # note that it will be overwritten if you use your own mailer class with default "from" parameter.
   config.mailer_sender = "please-change-me-at-config-initializers-devise@example.com"
 
-  config.secret_key = 'fb3a42fde7eb11b1b27261bde0ac46ef44e4033653a4ca4f4f8c66c9bb628cfa6eec2d152cb6b5bc43583843aac947ff0f2787f249596712f5c2adc84bcc279d'
   # Configure the class responsible to send e-mails.
   # config.mailer = "Devise::Mailer"
 
@@ -50,10 +55,14 @@ Devise.setup do |config|
   # enable it only for database (email + password) authentication.
   # config.params_authenticatable = true
 
-  # Tell if authentication through HTTP Basic Auth is enabled. False by default.
+  # Tell if authentication through HTTP Auth is enabled. False by default.
   # It can be set to an array that will enable http authentication only for the
   # given strategies, for example, `config.http_authenticatable = [:token]` will
-  # enable it only for token authentication.
+  # enable it only for token authentication. The supported strategies are:
+  # :database      = Support basic authentication with authentication key + password
+  # :token         = Support basic authentication with token authentication key
+  # :token_options = Support token authentication with options as defined in
+  #                  http://api.rubyonrails.org/classes/ActionController/HttpAuthentication/Token.html
   # config.http_authenticatable = false
 
   # If http headers should be returned for AJAX requests. True by default.
@@ -74,6 +83,12 @@ Devise.setup do |config|
   # passing :skip => :sessions to `devise_for` in your config/routes.rb
   config.skip_session_storage = [:http_auth]
 
+  # By default, Devise cleans up the CSRF token on authentication to
+  # avoid CSRF token fixation attacks. This means that, when using AJAX
+  # requests for sign in and sign up, you need to get a new CSRF token
+  # from the server. You can disable this option at your own risk.
+  # config.clean_up_csrf_token_on_authentication = true
+
   # ==> Configuration for :database_authenticatable
   # For bcrypt, this is the cost for hashing the password and defaults to 10. If
   # using other encryptors, it sets how many times you want the password re-encrypted.
@@ -84,7 +99,7 @@ Devise.setup do |config|
   config.stretches = Rails.env.test? ? 1 : 10
 
   # Setup a pepper to generate the encrypted password.
-  # config.pepper = "15aafc5058146a503fa410705fed725baf142b11523baa682d531b41068ed0fbe2ed3e4034ca636a2282d7001b8b4a218ca35cf2c669682768cf63f3d1fe3dbc"
+  # config.pepper = "5d9ea60b0fdb874e4dbe4395b4daca92263506ae078bd5a1a37da2493d32fb2b55381c30ef89593b8c9a4cf45bda2e0d684ca4ecf5a3dec41396305a440097c8"
 
   # ==> Configuration for :confirmable
   # A period that the user is allowed to access the website even without
@@ -127,7 +142,7 @@ Devise.setup do |config|
   config.password_length = 8..128
 
   # Email regex used to validate email formats. It simply asserts that
-  # an one (and only one) @ exists in the given string. This is mainly
+  # one (and only one) @ exists in the given string. This is mainly
   # to give user feedback and not to assert the e-mail validity.
   # config.email_regexp = /\A[^@]+@[^@]+\z/
 
@@ -177,7 +192,9 @@ Devise.setup do |config|
   # :sha1, :sha512 or encryptors from others authentication tools as :clearance_sha1,
   # :authlogic_sha512 (then you should set stretches above to 20 for default behavior)
   # and :restful_authentication_sha1 (then you should set stretches to 10, and copy
-  # REST_AUTH_SITE_KEY to pepper)
+  # REST_AUTH_SITE_KEY to pepper).
+  #
+  # Require the `devise-encryptable` gem when using anything other than bcrypt
   # config.encryptor = :sha512
 
   # ==> Configuration for :token_authenticatable
@@ -215,12 +232,7 @@ Devise.setup do |config|
   # ==> OmniAuth
   # Add a new OmniAuth provider. Check the wiki for more information on setting
   # up on your models and hooks.
-
-  if Rails.env == "development" || Rails.env == "test"
-    config.omniauth :facebook, '289217204546185', 'e3cb3ff7340769b75f1b2ebf0fa45c98', :scope => 'email,publish_actions,user_location', :image_size => "large", :display => "popup"
-  else
-    config.omniauth :facebook, '231408540317089', '7758a40a88cf75e51df02496c4390078', :scope => 'email,publish_actions,user_location', :image_size => "large", :display => "popup"
-  end
+  # config.omniauth :github, 'APP_ID', 'APP_SECRET', :scope => 'user,public_repo'
 
   # ==> Warden configuration
   # If you want to use other strategies, that are not supported by Devise, or
