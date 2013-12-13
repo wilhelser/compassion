@@ -1,6 +1,6 @@
 class ProjectsController < InheritedResources::Base
   before_filter :authenticate_user!, :except => [:index, :show, :donate, :thank_you ]
-  load_and_authorize_resource :only => [:update, :edit, :dashboard]
+  load_and_authorize_resource :only => [:update, :edit, :dashboard, :end_campaign]
   before_filter :set_user
   before_filter :parse_facebook_cookies
   before_filter :get_project, :except => [:index, :new, :create]
@@ -88,6 +88,10 @@ class ProjectsController < InheritedResources::Base
   def donate
     @contribution = Contribution.new
     @page_title = "Donate to: #{@project.page_title}"
+  end
+
+  def end_campaign
+
   end
 
   def thank_you
