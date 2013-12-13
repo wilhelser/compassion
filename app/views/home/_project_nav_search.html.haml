@@ -1,0 +1,5 @@
+#proj-nav-search-wrap.visible-desktop
+  = form_tag projects_path, method: :get, :id => "home-proj-nav-search", :class => "form-search" do
+    .input-append
+      = text_field_tag :query, params[:query], :class => "search-query", :placeholder => "Name, Title, Zip code"
+      = button_tag "Search", name: nil, :class => "btn btn-success"

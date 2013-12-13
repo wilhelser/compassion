@@ -34,7 +34,9 @@
         <%= render "shared/sub_header" %>
         <% end %>
         <%= render "layouts/messages" %>
-        <%= yield %>
+        <div class="container">
+          <div class="row"><%= yield %></div>
+        </div>
         <%= render "shared/footer" %>
         <%= render "shared/sign_in_modal" %>
         <%= render "shared/registration_modal" %>

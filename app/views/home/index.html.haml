@@ -1,0 +1,30 @@
+#cta_box
+  .divider
+  = link_to "Get Started!", new_user_registration_path, :class => "btn btn-large btn-success pull-right"
+  .clearfix
+  #request-debugger.hide
+    = request.location.inspect
+  .divider
+.clearfix
+#home_categories_select_wrap.span3.alpha
+  = render 'project_nav_search'
+  .inner
+    %ul#home_categories_select
+      - @categories.each do |category|
+        %li
+          = link_to "#{category.name}", category
+.span9.omega{id: ""}
+  .home-projects-wrap
+    .title
+      %h4 Featured Projects
+    - if @projects.any?
+      = render @projects
+    - else
+      %p Sorry, there are no projects in this category yet...
+    .clearfix
+    .divider
+    = link_to "See All", category_path(:id => "all"), :class => "btn btn-success btn-mini pull-right"
+    .clearfix
+  .clearfix
+  = render 'projects_near_me'
+.clearfix

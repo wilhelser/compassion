@@ -1,0 +1,47 @@
+= simple_form_for @contractor do |f|
+  = f.error_notification
+  .form-inputs
+    = f.input :trade_ids, :as => :check_boxes, :collection => Trade.all, :label => "Trades:"
+    %fieldset
+      %legend Basic Information
+      .span4
+        = f.input :name
+        = f.input :business_legal_name
+        = f.input :owner_first_name
+        = f.input :business_tax_id_no
+        = f.input :contractor_license_number
+      .span4
+        = f.input :coverage_radius, :as => :select, :collection => coverage_radius_options, :label => "Coverage Radius ( in miles )"
+        = f.input :business_dba_name
+        = f.input :owner_last_name
+        = f.input :ein
+        = f.input :gross_anual_sales_last_year
+      .span3
+        = f.label :logo
+        = f.filepicker_field :logo, :button_class => "btn btn-primary"
+        = f.input :date_of_incorporation, :as => :string, :input_html => { :class => "datepicker"}
+        = f.input :owner_phone, :as => :string
+        = f.input :number_of_employees
+        = f.input :owner_email
+  .divider
+  #addresses_block
+    %h3 Addresses
+    %p A little description
+    = f.input :mailing_same, :label => "Use the same address for all"
+    = f.simple_fields_for :addresses do |address|
+      = render "address_fields", :f => address
+    = link_to_add_association 'Add Address', f, :addresses, :class => "btn btn-primary pull-right"
+    .clearfix
+  / addresses_block
+  .divider
+  #references_block
+    %h3 References
+    = f.simple_fields_for :references do |reference|
+      = render "reference_fields", :f => reference
+    = link_to_add_association 'Add Reference', f, :references, :class => "btn btn-primary pull-right"
+    .clearfix
+  / references_block
+  .divider
+  = f.button :submit, :class => "btn btn-success btn-large", :value => "Submit Application"
+  .clearfix
+  .divider

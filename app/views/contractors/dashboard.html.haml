@@ -1,0 +1,24 @@
+%ul.nav.nav-tabs
+  %li
+    %a.active.btn.btn-success{"data-toggle" => "tab", href: "#home"} Home
+  %li
+    %a.btn.btn-success{"data-toggle" => "tab", href: "#company_info"} Company Info
+  %li
+    %a.btn.btn-success{"data-toggle" => "tab", href: "#projects"}
+      Projects ( #{@contractor.projects.size} )
+  %li
+    %a.btn.btn-success{"data-toggle" => "tab", href: "#profile"} Edit Profile
+/ nav-tabs
+#contractor_dashboard_update_message.alert.hide Successfully updated your information!
+.tab-content
+  = render "contractors/dashboard/tab_home"
+  = render "contractors/dashboard/tab_company_info"
+  = render "contractors/dashboard/tab_projects"
+  = render "contractors/dashboard/tab_profile"
+/ tab-content
+:javascript
+  $(document).ready(function() {
+    $("#add_new_dashboard_reference").click(function() {
+      $("#new_dashboard_reference").html("#{j render 'contractors/dashboard/reference_form'}").effect('highlight');
+    });
+  });

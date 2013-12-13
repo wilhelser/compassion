@@ -1,0 +1,66 @@
+%p#notice
+  = notice
+.span7
+  #contractor_profile_image.thumbnail
+    = filepicker_image_tag @contractor.logo, w: 300, h: 200, fit: 'clip', cache: true, :class => "thumbnail"
+  %p
+    %strong Coverage radius:
+    = @contractor.coverage_radius
+  - unless @contractor.website_url.blank?
+    %p
+      %strong
+        Website: #{link_to "#{@contractor.website_url}", "http://#{@contractor.website_url}", :target => "_blank"}
+  #contractor_profile_description_wrap
+    = @contractor.description.html_safe
+  #contractor_profile_reviews_wrap
+    - if @contractor.has_reviews?
+      .title
+        %h4
+          Reviews ( #{@contractor.review_count} )
+          %span#contractor_title_ranking.contractor-rating{"data-score" => @contractor.rating}
+      = render @contractor_reviews
+.span4.pull-right.show-on-desktop
+  .contractor-sb
+    .title
+      %h4 Location
+    = gmaps(                                                                       |
+        :markers => { :data => @gmap},                                             |
+        :map_options => { :auto_adjust => true, :auto_zoom => false, :zoom => 15 } |
+      )                                                                            |
+  .clearfix
+  .contractor-sb
+    .title
+      %h4 Trades
+    %ul
+      - @contractor.trades.each do |t|
+        %li= t.name
+  .contractor-sb
+    .title
+      %h4 Projects
+    - if @projects.size == 0
+      %p
+        %small This contractor doesn't have any projects yet.
+    - else
+      %ul
+        - @projects.each do |p|
+          %li
+            = link_to "#{p.page_title}", p
+  .clearfix
+  .contractor-sb
+    .title
+      %h4 Contact Info
+    %p
+      %strong= @contractor.name
+      %br/
+      = @contractor.address
+      %br/
+      = @contractor.city
+      , #{@contractor.state}#{@contractor.zip_code}
+      %br/
+      Phone: #{@contractor.owner_phone}
+      %br/
+      - unless @contractor.website_url.blank?
+        = link_to "#{@contractor.website_url}", "http://#{@contractor.website_url}", :target => "_blank"
+    .clearfix
+    - content_for :select_contractor_button do
+      = link_to "Select Contractor", '/', :class => "btn btn-success pull-right contractor_subhead_button"

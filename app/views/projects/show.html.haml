@@ -22,7 +22,7 @@
           - if @project.has_video?
             = @project.featured_video_html
           - else
-            = filepicker_image_tag @project.featured_image, w: 770, h: 300, fit: 'crop', align: 'faces'
+            = filepicker_image_tag @project.featured_image, w: 770, h: 300, fit: 'crop', align: 'faces', cache: true
         .project-social.well
           = render "share_buttons"
         .project-content.well

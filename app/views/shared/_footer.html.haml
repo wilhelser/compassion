@@ -1,0 +1,25 @@
+#root_footer
+#footer
+  %footer
+    .container
+      .footer_widget.span3
+        %h3 Why we rock!
+        .textwidget Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent ut orci mauris. Sed ligula mi, sollicitudin quis imperdiet et, rutrum at orci. In hac habitasse platea dictumst. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent ut orci mauris. Sed ligula mi, sollicitudin quis imperdiet et, rutrum at orci. In hac habitasse platea dictumst.
+      .footer_widget.span3
+        .menu-footer-container
+          - unless user_signed_in? || contractor_signed_in? || adjuster_signed_in?
+            %ul
+              %li= link_to "Register as an Adjuster", new_adjuster_registration_path
+              %li= link_to "Adjuster Log In", adjuster_session_path
+              %li= link_to "Contractor Log In", contractor_session_path
+      .footer_widget.span3
+        / RECENT POSTS WERE HERE
+      / footer-widget
+      .footer_widget.span3
+        / TAGS WERE HERE
+  .copyright
+    .container
+      %p
+        &copy; #{footer_year} compassionforhumanity.org ||
+        #{link_to "Website Policies", page_path('website-policies')}
+= yield :scripts

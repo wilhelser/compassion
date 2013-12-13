@@ -1,0 +1,14 @@
+#home-near-wrap.home-projects-wrap
+  .title
+    %h4
+      Near Me (#{@location_city})
+  - if @projects_near_me.any?
+    = render partial: 'projects/project', :collection => @projects_near_me
+  - else
+    %p
+      Sorry, there are no projects in #{@location_city || "your area"} yet...
+  .clearfix
+  .divider
+  - if @projects_near_me.any?
+    = link_to "See All", category_path(:id => "nearby"), :class => "btn btn-success btn-mini pull-right"
+  .clearfix

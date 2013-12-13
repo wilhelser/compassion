@@ -1,0 +1,21 @@
+= link_to "Compassion for Humanity", root_path, :class => 'brand'
+%ul.nav
+#session_btns.pull-right
+  - if user_signed_in?
+    .nav_profile_img.pull-left
+      %img{src: ""}/
+      = facebook_image(20, 20)
+      " alt="" class="thumbnail"&gt;
+    = current_user.name
+    = link_to 'Logout', destroy_user_session_path, :method='delete'
+    .pull-right.dropdown
+      %a#dLable.dropdown-toggle{"data-target" => "#", "data-toggle" => "dropdown", href: "#", role: "button"}
+        Account
+        %b.caret
+      %ul#nav-dropdown.dropdown-menu
+        %li= link_to Profile, user_path(current_user)
+        %li= link_to Create New Project, new_user_project_path(current_user)
+        %li= link_to Your Projects, user_projects_path(current_user)
+  - else
+    %a.btn.btn-success.pull-left{href: "#facebook_sign_in"}>
+    "data-toggle"="modal"&gt;Sign Up

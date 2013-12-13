@@ -1,0 +1,12 @@
+%fieldset
+  %legend Address
+  = f.fields_for :address do |address|
+    .span4
+      = address.input :address_type, :as => :select, :collection => address_types
+      = address.input :city
+    .span4
+      = address.input :address
+      = address.input :state
+    .span3
+      = address.input :addres2
+      = address.input :zip_code

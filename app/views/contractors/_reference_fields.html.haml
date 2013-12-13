@@ -1,0 +1,22 @@
+%fieldset
+  %legend Reference
+  = f.fields_for :reference do |reference|
+    .span4
+      = reference.input :reference_type, :as => :select, :collection => reference_types, :input_html => { :class => "selectpicker" }
+      = reference.input :contact_first_name
+      = reference.input :address
+      = reference.input :state
+    .span4
+      = reference.input :time_affiliated
+      = reference.input :contact_last_name
+      = reference.input :address2
+      = reference.input :zip_code, :as => :string
+    .span3
+      = reference.input :company_name
+      = reference.input :phone_number
+      = reference.input :city
+      = reference.input :email
+    .clearfix
+    .divider
+    = link_to_remove_association 'Remove Reference', f, :class => "btn btn-danger pull-right"
+  .clearfix
