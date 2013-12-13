@@ -132,8 +132,8 @@ class Project < ActiveRecord::Base
   end
 
   def compassion_access_token
-    # "231408540317089|m8oArqgfDqwmu1yS38QjXDUtVvQ%"
-    "289217204546185|SiM5nY_waJtkr9JjpeLBRluESNc"
+    "231408540317089|m8oArqgfDqwmu1yS38QjXDUtVvQ"
+    # "289217204546185|SiM5nY_waJtkr9JjpeLBRluESNc" DEVELOPMENT
   end
 
   def compassion_fb_page_id
