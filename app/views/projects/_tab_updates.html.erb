@@ -1,3 +1,7 @@
 <div id="tab2" class="tab-pane">
-  <%= render @updates %>
+  <% if @updates.any? %>
+    <%= render @updates %>
+  <% else %>
+    <p>No updates yet...</p>
+  <% end %>
 </div><!-- updates-tab -->

@@ -1,4 +1,5 @@
 <div id="tab3" class="tab-pane">
+  <% if @contributions.any? %>
     <div id="project-funders span8">
       <%- @contributions.each do |c| %>
       <div class="project_backer">
@@ -29,4 +30,7 @@
       </div><!-- project-backer -->
       <% end %>
     </div><!-- project-funders -->
+  <% else %>
+    <p>No contributions yet...</p>
+  <% end %>
 </div><!-- tab-backers -->
