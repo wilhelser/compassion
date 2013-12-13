@@ -1,11 +1,11 @@
 //= require jquery
+//= require jquery.turbolinks
 //= require jquery_ujs
 //= require bootstrap
 //= require bootstrap-wysihtml5
 //= require jasny-bootstrap
 //= require bootstrap-datepicker
 //= require chosen-jquery
-//= require turbolinks
 //= require jquery.remotipart
 //= require jquery.masked-input
 //= require jquery.easing.min
@@ -45,3 +45,4 @@
 //= require_tree ./angular/controllers
 //= require_tree ./angular/filters
 //= require_tree ./angular/widgets
+//= require turbolinks

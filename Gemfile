@@ -10,6 +10,7 @@ gem 'angular-rails'
 gem 'jquery-rails'
 gem 'jquery-ui-rails', '~> 4.0.2'
 gem 'turbolinks'
+gem 'jquery-turbolinks'
 gem "thin", ">= 1.5.0"
 gem "pg", ">= 0.15.0"
 gem "rspec-rails", ">= 2.12.2", :group => [:development, :test]
