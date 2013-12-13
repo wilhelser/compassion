@@ -6,6 +6,7 @@ Compassion::Application.configure do
   config.cache_classes = true
 
   config.eager_load = true
+  config.cache_store = :dalli_store
 
   # ActionMailer Config
   # Setup for production - deliveries, no errors raised

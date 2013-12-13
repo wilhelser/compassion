@@ -15,6 +15,7 @@ gem "thin", ">= 1.5.0"
 gem "pg", ">= 0.15.0"
 gem "rspec-rails", ">= 2.12.2", :group => [:development, :test]
 gem "capybara", ">= 2.0.3", :group => :test
+gem 'dalli'
 # gem "inherited_resources"
 gem "database_cleaner", ">= 1.0.0.RC1", :group => :test
 gem "email_spec", ">= 1.4.0", :group => :test

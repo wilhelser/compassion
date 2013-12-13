@@ -136,6 +136,7 @@ GEM
       compass (>= 0.12.2)
     country_select (1.2.0)
     daemons (1.1.9)
+    dalli (2.6.4)
     database_cleaner (1.2.0)
     debug_inspector (0.0.2)
     debugger (1.6.3)
@@ -404,6 +405,7 @@ DEPENDENCIES
   coffee-rails
   compass-rails
   country_select
+  dalli
   database_cleaner (>= 1.0.0.RC1)
   debugger
   devise (~> 3.0.0)
