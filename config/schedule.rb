@@ -17,8 +17,8 @@
 #   runner "AnotherModel.prune_old_records"
 # end
 
-  every 24.hours do
-    runner "Project.email_inactive"
-  end
+  # every 24.hours do
+  #   runner "Project.email_inactive"
+  # end
 
 # Learn more: http://github.com/javan/whenever

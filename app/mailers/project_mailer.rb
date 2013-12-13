@@ -6,4 +6,11 @@ class ProjectMailer < ActionMailer::Base
     @project = project
     mail(to: @user.email, subject: 'Thank you for creating a new project!')
   end
+
+  def project_not_funded_email(user, project, days)
+    @user = user
+    @project = project
+    @days = days
+    mail(to: @user.email, subject: 'Aw, Shucks!')
+  end
 end

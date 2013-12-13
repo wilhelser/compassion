@@ -25,6 +25,7 @@ class Project < ActiveRecord::Base
   accepts_nested_attributes_for :galleries
   accepts_nested_attributes_for :contributions
   # after_create :post_to_compassion
+  after_create :send_new_project_email
 
   scope :approved, where(:approved => true)
   scope :in_progress, where(:status => "In Progress")
@@ -48,6 +49,10 @@ class Project < ActiveRecord::Base
 
   def has_galleries?
     self.galleries.size > 0
+  end
+
+  def send_new_project_email
+    ProjectMailer.new_project_user_email(self.user, self).deliver
   end
 
   def total_contributions
@@ -151,7 +156,7 @@ class Project < ActiveRecord::Base
     self.update_attribute('status', 'Funded')
     self.update_attribute('funded', true)
     unless self.construction_project?
-      send_funded_email
+      #send_funded_email
     end
     # @graph = Koala::Facebook::API.new(compassion_access_token)
     # @graph.put_wall_post("Another Compassion project funded!", { :name => "#{self.page_title}", :description => "Funded!", :link => "http://compassionforhumanity.org/projects/#{self.slug}"})
