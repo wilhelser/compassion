@@ -1,0 +1,19 @@
+#contractor_review_modal.modal.modal-medium.hide.fade
+  .modal-header
+    %button.close{"aria-hidden" => "true", "data-dismiss" => "modal"} &#215;
+    %h3 Review your Contractor
+  .modal-body
+    = simple_form_for ContractorReview.new, :remote => true do |f|
+      = f.input :contractor_id, :as => :hidden, :input_html => { :value => @contractor.id }
+      = f.input :user_id, :as => :hidden, :input_html => { :value => current_user.id }
+      = f.input :project_id, :as => :hidden, :input_html => { :value => @project.id }
+      = f.input :rating, :as => :hidden
+      .rating_form_stars_wrap
+      / rating_form_stars_wrap
+      .clearfix
+      = f.input :title
+      = f.input :comments, :input_html => { :rows => 10 }
+    .clearfix
+  / modal-body
+  .modal-footer
+    %button#submit_contractor_review_button.btn.btn-primary.pull-right Submit

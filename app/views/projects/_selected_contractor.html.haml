@@ -1,0 +1,28 @@
+.contractor_small
+  .ci_logo
+    .thumbnail
+      = filepicker_image_tag @contractor.logo, h: 75, fit: 'clip', cache: true, :class => "thumbnail"
+  / ci_logo
+  .ci_namelink
+    %h5
+      = @contractor.name
+      \- #{@contractor.city}, #{@contractor.state}
+    %p
+      = @contractor.address
+      %br/
+      Phone: #{@contractor.owner_phone}
+      %br/
+  / ci_namelink
+  .ci_tradeslist
+    %p
+      %strong Services:
+      - @contractor.trades.each do |trade|
+        = trade.name + ","
+  / ci_tradeslist
+  .ci_button_wrap.pull-right
+    = link_to "Profile", contractor_path(@contractor), :class => "btn btn-success btn-block btn-top", :target => "_blank"
+    .clearfix
+    - unless @project.has_reviewed_contractor?
+      %a.btn.btn-primary.btn-block{"data-toggle" => "modal", href: "#contractor_review_modal"} Review
+  / ci_button_wrap
+/ contractor_index_main_container

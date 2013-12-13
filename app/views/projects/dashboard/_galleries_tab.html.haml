@@ -1,0 +1,12 @@
+#galleries.tab-pane
+  #project_galleries_wrap
+    - if @project.has_galleries?
+      = render partial: 'galleries/gallery', :collection => @galleries
+    - else
+      %p You don't have any galleries yet.
+  / project_galleries_wrap
+  .clearfix
+  %hr/
+  %a.btn.btn-success{"data-toggle" => "modal", href: "#new_gallery_modal"} Add Gallery
+  = render partial: 'galleries/new_gallery_modal', :project => @project
+/ galleries

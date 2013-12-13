@@ -1,0 +1,23 @@
+#vendors.tab-pane
+  .page-header
+    %h1.pull-left
+      Vendors
+      %small Add vendors to your action
+    %a.pull-right.btn.btn-primary{"data-toggle" => "modal", href: "#new_vendor_modal"} Add Vendor
+    .clearfix
+  / page-header
+  %p
+    All funds raised will be paid by
+    %strong CHECK
+    and mailed to the main mailing address given for the Action.
+  %table#vendors-table.table.table-hover
+    %th Name
+    %th Amount
+    %th Description
+    %th Documentation
+    %th Actions
+    %th
+    = render @vendors
+  = render 'vendors/new_vendor_modal'
+  = render 'vendors/edit_vendor_modal'
+/ vendors

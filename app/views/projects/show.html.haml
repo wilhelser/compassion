@@ -27,13 +27,13 @@
           = render "share_buttons"
         .project-content.well
           = @project.page_message.html_safe
-      = render "tab_updates"
-      = render "tab_backers"
-      = render "tab_comments"
+      = render "projects/tabs/tab_updates"
+      = render "projects/tabs/tab_backers"
+      = render "projects/tabs/tab_comments"
       - if @project.galleries.any?
-        = render "tab_galleries"
+        = render "projects/tabs/tab_galleries"
       - if @project.has_estimate?
-        = render 'tab_estimates'
+        = render 'projects/tabs/tab_estimates'
 = render "sidebar"
 - content_for :user_info do
   = link_to "by", user_path(@project.user.id)

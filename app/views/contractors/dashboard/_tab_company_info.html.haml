@@ -1,0 +1,50 @@
+#company_info.tab-pane
+  = simple_form_for @contractor, :remote => true, :html => { :method => "put"} do |f|
+    %fieldset
+      %legend
+        Upload your logo:
+        %a.fs-toggle.btn.btn-mini.pull-right{"data-target" => "#logo_fs"} toggle
+      #logo_fs.span3
+        - unless @contractor.logo.blank?
+          = filepicker_image_tag @contractor.logo, w: 200, h: 100, fit: 'clip', :class => "thumbnail", :id => "dashboard-logo"
+        - else
+          %img#dashboard-logo.hide.thumbnail{alt: "", src: ""}/
+        = f.label :logo
+        = f.filepicker_field :logo, :button_class => "btn btn-primary", :input_html => { :tabindex => 1 }
+        .divider
+      .clearfix
+    %fieldset
+      %legend
+        Trades:
+        %a.fs-toggle.btn.btn-mini.pull-right{"data-target" => "#trades_fs"} toggle
+      #trades_fs
+        = f.input :trade_ids, :as => :check_boxes, :collection => Trade.all, :label => "Trades:"
+        .divider
+      / trades_fs
+    %fieldset
+      %legend
+        Basic Company Information:
+        %a.fs-toggle.btn.btn-mini.pull-right{"data-target" => "#company_fs"} toggle
+      #company_fs
+        .span4
+          = f.input :name, :input_html => { :tabindex => 2 }
+          = f.input :business_legal_name, :input_html => { :tabindex => 5 }
+          = f.input :owner_first_name, :input_html => { :tabindex => 8 }
+          = f.input :business_tax_id_no, :input_html => { :tabindex => 11 }
+          = f.input :contractor_license_number, :input_html => { :tabindex => 14 }
+        .span4
+          = f.input :coverage_radius, :as => :select, :collection => coverage_radius_options, :label => "Coverage Radius ( in miles )", :input_html => { :tabindex => 3 }
+          = f.input :business_dba_name, :input_html => { :tabindex => 6 }
+          = f.input :owner_last_name, :input_html => { :tabindex => 9 }
+          = f.input :gross_annual_sales_last_year, :input_html => { :tabindex => 12 }
+          = f.input :website_url, :input_html => { :tabindex => 15, :placeholder => "http://" }
+        .span3
+          = f.input :date_of_incorporation, :as => :string, :input_html => { :tabindex => 4 }
+          = f.input :owner_phone, :as => :string, :input_html => { :tabindex => 7 }
+          = f.input :number_of_employees, :as => :string, :input_html => { :tabindex => 10 }
+          = f.input :owner_email, :as => :string, :input_html => { :tabindex => 13 }
+      / company_fs
+    .clearfix
+    .divider
+    = f.submit :class => "btn btn-primary", :tabindex => 16
+/ home-tab

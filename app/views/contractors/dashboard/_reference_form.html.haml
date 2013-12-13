@@ -1,0 +1,19 @@
+= simple_form_for Reference.new, :remote => true do |f|
+  .span4
+    = f.input :reference_type, :as => :select, :collection => reference_types, :input_html => { :class => "selectpicker", :tabindex => 1 }
+    = f.input :contact_first_name, :input_html => { :tabindex => 4 }
+    = f.input :address, :input_html => { :tabindex => 7 }
+    = f.input :state, :as => :select, :collection => us_states, :input_html => { :tabindex => 10 }
+  .span4
+    = f.input :time_affiliated, :input_html => { :tabindex => 2 }
+    = f.input :contact_last_name, :input_html => { :tabindex => 5 }
+    = f.input :address2, :input_html => { :tabindex => 8 }
+    = f.input :zip_code, :as => :string, :input_html => { :tabindex => 11 }
+  .span3
+    = f.input :company_name, :input_html => { :tabindex => 3 }
+    = f.input :phone_number, :input_html => { :tabindex => 6 }
+    = f.input :city, :input_html => { :tabindex => 9 }
+    = f.input :email, :input_html => { :tabindex => 12 }
+  .clearfix
+  = f.submit "Save Reference", :class => "btn btn-success pull-right"
+.clearfix

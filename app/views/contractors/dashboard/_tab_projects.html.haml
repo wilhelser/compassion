@@ -1,0 +1,11 @@
+#projects.tab-pane
+  - if @projects.any?
+    - @projects.each do |project|
+      .contractor_dashboard_project_item.span4
+        %h3
+          Project: #{link_to "#{project.page_title}", project}
+        %hr/
+        %p
+          %strong Adjuster:
+          = project.adjusters.first.first_name
+          = project.adjusters.first.last_name

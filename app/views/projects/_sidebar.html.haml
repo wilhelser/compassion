@@ -1,0 +1,47 @@
+.span4.pull-right
+  .project-info-wrapper.well
+    .project-info
+      %h3
+        $#{@project.total_contributions.to_i}.00
+        %br/
+        %span
+          raised of  $#{@project.goal_amount.to_i}.00
+      .progress.progress-striped.active.bar-green
+        .bar{style: "width: #{@project.percent_funded.to_i}%"}
+      .funding-info
+      .divider
+      .funding-minimum
+        - if @project.can_accept_donations
+          %a#contribute_btn.btn.btn-large.btn-success.sb_main_donate Donate
+    .clear
+  .author.well
+    %img.thumbnail{alt: "", src: @project.user.facebook_image(245, 245)}/
+    .author-info
+      Project sponsor
+      %br/
+      = link_to @project.user.name, user_path(@project.user)
+    .clear
+  .well.recent_contributions
+    %h5 Recent Contributors
+    .divider
+    %p
+      %small
+        $#{@project.total_contributions.to_i} raised by #{@project.backer_count} backers.
+    #recent_contr_wrap
+      - @project.contributions.each do |c|
+        .sb_recent_contr.thumbnail
+          .sb_recent_right
+            %span.sb_recent_amount
+              $#{c.amount.to_i}.00
+            .clearfix
+            - unless c.private?
+              %span.sb_backer_name
+                = c.first_name
+                = c.last_name
+            - else
+              %span.sb_backer_name Anonymous
+          / sb_recent_right
+    / recent_contr_wrap
+  / recent donations
+/ /.span4
+.clearfix

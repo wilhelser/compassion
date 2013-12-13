@@ -42,7 +42,6 @@
       #updates_formwrap
         #dashboard_updates_wrap
           = render @updates
-        / dashboard_updates_wrap
         #dashboard_updates_form_wrap
           = render 'updates/form', :update => Update.new
         / dashboard_updates_form_wrap
@@ -86,13 +85,13 @@
     %p from
     %h3= @project.backer_count
     %p backers
-= render 'contractor_modal'
+= render 'projects/modals/contractor_modal'
 #contractor_selected_modal_wrap
 / contractor_selected_modal_wrapper
 #contractor_review_modal_wrap
   - if @contractor
-    = render 'contractor_review_modal'
+    = render 'projects/modals/contractor_review_modal'
 / contractor_review_modal_wrap
 - content_for :back_to_project_button do
   = link_to "Back to Project", project_path(@project), :class => "btn btn-success project-dashboard-link pull-right"
-= render 'funded_modal'
+= render 'projects/modals/funded_modal'
