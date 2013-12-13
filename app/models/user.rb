@@ -20,6 +20,7 @@ class User < ActiveRecord::Base
   # after_create :set_user_location_and_username
   after_create :set_username
 
+  # method to make the user show up nice in admin panel dropdowns
   def to_param
     username
   end
@@ -48,6 +49,7 @@ class User < ActiveRecord::Base
     location.split(', ')[0]
   end
 
+  # set username from Oath token
   def set_username
     unless self.token.nil?
       @graph = Koala::Facebook::API.new(self.token)
@@ -61,11 +63,15 @@ class User < ActiveRecord::Base
     end
   end
 
+  # sets user state from location returned from FB Oath params
   def set_state(location)
     @state_name = location.split(', ')[1]
     ModelUN.convert(@state_name)
   end
 
+  # authorization for user to edit a particular gallery
+  # takes gallery as an argument
+  # returns true or false
   def can_manage_gallery?(gallery)
     @project = gallery.project
     if @project.user_id == self.id
@@ -92,6 +98,7 @@ class User < ActiveRecord::Base
     end
   end
 
+  # method to query a user's join date from their profile page
   def join_date
     self.created_at.strftime("%B %d, %Y")
   end

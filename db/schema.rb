@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20131211222250) do
+ActiveRecord::Schema.define(:version => 20131213055608) do
 
   create_table "active_admin_comments", :force => true do |t|
     t.string   "resource_id",   :null => false
@@ -306,6 +306,7 @@ ActiveRecord::Schema.define(:version => 20131211222250) do
     t.text     "reason_for_deadline"
     t.boolean  "funded",                                :default => false
     t.date     "funded_date"
+    t.boolean  "funded_confirm",                        :default => false
   end
 
   add_index "projects", ["slug"], :name => "index_projects_on_slug", :unique => true
