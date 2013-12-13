@@ -2,7 +2,6 @@
 #
 # It's helpful, but not entirely necessary to understand cron before proceeding.
 # http://en.wikipedia.org/wiki/Cron
-
 # Example:
 #
 # set :output, "/path/to/my/cron_log.log"
@@ -17,8 +16,8 @@
 #   runner "AnotherModel.prune_old_records"
 # end
 
-  # every 24.hours do
-  #   runner "Project.email_inactive"
-  # end
+  every 24.hours do
+    runner "Project.email_inactive_projects"
+  end
 
 # Learn more: http://github.com/javan/whenever

@@ -3,6 +3,8 @@ $LOAD_PATH.unshift File.join(File.dirname(__FILE__), 'deploy')
 # require 'new_relic/recipes'
 # require "remote"
 load 'deploy/assets'
+set :whenever_command, "bundle exec whenever"
+require "whenever/capistrano"
 
 server "192.241.252.242", :web, :app, :db, primary: true
 set :rvm_type, :user
