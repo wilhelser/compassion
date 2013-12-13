@@ -1,0 +1,52 @@
+.span8
+  .tabbable
+    %ul.nav.nav-tabs
+      %li.active
+        %a.btn.btn-success{"data-toggle" => "tab", href: "#tab1"} Home
+      %li
+        %a.btn.btn-success{"data-toggle" => "tab", href: "#tab2"} Updates
+      %li
+        %a.btn.btn-success{"data-toggle" => "tab", href: "#tab3"} Backers
+      %li
+        %a.btn.btn-success{"data-toggle" => "tab", href: "#tab4"} Comments
+      - if @project.galleries.any?
+        %li
+          %a.btn.btn-success{"data-toggle" => "tab", href: "#tab5"}
+            Galleries (#{@galleries.size})
+      - if @project.has_estimate?
+        %li
+          %a.btn.btn-success{"data-toggle" => "tab", href: "#tab6"} Estimates
+    .tab-content
+      #tab1.tab-pane.active
+        .project_show_main_image
+          - if @project.has_video?
+            = @project.featured_video_html
+          - else
+            = filepicker_image_tag @project.featured_image, w: 770, h: 300, fit: 'crop', align: 'faces'
+        .project-social.well
+          = render "share_buttons"
+        .project-content.well
+          = @project.page_message.html_safe
+      = render "tab_updates"
+      = render "tab_backers"
+      = render "tab_comments"
+      - if @project.galleries.any?
+        = render "tab_galleries"
+      - if @project.has_estimate?
+        = render 'tab_estimates'
+= render "sidebar"
+- content_for :user_info do
+  = link_to "by", user_path(@project.user.id)
+  = link_to @project.user.name, user_path(@project.user.id)
+- content_for :open_graph_tags do
+  %meta{content: "comphuman:project", property: "og:type"}/
+  %meta{content: @project.long_link, property: "og:url"}/
+  %meta{content: @project.page_title, property: "og:title"}/
+  %meta{content: @project.page_message.html_safe, property: "og:description"}/
+  %meta{content: "CompassionForHumanity.org", property: "og:site_name"}/
+  %meta{content: @project.featured_image, property: "og:image"}/
+- if user_signed_in?
+  - if can? :manage, @project
+    = content_for :action_buttons do
+      = link_to "Project Dashboard", dashboard_project_path(@project), :class => "project-dashboard-link btn btn-success"
+= render 'contributions/contribution_modal'

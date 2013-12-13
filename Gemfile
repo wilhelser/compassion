@@ -1,5 +1,5 @@
 source 'https://rubygems.org'
-gem 'rails', '3.2.13'
+gem 'rails', '3.2.15'
 group :assets do
   gem 'sass-rails',   '~> 3.2.3'
   gem 'bootstrap-sass', '~> 2.3.2.0'
@@ -18,7 +18,7 @@ gem "inherited_resources"
 gem "database_cleaner", ">= 1.0.0.RC1", :group => :test
 gem "email_spec", ">= 1.4.0", :group => :test
 gem "activeadmin"
-gem 'haml-rails', '>= 0.3.4', :group => :development
+# gem 'haml-rails', :group => :development
 gem 'filepicker-rails'
 gem "devise", ">= 2.2.3"
 gem "cancan", ">= 1.6.9"
