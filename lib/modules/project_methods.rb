@@ -6,6 +6,14 @@ module ProjectMethods
     ProjectMailer.project_funded_email(self.user, self).deliver
   end
 
+  def email_all_over_thirty_days
+    @projects = Project.in_progress.where('created_at < ?', Date.today - 30.days)
+    @projects.each do |p|
+      @days = (Date.today.to_date - p.created_at.to_date).round
+      ProjectMailer.project_not_funded_email(p.user, p, @days).deliver
+    end
+  end
+
   # Checks for inactive actions and sends an email
   # called from config/schedule.rb
   def email_inactive_projects
@@ -15,15 +23,15 @@ module ProjectMethods
     @sixty_day_projects = projects_not_funded(60)
 
     @thirty_day_projects.each do |p|
-      ProjectMailer.project_not_funded(p.user, p, 30).deliver
+      ProjectMailer.project_not_funded_email(p.user, p, 30).deliver
     end
 
     @forty_day_projects.each do |p|
-      ProjectMailer.project_not_funded(p.user, p, 40).deliver
+      ProjectMailer.project_not_funded_email(p.user, p, 40).deliver
     end
 
     @fifty_day_projects.each do |p|
-      ProjectMailer.project_not_funded(p.user, p, 50).deliver
+      ProjectMailer.project_not_funded_email(p.user, p, 50).deliver
     end
 
     @sixty_day_projects.each do |p|
@@ -36,6 +44,6 @@ module ProjectMethods
   # takes number of days(integer) as argument
   # returns a hash of projects
   def projects_not_funded(number_of_days)
-    Project.where(:created_at => Date.today - number_of_days.days)
+    Project.in_progress.where(:created_at => Date.today - number_of_days.days)
   end
 end
