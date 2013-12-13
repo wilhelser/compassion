@@ -7,6 +7,8 @@
 //= require chosen-jquery
 //= require jquery.remotipart
 //= require jquery.maskedinput
+//= require jquery.easing.min
+//= require jquery.scrollUp
 //= require nivo-lightbox
 //= require jquery.validate
 //= require ajaxupload
@@ -33,6 +35,7 @@
 //= require contractor_reviews
 //= require vendors
 //= require adjusters
+//= require scroll
 //= require cocoon
 //= require angular
 //= require angular-resource
