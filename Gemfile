@@ -75,3 +75,4 @@ gem 'textacular', '~> 3.0'
 gem 'airbrake'
 gem 'turnout'
 gem 'whenever', :require => false
+gem 'cache_digests'

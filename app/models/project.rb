@@ -11,7 +11,7 @@ class Project < ActiveRecord::Base
   validates :street_address, :city, :state, presence: true, :if => 'self.category_ids.include?(8)'
   validates_uniqueness_of :slug
 
-  belongs_to :user
+  belongs_to :user, touch: true
   has_many :updates, :dependent => :destroy
   has_many :contributions
   has_many :galleries, :dependent => :destroy

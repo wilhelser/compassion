@@ -15,7 +15,7 @@
 class Update < ActiveRecord::Base
   include Koala
   attr_accessible :body, :email, :facebook, :project_id, :twitter, :title
-  belongs_to :project
+  belongs_to :project, touch: true
   validates_presence_of :title, :body
   after_save :post_to_networks, :on => :create
   default_scope order('created_at DESC')

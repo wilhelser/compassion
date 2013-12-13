@@ -1,27 +1,28 @@
-= div_for(contractor, :class => "contractor_index_main_container") do
-  .contractor_index_wrap
-    .ci_logo
-      .thumbnail
-        = filepicker_image_tag contractor.logo, w: 150, h: 75, fit: 'clip', cache: true, :class => "thumbnail"
-    .ci_namelink
-      %h5
-        = contractor.name
-        \- #{contractor.city}, #{contractor.state}
-      %p
-        = contractor.address
-        %br/
-        Phone: #{contractor.owner_phone}
-    .ci_tradeslist
-      %p
-        %strong Services:
-        - contractor.trades.each do |trade|
-          = trade.name + ","
-    .ci_button_wrap.pull-right
-      = link_to "View Profile", contractor, :class => "btn btn-success"
-    .clearfix
-    .divider
-    .contractor_index_rating
-      .contractor-rating{"data-score" => contractor.rating}
-      %p
-        = contractor.review_count
-        reviews
+- cache contractor do
+  = div_for(contractor, :class => "contractor_index_main_container") do
+    .contractor_index_wrap
+      .ci_logo
+        .thumbnail
+          = filepicker_image_tag contractor.logo, w: 150, h: 75, fit: 'clip', cache: true, :class => "thumbnail"
+      .ci_namelink
+        %h5
+          = contractor.name
+          \- #{contractor.city}, #{contractor.state}
+        %p
+          = contractor.address
+          %br/
+          Phone: #{contractor.owner_phone}
+      .ci_tradeslist
+        %p
+          %strong Services:
+          - contractor.trades.each do |trade|
+            = trade.name + ","
+      .ci_button_wrap.pull-right
+        = link_to "View Profile", contractor, :class => "btn btn-success"
+      .clearfix
+      .divider
+      .contractor_index_rating
+        .contractor-rating{"data-score" => contractor.rating}
+        %p
+          = contractor.review_count
+          reviews

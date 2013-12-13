@@ -1,41 +1,42 @@
-= div_for(project, :class => "project-card") do
-  - if can? :manage, project
-    .project_manage_btns
-      = link_to "View", project, :class => "btn btn-success btn-mini pull-left"
-      = link_to "Dashboard", dashboard_project_path(project), :class => "btn btn-success btn-mini pull-right"
-    / project_manage_btns
-  .project-thumb-wrapper
-    = link_to project do
-      = filepicker_image_tag project.featured_image, w: 200, h: 150, fit: 'crop'
-  / project-thumb-wrapper
-  .clearfix
-  %h5.bbcard_name
-    = link_to project do
-      = project.page_title
-  .divider
-  .project_excerpt
-    = truncate(project.page_message.html_safe, length: 100)
-  / project_excerpt
-  .clearfix
-  .divider
-  .project_index_statswrap
+- cache project do
+  = div_for(project, :class => "project-card") do
+    - if can? :manage, project
+      .project_manage_btns
+        = link_to "View", project, :class => "btn btn-success btn-mini pull-left"
+        = link_to "Dashboard", dashboard_project_path(project), :class => "btn btn-success btn-mini pull-right"
+      / project_manage_btns
+    .project-thumb-wrapper
+      = link_to project do
+        = filepicker_image_tag project.featured_image, w: 200, h: 150, fit: 'crop'
+    / project-thumb-wrapper
     .clearfix
-    .project-index-progress.progress.progress-striped.active.bar-green
-      .bar{style: "width: #{project.percent_funded}%"}
-    / progress
+    %h5.bbcard_name
+      = link_to project do
+        = project.page_title
+    .divider
+    .project_excerpt
+      = truncate(project.page_message.html_safe, length: 100)
+    / project_excerpt
     .clearfix
-    %ul.project-stats
-      %li.first.funded
-        %strong>
-          = project.percent_funded.to_i
-          \%
-        funded
-      %li.pledged
-        %strong>
-          $#{project.goal_amount.to_i}
-        target
-      %li.last.ksr_page_timer
-        %strong= project.contributions.size
-        backers
-  / project_index_statswrap
-  .clear
+    .divider
+    .project_index_statswrap
+      .clearfix
+      .project-index-progress.progress.progress-striped.active.bar-green
+        .bar{style: "width: #{project.percent_funded}%"}
+      / progress
+      .clearfix
+      %ul.project-stats
+        %li.first.funded
+          %strong>
+            = project.percent_funded.to_i
+            \%
+          funded
+        %li.pledged
+          %strong>
+            $#{project.goal_amount.to_i}
+          target
+        %li.last.ksr_page_timer
+          %strong= project.contributions.size
+          backers
+    / project_index_statswrap
+    .clear

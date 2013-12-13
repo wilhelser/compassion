@@ -92,6 +92,9 @@ GEM
       sass (>= 3.2.0)
       thor
     builder (3.1.4)
+    cache_digests (0.3.1)
+      actionpack (>= 3.2)
+      thread_safe
     callsite (0.0.11)
     cancan (1.6.10)
     capistrano (2.15.5)
@@ -395,6 +398,7 @@ DEPENDENCIES
   bootstrap-datepicker-rails
   bootstrap-sass (~> 2.3.2.0)
   bootstrap-wysihtml5-rails
+  cache_digests
   cancan (>= 1.6.9)
   capistrano
   capybara (>= 2.0.3)

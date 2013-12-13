@@ -1,7 +1,7 @@
 class ContractorReview < ActiveRecord::Base
   attr_accessible :approved, :comments, :contractor_id, :private, :rating, :title, :user_id, :project_id
   validates :comments, :contractor_id, :rating, :title, :user_id, :presence => true
-  belongs_to :contractor
+  belongs_to :contractor, touch: true
   belongs_to :user
   after_create :set_to_approved
   after_create :send_contractor_notification
