@@ -69,3 +69,4 @@ gem 'will_paginate', '~> 3.0.5'
 gem 'textacular', '~> 3.0'
 gem 'airbrake'
 gem 'turnout'
+gem 'whenever', :require => false
