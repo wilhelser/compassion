@@ -1,13 +1,14 @@
-- @page_class = "strip-mini"
-.span12
+- cache @page do
+  - @page_class = "strip-mini"
+  .span12
+    - if @page.title == "You Can Help"
+      #donation_thanks.alert.hide Thank you for your donation!
+    %h1.hidden-desktop= @page.title
+    - if @page.title == "How it Works"
+      = render 'shared/how_it_works_video'
+    = @page.content.html_safe
+    - if @page.title == "You Can Help"
+      .divider
+      %a.btn.btn-primary{"data-toggle" => "modal", href: "#donate_modal"} Donate Now
   - if @page.title == "You Can Help"
-    #donation_thanks.alert.hide Thank you for your donation!
-  %h1.hidden-desktop= @page.title
-  - if @page.title == "How it Works"
-    = render 'shared/how_it_works_video'
-  = @page.content.html_safe
-  - if @page.title == "You Can Help"
-    .divider
-    %a.btn.btn-primary{"data-toggle" => "modal", href: "#donate_modal"} Donate Now
-- if @page.title == "You Can Help"
-  = render 'shared/donate_modal'
+    = render 'shared/donate_modal'

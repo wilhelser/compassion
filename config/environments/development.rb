@@ -38,12 +38,12 @@ Compassion::Application.configure do
   config.assets.debug = true
   config.after_initialize do
     Bullet.enable = true
-    Bullet.alert = false
+    Bullet.alert = true
     Bullet.bullet_logger = true
     Bullet.console = true
     Bullet.growl = true
     Bullet.xmpp = false
     Bullet.rails_logger = true
-    Bullet.airbrake = false
+    Bullet.airbrake = true
   end
 end
