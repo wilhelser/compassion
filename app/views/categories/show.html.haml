@@ -8,6 +8,7 @@
 .span9.omega{id: ""}
   - if @projects.any?
     = render @projects
+    = will_paginate @projects, renderer: BootstrapPagination::Rails
   - else
     %h4
       Sorry, no results for the query "#{@query}"

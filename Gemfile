@@ -76,3 +76,4 @@ gem 'whenever', :require => false
 gem 'cache_digests'
 gem 'ruby-growl', :group => 'development'
 gem "bullet", :group => "development"
+gem 'will_paginate-bootstrap', '0.2.5'

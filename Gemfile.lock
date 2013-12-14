@@ -386,6 +386,8 @@ GEM
     wicked (1.0.2)
       rails (>= 3.0.7)
     will_paginate (3.0.5)
+    will_paginate-bootstrap (0.2.5)
+      will_paginate (>= 3.0.3)
     wirb (1.0.2)
       paint
     wysihtml5-rails (0.0.4)
@@ -467,6 +469,7 @@ DEPENDENCIES
   whenever
   wicked
   will_paginate (~> 3.0.5)
+  will_paginate-bootstrap (= 0.2.5)
   wirb
   wysihtml5-rails
   yaml_db
