@@ -20,7 +20,7 @@ class ContractorsController < InheritedResources::Base
     @page_title = "#{@contractor.name} - #{@contractor.city}, #{@contractor.state}"
     @projects = @contractor.projects
     @gmap = @contractor.to_gmaps4rails
-    @contractor_reviews = @contractor.contractor_reviews, include: [:user]
+    @contractor_reviews = @contractor.contractor_reviews
   end
 
   def dashboard
