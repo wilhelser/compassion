@@ -1,0 +1,11 @@
+- @projects.each do |project|
+  .dashboard_project
+    .dp_image_wrap
+      .thumbnail
+        = filepicker_image_tag project.featured_image, w: 250, h: 150, cache: true, fit: 'clip'
+    .dp_middle
+      %h5= project.page_title
+      .divider
+      = link_to "View", project, :class => "btn btn-success pull-left"
+      = link_to "Dashboard", dashboard_project_path(project), :class => "btn btn-success pull-right"
+      .clearfixd

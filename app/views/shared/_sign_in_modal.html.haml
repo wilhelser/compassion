@@ -1,0 +1,6 @@
+#sign_in_modal.modal.hide.fade
+  .modal-header
+    %button.close{"aria-hidden" => "true", "data-dismiss" => "modal"} &#215;
+    %h3 Sign In
+  .modal-body
+    = link_to "", user_omniauth_authorize_path(:facebook), :class => "facebook-sign-in"

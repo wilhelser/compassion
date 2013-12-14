@@ -1,0 +1,18 @@
+= simple_form_for(@user, :url => user_path(@user.id), :html => { :id => "edit_user_form", :method => :put}) do |f|
+  .user_edit_inner
+    .user_inner_left.pull-left
+      %img.thumbnail{alt: "", src: facebook_image(160, 160)}/
+    .user_inner_right.pull-right
+      = f.error_notification
+      = display_base_errors resource
+      %div
+        = f.input :name, :autofocus => true
+      .clearfix
+      %div
+        = f.input :username
+      .clearfix
+      %div
+        = f.input :email, :required => true
+      .clearfix
+      %div
+        = f.button :submit, 'Update', :class => 'btn-primary'd

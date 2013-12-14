@@ -1,0 +1,37 @@
+#donate_modal.modal.hide.fade
+  - @donation = Donation.new
+  .modal-header
+    %button.close{"aria-hidden" => "true", "data-dismiss" => "modal"} &#215;
+    %h3 Donate
+  .modal-body
+    = simple_form_for @donation, :remote => true, :html => { :class => "form-horizontal"} do |f|
+      = f.error_notification
+      = f.hidden_field :stripe_card_token
+      - if @donation.stripe_card_token.present?
+        Credit card has been provided.
+      - else
+        %fieldset
+          %legend Required Fields
+          = f.input :amount, :as => :string
+          .control-group.string.required.card_number
+            = label_tag :card_number, "Credit Card Number", :class => "string required control-label"
+            .controls
+              = text_field_tag :card_number, nil, name: nil, :class => "string required"
+          .control-group.string.required.card_code
+            = label_tag :card_code, "Security Code on Card (CVV)", :class => "string required control-label"
+            .controls
+              = text_field_tag :card_code, nil, name: nil, :class => "input-small string required"
+          .control-group.string.required.card_expiration
+            = label_tag :card_month, "Card Expiration", :class => "string required control-label"
+            .controls
+              = select_month nil, {add_month_numbers: true}, {name: nil, id: "card_month", :class => "input-medium"}
+              = select_year nil, {start_year: Date.today.year, end_year: Date.today.year+15}, {name: nil, id: "card_year", :class => "input-medium"}
+        %fieldset
+          %legend Optional Fields
+          = f.input :name
+          = f.input :email
+          = f.input :zip_code, :as => :string
+      .divider
+      #stripe_error
+        %noscript JavaScript is not enabled and is required for this form. First enable it in your web browser settings.
+      = f.button :submit, "Donate", :class => "btn btn-primary"

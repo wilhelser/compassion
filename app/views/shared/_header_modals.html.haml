@@ -1,0 +1,22 @@
+.navbartop-wrapper.visible-desktop
+  .container
+    .search-wrapper
+      = form_tag projects_path, method: :get, :id => "searchform", :class => "form-search" do
+        = text_field_tag :query, params[:query], :class => "field", :id => "s", :placeholder => "Name, Title, Zip code"
+    / search-wrapper
+    .top-right
+      - unless user_signed_in?
+        = render 'shared/social_media'
+      - if user_signed_in?
+        = link_to raw("<i class='icon-white icon-off'></i> Logout").html_safe, destroy_user_session_path, :method=>'delete', :class => "logout-top"
+        = link_to raw("<i class='icon-white icon-user'></i> Profile").html_safe, user_path(current_user), :class => "account-top #{current_class?(user_path(current_user))}"
+        = link_to raw("<i class='icon-white icon-briefcase'></i> Dashboard").html_safe, dashboard_user_path(current_user), :class => "account-top #{current_class?(dashboard_user_path(current_user))}"
+        = link_to raw("<i class='icon-white icon-fire'></i> Create New Project").html_safe, new_user_project_path(current_user), :class => "account-top #{current_class?(new_user_project_path(current_user))}"
+      - elsif contractor_signed_in?
+        = link_to raw("<i class='icon-white icon-off'></i> Logout").html_safe, destroy_contractor_session_path, :method=>'delete', :class => "logout-top"
+        = link_to raw("<i class='icon-white icon-user'></i> Dashboard").html_safe, dashboard_contractor_path(current_contractor), :class => "login-top #{current_class?(dashboard_contractor_path(current_contractor))}"
+      - elsif adjuster_signed_in?
+        = link_to raw("<i class='icon-white icon-off'></i> Logout").html_safe, destroy_adjuster_session_path, :method=>'delete', :class => "logout-top"
+      - else
+        %a.login-top{"data-toggle" => "modal", href: "#sign_in_modal"} Sign In
+        %a.register-top{"data-toggle" => "modal", href: "#register_modal"} Get Started

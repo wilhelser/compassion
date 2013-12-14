@@ -1,0 +1,8 @@
+#facebook_sign_in.modal.modal-large.hide.fade
+  .modal-header
+    %button.close{"aria-hidden" => "true", "data-dismiss" => "modal"} &#215;
+    %h3 Sign Up with Facebook
+  .modal-body
+    %p Lorem ipsum dolor sit amet, consectetur adipisicing elit. Cumque, minus, inventore, consectetur dicta molestiae aspernatur autem nisi nostrum obcaecati velit suscipit optio quos magni voluptas ut animi doloribus voluptate consequatur.
+  .modal-footer
+    = link_to "", user_omniauth_authorize_path(:facebook), :class => "facebook-sign-in"
