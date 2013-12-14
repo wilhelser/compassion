@@ -1,8 +1,6 @@
 $ ->
-  $(document).trigger 'page:change'
-
-$(document).on 'page:change', ->
   $("[data-behavior~=datepicker]").datepicker()
+
   $(".contractor-rating").raty
     score: ->
       $(this).data "score"

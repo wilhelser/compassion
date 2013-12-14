@@ -1,5 +1,4 @@
 //= require jquery
-//= require jquery.turbolinks
 //= require jquery_ujs
 //= require bootstrap
 //= require bootstrap-wysihtml5
@@ -46,4 +45,3 @@
 //= require_tree ./angular/controllers
 //= require_tree ./angular/filters
 //= require_tree ./angular/widgets
-//= require turbolinks

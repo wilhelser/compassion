@@ -6,11 +6,10 @@ gem 'coffee-rails'
 gem 'uglifier', '>= 1.0.3'
 gem 'compass-rails'
 gem 'protected_attributes'
+gem "devise"
 gem 'angular-rails'
 gem 'jquery-rails'
 gem 'jquery-ui-rails', '~> 4.0.2'
-gem 'turbolinks'
-gem 'jquery-turbolinks'
 gem "thin", ">= 1.5.0"
 gem "pg", ">= 0.15.0"
 gem "rspec-rails", ">= 2.12.2", :group => [:development, :test]
@@ -24,7 +23,6 @@ gem "haml"
 # gem 'haml-rails', :group => :development
 gem 'rails4_upgrade'
 gem 'filepicker-rails'
-gem "devise", "~> 3.0.0"
 gem "cancan", ">= 1.6.9"
 gem "rolify", ">= 3.2.0"
 gem "simple_form", ">=  3.0.0"
