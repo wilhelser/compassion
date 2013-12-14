@@ -1,10 +1,5 @@
 - cache project do
   = div_for(project, :class => "project-card") do
-    - if can? :manage, project
-      .project_manage_btns
-        = link_to "View", project, :class => "btn btn-success btn-mini pull-left"
-        = link_to "Dashboard", dashboard_project_path(project), :class => "btn btn-success btn-mini pull-right"
-      / project_manage_btns
     .project-thumb-wrapper
       = link_to project do
         = filepicker_image_tag project.featured_image, w: 200, h: 150, fit: 'crop'
