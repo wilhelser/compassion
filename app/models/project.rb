@@ -28,10 +28,10 @@ class Project < ActiveRecord::Base
   # after_create :post_to_compassion
   after_create :send_new_project_email
 
-  scope :approved, where(:approved => true)
-  scope :in_progress, where(:status => "In Progress")
-  scope :funded, where(:funded => true)
-  scope :complete, where(:campaign_ended => true)
+  scope :approved, -> { where(approved: true) }
+  scope :in_progress, -> { where(status: 'In Progress') }
+  scope :funded, -> { where(funded: true) }
+  scope :complete, -> { where(campaign_ended: true) }
 
   def address
     [street_address, city, state, zip_code].compact.join(', ')

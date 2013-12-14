@@ -1,24 +1,10 @@
-# == Schema Information
-#
-# Table name: updates
-#
-#  id         :integer          not null, primary key
-#  project_id :integer          not null
-#  body       :text             not null
-#  facebook   :boolean          default(FALSE)
-#  twitter    :boolean          default(FALSE)
-#  email      :boolean          default(FALSE)
-#  created_at :datetime         not null
-#  updated_at :datetime         not null
-#
-
 class Update < ActiveRecord::Base
   include Koala
   attr_accessible :body, :email, :facebook, :project_id, :twitter, :title
   belongs_to :project, touch: true
   validates_presence_of :title, :body
-  after_save :post_to_networks, :on => :create
-  default_scope order('created_at DESC')
+  after_save :post_to_networks, on: :create
+  # default_scope order('created_at DESC')
 
   def project
     Project.find(self.project_id)

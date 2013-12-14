@@ -6,8 +6,8 @@ class ContractorReview < ActiveRecord::Base
   after_create :set_to_approved
   after_create :send_contractor_notification
 
-  scope :approved, where(:approved => true)
-  scope :public, where(:private => false)
+  scope :approved, -> { where(approved: true) }
+  scope :public, -> { where(private: false) }
 
   def set_to_approved
     if self.rating > 3

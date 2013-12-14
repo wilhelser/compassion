@@ -20,9 +20,10 @@ class Contractor < ActiveRecord::Base
   geocoded_by :address
   after_validation :geocode
 
-  scope :pending, where(:status => "Pending")
-  scope :approved, where(:status => "Approved")
-  scope :not_submitted, where(:status => "Not Submitted")
+  scope :pending, -> { where(status: 'pending') }
+  scope :approved, -> { where(status: 'approved') }
+  scope :active, -> { where(status: 'Not Submitted') }
+  scope :not_submitted, where(:status => "Pending")
 
   def address
     [street_address, city, state, zip_code].compact.join(', ')
@@ -33,7 +34,7 @@ class Contractor < ActiveRecord::Base
   end
 
   def approved
-    self.status = "Approved"
+    self.status == "Approved"
   end
 
   def has_reviews?
@@ -41,11 +42,11 @@ class Contractor < ActiveRecord::Base
   end
 
   def active_projects
-    self.projects.where(:status => "In Progress")
+    self.projects.in_progress
   end
 
   def completed_projects
-    self.projects.where(:status => "Completed")
+    self.projects.complete
   end
 
   def review_count

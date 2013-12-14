@@ -4,11 +4,10 @@ class Vendor < ActiveRecord::Base
   validates :amount, :name, :address, :city, :state, :zip_code, :presence => true
   mount_uploader :documentation, VendorUploader
 
-  scope :verified, where(:verified => true)
-  scope :paid, where(:paid => true)
+  scope :verified, -> { where(verified: true) }
+  scope :paid, -> { where(paid: true) }
 
   def vendor_total
     project.vendors.sum(:amount)
   end
-
 end

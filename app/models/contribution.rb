@@ -5,9 +5,9 @@ class Contribution < ActiveRecord::Base
   after_save :check_funded_status, :on => :create
   belongs_to :project
 
-  scope :public, where(:private => false)
-  scope :private, where(:private => true)
-  default_scope order('created_at DESC')
+  scope :public, -> { where(private: false) }
+  scope :private, -> { where(status: true) }
+  # default_scope order('created_at DESC')
 
   attr_accessor :stripe_card_token
 

@@ -3,7 +3,7 @@ class ProjectsController < InheritedResources::Base
   load_and_authorize_resource :only => [:update, :edit, :dashboard, :end_campaign]
   before_filter :set_user
   before_filter :parse_facebook_cookies
-  before_filter :get_project, :except => [:index, :new, :create]
+  before_filter :get_project, :except => [:index, :new, :create, :dashboard]
   before_filter :get_categories
   respond_to :html, :json, :js, :pdf
 
