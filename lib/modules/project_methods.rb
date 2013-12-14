@@ -6,8 +6,11 @@ module ProjectMethods
     ProjectMailer.project_funded_email(self.user, self).deliver
   end
 
+
   # clean out any random div tags that may have made their way into the
   # page message
+  #
+  # @return [type] [description]
   def clean_page_message_content
     @body = self.page_message
     if @body.include?('<div>')
@@ -51,8 +54,9 @@ module ProjectMethods
   end
 
   # method to find projects not funded in X number of days
-  # takes number of days(integer) as argument
-  # returns a hash of projects
+  # @param  number_of_days Integer number of days project has been active
+  #
+  # @return Hash has of projects
   def projects_not_funded(number_of_days)
     Project.in_progress.where(:created_at => Date.today - number_of_days.days)
   end
