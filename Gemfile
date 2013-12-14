@@ -74,3 +74,4 @@ gem 'airbrake'
 gem 'turnout'
 gem 'whenever', :require => false
 gem 'cache_digests'
+gem "bullet", :group => "development"

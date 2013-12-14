@@ -98,6 +98,9 @@ GEM
       sass (>= 3.2.0)
       thor
     builder (3.1.4)
+    bullet (4.7.1)
+      activesupport
+      uniform_notifier (>= 1.4.0)
     cache_digests (0.3.1)
       actionpack (>= 3.2)
       thread_safe
@@ -367,6 +370,7 @@ GEM
     uglifier (2.3.3)
       execjs (>= 0.3.0)
       json (>= 1.8.0)
+    uniform_notifier (1.4.0)
     warden (1.2.3)
       rack (>= 1.0)
     whenever (0.8.4)
@@ -399,6 +403,7 @@ DEPENDENCIES
   bootstrap-datepicker-rails
   bootstrap-sass (~> 2.3.2.0)
   bootstrap-wysihtml5-rails
+  bullet
   cache_digests
   cancan (>= 1.6.9)
   capistrano
