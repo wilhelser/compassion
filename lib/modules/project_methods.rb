@@ -19,14 +19,6 @@ module ProjectMethods
     end
   end
 
-  def email_all_over_thirty_days
-    @projects = Project.in_progress.where('created_at < ?', Date.today - 30.days)
-    @projects.each do |p|
-      @days = (Date.today.to_date - p.created_at.to_date).round
-      ProjectMailer.project_not_funded_email(p.user, p, @days).deliver
-    end
-  end
-
   # Checks for inactive actions and sends an email
   # called from config/schedule.rb
   def email_inactive_projects

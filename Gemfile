@@ -67,7 +67,7 @@ gem "prawn"
 gem 'chosen-rails'
 gem "yaml_db"
 gem "bootstrap-datepicker-rails"
-gem 'gmaps4rails', "~> 1.5.6"
+gem 'gmaps4rails', '~> 2.0.1', git: 'https://github.com/fiedl/Google-Maps-for-Rails'
 gem "model_un"
 gem 'active_admin_editor'
 gem 'will_paginate', '~> 3.0.5'

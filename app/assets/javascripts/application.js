@@ -16,7 +16,8 @@
 //= require wysihtml5
 //= require parser_rules/simple
 //= require_tree ./include
-//= require_tree ./gmaps4rails
+//= require gmaps4rails/gmaps4rails.base
+//= require gmaps4rails/gmaps4rails.googlemaps
 //= require_tree ./bootstrap-form-helpers
 //= require buttons
 //= require raty

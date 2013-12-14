@@ -40,8 +40,8 @@ Compassion::Application.routes.draw do
   end
 
   resources :backers
-  get "users/show"
-  get "users/edit"
+  # get "users/show"
+  # get "users/edit"
   resources :contributions
   resources :projects do
     member do

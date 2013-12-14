@@ -17,6 +17,12 @@ GIT
       sass-rails
 
 GIT
+  remote: https://github.com/fiedl/Google-Maps-for-Rails
+  revision: c159503f5b244f0528482020f6d81215264149ad
+  specs:
+    gmaps4rails (2.0.1)
+
+GIT
   remote: https://github.com/stripe/stripe-ruby
   revision: f369ca16f956979d7e2a68242399417197f43168
   specs:
@@ -174,7 +180,6 @@ GEM
       activerecord (~> 4.0.0)
     fssm (0.2.10)
     geocoder (1.1.9)
-    gmaps4rails (1.5.6)
     haml (4.0.4)
       tilt
     has_scope (0.6.0.rc)
@@ -418,7 +423,7 @@ DEPENDENCIES
   filepicker-rails
   friendly_id (>= 5.0)
   geocoder
-  gmaps4rails (~> 1.5.6)
+  gmaps4rails (~> 2.0.1)!
   haml
   hirb
   jasny_bootstrap_extension_rails

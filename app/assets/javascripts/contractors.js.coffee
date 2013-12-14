@@ -1,17 +1,8 @@
 $ ->
-  $(document).on "cocoon:before-insert", ->
-    $(".selectpicker").selectpicker()
+  $(document).trigger 'page:change'
 
+$(document).on 'page:change', ->
   $("[data-behavior~=datepicker]").datepicker()
-
-  $(document).delegate "#contractor_logo", "change", ->
-    image = $(@).val()
-    $("#dashboard-logo").attr('src', image).removeClass('hide')
-
-  $(document).delegate ".fs-toggle", 'click', ->
-    target = $(@).data('target')
-    $(target).slideToggle()
-
   $(".contractor-rating").raty
     score: ->
       $(this).data "score"
@@ -23,3 +14,16 @@ $ ->
       $("#read-contractor-docs").css('background', 'yellow')
     else
       $("#new_contractor").submit()
+
+$(document).on "cocoon:before-insert", ->
+  $(".selectpicker").selectpicker()
+
+
+$(document).delegate "#contractor_logo", "change", ->
+  image = $(@).val()
+  $("#dashboard-logo").attr('src', image).removeClass('hide')
+
+$(document).delegate ".fs-toggle", 'click', ->
+  target = $(@).data('target')
+  $(target).slideToggle()
+
