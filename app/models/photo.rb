@@ -4,7 +4,7 @@ class Photo < ActiveRecord::Base
   belongs_to :gallery, touch: true
 
   def image_url
-    "https://s3.amazonaws.com/comp4humanity/#{self.key}"
+    "https://s3.amazonaws.com/c4humanity/#{self.key}"
   end
 
   def set_key

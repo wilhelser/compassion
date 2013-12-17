@@ -49,7 +49,7 @@ class Project < ActiveRecord::Base
   end
 
   def image_url
-    "https://s3.amazonaws.com/comp4humanity/#{self.key}"
+    "https://s3.amazonaws.com/c4humanity/#{self.key}"
   end
 
   def self.text_search(query)
