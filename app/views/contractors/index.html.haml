@@ -2,10 +2,6 @@
   These are our approved contractors. #{link_to "Apply here", new_contractor_registration_path} to apply to become an approved contractor.
 .divider
 #contractor-index-search-wrap
-  - search_form_for @search do |f|
-    =f.label :name_cont
-    =f.text_field :name_cont
-    =f.submit
 .divider
 #contractor-index-wrap
   = render @contractors
