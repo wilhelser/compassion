@@ -26,6 +26,7 @@ class Project < ActiveRecord::Base
   after_validation :geocode
   accepts_nested_attributes_for :galleries
   accepts_nested_attributes_for :contributions
+  after_create :set_key
   # after_create :post_to_compassion
   after_create :send_new_project_email
 
@@ -34,10 +35,18 @@ class Project < ActiveRecord::Base
   scope :funded, -> { where(funded: true) }
   scope :complete, -> { where(campaign_ended: true) }
 
+  #
+  # Builds full address from project address fields
+  #
+  # @return String full project address for display on site
   def address
     [street_address, city, state, zip_code].compact.join(', ')
   end
 
+  #
+  # Determines whether Action is a construction project or not
+  #
+  # @return boolan True if Action is in the Construction category ( 8 )
   def construction_project?
     self.category_ids.include?(8)
   end

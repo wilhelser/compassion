@@ -18,7 +18,7 @@
         = f.input :gross_anual_sales_last_year
       .span3
         = f.label :logo
-        = f.filepicker_field :logo, :button_class => "btn btn-primary"
+        = f.filepicker_field :logo, :button_class => "btn btn-primary", store_location: "S3", store_access: "public"
         = f.input :date_of_incorporation, :as => :string, :input_html => { :class => "datepicker"}
         = f.input :owner_phone, :as => :string
         = f.input :number_of_employees

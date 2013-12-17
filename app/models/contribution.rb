@@ -6,10 +6,14 @@ class Contribution < ActiveRecord::Base
   belongs_to :project
 
   scope :public, -> { where(private: false) }
-  scope :private, -> { where(status: true) }
+  scope :private, -> { where(private: true) }
   # default_scope order('created_at DESC')
 
   attr_accessor :stripe_card_token
+
+  def name
+    [first_name, last_name].compact.join(' ')
+  end
 
   def check_funded_status
     @project = Project.find(self.project_id)

@@ -23,25 +23,13 @@
     .clear
   .well.recent_contributions
     %h5 Recent Contributors
-    .divider
-    %p
-      %small
-        $#{@project.total_contributions.to_i} raised by #{@project.backer_count} backers.
-    #recent_contr_wrap
-      - @project.contributions.each do |c|
-        .sb_recent_contr.thumbnail
-          .sb_recent_right
-            %span.sb_recent_amount
-              $#{c.amount.to_i}.00
-            .clearfix
-            - unless c.private?
-              %span.sb_backer_name
-                = c.first_name
-                = c.last_name
-            - else
-              %span.sb_backer_name Anonymous
-          / sb_recent_right
-    / recent_contr_wrap
+  #recent_contr_wrap
+    - if @recent_contributions.any?
+      - @recent_contributions.each do |c|
+        = render :partial => 'contributions/contribution', :locals => { :contribution => c }
+      -# = render :partial => 'contributions/contribution', :locals => { @contributions => @recent_contributions }
+        / sb_recent_right
+  / recent_contr_wrap
   / recent donations
 / /.span4
 .clearfix

@@ -63,7 +63,7 @@
     #upload_options_wrap
       #featured_upload.hide
         = f.label :featured_image, "Upload Your Image:"
-        = f.filepicker_field :featured_image, :button_class => "btn btn-primary", store_location: "S3", store_access: "public", onchange: "storeFilepickerUpload(event)"
+        = f.filepicker_field :featured_image, :button_class => "btn btn-primary", store_location: "S3", store_access: "public"
       / featured_upload
       #youtube_add.hide
         %div

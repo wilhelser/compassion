@@ -1,39 +1,8 @@
 #tab3.tab-pane
   - if @contributions.any?
-    %div{id: "project-funders span8"}
-      - @contributions.each do |c|
-        .project_backer
-          .project_backer_amount
-            %h4
-              $#{c.amount.to_i}.00
-          / project_backer_amount
-          - unless c.private?
-            %div{class: "donor-class-sm #{c.donor_class}"}
-              = image_tag "donor-class-sm/#{c.donor_class}.png"
-            / donor-class-sm
-          - unless c.image.blank?
-            = filepicker_image_tag c.image, w: 50, h: 50, fit: 'clip'
-          - else
-            %hr/
-          .backer_name
-            - if c.private?
-              %p Anonymous
-            - else
-              %h5
-                = c.first_name
-                = c.last_name
-          / name
-          .loader
-          %span.reward= c.comments
-          .divider
-          %p.backer_ago_text
-            %small
-              %em
-                %strong
-                  = time_ago_in_words(c.created_at)
-                  ago
-        / project-backer
-    / project-funders
-  - else
-    %p No contributions yet...
+    #project-funders.span8
+      - if @contributions.any?
+        = render @contributions
+      - else
+        %p No contributions yet...
 / tab-backers

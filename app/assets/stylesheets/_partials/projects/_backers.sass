@@ -1,3 +1,48 @@
+#project-funders
+  .contribution
+    float: left
+    +custom-well
+
+#recent_contr_wrap
+  .contribution
+    +single-well
+
+.contribution-left
+  width: 120px
+  .thumbnail
+    background: #fff
+
+.contribution-right
+  width: 65%
+  height: 110px
+  overflow: hidden
+  position: relative
+
+.contributor_title, .contributor_name, .contributor_amount
+  display: block
+  position: relative
+
+.contributor_title, .contributor_name
+  width: 60%
+
+.contributor_amount
+  width: 90%
+
+.contributor_title
+  font-weight: bold
+
+.contributor_name
+  color: $green
+
+.contributor_amount
+  background: #fff
+  color: $green
+  font-weight: bold
+  font-size: 18px
+  position: absolute
+  bottom: 0
+  left: 0
+
 .project_backer
   float: left
   position: relative
@@ -16,10 +61,11 @@
   font-size: .8em
 
 .donor-class-sm
-  width: 45px
-  height: 45px
-  margin: 5px auto
-  clear: both
+  width: 75px
+  height: 75px
+  position: absolute
+  right: 0
+  top: 0
   img
     max-width: 100%
     max-height: 100%
