@@ -1,0 +1,11 @@
+#galleries.tab-pane
+  #project_galleries_wrap
+    - if @galleries.any?
+      = render @galleries
+    - else
+      %p No Galleries yet. Why don't you add one?
+  .clearfix
+  .divider
+  %a.btn.btn-primary.btn-large{"data-toggle" => "modal", :href => "#new_gallery_modal"} Create Gallery
+
+= render 'contractors/new_gallery_modal'

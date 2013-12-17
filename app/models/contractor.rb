@@ -1,7 +1,7 @@
 class Contractor < ActiveRecord::Base
   acts_as_gmappable
   extend FriendlyId
-  friendly_id :name, use: :slugged
+  friendly_id :name, use: [:slugged, :finders]
   devise :database_authenticatable, :registerable, :recoverable, :rememberable, :trackable, :validatable
   attr_accessible :street_address, :city, :coverage_radius, :latitude, :logo, :longitude, :name, :state, :zip_code, :business_legal_name, :business_dba_name, :date_of_incorporation, :owner_first_name, :owner_last_name, :owner_phone, :owner_email, :mailing_address, :mailing_address2, :mailing_zip_code, :mailing_city, :mailing_state, :mailing_same, :business_tax_id_no, :ein, :number_of_employees, :contractor_license_number, :gross_annual_sales_last_year, :trade_ids, :references_attributes, :description, :addresses_attributes, :email, :password, :password_confirmation, :remember_me, :terms, :website_url, :slug, :gmaps, :notify_on_select, :notify_on_review
   validates :street_address, :city, :state, :zip_code, :name, :coverage_radius, :presence => true
@@ -40,6 +40,15 @@ class Contractor < ActiveRecord::Base
     self.contractor_reviews.size > 0
   end
 
+  def can_manage_gallery?(gallery)
+    @gallery = gallery
+    if @gallery.contractor_id == self.id
+      return true
+    else
+      return false
+    end
+  end
+
   def active_projects
     self.projects.in_progress
   end
@@ -57,7 +66,7 @@ class Contractor < ActiveRecord::Base
   end
 
   def rating
-    self.total_stars / self.review_count
+    self.has_reviews? ? self.total_stars / self.review_count : 0
   end
 
   def business_references

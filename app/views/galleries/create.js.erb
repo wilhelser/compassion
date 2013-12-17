@@ -1,4 +1,5 @@
 $("#new_gallery_modal").modal('hide');
 $("#project_galleries_wrap").html("<%= j render @galleries %>");
 $("#new_gallery_form_wrap").html("<%= j render 'galleries/form' %>");
+$("#new_contractor_gallery_form_wrap").html("<%= j render 'galleries/contractor_form' %>");
 $("#galleries-count").html("<%= @galleries.size %>");

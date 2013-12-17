@@ -410,7 +410,7 @@ DEPENDENCIES
   auto_html
   awesome_print
   better_errors (>= 0.7.2)
-  binding_of_caller (>= 0.7.1)
+  binding_of_caller
   bootstrap-datepicker-rails
   bootstrap-sass (~> 2.3.2.0)
   bootstrap-wysihtml5-rails

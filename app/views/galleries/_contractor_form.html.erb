@@ -1,0 +1,7 @@
+<%= simple_form_for Gallery.new, :url => contractor_galleries_path(@contractor), :remote => true do |f| %>
+  <% unless @project.blank? %>
+    <% end %>
+  <%= f.input :title %>
+  <%= f.input :description, :input_html => { :rows => 5 } %>
+  <button id="create_new_gallery" class="btn btn-primary" data-disable-with="Creating...">Create Gallery</button>
+<% end %>

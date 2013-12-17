@@ -8,6 +8,8 @@
       Projects ( #{@contractor.projects.size} )
   %li
     %a.btn.btn-success{"data-toggle" => "tab", href: "#profile"} Edit Profile
+  %li
+    %a.btn.btn-success{"data-toggle" => "tab", href: "#galleries"} Galleries <span id="#galleries-count"> ( #{@galleries.size} )</span>
 / nav-tabs
 #contractor_dashboard_update_message.alert.hide Successfully updated your information!
 .tab-content
@@ -15,6 +17,7 @@
   = render "contractors/dashboard/tab_company_info"
   = render "contractors/dashboard/tab_projects"
   = render "contractors/dashboard/tab_profile"
+  = render "contractors/dashboard/tab_galleries"
 / tab-content
 :javascript
   $(document).ready(function() {
@@ -22,3 +25,4 @@
       $("#new_dashboard_reference").html("#{j render 'contractors/dashboard/reference_form'}").effect('highlight');
     });
   });
+= render 'shared/filepickerjs'

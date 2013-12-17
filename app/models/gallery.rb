@@ -4,4 +4,11 @@ class Gallery < ActiveRecord::Base
   belongs_to :project, touch: true
   has_many :photos, :dependent => :destroy
 
+  def is_contractor_gallery?
+    true unless self.contractor_id.nil?
+  end
+
+  def is_project_gallery?
+    true unless self.project_id.nil?
+  end
 end

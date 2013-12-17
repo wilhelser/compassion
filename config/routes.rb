@@ -12,14 +12,14 @@ Compassion::Application.routes.draw do
   resources :contractor_reviews
   resources :donations
   resources :vendors
-
   root :to => "home#index"
   resources :addresses
-  resources :galleries
   resources :references
+  resources :galleries
 
   resources :contractors do
     resources :references
+    resources :galleries
     member do
       get "dashboard"
     end

@@ -10,7 +10,7 @@
         - else
           %img#dashboard-logo.hide.thumbnail{alt: "", src: ""}/
         = f.label :logo
-        = f.filepicker_field :logo, :button_class => "btn btn-primary", :input_html => { :tabindex => 1 }
+        = f.filepicker_field :logo, :button_class => "btn btn-primary", store_location: "S3", store_access: "public", :input_html => { :tabindex => 1 }
         .divider
       .clearfix
     %fieldset

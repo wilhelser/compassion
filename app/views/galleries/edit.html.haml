@@ -8,6 +8,10 @@
 %hr/
 %a.btn.btn-success{"data-toggle" => "modal", href: "#new_photo_modal"} Add Photo
 = render 'photos/new_modal'
-- content_for :back_to_project_button do
-  = link_to "Back to Dashboard", dashboard_user_project_path(current_user,@gallery.project), :class => "btn btn-success project-dashboard-link pull-right"
+- if @gallery.is_project_gallery?
+  - content_for :back_to_project_button do
+    = link_to "Back to Dashboard", dashboard_user_project_path(current_user,@gallery.project), :class => "btn btn-success project-dashboard-link pull-right"
+- elsif @gallery.is_contractor_gallery?
+  - content_for :back_to_project_button do
+    = link_to "Back to Dashboard", dashboard_contractor_path(current_contractor), :class => "btn btn-success project-dashboard-link pull-right"
 = render 'shared/filepickerjs'

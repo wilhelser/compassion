@@ -26,13 +26,15 @@ class ContractorsController < InheritedResources::Base
     @projects = @contractor.projects
     @gmap = @contractor.to_gmaps4rails
     @contractor_reviews = @contractor.contractor_reviews
+    @galleries = get_galleries(@contractor)
   end
 
   def dashboard
-    @contractor = Contractor.current_contractor
+    @contractor = current_contractor
     @page_title = "Dashboard - #{@contractor.name}"
     @references = @contractor.references
     @projects = @contractor.projects
+    @galleries = get_galleries(@contractor)
   end
 
   def search
@@ -43,5 +45,9 @@ class ContractorsController < InheritedResources::Base
     else
       respond_with @contractor
     end
+  end
+
+  def get_galleries(contractor)
+    @galleries = contractor.galleries
   end
 end
