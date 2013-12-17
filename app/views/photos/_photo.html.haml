@@ -1,6 +1,7 @@
 - cache photo do
   = div_for(photo, :class => "span2") do |photo|
-    %a.sb.thumbnail{"data-lightbox-gallery" => "gallery#{photo.gallery.id}", href: photo.image, title: photo.caption}= filepicker_image_tag photo.image, w: 200, h: 200, fit: 'scale'
+    %a.sb.thumbnail{"data-lightbox-gallery" => "gallery#{photo.gallery.id}", href: photo.image_url, title: photo.caption}
+      %img{src: "#{photo.image_url}"}
     %p
       %small
         %strong= photo.caption

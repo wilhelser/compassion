@@ -30,6 +30,7 @@
 //= require galleries
 //= require estimates
 //= require init
+//= require photos
 //= require dashboard
 //= require contributions
 //= require backers

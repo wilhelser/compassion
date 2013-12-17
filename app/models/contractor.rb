@@ -20,10 +20,9 @@ class Contractor < ActiveRecord::Base
   geocoded_by :address
   after_validation :geocode
 
-  scope :pending, -> { where(status: 'pending') }
-  scope :approved, -> { where(status: 'approved') }
-  scope :active, -> { where(status: 'Not Submitted') }
-  scope :not_submitted, where(:status => "Pending")
+  scope :pending, -> { where(status: 'Pending') }
+  scope :approved, -> { where(status: 'Approved') }
+  scope :not_submitted, -> { where(status: 'Not Submitted') }
 
   def address
     [street_address, city, state, zip_code].compact.join(', ')

@@ -3,7 +3,12 @@ class ContractorsController < InheritedResources::Base
   before_filter :authenticate_contractor!, :only => [:dashboard]
 
   def index
-    @contractors = Contractor.where(:status => "Approved")
+    @search = Contractor.search(params[:q])
+    if params[:q]
+      @contractors = @search.result(distinct: true)
+    else
+      @contractors = Contractor.approved
+    end
     @page_title = "Approved Contractors"
   end
 

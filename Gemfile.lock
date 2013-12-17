@@ -1,6 +1,6 @@
 GIT
   remote: git://github.com/gregbell/active_admin.git
-  revision: 1b2f5af46531ce0560d10f77e72e229e6a0c4856
+  revision: 51792c7924372fc0c8789bc849f82e09041e1218
   specs:
     activeadmin (1.0.0.pre)
       arbre (~> 1.0)
@@ -241,7 +241,7 @@ GEM
     net-ssh (2.7.0)
     net-ssh-gateway (1.2.0)
       net-ssh (>= 2.6.5)
-    nokogiri (1.6.0)
+    nokogiri (1.6.1)
       mini_portile (~> 0.5.0)
     oauth2 (0.8.1)
       faraday (~> 0.8)
@@ -269,9 +269,11 @@ GEM
     polyamorous (0.6.4)
       activerecord (>= 3.0)
     polyglot (0.3.3)
-    prawn (0.12.0)
-      pdf-reader (>= 0.9.0)
-      ttfunk (~> 1.0.2)
+    prawn (0.13.0)
+      afm
+      pdf-reader (~> 1.2)
+      ruby-rc4
+      ttfunk (~> 1.0.3)
     protected_attributes (1.0.5)
       activemodel (>= 4.0.1, < 5.0)
     quiet_assets (1.0.2)
@@ -453,6 +455,7 @@ DEPENDENCIES
   rails-console-tweaks
   rails-footnotes (>= 3.7.9)
   rails4_upgrade
+  ransack
   remotipart (~> 1.2)
   rolify (>= 3.2.0)
   rspec-rails (>= 2.12.2)

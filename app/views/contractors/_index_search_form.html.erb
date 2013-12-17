@@ -1,0 +1,5 @@
+<% search_form_for @contractor_search, url: contractors_path, html: { method: :post }, remote: true do |f| %>
+<%= f.label :name_cont %>
+<%= f.text_field :name_cont %>
+
+<% end %>
