@@ -11,6 +11,8 @@ $ ->
     $("#disclaimer_modal").modal('show')
     false
 
+  # $(".project_show_main_image").imagefill()
+
   $("#disclaimer-accept").click ->
     $("#new_project").submit()
 

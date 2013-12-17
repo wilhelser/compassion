@@ -3,6 +3,8 @@
 //= require bootstrap
 //= require bootstrap-wysihtml5
 //= require jasny-bootstrap
+//= require imagesloaded
+//= require imagefill
 //= require bootstrap-datepicker
 //= require chosen-jquery
 //= require jquery.remotipart

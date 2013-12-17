@@ -2,7 +2,7 @@
   = div_for(project, :class => "project-card") do
     .project-thumb-wrapper
       = link_to project do
-        = filepicker_image_tag project.featured_image, w: 200, h: 150, fit: 'crop'
+        %img{src: "#{project.image_url}", alt: "#{project.page_title}", width: "200", height: "150"}
     / project-thumb-wrapper
     .clearfix
     %h5.bbcard_name
