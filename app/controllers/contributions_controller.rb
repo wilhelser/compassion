@@ -3,6 +3,9 @@ class ContributionsController < InheritedResources::Base
   before_filter :get_project, :only => [:create]
 
   def new
+    if user_signed_in?
+      @user = current_user
+    end
     @project = Project.find(params[:project_id])
     @contribution = Contribution.new
     # @contribution = @project.contributions.build
@@ -24,6 +27,6 @@ class ContributionsController < InheritedResources::Base
   private
 
   def get_project
-    @project = Project.find(params[:project_id])
+    @project = Project.friendly.find(params[:project_id])
   end
 end

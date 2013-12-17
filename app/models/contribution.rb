@@ -7,7 +7,7 @@ class Contribution < ActiveRecord::Base
 
   scope :public, -> { where(private: false) }
   scope :private, -> { where(private: true) }
-  # default_scope order('created_at DESC')
+  default_scope -> { order('created_at DESC') }
 
   attr_accessor :stripe_card_token
 
