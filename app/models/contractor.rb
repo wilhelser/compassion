@@ -1,4 +1,6 @@
 class Contractor < ActiveRecord::Base
+  require 'textacular/searchable'
+  extend Searchable(:name, :city, :state, :zip_code)
   acts_as_gmappable
   extend FriendlyId
   friendly_id :name, use: [:slugged, :finders]

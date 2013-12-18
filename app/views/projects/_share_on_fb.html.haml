@@ -1,2 +1,5 @@
 %p Do you want to share your act of compassion of Facebook?
+<fb:login-button show-faces="true" width="200" max-rows="1"></fb:login-button>
 = link_to "Share on Facebook", share_on_facebook_project_path(@project.id), :method => :post, :remote => true, :class => "btn btn-primary btn-large"
+
+= render 'share_on_fb_js'

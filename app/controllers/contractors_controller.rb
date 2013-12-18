@@ -3,13 +3,12 @@ class ContractorsController < InheritedResources::Base
   before_filter :authenticate_contractor!, :only => [:dashboard]
 
   def index
-    @search = Contractor.search(params[:q])
-    if params[:q]
-      @contractors = @search.result(distinct: true)
+    if params[:query]
+      @contractors = Contractor.search(params[:query]).page(params[:page]).per_page(5)
     else
-      @contractors = Contractor.approved
+      @contractors = Contractor.approved.paginate(:page => params[:page], :per_page => 5)
     end
-    @page_title = "Approved Contractors"
+    @page_title = "Compassion for Humanity's Approved Contractors"
   end
 
   def new

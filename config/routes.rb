@@ -26,6 +26,7 @@ Compassion::Application.routes.draw do
   end
 
   post "contractors/search"
+  post "contractors/index_search"
   resources :updates
   resources :categories
   resources :donate

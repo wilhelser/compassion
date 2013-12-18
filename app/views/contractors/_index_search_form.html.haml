@@ -1,3 +1,4 @@
-- search_form_for @q, url: contractors_path, html: { method: :post }, remote: true do |f|
-  = f.label :name_cont
-  = f.text_field :name_cont
+= form_tag contractors_path, method: :get, :id => "contractor-index-search", :class => "form-search" do
+  .input-append
+    = text_field_tag :query, params[:query], :class => "search-query", :placeholder => "Contractor Name, City, Zip Code"
+    = button_tag "Search", name: nil, :class => "btn btn-success"

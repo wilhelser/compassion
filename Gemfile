@@ -78,3 +78,5 @@ gem "bullet", :group => "development"
 gem 'will_paginate-bootstrap', '0.2.5'
 gem "ransack"
 gem 'ckeditor_rails'
+gem 'rails_db_info', :group => :development
+gem 'sextant', :group => :development

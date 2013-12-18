@@ -28,6 +28,7 @@
       }(document, 'script', 'facebook-jssdk'));
     </script>
   </div>
+  <%= yield :share_on_fb_js %>
         <%= render "shared/header" %>
         <% if controller_name == "home" %>
           <%= render "home/slider" %>
