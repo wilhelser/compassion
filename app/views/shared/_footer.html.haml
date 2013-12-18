@@ -4,7 +4,8 @@
     .container
       .footer_widget.span3
         %h3 Why we rock!
-        .textwidget Compassion for Humanity is the World's first Premium Non-Profit Charitable Crowdfunding Organization. All gifts are tax deductible. We bring compassionate people together with those who need compassion. Click the "Create Action" button today and help change the world.
+        .textwidget
+          %p Compassion for Humanity is the World's first Premium Non-Profit Charitable Crowdfunding Organization. All gifts are tax deductible. We bring compassionate people together with those who need compassion. Click the "Create Action" button today and help change the world.
       .footer_widget.span3
         .menu-footer-container
           - unless user_signed_in? || contractor_signed_in? || adjuster_signed_in?
