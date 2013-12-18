@@ -65,6 +65,11 @@ class User < ActiveRecord::Base
     ModelUN.convert(@state_name)
   end
 
+  def can_manage_project(project)
+    @project = project
+    @project.user_id == self.id ? true : false
+  end
+
   # authorization for user to edit a particular gallery
   # takes gallery as an argument
   # returns true or false

@@ -16,8 +16,7 @@
           %span#cents-append.add-on .00
         = f.input :page_title, :placeholder => "Page Title", "data-ideal" => "required", :input_html => { :maxlength => 60, :class => "input-large" }
         .clearfix
-        = render 'toolbar'
-        = f.input :page_message, :class => "edit_project_content", :rows => "10", "data-ideal" => "required", :input_html => { :id => "edit-wysihtml5-textarea" }, :label => false
+        = f.input :page_message, :class => "edit_project_content ckeditor", :rows => "10", "data-ideal" => "required", :input_html => { :id => "project_page_message" }, :label => false
         .clearfix
         %p
           %small Make this project private. ( Your project will not show up in searches )
@@ -44,6 +43,3 @@
       .divider
       .span8.np-section
         = f.submit "Update", :class => "btn btn-primary"
-      / np-section
-      = render 'projects/wysiwyg'
-  / project_edit_form_wrap

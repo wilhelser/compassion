@@ -1,9 +1,10 @@
 class ProjectsController < InheritedResources::Base
   before_filter :authenticate_user!, :except => [:index, :show, :donate, :thank_you ]
-  load_and_authorize_resource :only => [:update, :edit, :dashboard, :end_campaign]
+  # load_resource :find_by => :slug
+  # load_and_authorize_resource :only => [:update, :edit, :dashboard]
   before_filter :set_user
   before_filter :parse_facebook_cookies
-  before_filter :get_project, :except => [:index, :new, :create, :dashboard]
+  before_filter :get_project, :except => [:index, :new, :create]
   before_filter :get_categories
   respond_to :html, :json, :js, :pdf
 
@@ -43,6 +44,7 @@ class ProjectsController < InheritedResources::Base
   end
 
   def dashboard
+    @project = Project.friendly.find(params[:id])
     @graph = Koala::Facebook::API.new(current_user.token)
     session[:project_id] = @project.id
     @page_title = @project.page_title
@@ -66,7 +68,7 @@ class ProjectsController < InheritedResources::Base
   end
 
   def show
-    @project = Project.friendly.find(params[:id])
+    @project = Project.find_by_slug(params[:id])
     @updates = @project.updates
     @page_title = @project.page_title
     @contributions = @project.contributions

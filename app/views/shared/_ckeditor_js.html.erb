@@ -1,0 +1,14 @@
+<script>
+
+  var editor = CKEDITOR.replace('edit_user_article_body', {
+    height: 260
+  } );
+
+  timer = setInterval('updateDiv()',100);
+  function updateDiv(){
+  var editorText = CKEDITOR.instances.edit_user_article_body.getData();
+  $('#edit_user_article_body').html(editorText);
+  }
+
+
+</script>

@@ -1,6 +1,7 @@
 //= require jquery
 //= require jquery_ujs
 //= require bootstrap
+//= require ckeditor-jquery
 //= require bootstrap-wysihtml5
 //= require jasny-bootstrap
 //= require imagesloaded
@@ -14,8 +15,6 @@
 //= require nivo-lightbox
 //= require jquery.validate
 //= require ajaxupload
-//= require wysihtml5
-//= require parser_rules/simple
 //= require_tree ./include
 //= require gmaps4rails/gmaps4rails.base
 //= require gmaps4rails/gmaps4rails.googlemaps

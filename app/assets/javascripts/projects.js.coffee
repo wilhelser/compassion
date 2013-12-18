@@ -11,6 +11,8 @@ $ ->
     $("#disclaimer_modal").modal('show')
     false
 
+  $('#project_page_message').ckeditor()
+
   # $(".project_show_main_image").imagefill()
 
   $("#disclaimer-accept").click ->
@@ -29,8 +31,8 @@ $ ->
     data = $(@).val()
     $("#project_preview_image").attr('src', data)
 
-  $(".wysihtml5").each (i, elem) ->
-    $(elem).wysihtml5()
+  # $(".wysihtml5").each (i, elem) ->
+  #   $(elem).wysihtml5()
 
   $("input[maxlength]").maxlength({
     alwaysShow: true
