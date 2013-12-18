@@ -94,4 +94,5 @@
 / contractor_review_modal_wrap
 - content_for :back_to_project_button do
   = link_to "Back to Project", project_path(@project), :class => "btn btn-success project-dashboard-link pull-right"
-= render 'projects/modals/funded_modal'
+- if @project.funded?
+  = render 'projects/modals/funded_modal'
