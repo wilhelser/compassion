@@ -46,7 +46,7 @@
   %meta{content: "CompassionForHumanity.org", property: "og:site_name"}/
   %meta{content: @project.featured_image, property: "og:image"}/
 - if user_signed_in?
-  - if can? :manage, @project
+  - if current_user.can_manage_project(@project)
     = content_for :action_buttons do
       = link_to "Project Dashboard", dashboard_project_path(@project), :class => "project-dashboard-link btn btn-success"
 = render 'contributions/contribution_modal'
