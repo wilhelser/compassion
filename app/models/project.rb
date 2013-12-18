@@ -27,7 +27,7 @@ class Project < ActiveRecord::Base
   accepts_nested_attributes_for :galleries
   accepts_nested_attributes_for :contributions
   after_create :set_key
-  # after_create :post_to_compassion
+  after_create :post_to_compassion
   after_create :send_new_project_email
 
   scope :approved, -> { where(approved: true) }
@@ -172,14 +172,18 @@ class Project < ActiveRecord::Base
     # "289217204546185|SiM5nY_waJtkr9JjpeLBRluESNc" DEVELOPMENT
   end
 
+  def compassion_page_access_token
+    "CAADSdvZCX9aEBAN1dkD6B78ZAG1iA8UTKuspwdU0WnH1cNGOahUvxxo8ExZALWcltF4MuwD3L8k43TXDkzrXv8i5M3ZCZB3bKN7BO6bQg6krjOd2WOUrOPBN173XuulUkF2lDanjpVLCv3uKs8hBvhvmGC70gTZCAjtq6ayZBCZCleLhmJS4iZCC1"
+  end
+
   def compassion_fb_page_id
     "583630311678418"
   end
 
   def post_to_compassion
     unless self.private?
-      @graph = Koala::Facebook::API.new(compassion_access_token)
-      @graph.put_wall_post("New project posted!", { :name => "#{self.page_title}", :description => "Description here", :link => "http://compassionforhumanity.org/projects/#{self.slug}"})
+      @graph = Koala::Facebook::API.new(compassion_page_access_token)
+      @graph.put_wall_post("New Action posted!", { :name => "#{self.page_title}", :description => "Description here", :link => "http://compassionforhumanity.org/projects/#{self.slug}"})
     end
   end
 
