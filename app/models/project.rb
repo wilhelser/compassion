@@ -43,6 +43,11 @@ class Project < ActiveRecord::Base
     [street_address, city, state, zip_code].compact.join(', ')
   end
 
+  def stripped_content
+    @body = self.page_message
+    return ActionView::Base.full_sanitizer.sanitize(@body)
+  end
+
   #
   # Determines whether Action is a construction project or not
   #
