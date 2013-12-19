@@ -3,7 +3,7 @@ ActiveAdmin.register Category do
 
   index do
     column :name
-    column :order
+    column :position
     column :slug
     actions
   end
@@ -11,7 +11,7 @@ ActiveAdmin.register Category do
   form do |f|
     f.inputs "Details" do
       f.input :name
-      f.input :order, :as => :select, :collection => 1.upto(Category.all.size)
+      f.input :position, :as => :select, :collection => 1.upto(Category.all.size)
       f.input :description
     end
     f.actions
