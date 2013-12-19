@@ -1,4 +1,6 @@
-%div{class: "row page-title visible-desktop #{@page_class}"}
+- if @page_class == 'strip-mini'
+  %div{id: "mini-strip", class: "row page-title #{@page_class}"}
+%div{class: "row page-title"}
   .container
     %h1
       = @page_title
