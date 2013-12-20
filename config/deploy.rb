@@ -51,6 +51,13 @@ namespace :deploy do
   end
 end
 
+namespace :memcached do
+  desc "Flushes memcached local instance"
+  task :flush, :roles => [:app] do
+    run("cd #{current_path} && rake memcached:flush")
+  end
+end
+
   before "deploy:assets:precompile", "deploy:symlink_shared"
   after "deploy:symlink_shared", "deploy:after_symlink"
 
@@ -60,11 +67,22 @@ end
     run "cd #{release_path} && bundle install"
   end
 
+  after 'deploy:update' do
+    memcached.flush
+  end
+
   desc "Remote console on the production appserver"
   task :console, :roles => ENV['ROLE'] || :web do
     hostname = find_servers_for_task(current_task).first
     puts "Connecting to #{hostname}"
     exec "ssh -p 36332 -l #{user} #{hostname} -t 'source ~/.profile && cd #{current_path} && bundle exec rails c #{rails_env}'"
+  end
+
+  namespace :memcached do
+    desc "Flushes memcached local instance"
+    task :flush, :roles => [:app] do
+      run("cd #{current_path} && rake memcached:flush")
+    end
   end
 
 require "rvm/capistrano"
