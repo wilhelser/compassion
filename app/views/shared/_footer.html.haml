@@ -13,14 +13,12 @@
               %li= link_to "Register as an Adjuster", new_adjuster_registration_path
               %li= link_to "Adjuster Log In", adjuster_session_path
               %li= link_to "Contractor Log In", contractor_session_path
-      .footer_widget.span3
-        / RECENT POSTS WERE HERE
-      / footer-widget
-      .footer_widget.span3
-        / TAGS WERE HERE
+      .footer_widget.span5.pull-right#footer-deductible
+        %p *All gifts are tax deductible in the United States as allowed by law. Compassion for Humanity, inc. is recognized by the Internal Revenue Service as a 501(c)3 tax-exempt charity.
   .copyright
     .container
       %p
         &copy; #{footer_year} compassionforhumanity.org ||
         #{link_to "Website Policies", page_path('website-policies')}
+      .clearfix
 = yield :scripts

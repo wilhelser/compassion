@@ -19,6 +19,6 @@ ActiveAdmin.register Page do
       f.input :slug
     end
 
-    f.buttons
+    f.actions
   end
 end
