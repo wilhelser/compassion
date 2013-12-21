@@ -1,9 +1,9 @@
 class ProjectsController < InheritedResources::Base
-  before_filter :authenticate_user!, :except => [:index, :show, :donate, :thank_you ]
+  before_filter :authenticate_user!, :except => [:index, :show, :donate, :thank_you, :share_on_facebook ]
   # load_resource :find_by => :slug
   # load_and_authorize_resource :only => [:update, :edit, :dashboard]
   before_filter :set_user
-  before_filter :parse_facebook_cookies
+  # before_filter :parse_facebook_cookies
   before_filter :get_project, :except => [:index, :new, :create]
   before_filter :get_categories
   respond_to :html, :json, :js, :pdf
@@ -96,13 +96,21 @@ class ProjectsController < InheritedResources::Base
   end
 
   def thank_you
+    @oauth = Koala::Facebook::OAuth.new(231408540317089,"7758a40a88cf75e51df02496c4390078", "http://compassionforhumanity.org/projects/#{@project.id}/thank_you")
+    @oauth_url = @oauth.url_for_oauth_code(:permissions => "publish_stream")
+    if params[:code]
+      @cookie = params[:code]
+      @token = @oauth.get_access_token(@cookie)
+      session[:temp_token] = @token
+    end
     @page_title = "Thank you for your support!"
   end
 
   def share_on_facebook
-    @token = current_user.token
+    @token = session[:temp_token].blank? ? current_user.token : session[:temp_token]
     @graph = Koala::Facebook::API.new(@token)
     @graph.put_connections("me", "comphuman:donate", :project => @project.long_link)
+    session[:temp_token] = ""
   end
 
   def select_project_contractor
