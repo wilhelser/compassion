@@ -51,22 +51,32 @@ namespace :deploy do
   end
 end
 
-  before "deploy:assets:precompile", "deploy:symlink_shared"
-  after "deploy:symlink_shared", "deploy:after_symlink"
-
-  after "deploy:update_code", :bundle_install
-  desc "install the necessary prerequisites"
-  task :bundle_install, :roles => :app do
-    run "cd #{release_path} && bundle install"
+namespace :memcached do
+  desc "Flushes memcached local instance"
+  task :flush, :roles => [:app] do
+    run("cd #{current_path} && rake memcached:flush")
   end
+end
 
-  desc "Remote console on the production appserver"
-  task :console, :roles => ENV['ROLE'] || :web do
-    hostname = find_servers_for_task(current_task).first
-    puts "Connecting to #{hostname}"
-    exec "ssh -p 36332 -l #{user} #{hostname} -t 'source ~/.profile && cd #{current_path} && bundle exec rails c #{rails_env}'"
-  end
+before "deploy:assets:precompile", "deploy:symlink_shared"
+after "deploy:symlink_shared", "deploy:after_symlink"
+
+after "deploy:update_code", :bundle_install
+after 'deploy:update' do
+  memcached.flush
+end
+desc "install the necessary prerequisites"
+task :bundle_install, :roles => :app do
+  run "cd #{release_path} && bundle install"
+end
+
+desc "Remote console on the production appserver"
+task :console, :roles => ENV['ROLE'] || :web do
+  hostname = find_servers_for_task(current_task).first
+  puts "Connecting to #{hostname}"
+  exec "ssh -p 36332 -l #{user} #{hostname} -t 'source ~/.profile && cd #{current_path} && bundle exec rails c #{rails_env}'"
+end
 
 require "rvm/capistrano"
-        require './config/boot'
-        require 'airbrake/capistrano'
+require './config/boot'
+require 'airbrake/capistrano'
