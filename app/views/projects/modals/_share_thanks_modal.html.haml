@@ -1,0 +1,9 @@
+#share_thanks_modal.modal.hide.fade
+  .modal-header
+    %button.close{"aria-hidden" => "true", "data-dismiss" => "modal"} &#215;
+    %h3 Thank you!
+  .modal-body
+    %p Your Act of Compassion has been shared!
+  .modal-footer
+    = link_to "Home", '/', class: "btn btn-success pull-left"
+    = link_to "Back to Project", @project, class: "btn btn-primary pull-right"

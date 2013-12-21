@@ -1,1 +1,11 @@
-= render 'projects/share_on_fb'
+.span5
+  %p Do you want to share your act of compassion of Facebook?
+  .divider
+  - if user_signed_in? || token_exists?
+    = link_to "Share on Facebook", share_on_facebook_project_path(@project.id), :method => :post, :remote => true, :class => "btn btn-primary btn-large pull-left", "data-disable-with" => "Sharing..."
+  -else
+    = link_to "Share", @oauth_url, :class => "btn btn-primary btn-large pull-left", "data-disable-with" => "Authorizing..."
+    = render 'share_on_fb_js'
+  = link_to "No, thanks!", '/', class: "btn btn-success btn-large pull-right"
+  -# = render 'projects/share_on_fb'
+= render 'projects/modals/share_thanks_modal'
