@@ -113,6 +113,12 @@ class ProjectsController < InheritedResources::Base
     session[:temp_token] = ""
   end
 
+  def share_created
+    @token = current_user.token
+    @graph = Koala::Facebook::API.new(@token)
+    @graph.put_connections("me", "comphuman:create", :project => @project.long_link)
+  end
+
   def select_project_contractor
     @project = Project.find(params[:project_id])
     @contractor = Contractor.find(params[:contractor_id])

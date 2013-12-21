@@ -1,0 +1,13 @@
+#share_create_modal.modal.hide.fade
+  .modal-header
+    %button.close{"aria-hidden" => "true", "data-dismiss" => "modal"} &#215;
+    %h3 Tell your friends!
+  .modal-body
+    %p Your Action has been created! Why not tell your friends about it?
+  .modal-footer
+    = button_to "Share on Facebook", share_created_project_path(@project), class: "btn btn-primary btn-large pull-right", remote: true
+- if @project.new_created?
+  :javascript
+    $(document).ready(function() {
+      $("#share_create_modal").modal('show');
+    });

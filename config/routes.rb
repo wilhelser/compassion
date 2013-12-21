@@ -48,6 +48,7 @@ Compassion::Application.routes.draw do
       post "set_project_contractor"
       post "share_on_facebook"
       get "end_campaign"
+      post "share_created"
     end
     resources :galleries
     resources :contractor_selections

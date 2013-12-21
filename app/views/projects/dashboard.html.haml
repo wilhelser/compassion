@@ -35,6 +35,7 @@
         %a.btn.btn-success{"data-target" => "#estimates"} Estimates
   .tab-content
     #project_dashboard_response_box.alert.hide Your project has been updated!
+    = @new_created
     #home.tab-pane.active
       .divider
       %h4 Your Project Updates
@@ -96,3 +97,4 @@
   = link_to "Back to Project", project_path(@project), :class => "btn btn-success project-dashboard-link pull-right"
 - if @project.funded?
   = render 'projects/modals/funded_modal'
+= render 'projects/modals/share_create_modal'
