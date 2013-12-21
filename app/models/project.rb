@@ -35,6 +35,7 @@ class Project < ActiveRecord::Base
   scope :in_progress, -> { where(status: 'In Progress') }
   scope :funded, -> { where(funded: true) }
   scope :complete, -> { where(campaign_ended: true) }
+  scope :donatable, -> { where('goal_amount > ?', 0) }
 
   #
   # Builds full address from project address fields
