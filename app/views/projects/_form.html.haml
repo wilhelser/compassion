@@ -3,6 +3,22 @@
     %legend
       Project Category
       %small Select all that apply
+    #new-project-trades-wrap.hide
+      %p <strong>Construction Categories</strong>
+      .divider
+      .one-half.pull-left
+        .control-group.check_boxes.optional.project_trades
+          .controls
+            - Trade.first(10).each do |t|
+              %label.checkbox
+                %input.check_boxes.optional{id: "project_trade_ids_#{t.id}", name: "project[trade_ids][]", type: "checkbox", value: "#{t.id}"}> #{t.name}
+      .one-half.pull-right
+        .control-group.check_boxes.optional.project_trades
+          .controls
+            - Trade.last(9).each do |t|
+              %label.checkbox
+                %input.check_boxes.optional{id: "project_trade_ids_#{t.id}", name: "project[trade_ids][]", type: "checkbox", value: "#{t.id}"}> #{t.name}
+      .clearfix
     = f.association :categories, :as => :check_boxes, :label => false
     .divider
   .clearfix

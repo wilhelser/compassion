@@ -1,11 +1,10 @@
 $ ->
-  $("#project_category_ids_8").change ->
+  $("#project_category_ids_4").change ->
     if $(@).is(':checked')
-      $("#goal_amount_wrap").hide()
-      $("#address_info_wrap").show()
+      $("#new-project-trades-wrap").slideDown()
     else
-      $("#goal_amount_wrap").show()
-      $("#address_info_wrap").hide()
+      $("#new-project-trades-wrap").slideUp()
+      $("input[name='project[trade_ids][]'").prop('checked', false)
 
   $(".needs-acceptance").click ->
     $("#disclaimer_modal").modal('show')
