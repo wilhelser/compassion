@@ -5,11 +5,14 @@
       - @categories.each do |category|
         %li{class: current_class?(category_path(category))}
           = link_to "#{category.name}", category
-.span9.omega{id: ""}
-  - if @projects.any?
-    = render @projects
-    = will_paginate @projects, renderer: BootstrapPagination::Rails
-  - else
-    %h4
-      Sorry, no results for the query "#{@query}"
-.clearfix
+- if @no_paginate == true
+  = render 'show_no_pagination'
+-else
+  .span9.omega{id: ""}
+    - if @projects.any?
+      = render @projects
+      = will_paginate @projects, renderer: BootstrapPagination::Rails
+    - else
+      %h4
+        Sorry, no results for the query "#{@query}"
+  .clearfix

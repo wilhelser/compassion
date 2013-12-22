@@ -8,6 +8,10 @@ class CategoriesController < ApplicationController
     elsif params[:id] == 'nearby'
       @projects = Project.approved.near([@lat, @long], 50).paginate(:page => params[:page], :per_page => 8)
       @page_title = "Projects Near: #{@location_city}"
+    elsif params[:id] == "friends"
+      @projects = current_user.get_friends_projects
+      @page_title = "Projects Created by Friends"
+      @no_paginate = true
     else
       @category = Category.friendly.find(params[:id])
       @projects = @category.projects.approved.paginate(:page => params[:page], :per_page => 8)
@@ -16,3 +20,4 @@ class CategoriesController < ApplicationController
     @categories = Category.all
   end
 end
+

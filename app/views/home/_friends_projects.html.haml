@@ -1,0 +1,14 @@
+#home-friends-wrap.home-projects-wrap
+  .title
+    %h4
+      Created by Friends
+  - if @friends_projects.any?
+    = render partial: 'projects/project', :collection => @friends_projects
+  - else
+    %p
+      Sorry, no results found.
+  .clearfix
+  .divider
+  - if @friends_projects.any?
+    = link_to "See All", category_path(id: "friends"), :class => "btn btn-success btn-mini pull-right"
+  .clearfix
