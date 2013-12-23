@@ -1,6 +1,7 @@
 ActiveAdmin.register Contribution do
   # Filters
   filter :project
+  filter :categories
   filter :amount
   filter :private
   filter :first_name

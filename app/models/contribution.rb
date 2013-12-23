@@ -10,6 +10,7 @@ class Contribution < ActiveRecord::Base
   default_scope -> { order('created_at DESC') }
 
   attr_accessor :stripe_card_token
+  attr_accessor :categories
 
   def name
     [first_name, last_name].compact.join(' ')
@@ -26,6 +27,10 @@ class Contribution < ActiveRecord::Base
 
   def to_s
     id
+  end
+
+  def categories
+    self.project.categories
   end
 
   def donor_class

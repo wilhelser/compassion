@@ -1,6 +1,5 @@
 class ApplicationController < ActionController::Base
   protect_from_forgery
-  before_filter :get_request_coordinates
 
   rescue_from CanCan::AccessDenied do |exception|
     redirect_to root_path, :alert => exception.message
@@ -15,29 +14,6 @@ class ApplicationController < ActionController::Base
       dashboard_contractor_path(resource)
     else
       super
-    end
-  end
-
-  def get_request_coordinates
-    if request.location.city.blank?
-      @location_city = "Denton"
-    else
-      @location_city = request.location.city
-    end
-    if request.location.latitude.blank?
-      @lat = 33.2201
-    else
-      @lat = request.location.latitude
-    end
-    if request.location.longitude.blank?
-      @long = -97.1502
-    else
-      @long = request.location.longitude
-    end
-    if request.location.country_code.blank?
-      @location_country = "US"
-    else
-      @location_country = request.location.country_code
     end
   end
 
