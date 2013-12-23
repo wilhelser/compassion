@@ -5,7 +5,6 @@ class HomeController < ApplicationController
 
   def index
     @page_title = "Changing the World Together"
-    @projects = Project.donatable.last(4)
     @categories = Category.all
     @projects_near_me = Project.donatable.near([@lat, @long], 50).limit(4)
     if user_signed_in?
@@ -19,6 +18,7 @@ class HomeController < ApplicationController
       @projects_from_friends = no_user_get_friends_projects(@token)
       @friends_projects = @projects_from_friends.first(4)
     end
+    @projects = Project.donatable.last(4)
   end
 
   def fb_callback
