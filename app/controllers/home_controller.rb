@@ -12,7 +12,7 @@ class HomeController < ApplicationController
       @projects_from_friends = current_user.get_friends_projects
       @friends_projects = @projects_from_friends.first(4)
     end
-    @oauth = Koala::Facebook::OAuth.new(231408540317089,"7758a40a88cf75e51df02496c4390078", "http://compassionforhumanity.org")
+    @oauth = Koala::Facebook::OAuth.new(231408540317089,"7758a40a88cf75e51df02496c4390078", "http://compassionforhumanity.org/projects/by_friends")
     @oauth_url = @oauth.url_for_oauth_code
     if params[:code]
       @cookie = params[:code]

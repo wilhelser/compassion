@@ -106,6 +106,17 @@ class ProjectsController < InheritedResources::Base
     @page_title = "Thank you for your support!"
   end
 
+  def by_friends
+    @categories = Category.all
+    if params[:code]
+      @cookie = params[:code]
+      @token = @oauth.get_access_token(@cookie)
+      session[:temp_token] = @token
+      @projects = no_user_get_friends_projects(@token)
+    end
+    @page_title = "Action Created by Friends"
+  end
+
   def share_on_facebook
     @token = session[:temp_token].blank? ? current_user.token : session[:temp_token]
     @graph = Koala::Facebook::API.new(@token)

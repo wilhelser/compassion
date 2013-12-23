@@ -62,6 +62,8 @@ Compassion::Application.routes.draw do
     end
   end
 
+  get 'projects/by_friends'
+
   resources :users
   resources :users do
     member do
