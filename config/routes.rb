@@ -62,7 +62,7 @@ Compassion::Application.routes.draw do
     end
   end
 
-  get 'projects/by_friends'
+  get 'home/fb_callback'
 
   resources :users
   resources :users do

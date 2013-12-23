@@ -12,14 +12,22 @@ class HomeController < ApplicationController
       @projects_from_friends = current_user.get_friends_projects
       @friends_projects = @projects_from_friends.first(4)
     end
-    @oauth = Koala::Facebook::OAuth.new(231408540317089,"7758a40a88cf75e51df02496c4390078", "http://compassionforhumanity.org/projects/by_friends")
+    @oauth = Koala::Facebook::OAuth.new(231408540317089,"7758a40a88cf75e51df02496c4390078", "http://compassionforhumanity.org/home/fb_callback")
     @oauth_url = @oauth.url_for_oauth_code
+    unless session[:temp_token].blank?
+      @token = session[:temp_token]
+      @projects_from_friends = no_user_get_friends_projects(@token)
+      @friends_projects = @projects_from_friends.first(4)
+    end
+  end
+
+  def fb_callback
+    @oauth = Koala::Facebook::OAuth.new(231408540317089,"7758a40a88cf75e51df02496c4390078", "http://compassionforhumanity.org/home/fb_callback")
     if params[:code]
       @cookie = params[:code]
       @token = @oauth.get_access_token(@cookie)
       session[:temp_token] = @token
-      @projects_from_friends = no_user_get_friends_projects(@token)
-      @friends_projects = @projects_from_friends.first(4)
+      redirect_to root_path
     end
   end
 
