@@ -4,7 +4,7 @@ class ProjectsController < InheritedResources::Base
   # load_and_authorize_resource :only => [:update, :edit, :dashboard]
   before_filter :set_user
   # before_filter :parse_facebook_cookies
-  before_filter :get_project, :except => [:index, :new, :create, :by_friends]
+  before_filter :get_project, :except => [:index, :new, :create]
   before_filter :get_categories
   respond_to :html, :json, :js, :pdf
 
@@ -104,17 +104,6 @@ class ProjectsController < InheritedResources::Base
       session[:temp_token] = @token
     end
     @page_title = "Thank you for your support!"
-  end
-
-  def by_friends
-    @categories = Category.all
-    if params[:code]
-      @cookie = params[:code]
-      @token = @oauth.get_access_token(@cookie)
-      session[:temp_token] = @token
-      @projects = no_user_get_friends_projects(@token)
-    end
-    @page_title = "Action Created by Friends"
   end
 
   def share_on_facebook
