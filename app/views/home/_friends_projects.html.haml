@@ -4,7 +4,8 @@
       Created by Friends
   - if user_signed_in? || token_exists?
     - if @friends_projects.any?
-      = render partial: 'projects/project', :collection => @friends_projects
+      - @friends_projects.each do |p|
+        = render partial: 'projects/friends_project', :locals => { project: p }
     - else
       %p
         Sorry, no results found.

@@ -13,6 +13,7 @@ class UsersController < InheritedResources::Base
 
   def dashboard
     @user = current_user
+    session[:temp_token] = ""
     @projects = @user.projects
     @page_title = "Your Dashboard"
   end

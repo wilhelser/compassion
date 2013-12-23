@@ -1,3 +1,4 @@
 .span9.omega{id: ""}
-  = render @projects
+  - @projects.each do |p|
+    = render partial: 'projects/friends_project', :locals => { project: p }
 .clearfix
