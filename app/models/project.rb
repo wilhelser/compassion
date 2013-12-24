@@ -8,7 +8,7 @@ class Project < ActiveRecord::Base
   has_and_belongs_to_many :categories
   has_and_belongs_to_many :trades
 
-  attr_accessible :approved, :goal_amount, :page_message, :page_title, :slug, :zip_code, :featured_image, :featured_video, :category_ids, :street_address, :city, :state, :latitude, :longitude, :user_id, :notify_on_donate, :private, :contractor_selection_attributes, :has_reviewed_contractor, :backer_count, :project_deadline, :reason_for_deadline, :funded, :funded_date, :galleries_attributes, :contributions_attributes, :funded_confirm, :campaign_ended, :key, :trade_ids
+  attr_accessible :approved, :goal_amount, :page_message, :page_title, :slug, :zip_code, :featured_image, :featured_video, :category_ids, :street_address, :city, :state, :latitude, :longitude, :user_id, :notify_on_donate, :private, :contractor_selection_attributes, :has_reviewed_contractor, :backer_count, :project_deadline, :reason_for_deadline, :funded, :funded_date, :galleries_attributes, :contributions_attributes, :funded_confirm, :campaign_ended, :key, :trade_ids, :status
   validates :page_message, :page_title, :zip_code, :category_ids, :slug, presence: true
   validates :street_address, :city, :state, presence: true, :if => Proc.new{ self.category_ids.include?(4) }
   validates_uniqueness_of :slug
@@ -193,14 +193,21 @@ class Project < ActiveRecord::Base
     end
   end
 
+  def has_excess_funds
+    true if total_contributions > goal_amount
+  end
+
   def set_to_funded
-    self.update_attribute('status', 'Funded')
-    self.update_attribute('funded', true)
+    self.update_attributes(status: 'Funded', funded: true, funded_date: Date.today)
     unless self.construction_project?
       send_funded_email
     end
     # @graph = Koala::Facebook::API.new(compassion_access_token)
     # @graph.put_wall_post("Another Compassion project funded!", { :name => "#{self.page_title}", :description => "Funded!", :link => "http://compassionforhumanity.org/projects/#{self.slug}"})
+  end
+
+  def end_campaign
+    self.update_attributes(campaign_ended: true, status: "Complete")
   end
 
   def update_goal_amount

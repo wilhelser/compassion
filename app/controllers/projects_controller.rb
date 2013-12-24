@@ -92,7 +92,8 @@ class ProjectsController < InheritedResources::Base
   end
 
   def end_campaign
-
+    @project.end_campaign
+    @page_title = "End Campaign"
   end
 
   def thank_you
