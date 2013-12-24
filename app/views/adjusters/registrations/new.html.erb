@@ -23,7 +23,7 @@
     <p><small>We need this information because you are assigned projects based on your geographic location.</small></p>
     <%= f.input :street_address %>
     <%= f.input :city %>
-    <%= f.input :state %>
+    <%= f.input :state, :as => :select, :collection => us_states, :required => true %>
     <%= f.input :zip_code, :as => :string %>
   </fieldset>
 

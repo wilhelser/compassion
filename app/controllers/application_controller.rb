@@ -8,6 +8,8 @@ class ApplicationController < ActionController::Base
   def devise_parameter_sanitizer
     if resource_class == Contractor
       Contractor::ParameterSanitizer.new(Contractor, :contractor, params)
+    elsif resource_class == Adjuster
+      Adjuster::ParameterSanitizer.new(Adjuster, :adjuster, params)
     else
       super # Use the default one
     end
