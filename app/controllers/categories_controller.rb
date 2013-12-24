@@ -19,7 +19,7 @@ class CategoriesController < ApplicationController
       @page_title = "Projects Created by Friends"
       @no_paginate = true
     else
-      @category = Category.friendly.find(params[:id])
+      @category = Category.find(params[:id])
       @projects = @category.projects.approved.paginate(:page => params[:page], :per_page => 8)
       @page_title = "#{@category.name}"
     end
