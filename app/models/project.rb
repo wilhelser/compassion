@@ -28,7 +28,7 @@ class Project < ActiveRecord::Base
   accepts_nested_attributes_for :galleries
   accepts_nested_attributes_for :contributions
   after_create :set_key
-  after_create :post_to_compassion
+  # after_create :post_to_compassion
   after_create :send_new_project_email
 
   scope :approved, -> { where(approved: true) }

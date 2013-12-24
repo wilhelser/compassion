@@ -1,0 +1,21 @@
+<script>
+  $(document).ready(function() {
+    seen_code = false;
+    seen_ar = false;
+
+    $("#fire-cpb-modal").click(function() {
+      seen_code = true;
+      checkValid();
+    });
+
+    $("#fire-car-modal").click(function() {
+      seen_ar = true;
+      checkValid();
+    });
+      function checkValid() {
+        if (seen_code == true && seen_ar == true) {
+          $("#new_contractor_signup_button").removeClass('disabled');
+        }
+        }
+  });
+</script>
