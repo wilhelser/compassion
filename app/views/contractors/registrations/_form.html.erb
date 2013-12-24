@@ -30,10 +30,12 @@
   </fieldset>
   <div class="divider"></div>
   <div class="span7">
-    <%= f.input :terms, :label => "By clicking this box, you understand and are agreeing to all the items outlined in the Contractor Code of Business Practices and Application Requirements and give us permission to contact the references given in your application." %>
+    <%= f.input :terms, inline_label: "By clicking this box, you understand and are agreeing to all the items outlined in the Contractor Code of Business Practices and Application Requirements and give us permission to contact the references given in your application." %>
   </div>
 <div class="clearfix"></div>
 </div>
 <div class="divider"></div>
   <%= f.button :submit, "Sign Up", :class => "btn btn-primary btn-large" %>
 <% end %>
+
+
