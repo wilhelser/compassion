@@ -5,6 +5,14 @@ class ApplicationController < ActionController::Base
     redirect_to root_path, :alert => exception.message
   end
 
+  def devise_parameter_sanitizer
+    if resource_class == Contractor
+      Contractor::ParameterSanitizer.new(Contractor, :contractor, params)
+    else
+      super # Use the default one
+    end
+  end
+
   def after_sign_out_path_for(resource_or_scope)
     root_path
   end

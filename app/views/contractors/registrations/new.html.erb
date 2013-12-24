@@ -4,45 +4,7 @@
 <p>If approved, a contractor will benefit from their high standard of business practices. Future opportunities from Compassion for Humanity will be the result of the contractor's timely response, quality of work, customer service, communication, integrity, experience and good online reviews from the people we help.</p>
 <p id="read-contractor-docs">Please review and agree to the terms and conditions of the <a id="fire-cpb-modal" href="#business_practices" data-toggle="modal">Contractor Code of Business Practices</a> and <a id="fire-car-modal" href="#application_requirements" data-toggle="modal">Application Requirements</a>. You can also download them <a href="<%= image_path('Compassion-for-Humanitys-Contractor-Code-of-Business-Practices-&-Application-Requirements-as-of-9-2013.pdf') %>" target="_blank">here</a>.</p>
 <div class="divider"></div>
-<%= simple_form_for(resource, :as => resource_name, :url => registration_path(resource_name)) do |f| %>
-<%= f.error_notification %>
-<div class="form-inputs">
-  <fieldset>
-    <legend>Create your Login Information</legend>
-    <div class="span4">
-      <%= f.input :email, :required => true %>
-    </div>
-    <div class="span4">
-      <%= f.input :password, :required => true %>
-    </div>
-    <div class="span3">
-      <%= f.input :password_confirmation, :required => true %>
-    </div>
-  </fieldset>
-  <fieldset>
-    <legend>Basic Company Information</legend>
-    <div class="span4">
-      <%= f.input :name, :required => true, :label => "Company Name" %>
-      <%= f.input :state, :as => :select, :collection => us_states, :required => true %>
-    </div>
-    <div class="span4">
-      <%= f.input :street_address, :required => true, :label => "Primary Business Address" %>
-      <%= f.input :zip_code, :as => :string, :required => true %>
-    </div>
-    <div class="span3">
-      <%= f.input :city, :required => true %>
-      <%= f.input :coverage_radius, :as => :select, :collection => coverage_radius_options, :label => "Coverage Radius ( in miles )" %>
-    </div>
-  </fieldset>
-  <div class="divider"></div>
-  <div class="span7">
-    <%= f.input :terms, :label => "By clicking this box, you understand and are agreeing to all the items outlined in the Contractor Code of Business Practices and Application Requirements and give us permission to contact the references given in your application." %>
-  </div>
-<div class="clearfix"></div>
-</div>
-<div class="divider"></div>
-  <%= f.button :submit, "Sign Up", :class => "btn btn-primary btn-large" %>
-<% end %>
+<%= render 'form' %>
 <%= render 'contractors/code_modal' %>
 <%= render 'contractors/app_requirements_modal' %>
 
