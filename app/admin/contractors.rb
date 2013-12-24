@@ -10,7 +10,7 @@ ActiveAdmin.register Contractor do
 
 
   index do
-    selectable_columns
+    selectable_column
     column :name
     column :city
     column :state
