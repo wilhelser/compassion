@@ -13,7 +13,6 @@ class ContractorsController < InheritedResources::Base
 
   def new
     @page_title = "Register as a Contractor"
-    @contractor = Contractor.new
   end
 
   def show

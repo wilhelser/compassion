@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20131221050536) do
+ActiveRecord::Schema.define(version: 20131224164717) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -147,7 +147,7 @@ ActiveRecord::Schema.define(version: 20131221050536) do
     t.integer  "zip_code",                     limit: 8,                           null: false
     t.float    "latitude"
     t.float    "longitude"
-    t.integer  "coverage_radius",                                                  null: false
+    t.integer  "coverage_radius",                        default: 25
     t.string   "logo"
     t.datetime "created_at",                                                       null: false
     t.datetime "updated_at",                                                       null: false

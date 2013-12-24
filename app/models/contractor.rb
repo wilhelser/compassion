@@ -20,7 +20,7 @@ class Contractor < ActiveRecord::Base
   accepts_nested_attributes_for :addresses, :allow_destroy => true
 
   geocoded_by :address
-  after_validation :geocode
+  # after_create :geocode
 
   scope :pending, -> { where(status: 'Pending') }
   scope :approved, -> { where(status: 'Approved') }

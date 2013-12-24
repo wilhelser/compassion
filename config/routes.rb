@@ -16,6 +16,7 @@ Compassion::Application.routes.draw do
   resources :addresses
   resources :references
   resources :galleries
+  resources :contractors
 
   resources :contractors do
     resources :references
