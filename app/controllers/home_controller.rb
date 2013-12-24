@@ -12,7 +12,7 @@ class HomeController < ApplicationController
       @projects_from_friends = current_user.get_friends_projects
       @friends_projects = @projects_from_friends.first(4)
     end
-    @oauth = Koala::Facebook::OAuth.new(ENV['FB_APP_ID'],"#{ENV['FB_SECRET_KEY']}", "http://compassionforhumanity.org/home/fb_callback")
+    @oauth = Koala::Facebook::OAuth.new(ENV['FB_APP_ID'],"#{ENV['FB_SECRET_KEY']}", "http://compassion.dev/home/fb_callback")
     @oauth_url = @oauth.url_for_oauth_code
     unless session[:temp_token].blank?
       @token = session[:temp_token]
@@ -23,7 +23,7 @@ class HomeController < ApplicationController
   end
 
   def fb_callback
-    @oauth = Koala::Facebook::OAuth.new(ENV['FB_APP_ID'],"#{ENV['FB_SECRET_KEY']}", "http://compassionforhumanity.org/home/fb_callback")
+    @oauth = Koala::Facebook::OAuth.new(ENV['FB_APP_ID'],"#{ENV['FB_SECRET_KEY']}", "http://compassion.dev/home/fb_callback")
     if params[:code]
       @cookie = params[:code]
       @token = @oauth.get_access_token(@cookie)

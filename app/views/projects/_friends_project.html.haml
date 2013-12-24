@@ -1,21 +1,15 @@
 = div_for(project, :class => "project-card project-friend-card") do
-  .project-thumb-wrapper
-    = link_to project do
-      %img{src: "#{project.image_url}", alt: "#{project.page_title}", width: "200", height: "150"}
+  .project-thumb-wrapper.fp-thumb-wrapper
+    %img{alt: "#{project.user.name}", height: "150", src: project.user.facebook_image(150, 200), width: "200"}
   / project-thumb-wrapper
   .clearfix
   %h5.bbcard_name
-    = link_to project do
-      = project.page_title
+    = project.user.name
   .divider
   .clearfix
   .fp-friend-wrap
     .fp-friend-left
-      %img.thumbnail{alt: "#{project.user.name}", height: "61", src: project.user.facebook_image(61, 61), width: "61"}
+      %img.thumbnail{alt: "#{project.image_url}", height: "61", src: "#{project.image_url}", width: "61"}
     .fp-friend-right
-      %p
-        = project.user.name
-        %br
-        = project.user.city unless project.user.city.blank?
-        = project.user.state unless project.user.state.blank?
+      = link_to "#{project.page_title}", project
   .clear
