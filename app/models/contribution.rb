@@ -3,7 +3,7 @@ class Contribution < ActiveRecord::Base
   attr_accessible :amount, :project_id, :comments, :stripe_card_token, :public, :address, :address_2, :city, :email, :first_name, :image, :last_name, :private, :state, :zip_code
   validates :amount, :project_id, :email, :first_name, :last_name, :presence => true
   after_save :check_funded_status
-  belongs_to :project
+  belongs_to :project, touch: true
 
   scope :public, -> { where(private: false) }
   scope :private, -> { where(private: true) }
