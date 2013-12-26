@@ -1,6 +1,6 @@
 class ContractorsController < InheritedResources::Base
   respond_to :html, :json, :js
-  before_filter :authenticate_contractor!, :only => [:dashboard]
+  before_filter :authenticate_contractor!, :only => [:dashboard, :update]
 
   def index
     if params[:query]
