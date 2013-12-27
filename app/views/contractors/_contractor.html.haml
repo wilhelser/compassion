@@ -2,9 +2,11 @@
   = div_for(contractor, :class => "contractor_index_main_container") do
     .contractor_index_wrap
       .ci_logo
-        - unless contractor.logo.blank?
+        - if contractor.logo.blank?
+          = image_tag 'profile-placeholder.png', width: "150", height: "75", class: "thumbnail"
+        - else
           .thumbnail
-            = filepicker_image_tag contractor.logo, w: 150, h: 75, fit: 'clip', cache: true, :class => "thumbnail"
+            = filepicker_image_tag contractor.logo, w: 150, h: 75, fit: 'clip', cache: true
       .ci_namelink
         %h5
           = contractor.name
