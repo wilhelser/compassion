@@ -6,6 +6,8 @@ $ ->
       $(this).data "score"
     readOnly: true
 
+  $('#contractor_description').ckeditor()
+
   $("#new_contractor_signup_button").click ->
     if $(@).hasClass('disabled')
       alert('You must read the Contactor Code of Business Practices and Application Requirements!')

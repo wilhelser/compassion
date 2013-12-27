@@ -1,15 +1,6 @@
 #profile.tab-pane
   = simple_form_for @contractor, :remote => true, :html => { :method => "put"} do |f|
-    = render "contractors/dashboard/toolbar"
-    = f.input :description, :class => "span8", :rows => "10", "data-ideal" => "required", :input_html => { :id => "wysihtml5-textarea" }, :label => false
+    = f.input :description, :class => "span8 ckeditor", :rows => "10", "data-ideal" => "required", :input_html => { :id => "contractor_description" }, :label => false
     .clearfix
     .divider
     = f.submit 'Update Profile', :class => "btn btn-primary"
-:javascript
-  $(document).ready(function() {
-    var editor = new wysihtml5.Editor("wysihtml5-textarea", {
-      toolbar:      "wysihtml5-editor-toolbar",
-      // stylesheets:  "#{stylesheet_path('wysiwyg')}",
-      parserRules:  wysihtml5ParserRules
-    });
-  });

@@ -68,7 +68,7 @@ class ProjectsController < InheritedResources::Base
   end
 
   def show
-    @project = Project.find_by_slug(params[:id])
+    @project = Project.friendly.find(params[:id])
     @updates = @project.updates
     @page_title = @project.page_title
     @contributions = @project.contributions
