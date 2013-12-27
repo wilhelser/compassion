@@ -1,8 +1,9 @@
 %p#notice
   = notice
 .span7
-  #contractor_profile_image.thumbnail
-    = filepicker_image_tag @contractor.logo, w: 300, h: 200, fit: 'clip', cache: true, :class => "thumbnail"
+  #contractor_profile_image
+    - unless @contractor.logo.blank?
+      = filepicker_image_tag @contractor.logo, w: 300, h: 200, fit: 'clip', cache: true, :class => "thumbnail"
   %p
     %strong Coverage radius:
     = @contractor.coverage_radius
