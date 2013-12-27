@@ -7,7 +7,7 @@ class HomeController < ApplicationController
   def index
     @page_title = "Changing the World Together"
     @categories = Category.all
-    @projects_near_me = Project.donatable.near([@lat, @long], 50).limit(4)
+    @projects_near_me = Project.approved.near([@lat, @long], 50).limit(4)
     if user_signed_in?
       @projects_from_friends = current_user.get_friends_projects
       @friends_projects = @projects_from_friends.first(4)
@@ -19,7 +19,7 @@ class HomeController < ApplicationController
       @projects_from_friends = no_user_get_friends_projects(@token)
       @friends_projects = @projects_from_friends.first(4)
     end
-    @projects = Project.donatable.last(4)
+    @projects = Project.approved.last(4)
   end
 
   def fb_callback
