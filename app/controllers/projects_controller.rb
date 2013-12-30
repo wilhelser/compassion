@@ -78,6 +78,17 @@ class ProjectsController < InheritedResources::Base
     if @project.has_estimate?
       @estimates = @project.estimates
     end
+    respond_to do |format|
+      format.html
+      format.json { render json: @project }
+      format.js
+      format.pdf do
+        pdf = ProjectPdf.new(@project, view_context)
+          send_data pdf.render, filename: "#{@project.slug}.pdf",
+                                type: "application/pdf",
+                                disposition: "inline"
+      end
+    end
   end
 
   def destroy

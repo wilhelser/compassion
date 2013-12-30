@@ -2,3 +2,4 @@
   .span5.pull-left
     = render 'projects/share_buttons'
   .span3.pull-right
+    = link_to "Print a Flyer", project_path(@project, :format => "pdf"), target: "_blank"
