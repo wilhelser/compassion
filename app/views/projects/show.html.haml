@@ -44,7 +44,8 @@
   %meta{content: @project.page_title, property: "og:title"}/
   %meta{content: @project.page_message.html_safe, property: "og:description"}/
   %meta{content: "CompassionForHumanity.org", property: "og:site_name"}/
-  %meta{content: @project.featured_image, property: "og:image"}/
+  - unless @project.featured_image.blank?
+    %meta{content: @project.featured_image, property: "og:image"}/
 - if user_signed_in?
   - if current_user.can_manage_project(@project)
     = content_for :action_buttons do
