@@ -1,6 +1,7 @@
 class Donation < ActiveRecord::Base
   attr_accessible :amount, :city, :comments, :name, :state, :zip_code, :stripe_card_token, :email
   validates_presence_of :amount
+  validates_numericality_of :amount, :message => "must not contain any punctuation"
 
   attr_accessor :stripe_card_token
 
