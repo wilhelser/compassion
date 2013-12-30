@@ -22,7 +22,8 @@
           - if @project.has_video?
             = @project.featured_video_html
           - else
-            %img{src: "#{@project.image_url}", width: "770"}
+            - unless @project.featured_image.blank?
+              %img{src: "#{@project.image_url}", width: "770"}
         .project-social.well
           = render "share_buttons"
         .project-content.well
