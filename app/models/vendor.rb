@@ -10,4 +10,5 @@ class Vendor < ActiveRecord::Base
   def vendor_total
     project.vendors.sum(:amount)
   end
+
 end

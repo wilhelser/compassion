@@ -39,4 +39,5 @@ class VendorsController < InheritedResources::Base
     @vendors = @project.vendors
     @project.update_goal_amount
   end
+
 end
