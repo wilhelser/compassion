@@ -1,15 +1,5 @@
 <%= simple_form_for Vendor.new, :url => project_vendors_path(@project.id), :html => { :multipart => true }, :method => "post", :remote => true do |f| %>
-  <% if @vendor.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(@vendor.errors.count, "error") %> prohibited this vendor from being saved:</h2>
-
-      <ul>
-      <% @vendor.errors.full_messages.each do |msg| %>
-        <li><%= msg %></li>
-      <% end %>
-      </ul>
-    </div>
-  <% end %>
+  <div id="vendor-errors-wrap" class="alert error hide"></div>
   <div class="one-half pull-left">
     <%= f.input :name, :required => true, :input_html => { :tabindex => 1 } %>
     <%= f.input :contact_name, :input_html => { :tabindex => 3 } %>

@@ -39,6 +39,26 @@
         .clearfix
         .divider
       / address_info_wrap
+      %fieldset.span8.np-section
+        %legend Media
+        %p
+          %small Here you can upload an image for your Action or add a YouTube or Vimeo video.
+        %ul#media_select
+          %li
+            %input{name: "media", type: "radio", value: "image"}>/
+            I want to upload an image
+          %li
+            %input{name: "media", type: "radio", value: "video"}>/
+            YouTube/Vimeo Video
+        .clearfix
+        #upload_options_wrap
+          #featured_upload.hide
+            = f.label :featured_image, "Upload Your Image:"
+            = f.filepicker_field :featured_image, :button_class => "btn btn-primary", store_location: "S3", store_access: "public"
+          / featured_upload
+          #youtube_add.hide
+            %div
+              = f.input :featured_video, :placeholder => "YouTube/Vimeo Link", :label => false
       .clearfix
       .divider
       .span8.np-section

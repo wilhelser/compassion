@@ -1,5 +1,9 @@
-$("#vendors-table").html("<%= j render @vendors %>");
-$("#new_vendor_modal").modal("hide");
-$("#new-vendor-form-wrap").html("");
-$("#new-vendor-form-wrap").html("<%= j render 'vendors/form' %>");
-$("#vendors-count").text("<%= @vendors.size %>");
+<% if @vendor.errors.any? %>
+$("#vendor-errors-wrap").html('<%= escape_javascript(render("vendors/error_messages", :formats => [:html])) %>').show();
+<% else %>
+  $("#vendors-table").html("<%= j render @vendors %>");
+  $("#new_vendor_modal").modal("hide");
+  $("#new-vendor-form-wrap").html("");
+  $("#new-vendor-form-wrap").html("<%= j render 'vendors/form' %>");
+  $("#vendors-count").text("<%= @vendors.size %>");
+<% end %>

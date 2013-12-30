@@ -28,7 +28,7 @@ class VendorsController < InheritedResources::Base
       @project.update_goal_amount
       respond_with @vendor
     else
-      respond_with @vendor.errors.full_messages
+      respond_with @vendor.errors.full_messages.to_json
     end
   end
 
