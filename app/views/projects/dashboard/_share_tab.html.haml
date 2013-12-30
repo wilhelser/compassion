@@ -1,5 +1,6 @@
 #share.tab-pane
-  .span5.pull-left
+  .span4.alpha.pull-left
     = render 'projects/share_buttons'
-  .span3.pull-right
-    = link_to "Print a Flyer", project_path(@project, :format => "pdf"), target: "_blank"
+  .span2.pull-left
+    = link_to raw("<i class='icon-white icon-print'></i> Print a Flyer").html_safe, project_path(@project, :format => "pdf"), target: "_blank", class: "btn btn-primary btn-large"
+  .clearfix
