@@ -25,10 +25,10 @@
   %fieldset.span9.offset1.np-section
     %legend
       Action Info
-      %small Basic project information.
+      %small Basic Action information.
     %p
       %strong Goal Amount
-      will be automatically set once estimates are uploaded, for construction projects or vendor information has been uploaded, for non-construction projects.
+      will be automatically set once estimates are uploaded, for construction Actions or vendor information has been uploaded, for non-construction Actions.
     = f.input :goal_amount, :as => :hidden, :input_html => { :value => 0 }
     = f.input :page_title, :placeholder => "Page Title", "data-ideal" => "required", :input_html => { :maxlength => 60, :class => "input-large" }
     .clearfix
