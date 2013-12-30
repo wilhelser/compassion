@@ -3,14 +3,14 @@ class GalleriesController < InheritedResources::Base
 
 
   def create
-    unless params[:gallery][:project_id].blank?
+    if params[:gallery][:gallery_type] == "project"
       Rails.logger.info "Project id is there"
-      @project = Project.friendly.find(params[:gallery][:project_id])
+      @project = Project.find(params[:gallery][:project_id])
       @gallery = @project.galleries.build(params[:gallery])
       @galleries = @project.galleries
     else
       Rails.logger.info "We have a contractor id"
-      @contractor = Contractor.friendly.find(params[:gallery][:contractor_id])
+      @contractor = Contractor.find(params[:gallery][:contractor_id])
       @gallery = @contractor.galleries.build(params[:gallery])
       @galleries = @contractor.galleries
     end

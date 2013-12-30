@@ -1,5 +1,8 @@
 $("#new_gallery_modal").modal('hide');
 $("#project_galleries_wrap").html("<%= j render @galleries %>");
-$("#new_gallery_form_wrap").html("<%= j render 'galleries/form' %>");
-$("#new_contractor_gallery_form_wrap").html("<%= j render 'galleries/contractor_form' %>");
+<% if @gallery.gallery_type == "contractor" %>
+  $("#new_contractor_gallery_form_wrap").html("<%= j render 'galleries/contractor_form' %>");
+<% else %>
+  $("#new_gallery_form_wrap").html("<%= j render 'galleries/form' %>");
+<% end %>
 $("#galleries-count").html("<%= @galleries.size %>");
