@@ -1,6 +1,6 @@
 #cta_box
   .divider
-  #action-slug.pull-left
+  #action-slug.pull-left.visible-desktop
   - if user_signed_in?
     = link_to "Create an Action!", new_user_project_path(current_user), :class => "pull-right", :id => "home-create-action-btn"
   - else

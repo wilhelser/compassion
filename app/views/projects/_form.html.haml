@@ -1,7 +1,7 @@
 = simple_form_for @project do |f|
   %fieldset.span9.offset1
     %legend
-      Project Category
+      Action Category
       %small Select all that apply
     #new-project-trades-wrap.hide
       %p <strong>Construction Categories</strong>
@@ -24,7 +24,7 @@
   .clearfix
   %fieldset.span9.offset1.np-section
     %legend
-      Project Info
+      Action Info
       %small Basic project information.
     %p
       %strong Goal Amount
@@ -35,7 +35,7 @@
     = f.input :page_message, :class => "span8 ckeditor", :rows => "10", "data-ideal" => "required", :input_html => { :id => "project_page_message"}, :label => false
     .clearfix
     %p
-      %small Make this project private. ( Your project will not show up in searches )
+      %small Make this Action private. ( Your Action will not show up in searches )
     .make-switch{"data-off-label" => "NO", "data-on-label" => "YES"}
       = f.check_box :private, :label => "Make this project private"
     .divider
@@ -43,7 +43,7 @@
   %fieldset#address_info_wrap.span9.offset1.np-section
     %legend
       Address Info
-      %small Required only for construction projects
+      %small Required only for construction Actions
     .span4
       = f.input :street_address, :placeholder => "Street Address", :label => "Street Address ( construction projects only )"
       = f.input :state, :as => :select, :collection => us_states, :placeholder => "State", :selected => @user.state, :input_html => { :value => "#{@user.state}" }
@@ -57,8 +57,8 @@
   / address_info_wrap
   %fieldset.span9.offset1.np-section
     %legend
-      Project Deadline
-      %small Set a funding deadline for your project if you want.
+      Action Deadline
+      %small Set a funding deadline for your Action if you want.
     .span4.pull-left
       = f.input :project_deadline, :as => :string, :input_html => { "data-behavior" => "datepicker" }
     .span4.pull-right
@@ -66,7 +66,7 @@
   %fieldset.span9.offset1.np-section
     %legend Media
     %p
-      %small Here you can upload an image for your project or add a YouTube or Vimeo video.
+      %small Here you can upload an image for your Action or add a YouTube or Vimeo video.
     %ul#media_select
       %li
         %input{name: "media", type: "radio", value: "image"}>/
@@ -89,9 +89,9 @@
     .divider
   .span9.offset1.np-section.well
     .submit_project_wrap
-      %button#send_new_project.btn.btn-primary.btn-large.needs-acceptance Create Project
+      %button#send_new_project.btn.btn-primary.btn-large.needs-acceptance Create Action
       .clearfix
       %small
-        By clicking Create Project, you are indicating that you have read and agree to the #{link_to "Terms of Use and Privacy Policy", page_path('policies')}.
+        By clicking Create Action, you are indicating that you have read and agree to the #{link_to "Terms of Use and Privacy Policy", page_path('policies')}.
   / np-section
 = render 'shared/filepickerjs'
