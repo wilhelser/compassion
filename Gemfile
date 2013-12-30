@@ -35,6 +35,7 @@ gem "binding_of_caller", :group => :development, :platforms => [:mri_19, :rbx]
 gem 'capistrano'
 gem "rvm-capistrano"
 gem 'mini_magick'
+gem 'rqrcode-rails3'
 gem 'carrierwave'
 gem 'annotate', ">=2.5.0"
 gem 'debugger', :group => :development

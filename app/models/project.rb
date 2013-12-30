@@ -149,12 +149,17 @@ class Project < ActiveRecord::Base
     end
   end
 
+  def qrcode
+    "#{self.long_link}.png"
+  end
+
   def update_backer_count
     self.update_attribute('backer_count', self.contributions.length)
   end
 
   def long_link
     "http://compassionforhumanity.org/projects/#{self.slug}"
+    # "http://compassion.dev/projects/#{self.slug}"
   end
 
   def public_contributions

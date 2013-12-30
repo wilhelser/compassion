@@ -21,4 +21,8 @@ class ProjectPdf < Prawn::Document
     text "#{@project.long_link}", size: 14, style: :bold, align: :center
   end
 
+  def project_qrcode
+    image open("#{@project.qrcode}"), width: 100, height: 100
+  end
+
 end

@@ -6,7 +6,7 @@ class ProjectsController < InheritedResources::Base
   # before_filter :parse_facebook_cookies
   before_filter :get_project, :except => [:index, :new, :create]
   before_filter :get_categories
-  respond_to :html, :json, :js, :pdf
+  respond_to :html, :json, :js, :pdf, :png
 
   def index
     @categories = Category.all
@@ -82,6 +82,7 @@ class ProjectsController < InheritedResources::Base
       format.html
       format.json { render json: @project }
       format.js
+      format.png { render :qrcode => request.url }
       format.pdf do
         pdf = ProjectPdf.new(@project, view_context)
           send_data pdf.render, filename: "#{@project.slug}.pdf",
