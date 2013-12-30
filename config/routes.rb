@@ -1,7 +1,5 @@
 Compassion::Application.routes.draw do
   resources :pages
-
-
   ActiveAdmin.routes(self)
   resources :photos
   resources :estimates
@@ -50,6 +48,7 @@ Compassion::Application.routes.draw do
       post "share_on_facebook"
       get "end_campaign"
       post "share_created"
+      post "donate_remaining"
     end
     resources :galleries
     resources :contractor_selections

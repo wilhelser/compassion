@@ -4,7 +4,7 @@ class ProjectMailer < ActionMailer::Base
   def new_project_user_email(user, project)
     @user = user
     @project = project
-    mail(to: @user.email, subject: "#{@user.first_name}, thank you for creating a new Action!")
+    mail(to: @user.email, subject: "#{@user.first_name}, thank you for creating a new ACTION!")
   end
 
   def project_not_funded_email(user, project, days)
@@ -17,6 +17,24 @@ class ProjectMailer < ActionMailer::Base
   def project_funded_email(user, project)
     @user = user
     @project = project
-    mail(to: @user.email, subject: "#{@user.first_name}, your Action has been funded!")
+    mail(to: @user.email, subject: "#{@user.first_name}, your ACTION has been funded!")
+  end
+
+  def needs_action_email(user, project)
+    @user = user
+    @project = project
+    mail(to: @user.email, subject: "#{@user.first_name}, your ACTION needs activity!")
+  end
+
+  def end_action_email(user, project)
+    @user = user
+    @project = project
+    mail(to: @user.email, subject: "End your ACTION!")
+  end
+
+  def action_stopped_email(user, project)
+    @user = user
+    @project = project
+    mail(to: @user.email, subject: "Your ACTION has been stopped!")
   end
 end

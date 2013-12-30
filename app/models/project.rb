@@ -14,14 +14,14 @@ class Project < ActiveRecord::Base
   validates_uniqueness_of :slug
 
   belongs_to :user, touch: true
-  has_many :updates, :dependent => :destroy
+  has_many :updates
   has_many :contributions
-  has_many :galleries, :dependent => :destroy
-  has_many :contractor_selections, :dependent => :destroy
+  has_many :galleries
+  has_many :contractor_selections
   has_many :contractors, :through => :contractor_selections
-  has_many :vendors, :dependent => :destroy
-  has_many :assignments, :dependent => :destroy
-  has_many :estimates, :dependent => :destroy
+  has_many :vendors
+  has_many :assignments
+  has_many :estimates
   has_many :adjusters, :through => :estimates
   geocoded_by :address
   after_validation :geocode
@@ -60,6 +60,14 @@ class Project < ActiveRecord::Base
   # @return boolan True if Action is in the Construction category ( 8 )
   def construction_project?
     self.category_ids.include?(4)
+  end
+
+  def needs_more_vendors
+    if self.construction_project? || self.complete?
+      false
+    else
+      self.has_excess_funds ? true :false
+    end
   end
 
   def set_key

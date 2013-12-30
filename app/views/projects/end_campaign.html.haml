@@ -1,5 +1,8 @@
 - if @project.has_excess_funds
   %p <strong>End Campaign</strong> You can choose to end your campaign and donate remaining funds to more families in need through Compassion for Humanity.
   %p Add more vendors to meet increased goal.
+  .divider
+  = link_to "Donate Remaining Funds", donate_remaining_project_path(@project), remote: true, confirm: "Are you sure you want to donate the overage to Compassion for Humanity?", class: "btn btn-primary btn-large"
+  %a.btn.btn-primary.btn-large
 - else
   %p Text for when they don't have excess funds.

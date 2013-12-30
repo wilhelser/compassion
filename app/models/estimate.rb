@@ -1,6 +1,6 @@
 class Estimate < ActiveRecord::Base
   attr_accessible :adjuster_id, :amount, :description, :document, :project_id
-  belongs_to :project, :dependent => :destroy
+  belongs_to :project
   validates :adjuster_id, :project_id, :amount, :description, :document, :presence => true
   belongs_to :adjuster
   mount_uploader :document, EstimateUploader

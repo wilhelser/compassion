@@ -126,6 +126,10 @@ class ProjectsController < InheritedResources::Base
     respond_with @contractor
   end
 
+  def donate_remaining
+
+  end
+
   private
 
   def set_user
