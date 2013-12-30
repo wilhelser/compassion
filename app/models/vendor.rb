@@ -3,12 +3,17 @@ class Vendor < ActiveRecord::Base
   belongs_to :project
   validates :amount, :name, :address, :city, :state, :zip_code, :phone, :presence => true
   mount_uploader :documentation, VendorUploader
+  before_save :strip_commas
 
   scope :verified, -> { where(verified: true) }
   scope :paid, -> { where(paid: true) }
 
   def vendor_total
     project.vendors.sum(:amount)
+  end
+
+  def strip_commas
+    self.amount.gsub!(',', '')
   end
 
 end
