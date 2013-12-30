@@ -11,7 +11,7 @@ class ProjectsController < InheritedResources::Base
   def index
     @categories = Category.all
     @query = params[:query]
-    @projects = Project.text_search(params[:query]).page(params[:page]).per_page(4)
+    @projects = Project.in_progress.text_search(params[:query]).page(params[:page]).per_page(4)
     @page_title = "#{@projects.size} Search Results for \"#{@query}\""
     respond_to do |format|
       format.html { render :index }

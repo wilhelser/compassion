@@ -158,8 +158,8 @@ class Project < ActiveRecord::Base
   end
 
   def long_link
-    "http://compassionforhumanity.org/projects/#{self.slug}"
-    # "http://compassion.dev/projects/#{self.slug}"
+    # "http://compassionforhumanity.org/projects/#{self.slug}"
+    "http://compassion.dev/projects/#{self.slug}"
   end
 
   def public_contributions

@@ -6,6 +6,7 @@ class ProjectPdf < Prawn::Document
     @view = view
     page_heading
     project_image
+    project_qrcode
   end
 
   def page_heading
@@ -22,7 +23,8 @@ class ProjectPdf < Prawn::Document
   end
 
   def project_qrcode
-    image open("#{@project.qrcode}"), width: 100, height: 100
+    move_down 20
+    image open("#{@project.qrcode}"), width: 100, height: 100, align: :center
   end
 
 end

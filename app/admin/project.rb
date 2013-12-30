@@ -1,5 +1,5 @@
 ActiveAdmin.register Project do
-
+  actions :all, :except => [:destroy]
   # Scopes
   scope :all
   scope :in_progress

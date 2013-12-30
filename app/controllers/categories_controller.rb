@@ -5,10 +5,10 @@ class CategoriesController < ApplicationController
   def show
     case params[:id]
     when "all"
-      @projects = Project.paginate(:page => params[:page], :per_page => 8)
+      @projects = Project.in_progress.paginate(:page => params[:page], :per_page => 8)
       @page_title = "All Projects"
     when "nearby"
-      @projects = Project.approved.near([@lat, @long], 50).paginate(:page => params[:page], :per_page => 8)
+      @projects = Project.in_progress.near([@lat, @long], 50).paginate(:page => params[:page], :per_page => 8)
       @page_title = "Projects Near: #{@location_city}"
     when "friends"
       if user_signed_in?
@@ -21,7 +21,7 @@ class CategoriesController < ApplicationController
       @no_paginate = true
     else
       @category = Category.find(params[:id])
-      @projects = @category.projects.approved.paginate(:page => params[:page], :per_page => 8)
+      @projects = @category.projects.in_progress.paginate(:page => params[:page], :per_page => 8)
       @page_title = "#{@category.name}"
     end
     @categories = Category.all
