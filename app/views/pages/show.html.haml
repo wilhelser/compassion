@@ -1,14 +1,14 @@
 - cache @page do
   - @page_class = "strip-mini"
   .span12
-    - if @page.title == "You Can Help"
+    - if @page.slug == "you-can-help" || @page.slug == "the-purpose-of-compassion-for-humanity"
       #donation_thanks.alert.hide Thank you for your donation!
     %h1.hidden-desktop= @page.title
-    - if @page.title == "How it Works"
+    - if @page.slug == "How it Works"
       = render 'shared/how_it_works_video'
     = @page.content.html_safe
-    - if @page.title == "You Can Help"
+    - if @page.slug == "you-can-help" || @page.slug == "the-purpose-of-compassion-for-humanity"
       .divider
       %a.btn.btn-primary.btn-large{"data-toggle" => "modal", href: "#donate_modal"} Donate Now
-  - if @page.title == "You Can Help"
+  - if @page.slug == "you-can-help" || @page.slug == "the-purpose-of-compassion-for-humanity"
     = render 'shared/donate_modal'
