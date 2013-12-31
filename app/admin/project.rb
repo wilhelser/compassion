@@ -4,6 +4,7 @@ ActiveAdmin.register Project do
   scope :all
   scope :in_progress
   scope :funded
+  scope :inactive
 
   sidebar "Contractor", only: [:show, :edit] do
     link_to "#{project.contractors.first.name}", admin_contractor_path(project.contractors.first) if project.contractors.any?

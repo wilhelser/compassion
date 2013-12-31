@@ -3,7 +3,6 @@ class Contribution < ActiveRecord::Base
   attr_accessible :amount, :project_id, :comments, :stripe_card_token, :public, :address, :address_2, :city, :email, :first_name, :image, :last_name, :private, :state, :zip_code
   validates :amount, :project_id, :email, :first_name, :last_name, :presence => true
   validates_numericality_of :amount, :message => "must not contain any punctuation"
-  after_save :check_funded_status
   belongs_to :project, touch: true
 
   scope :public, -> { where(private: false) }
@@ -15,15 +14,6 @@ class Contribution < ActiveRecord::Base
 
   def name
     [first_name, last_name].compact.join(' ')
-  end
-
-  def check_funded_status
-    @project = Project.find(self.project_id)
-    if @project.total_contributions >= @project.goal_amount
-      @project.set_to_funded
-    else
-      Rails.logger.info "Not yet!"
-    end
   end
 
   def to_s

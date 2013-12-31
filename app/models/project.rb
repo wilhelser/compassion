@@ -33,6 +33,7 @@ class Project < ActiveRecord::Base
 
   scope :approved, -> { where(approved: true) }
   scope :in_progress, -> { where(status: 'In Progress') }
+  scope :inactive, -> { where(approved: false) }
   scope :funded, -> { where(funded: true) }
   scope :complete, -> { where(campaign_ended: true) }
   scope :donatable, -> { where('goal_amount > ?', 0) }
@@ -60,6 +61,14 @@ class Project < ActiveRecord::Base
   # @return boolan True if Action is in the Construction category ( 8 )
   def construction_project?
     self.category_ids.include?(4)
+  end
+
+  def check_funded_status
+    if self.total_contributions >= self.goal_amount
+      self.set_to_funded
+    else
+      Rails.logger.info "Not yet!"
+    end
   end
 
   def needs_more_vendors
