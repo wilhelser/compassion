@@ -2,7 +2,6 @@
   .title
     %h4
       Created by Friends
-  = session[:temp_token]
   - if user_signed_in? || token_exists?
     - if @friends_projects.any?
       - @friends_projects.each do |p|
