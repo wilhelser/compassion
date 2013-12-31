@@ -23,7 +23,7 @@
             = @project.featured_video_html
           - else
             - unless @project.featured_image.blank?
-              %img{src: "#{@project.image_url}", width: "770"}
+              = filepicker_image_tag @project.featured_image, w: 770, h: 300, fit: 'crop', align: 'faces', cache: true
         .project-social.well
           = render "share_buttons"
         .project-content.well
