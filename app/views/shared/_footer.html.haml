@@ -6,6 +6,7 @@
         %h3 Why we rock!
         .textwidget
           %p Compassion for Humanity is the World's first Premium Non-Profit Charitable Crowdfunding Organization. All gifts are tax deductible. We bring compassionate people together with those who need compassion. Click the "Create Action" button today and help change the world.
+          %p *All gifts are tax deductible in the United States as allowed by law. Compassion for Humanity, inc. is recognized by the Internal Revenue Service as a 501(c)3 tax-exempt charity.
       .footer_widget.span3
         .menu-footer-container
           - unless user_signed_in? || contractor_signed_in? || adjuster_signed_in?
@@ -14,7 +15,7 @@
               %li= link_to "Adjuster Log In", adjuster_session_path
               %li= link_to "Contractor Log In", contractor_session_path
       .footer_widget.span5.pull-right#footer-deductible
-        %p *All gifts are tax deductible in the United States as allowed by law. Compassion for Humanity, inc. is recognized by the Internal Revenue Service as a 501(c)3 tax-exempt charity.
+        -# %p *All gifts are tax deductible in the United States as allowed by law. Compassion for Humanity, inc. is recognized by the Internal Revenue Service as a 501(c)3 tax-exempt charity.
   .copyright
     .container
       %p
