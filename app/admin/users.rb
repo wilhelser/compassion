@@ -23,6 +23,8 @@ ActiveAdmin.register User do
       row :city
       row :state
       row :zip_code
+      row :current_sign_in_ip
+      row :last_sign_in_ip
     end
   end
 

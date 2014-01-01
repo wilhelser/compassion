@@ -33,7 +33,8 @@ class HomeController < ApplicationController
   end
 
   def get_request_coordinates
-    if request.location.city.blank?
+    Rails.logger.info "#{request.location}"
+    if request.location.nil?
       @location_city = "Denton"
     else
       @location_city = request.location.city
