@@ -34,7 +34,7 @@ class Project < ActiveRecord::Base
   scope :approved, -> { where(approved: true) }
   scope :in_progress, -> { where(status: 'In Progress') }
   scope :inactive, -> { where(approved: false) }
-  scope :funded, -> { where(funded: true) }
+  scope :funded, -> { where('total_contributions >= ?', 'goal_amount') }
   scope :complete, -> { where(campaign_ended: true) }
   scope :donatable, -> { where('goal_amount > ?', 0) }
 
