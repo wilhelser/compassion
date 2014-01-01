@@ -71,7 +71,7 @@
           #contractor_results_wrap
             = render 'contractor_small'
           / contractor_results_wrap
-    - if @project.needs_vendors
+    - if @project.needs_vendors || @project.has_excess_funds
       = render 'projects/dashboard/vendor_tab'
     - if @project.has_estimate?
       = render 'projects/dashboard/estimates_tab'
@@ -95,4 +95,7 @@
 - content_for :back_to_project_button do
   = link_to "Back to Project", project_path(@project), :class => "btn btn-success project-dashboard-link pull-right"
 - if @project.funded?
-  = render 'projects/modals/funded_modal'
+  - unless @project.funded_decision_made?
+    = render 'projects/modals/funded_modal'
+    = render 'projects/modals/excess_funds_modal'
+    = render 'projects/modals/project_response_modal'

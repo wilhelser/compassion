@@ -1,0 +1,13 @@
+#excess_funds_modal.modal.hide.fade
+  .modal-header
+    %h3 You have excess funds!
+  .modal-body
+    %p <strong>End Campaign</strong> You can choose to end your campaign and
+    %ol
+      %li donate remaining funds to more families in need through Compassion for Humanity.
+      %li Add more vendors to meet increased goal.
+    .clearfix
+  .modal-footer
+    = link_to "Donate Remaining Funds", donate_remaining_project_path(@project), remote: true, confirm: "Are you sure you want to donate the overage to Compassion for Humanity?", class: "btn btn-success btn-large pull-left"
+    = link_to "Add More Vendors", donate_remaining_project_path(@project), remote: true, class: "btn btn-primary btn-large pull-right"
+    .clearfix

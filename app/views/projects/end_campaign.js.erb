@@ -1,0 +1,6 @@
+<% if @project.has_excess_funds %>
+ $("#funded_modal").modal('hide');
+ $("#excess_funds_modal").modal('show');
+ <% else %>
+  $("#funded_modal_body").html("<p>Text for ending campaign</p>");
+ <% end %>

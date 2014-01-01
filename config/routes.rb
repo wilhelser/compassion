@@ -49,6 +49,7 @@ Compassion::Application.routes.draw do
       get "end_campaign"
       post "share_created"
       post "donate_remaining"
+      get "extend_campaign"
     end
     resources :galleries
     resources :contractor_selections

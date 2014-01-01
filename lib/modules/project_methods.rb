@@ -6,6 +6,30 @@ module ProjectMethods
     ProjectMailer.project_funded_email(self.user, self).deliver
   end
 
+  def check_funded_status
+    if self.total_contributions >= self.goal_amount
+      set_to_funded
+    else
+      Rails.logger.info "Not yet!"
+    end
+  end
+
+  def set_to_funded
+    self.update_attributes(status: 'Funded', funded: true, funded_date: Date.today)
+    unless self.construction_project?
+      send_funded_email
+    end
+    # @graph = Koala::Facebook::API.new(compassion_access_token)
+    # @graph.put_wall_post("Another Compassion project funded!", { :name => "#{self.page_title}", :description => "Funded!", :link => "http://compassionforhumanity.org/projects/#{self.slug}"})
+  end
+
+  def campaign_extended?
+    self.campaign_extended_date.blank? ? false : true
+  end
+
+  def funded_decision_made?
+    true if campaign_ended? || campaign_extended?
+  end
 
   # clean out any random div tags that may have made their way into the
   # page message
@@ -17,6 +41,14 @@ module ProjectMethods
       @newbody = @body.gsub('<div>', '').gsub('</div>', '')
       self.update_attribute('page_message', @newbody)
     end
+  end
+
+  def end_campaign
+    self.update_attributes(campaign_ended: true, status: "Complete", approved: false, campaign_ended_date: Date.today)
+  end
+
+  def extend_campaign
+    self.update_attributes(campaign_ended: false, status: "In Progress", approved: true, campaign_extended_date: Date.today)
   end
 
   # Checks for inactive actions and sends an email

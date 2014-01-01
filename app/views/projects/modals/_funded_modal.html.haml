@@ -1,12 +1,12 @@
 #funded_modal.modal.hide.fade
   .modal-header
     %h3 Your Action has been funded!
-  .modal-body
+  #funded_modal_body.modal-body
     %p What do you want to do?
     .clearfix
   .modal-footer
-    = link_to "End Campaign", end_campaign_project_path(@project), :class => "btn btn-large btn-danger", "data-disable-with" => "Ok..."
-    %button#continue-campaign.btn.btn-large.btn-primary Keep it Going
+    = link_to "End Action", end_campaign_project_path(@project), :class => "btn btn-large btn-danger", "data-disable-with" => "Ok...", :remote => true
+    = link_to "Keep it Going", extend_campaign_project_path(@project), :class => "btn btn-large btn-primary", "data-disable-with" => "Ok...", :remote => true
 :javascript
   $(document).ready(function() {
     $("#funded_modal").modal('show');
