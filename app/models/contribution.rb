@@ -28,6 +28,10 @@ class Contribution < ActiveRecord::Base
     get_donor_class(self.email)
   end
 
+  def second_donate_amount
+    25.00
+  end
+
   def save_with_payment
     if valid?
       customer = Stripe::Customer.create(

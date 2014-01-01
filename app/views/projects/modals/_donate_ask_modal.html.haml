@@ -1,0 +1,11 @@
+#donate_ask_modal.modal.hide.fade
+  .modal-header
+    %button.close{"aria-hidden" => "true", "data-dismiss" => "modal"} &#215;
+    %h3 Help support Compassion for Humanity!
+  .modal-body
+    %p Would you like to make a donation to Compassion for Humanity?
+  .modal-footer
+    %button.btn.btn-danger{"aria-hidden" => "true", "data-dismiss" => "modal"} No thanks!
+    %button#donate-yes.btn.btn-success Yes!
+:javascript
+  $("#donate_ask_modal").modal('show');

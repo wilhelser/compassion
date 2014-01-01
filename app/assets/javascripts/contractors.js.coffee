@@ -27,3 +27,7 @@ $(document).delegate ".fs-toggle", 'click', ->
   target = $(@).data('target')
   $(target).slideToggle()
 
+$(document).delegate '#donate-yes', 'click', ->
+  $("#donate_ask_modal").modal('hide')
+  $("#donate_modal").modal('show')
+

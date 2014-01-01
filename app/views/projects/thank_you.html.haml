@@ -1,4 +1,5 @@
 .span5
+  #donation_thanks.alert.hide Thank you for your donation!
   %p Do you want to share your act of compassion of Facebook?
   .divider
   - if user_signed_in? || token_exists?
@@ -9,3 +10,5 @@
   = link_to "No, thanks!", '/', class: "btn btn-success btn-large pull-right"
   -# = render 'projects/share_on_fb'
 = render 'projects/modals/share_thanks_modal'
+= render 'projects/modals/donate_ask_modal'
+= render 'projects/modals/second_donate_modal'

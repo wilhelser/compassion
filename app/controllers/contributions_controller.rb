@@ -18,7 +18,7 @@ class ContributionsController < InheritedResources::Base
     @contribution = @project.contributions.build(params[:contribution])
 
     if @contribution.save_with_payment
-      redirect_to "/projects/#{@project.id}/thank_you"
+      redirect_to "/projects/#{@project.id}/thank_you?c=#{@contribution.id}"
     else
       render :json => @contribution.errors, :status => :unprocessable_entity
     end

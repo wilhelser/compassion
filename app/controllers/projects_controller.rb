@@ -109,6 +109,7 @@ class ProjectsController < InheritedResources::Base
   end
 
   def thank_you
+    @contribution = Contribution.find(params[:c])
     @oauth = Koala::Facebook::OAuth.new(231408540317089,"7758a40a88cf75e51df02496c4390078", "http://compassionforhumanity.org/projects/#{@project.id}/thank_you")
     @oauth_url = @oauth.url_for_oauth_code(:permissions => "publish_stream")
     if params[:code]
