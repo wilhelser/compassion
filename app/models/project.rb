@@ -27,14 +27,14 @@ class Project < ActiveRecord::Base
   after_validation :geocode
   accepts_nested_attributes_for :galleries
   accepts_nested_attributes_for :contributions
-  after_save :set_key, :unless => Proc.new{ self.featured_image.blank? }
+  after_save :set_key, :if => Proc.new{ self.key.blank? }
   # after_create :post_to_compassion
   after_create :send_new_project_email
 
   scope :approved, -> { where(approved: true) }
   scope :in_progress, -> { where(status: 'In Progress') }
   scope :inactive, -> { where(approved: false) }
-  scope :funded, -> { where('total_contributions >= ?', 'goal_amount') }
+  scope :funded, -> { where(funded: true) }
   scope :complete, -> { where(campaign_ended: true) }
   scope :donatable, -> { where('goal_amount > ?', 0) }
 
@@ -51,9 +51,6 @@ class Project < ActiveRecord::Base
     return ActionView::Base.full_sanitizer.sanitize(@body)
   end
 
-  def new_created?
-    self.created_at > 60.seconds.ago ? true : false
-  end
 
   #
   # Determines whether Action is a construction project or not
@@ -65,7 +62,7 @@ class Project < ActiveRecord::Base
 
   def check_funded_status
     if self.total_contributions >= self.goal_amount
-      self.set_to_funded
+      set_to_funded
     else
       Rails.logger.info "Not yet!"
     end
@@ -80,9 +77,11 @@ class Project < ActiveRecord::Base
   end
 
   def set_key
-    @image = self.featured_image
-    @key = get_s3_url(@image)
-    self.update_attribute('key', @key)
+    unless featured_image.blank?
+      @image = self.featured_image
+      @key = get_s3_url(@image)
+      self.update_attribute('key', @key)
+    end
   end
 
   def image_url

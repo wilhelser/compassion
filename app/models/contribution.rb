@@ -47,10 +47,12 @@ class Contribution < ActiveRecord::Base
       )
       self.stripe_card_token = customer.id
       save!
+      self.project.check_funded_status
     end
   rescue Stripe::InvalidRequestError => e
     logger.error "Stripe error while creating customer: #{e.message}"
     errors.add :base, "There was a problem with your credit card."
     false
   end
+
 end
