@@ -2,7 +2,7 @@ class HomeController < ApplicationController
   include FriendsProjects
   layout Proc.new { |controller| controller.request.xhr?? false : 'application' }
   respond_to :html, :json, :js
-  before_filter :get_request_coordinates, only: [:index]
+  # before_filter :get_request_coordinates, only: [:index]
 
   def index
     @page_title = "Changing the World Together"
