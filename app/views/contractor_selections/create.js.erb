@@ -1,5 +1,5 @@
-$("#contractor_selected_modal_wrap").html("<%= j render 'projects/contractor_selected_modal', :contractor => @contractor %>");
+$("#contractor_selected_modal_wrap").html("<%= j render 'projects/modals/contractor_selected_modal', :contractor => @contractor %>");
 $("#contractor").html("<%= j render 'projects/selected_contractor', :locals => { @contractor => @contractor } %>");
 $("#contractor_selected_modal").modal('show');
 $(".alert-error").hide();
-$("#contractor_review_modal_wrap").html("<%= j render 'projects/contractor_review_modal', :contractor => @contractor %>");
+$("#contractor_review_modal_wrap").html("<%= j render 'projects/modals/contractor_review_modal', :contractor => @contractor %>");
