@@ -8,6 +8,6 @@
       %li Add more vendors to meet increased goal.
     .clearfix
   .modal-footer
-    = link_to "Donate Remaining Funds", donate_remaining_project_path(@project), remote: true, confirm: "Are you sure you want to donate the overage to Compassion for Humanity?", class: "btn btn-success btn-large pull-left"
-    = link_to "Add More Vendors", donate_remaining_project_path(@project), remote: true, class: "btn btn-primary btn-large pull-right"
+    = button_to "Donate Remaining Funds", donate_remaining_project_path(@project), remote: true, confirm: "Are you sure you want to donate the overage to Compassion for Humanity?", class: "btn btn-success btn-large pull-left", "data-disable-with" => "Ok..."
+    = link_to "Add More Vendors", donate_remaining_project_path(@project), remote: true, class: "btn btn-primary btn-large pull-right", "data-disable-with" => "Ok..."
     .clearfix

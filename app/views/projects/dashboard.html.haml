@@ -3,7 +3,7 @@
     .alert.alert-error
       You need to select a contractor!
 - if @project.needs_vendors
-  - unless @project.vendors.any?
+  - if @project.vendors.blank? || @project.has_excess_funds
     .alert.alert-error
       You need to add some vendors!
 .span8
@@ -71,7 +71,7 @@
           #contractor_results_wrap
             = render 'contractor_small'
           / contractor_results_wrap
-    - if @project.needs_vendors || @project.has_excess_funds
+    - if @project.needs_vendors
       = render 'projects/dashboard/vendor_tab'
     - if @project.has_estimate?
       = render 'projects/dashboard/estimates_tab'
@@ -94,8 +94,8 @@
 / contractor_review_modal_wrap
 - content_for :back_to_project_button do
   = link_to "Back to Project", project_path(@project), :class => "btn btn-success project-dashboard-link pull-right"
+= render 'projects/modals/excess_funds_modal'
+= render 'projects/modals/project_response_modal'
 - if @project.funded?
   - unless @project.funded_decision_made?
     = render 'projects/modals/funded_modal'
-    = render 'projects/modals/excess_funds_modal'
-    = render 'projects/modals/project_response_modal'
