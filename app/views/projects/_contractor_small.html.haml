@@ -21,3 +21,10 @@
       = link_to "Profile", contractor_path(contractor, :fromdash => true), :class => "btn btn-success btn-block btn-top", :target => "_blank"
       .clearfix
       = button_to "Select", project_contractor_selections_path(@project, :contractor_id => contractor.id), :class => "btn btn-primary btn-block", :remote => true, :method => "post", :confirm => "You have selected #{contractor.name} as you Approved Contractor. Once you select the OK button below, you will not be able to change contractors."
+    .clearfix
+    .divider
+    .contractor_index_rating
+      .contractor-rating{"data-score" => contractor.rating}
+      %p
+        = contractor.review_count
+        reviews
