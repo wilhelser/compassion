@@ -1,13 +1,14 @@
 <div class="gallery-wrap">
   <%= render @photos %>
-<% if current_user %>
-<% if current_user.can_manage_gallery?(@gallery) %>
-<div class="clearfix"></div>
-<div class="divider"></div>
-<%= link_to "Edit Gallery", edit_gallery_path(@gallery), class: "btn btn-success" %>
-
-<% end %>
-<% end %>
+  <% if current_user %>
+  <% if current_user.can_manage_gallery?(@gallery) %>
+  <div class="clearfix"></div>
+  <div class="gallery_edit">
+    <div class="divider"></div>
+    <%= link_to "Edit Gallery", edit_gallery_path(@gallery), class: "btn btn-success" %>
+  </div>
+  <% end %>
+  <% end %>
 </div><!-- gallery-wrap -->
 <% content_for :back_to_project_button do %>
 <%= link_to "Back", :back, :class => "btn btn-success project-dashboard-link pull-right" %>

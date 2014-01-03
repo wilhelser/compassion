@@ -1,11 +1,10 @@
-- cache photo do
-  = div_for(photo, :class => "span2") do |photo|
-    %a.sb.thumbnail{"data-lightbox-gallery" => "gallery#{photo.gallery.id}", href: photo.image_url, title: photo.caption}
-      %img{src: "#{photo.image_url}"}
-    %p
-      %small
-        %strong= photo.caption
+= div_for(photo, :class => "span2") do |photo|
+  %a.sb.thumbnail{"data-lightbox-gallery" => "gallery#{photo.gallery.id}", href: photo.image_url, title: photo.caption}
+    = filepicker_image_tag photo.image, w: 145, h: 145, fit: 'crop', align: 'faces', cache: true
+  %p
+    %small
+      %strong= photo.caption
+  - if params[:action] == "edit"
     - if user_signed_in?
       - if current_user.can_manage_gallery?(photo.gallery)
-        %hr/
-        = button_to "Delete", photo, :method => :delete, :remote => true, :confirm => "Are you sure you want to delete this photo?", :class => "btn btn-danger btn-mini"
+        = button_to "Delete", photo, :method => :delete, :remote => true, :confirm => "Are you sure you want to delete this photo?", :class => "btn btn-danger btn-mini photo-delete-btn"
