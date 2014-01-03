@@ -2,11 +2,11 @@ class HomeController < ApplicationController
   include FriendsProjects
   layout Proc.new { |controller| controller.request.xhr?? false : 'application' }
   respond_to :html, :json, :js
-  # before_filter :get_request_coordinates, only: [:index@import "☄";]
+  before_filter :get_request_coordinates, only: [:index]
+
   def index
     @page_title = "Changing the World Together"
     @categories = Category.all
-    @ip = request.remote_ip
     @projects_near_me = Project.approved.near(@ip, 50).limit(4).includes(:user)
     if user_signed_in?
       @projects_from_friends = current_user.get_friends_projects
@@ -35,19 +35,11 @@ class HomeController < ApplicationController
   def get_request_coordinates
     Rails.logger.info "#{request.location}"
     if request.location.nil?
+      @ip = request.remote_ip
       @location_city = "Denton"
     else
+      @ip = request.ip
       @location_city = request.location.city
-    end
-    if request.location.latitude.blank?
-      @lat = 33.2201
-    else
-      @lat = request.location.latitude
-    end
-    if request.location.longitude.blank?
-      @long = -97.1502
-    else
-      @long = request.location.longitude
     end
     if request.location.country_code.blank?
       @location_country = "US"
