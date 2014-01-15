@@ -6,7 +6,7 @@ class ProjectPdf < Prawn::Document
     @view = view
     page_heading
     project_image
-    # qrcode
+    qrcode
   end
 
   def page_heading

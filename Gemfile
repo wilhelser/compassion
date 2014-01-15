@@ -24,6 +24,7 @@ gem "haml"
 gem 'rails4_upgrade'
 gem 'filepicker-rails'
 gem "cancan", ">= 1.6.9"
+gem 'mini_magick'
 gem "rolify", ">= 3.2.0"
 gem "simple_form", ">=  3.0.0"
 gem "country_select"
@@ -43,7 +44,6 @@ gem 'omniauth-facebook'
 gem 'certified'
 gem 'carrierwave'
 # gem 'masked_input-rails'
-gem 'mini_magick'
 gem "squeel"
 gem "koala"
 gem "auto_html"
