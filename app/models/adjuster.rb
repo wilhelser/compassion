@@ -12,6 +12,8 @@ class Adjuster < ActiveRecord::Base
   geocoded_by :address
   after_validation :geocode
 
+  scope :approved, -> { where(approved: true) }
+
   def address
     [street_address, city, state, zip_code].compact.join(', ')
   end
