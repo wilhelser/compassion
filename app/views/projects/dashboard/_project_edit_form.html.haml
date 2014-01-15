@@ -27,7 +27,7 @@
       %fieldset#address_info_wrap.span8.np-section
         %legend
           Address Info
-          %small Required only for construction projects
+          %small Required for mailing checks
         .span4
           = f.input :street_address, :placeholder => "Street Address", :label => "Street Address ( construction projects only )"
           = f.input :state, :as => :select, :collection => us_states, :placeholder => "State", :selected => @user.state, :input_html => { :value => "#{@user.state}" }
