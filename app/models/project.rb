@@ -98,6 +98,14 @@ class Project < ActiveRecord::Base
     ProjectMailer.new_project_user_email(self.user, self).deliver
   end
 
+  def site_root
+    if Rails.env == "development"
+      "http://mnp.dev/"
+    else
+      "http://compassionforhumanity.org/"
+    end
+  end
+
   def total_contributions
     unless self.contributions.nil?
       self.contributions.sum(:amount)
@@ -160,8 +168,7 @@ class Project < ActiveRecord::Base
   end
 
   def long_link
-    "http://compassionforhumanity.org/projects/#{self.slug}"
-    # "http://compassion.dev/projects/#{self.slug}"
+    "#{site_root}projects/#{self.slug}"
   end
 
   def public_contributions

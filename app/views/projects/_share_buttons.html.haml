@@ -11,8 +11,8 @@
   %script{"data-counter" => "top", "data-url" => "#{root_url}projects/#{@project.slug}", type: "IN/Share"}
 / linkedin
 .pinterest-share-btn.share-btn
-  %a{"data-pin-color" => "red", "data-pin-config" => "above", "data-pin-do" => "buttonPin", "data-pin-height" => "28", href: "//www.pinterest.com/pin/create/button/?url=#{root_url}projects/#{@project.slug}&media=#{@project.featured_image}&description=Next%20stop%3A%20Pinterest"}
+  %a{"data-pin-color" => "red", "data-pin-config" => "above", "data-pin-do" => "buttonPin", "data-pin-height" => "28", href: "//www.pinterest.com/pin/create/button/?url=#{root_url}projects/#{@project.slug}&media=#{@project.image_url}&description=Next%20stop%3A%20Pinterest"}
     %img{src: "//assets.pinterest.com/images/pidgets/pinit_fg_en_rect_red_28.png"}/
   %script{async: "", src: "//assets.pinterest.com/js/pinit.js", type: "text/javascript"}
-/ pinterest
+= link_to raw("<i class='icon-white icon-print'></i> Print a Flyer").html_safe, project_path(@project, :format => "pdf"), target: "_blank", class: "btn btn-primary btn-large pull-right"
 .clearfix
