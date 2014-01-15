@@ -35,6 +35,28 @@ ActiveAdmin.register Adjuster do
     actions
   end
 
+  # Form
+  form do |f|
+    f.inputs "Adjuster Details" do
+      f.input :company
+      f.input :first_name
+      f.input :last_name
+      f.input :phone
+      f.input :street_address
+      f.input :city
+      f.input :state
+      f.input :zip_code
+      f.input :fax
+      f.input :approved
+      f.input :cell_phone
+      f.input :state_licensed_in
+      f.input :date_license_issued, :as => :date_picker
+      f.input :license_expiration_date, :as => :date_picker
+      f.input :license_number
+    end
+    f.actions
+  end
+
   # Show
   show do |adjuster|
     attributes_table do
