@@ -29,7 +29,7 @@
           Address Info
           %small Required for mailing checks
         .span4
-          = f.input :street_address, :placeholder => "Street Address", :label => "Street Address ( construction projects only )"
+          = f.input :street_address, :placeholder => "Street Address", :label => "Street Address"
           = f.input :state, :as => :select, :collection => us_states, :placeholder => "State", :selected => @user.state, :input_html => { :value => "#{@user.state}" }
         / span4
         .span4
@@ -51,10 +51,13 @@
             %input{name: "media", type: "radio", value: "video"}>/
             YouTube/Vimeo Video
         .clearfix
+        - if @project.featured_image
+          .logo-preview{class: '("hide" unless @project.featured_image)'}
+            = filepicker_image_tag @project.featured_image, w: 150, h: 150, fit: 'crop', align: 'faces', cache: true, class: 'thumbnail'
         #upload_options_wrap
-          #featured_upload.hide
+          #featured_upload
             = f.label :featured_image, "Upload Your Image:"
-            = f.filepicker_field :featured_image, :button_class => "btn btn-primary", store_location: "S3", store_access: "public"
+            = f.filepicker_field :featured_image, :button_class => "btn btn-primary", store_location: "S3", store_access: "public", onchange: "updateLogoPreview(event);"
           / featured_upload
           #youtube_add.hide
             %div

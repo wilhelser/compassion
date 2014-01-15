@@ -50,3 +50,7 @@ $ ->
   $(document).delegate "#contractor-search-btn", "click", ->
     $("#contractor_search_response").hide()
     $("#contractor_search_form").submit()
+
+window.updateLogoPreview = (event) ->
+  @url = event.fpfile.url
+  $(".logo-preview").html("<img class='thumbnail' src='#{@url}' height='175' width='175'>").removeClass('hide')
