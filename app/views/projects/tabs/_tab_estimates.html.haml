@@ -7,8 +7,8 @@
         %th Description
         %th Document
     %tbody
-      - if @estimates.any?
-        - @estimates.each do |estimate|
+      - if @project.estimates.any?
+        - @project.estimates.each do |estimate|
           %tr
             %td= estimate.created_at.strftime('%b %d, %Y')
             %td= estimate.amount
