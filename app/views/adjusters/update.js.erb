@@ -1,6 +1,9 @@
 <% if @adjuster.errors.any? %>
   $("#adjuster_update_errors").html("<%= j raw(@adjuster.errors.full_messages) %>").show();
 <% else %>
+  $('html, body').animate({
+      scrollTop:0
+  }, 200);
   $("#adjuster_update_errors").html("Profile updated!").addClass('success').show();
 
 <% unless @adjuster.license.blank? %>

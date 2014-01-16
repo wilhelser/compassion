@@ -77,7 +77,9 @@ ActiveAdmin.register Adjuster do
       row :date_license_issued
       row :license_expiration_date
       row :license_number
-      row :license
+      row :license do
+        link_to "License", adjuster.license.url unless adjuster.license.url.blank?
+      end
     end
   end
 end
