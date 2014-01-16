@@ -38,6 +38,7 @@ namespace :deploy do
 
   task :after_symlink do
     run "ln -nfs #{shared_path}/uploads #{release_path}/public/uploads"
+    run "ln -nfs #{shared_path}/docs #{release_path}/public/docs"
   end
 
   desc "Reload the database with seed data"
