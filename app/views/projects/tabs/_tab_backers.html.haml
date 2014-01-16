@@ -1,8 +1,7 @@
 #tab3.tab-pane
-  - if @contributions.any?
+  - if @project.contributions.any?
     #project-funders.span8
-      - if @contributions.any?
-        = render @contributions
+      - if @project.contributions.any?
+        = render @project.contributions
       - else
         %p No contributions yet...
-/ tab-backers

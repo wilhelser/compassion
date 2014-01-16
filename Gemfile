@@ -43,6 +43,7 @@ gem 'omniauth-oauth2', "~> 1.1.1"
 gem 'omniauth-facebook'
 gem 'certified'
 gem 'carrierwave'
+gem 'draper'
 # gem 'masked_input-rails'
 gem "squeel"
 gem "koala"

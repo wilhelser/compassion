@@ -21,17 +21,12 @@
     .author-info
       Project sponsor
       %br/
-      = link_to @project.user.name, user_path(@project.user)
+      = @project.user_link
     .clear
   .well.recent_contributions
     %h5 Recent Contributors
   #recent_contr_wrap
-    - if @recent_contributions.any?
-      - @recent_contributions.each do |c|
+    - if @project.recent_contributions.any?
+      - @project.recent_contributions.each do |c|
         = render :partial => 'contributions/contribution', :locals => { :contribution => c }
-      -# = render :partial => 'contributions/contribution', :locals => { @contributions => @recent_contributions }
-        / sb_recent_right
-  / recent_contr_wrap
-  / recent donations
-/ /.span4
 .clearfix

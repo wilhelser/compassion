@@ -68,16 +68,16 @@ class ProjectsController < InheritedResources::Base
   end
 
   def show
-    @project = Project.friendly.find(params[:id])
-    @updates = @project.updates
-    @page_title = @project.page_title
-    @contributions = @project.contributions
-    @recent_contributions = @project.recent_contributions
-    @galleries = @project.galleries
+    @project = Project.friendly.find(params[:id]).decorate
+    # @updates = @project.updates
+    # @page_title = @project.page_title
+    # @contributions = @project.contributions
+    # @recent_contributions = @project.recent_contributions
+    # @galleries = @project.galleries
     @contribution = Contribution.new
-    if @project.has_estimate?
-      @estimates = @project.estimates
-    end
+    # if @project.has_estimate?
+    #   @estimates = @project.estimates
+    # end
     respond_to do |format|
       format.html
       format.json { render json: @project }
