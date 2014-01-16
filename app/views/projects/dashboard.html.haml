@@ -69,7 +69,10 @@
           #contractor_search_response.alert.hide
           / contractor_search_response
           #contractor_results_wrap
-            = render 'contractor_small'
+            - if @contractors.any?
+              = render 'contractor_small'
+            - else
+              %p.alert Thank You for creating your construction related Action, however at this time there is not currently an Approved Contractor in your area. If you know of a quality contractor in your area, you can have them apply for approval. We will notify you when there is an Approved Contractor in your area. Sorry for any inconvenience.
           / contractor_results_wrap
     - if @project.needs_vendors
       = render 'projects/dashboard/vendor_tab'

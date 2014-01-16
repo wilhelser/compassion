@@ -29,6 +29,7 @@ class Project < ActiveRecord::Base
   after_save :set_key, :if => Proc.new{ self.key.blank? }
   # after_create :post_to_compassion
   after_create :send_new_project_email
+  after_create :notify_empty_contractors
 
   scope :approved, -> { where(approved: true) }
   scope :in_progress, -> { where(status: 'In Progress') }
@@ -60,8 +61,6 @@ class Project < ActiveRecord::Base
     self.category_ids.include?(4)
   end
 
-
-
   def needs_more_vendors
     if self.construction_project? || self.complete?
       false
@@ -76,6 +75,10 @@ class Project < ActiveRecord::Base
       @key = get_s3_url(@image)
       self.update_attribute('key', @key)
     end
+  end
+
+  def nearby_contractors
+    Contractor.near(self, 200)
   end
 
   def image_url
@@ -222,6 +225,12 @@ class Project < ActiveRecord::Base
   def update_goal_amount
     @vendor_total = self.vendors.sum(:amount)
     self.update_attribute('goal_amount', @vendor_total)
+  end
+
+  def notify_empty_contractors
+    if nearby_contractors.blank?
+      ProjectMailer.no_contractor_notification(self.user, self).deliver
+    end
   end
 
 end

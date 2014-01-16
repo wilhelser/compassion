@@ -7,6 +7,12 @@ class ProjectMailer < ActionMailer::Base
     mail(to: @user.email, subject: "#{@user.first_name}, thank you for creating a new ACTION!")
   end
 
+  def no_contractor_notification(user, project)
+    @user = user
+    @project = project
+    mail(to: 'corey@ihaveintegrity.com', bcc: 'wil@wilhelser.com', subject: "No Contractors Available for Action")
+  end
+
   def project_not_funded_email(user, project, days)
     @user = user
     @project = project

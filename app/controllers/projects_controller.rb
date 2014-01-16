@@ -59,7 +59,7 @@ class ProjectsController < InheritedResources::Base
     if @project.contractors.size > 0
       @contractor = @project.contractors.last
     else
-      @contractors = Contractor.near(@project, 200)
+      @contractors = @project.nearby_contractors
     end
     if @project.has_estimate?
       @estimates = @project.estimates
