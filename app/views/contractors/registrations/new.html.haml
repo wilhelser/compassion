@@ -1,0 +1,16 @@
+- @page_title = "Sign up as a Contractor"
+%h4 Contractor Code of Business Practices and Application Requirements
+%p Compassion for Humanity sets a high standard to be an "Approved Contractor" in their network. First of all any Contractors considered must agree to adhere to the Compassion for Humanity's Contractor Code of Business Practices then complete all the application requirements.
+%p If approved, a contractor will benefit from their high standard of business practices. Future opportunities from Compassion for Humanity will be the result of the contractor's timely response, quality of work, customer service, communication, integrity, experience and good online reviews from the people we help.
+%p#read-contractor-docs
+  Please review and agree to the terms and conditions of the
+  %a#fire-cpb-modal{"data-toggle" => "modal", href: "#business_practices"} Contractor Code of Business Practices
+  and
+  = succeed "." do
+    %a#fire-car-modal{"data-toggle" => "modal", href: "#application_requirements"} Application Requirements
+  = succeed "." do
+    %a{href: image_path('Compassion-for-Humanitys-Contractor-Code-of-Business-Practices-&-Application-Requirements-as-of-9-2013.pdf'), target: "_blank"} here
+.divider
+= render 'form'
+= render 'contractors/code_modal'
+= render 'contractors/app_requirements_modal'

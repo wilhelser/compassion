@@ -17,6 +17,7 @@ class Contractor < ActiveRecord::Base
   has_many :addresses, :dependent => :destroy
   accepts_nested_attributes_for :references, :allow_destroy => true
   accepts_nested_attributes_for :addresses, :allow_destroy => true
+  after_create :send_registration_notification
 
   geocoded_by :address
   # after_create :geocode
@@ -76,6 +77,10 @@ class Contractor < ActiveRecord::Base
 
   def customer_references
     self.references.where(:reference_type => "Customer")
+  end
+
+  def send_registration_notification
+    ContractorMailer.contractor_signup_notification(self).deliver
   end
 
 end

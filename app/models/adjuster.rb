@@ -8,6 +8,7 @@ class Adjuster < ActiveRecord::Base
   has_many :estimates
   has_many :projects, :through => :estimates
   mount_uploader :license, AdjusterLicenseUploader
+  after_create :send_registration_notification
 
   geocoded_by :address
   after_validation :geocode
@@ -20,6 +21,10 @@ class Adjuster < ActiveRecord::Base
 
   def to_s
     "#{first_name} #{last_name}"
+  end
+
+  def send_registration_notification
+    AdjusterMailer.adjuster_signup_notification(self).deliver
   end
 
 end

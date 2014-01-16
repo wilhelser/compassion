@@ -1,6 +1,11 @@
 class AdjusterMailer < ActionMailer::Base
   default from: "postmaster@compassionforhumanity.org"
 
+  def adjuster_signup_notification(adjuster)
+    @adjuster = adjuster
+    mail(to: 'corey@ihaveintegrity.com', bcc: "wil@wilhelser.com", subject: "New Adjuster Registration.")
+  end
+
   def adjuster_selected_notification(contractor, project, user, adjuster)
     @user = user
     @project = project

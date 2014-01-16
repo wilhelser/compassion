@@ -1,6 +1,11 @@
 class ContractorMailer < ActionMailer::Base
   default from: "postmaster@compassionforhumanity.org"
 
+  def contractor_signup_notification(contractor)
+    @contractor = contractor
+    mail(to: 'corey@ihaveintegrity.com', bcc: "wil@wilhelser.com", subject: "New Contractor Registration.")
+  end
+
   def contractor_selected_notification(contractor, project, user, adjuster)
     @user = user
     @project = project
