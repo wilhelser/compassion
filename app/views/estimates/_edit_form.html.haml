@@ -1,0 +1,4 @@
+= simple_form_for @estimate, :html => { :multipart => true, :method => "put" }, :remote => true do |f|
+  = f.input :amount, :as => :string
+  = f.input :description, :input_html => { :rows => 3 }
+  = f.input :document

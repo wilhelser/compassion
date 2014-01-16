@@ -1,0 +1,7 @@
+= content_tag_for(:tr, estimate) do
+  %td= estimate.created_at.strftime('%b %d, %Y')
+  %td= estimate.amount
+  %td= estimate.description
+  %td
+    .btn-group
+      = link_to "Edit", edit_estimate_path(estimate), remote: true, class: 'btn btn-success btn-mini'

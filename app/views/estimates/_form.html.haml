@@ -1,0 +1,6 @@
+= simple_form_for Estimate.new, :html => { :multipart => true, :method => "post" }, :remote => true do |f|
+  = f.input :project_id, :as => :hidden, :input_html => { :value => @project.id}
+  = f.input :adjuster_id, :as => :hidden, :input_html => { :value => @adjuster.id}
+  = f.input :amount, :as => :string
+  = f.input :description, :input_html => { :rows => 3 }
+  = f.input :document

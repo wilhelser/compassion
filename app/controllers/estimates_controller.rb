@@ -11,12 +11,31 @@ class EstimatesController < InheritedResources::Base
   def create
     @estimate = Estimate.new(params[:estimate])
     @adjuster = Adjuster.find(params[:estimate][:adjuster_id])
+    @project = Project.find(params[:estimate][:project_id])
 
     if @estimate.save
       @estimates = @adjuster.estimates
+      @assignments = @adjuster.assignments
       respond_with @estimate
     else
       respond_with @estimate.errors.full_messages
+    end
+  end
+
+  def edit
+    @estimate = Estimate.find(params[:id])
+
+    respond_with @estimate
+  end
+
+  def update
+    @estimate = Estimate.find(params[:id])
+    @estimates = @estimate.adjuster.estimates
+
+    if @estimate.update_attributes(params[:estimate])
+      respond_with @estimate
+    else
+      respond_with @esitmate.errors.full_messages
     end
   end
 end

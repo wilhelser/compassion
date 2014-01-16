@@ -1,9 +1,0 @@
-<%= content_tag_for(:tr, estimate) do %>
-  <td><%= estimate.created_at.strftime('%b %d, %Y') %></td>
-  <td><%= estimate.amount %></td>
-  <td><%= estimate.description %><td>
-    <div class="btn-group">
-      <a href="#edit_estimate_modal" data-toggle="modal" class="btn btn-success btn-mini">Edit</a>
-    </div>
-  </td>
-<% end %>
