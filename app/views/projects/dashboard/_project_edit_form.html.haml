@@ -51,7 +51,7 @@
             %input{name: "media", type: "radio", value: "video"}>/
             YouTube/Vimeo Video
         .clearfix
-        - if @project.featured_image
+        - unless @project.featured_image.blank?
           .logo-preview{class: '("hide" unless @project.featured_image)'}
             = filepicker_image_tag @project.featured_image, w: 150, h: 150, fit: 'crop', align: 'faces', cache: true, class: 'thumbnail'
         #upload_options_wrap
