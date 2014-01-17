@@ -46,6 +46,6 @@
 - if user_signed_in?
   - if current_user.can_manage_project(@project)
     = content_for :action_buttons do
-      = link_to "Project Dashboard", dashboard_project_path(@project), :class => "project-dashboard-link btn btn-success"
+      = link_to "Project Dashboard", dashboard_project_path(@project), :class => "project-dashboard-link btn btn-success visible-desktop"
 = render 'contributions/contribution_modal'
 = render 'shared/filepickerjs'

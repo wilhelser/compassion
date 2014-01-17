@@ -4,7 +4,7 @@
       = form_tag projects_path, method: :get, :id => "searchform", :class => "form-search" do
         = text_field_tag :query, params[:query], :class => "field", :id => "s", :placeholder => "Name, Title, Zip code"
     / search-wrapper
-    .top-right
+    .top-right.visible-desktop
       - unless user_signed_in?
         = render 'shared/social_media'
       - if user_signed_in?
