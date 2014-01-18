@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+    <meta name="viewport" content="width=device-width,height=device-height,maximum-scale=1,user-scalable=yes,width=1170">
     <title><%= @page_title %> | Compassion for Humanity</title>
     <%= yield :open_graph_tags %>
     <%= stylesheet_link_tag "application", :media => "all" %>
@@ -17,6 +17,7 @@
     <%= yield(:head) %>
   </head>
   <body class="<%= controller_name %> <%= action_name %>">
+    <div id="bodywrap">
     <div id="root">
     <div id="fb-root"></div>
     <%= yield :share_on_fb_js %>
@@ -47,5 +48,6 @@
         <% if Rails.env.production?  %>
           <%= render "shared/analytics" %>
         <% end %>
+      </div><!-- bodywrap -->
     </body>
 </html>

@@ -1,6 +1,6 @@
-#cta_box
+#cta_box.span12
   .divider
-  #action-slug.pull-left.visible-desktop
+  #action-slug.pull-left
   - if user_signed_in?
     = link_to "Create an Action!", new_user_project_path(current_user), :class => "pull-right", :id => "home-create-action-btn"
   - else
@@ -12,7 +12,7 @@
     = request.inspect
   .divider
 .clearfix
-.span3.alpha
+.span3
   .title
     %h4 Search Categories
   #home_categories_select_wrap
@@ -22,7 +22,7 @@
         - @categories.each do |category|
           %li
             = link_to "#{category.name}", category
-.span9.omega{id: ""}
+.span9
   .home-projects-wrap
     .title
       %h4 Featured Projects
