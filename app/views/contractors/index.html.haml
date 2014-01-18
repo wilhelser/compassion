@@ -1,18 +1,20 @@
-#contractor-title-wrap
-  .title
-    %h4 Approved Contractors
-#contractor-apply-wrap
-  %p <a href="#{new_contractor_registration_path}">Apply Here</a> to become an approved contractor
+.span12
+  #contractor-title-wrap
+    .title
+      %h4 Approved Contractors
+  #contractor-apply-wrap
+    %p <a href="#{new_contractor_registration_path}">Apply Here</a> to become an approved contractor
+  .clearfix
+  .divider
+  #contractor-index-search-wrap.span4.alpha
+    = render 'index_search_form'
+  - if params[:query]
+    #contractor-clear-search-wrap.span2.pull-right.omega
+      = link_to "Clear Search", contractors_path, class: "btn pull-right"
+  .clearfix
+  .divider
 .clearfix
-.divider
-#contractor-index-search-wrap.span4.alpha
-  = render 'index_search_form'
-- if params[:query]
-  #contractor-clear-search-wrap.span2.pull-right.omega
-    = link_to "Clear Search", contractors_path, class: "btn pull-right"
-.clearfix
-.divider
-#contractor-index-wrap
+#contractor-index-wrap.span12
   = render @contractors
   = will_paginate @contractors, renderer: BootstrapPagination::Rails
 - content_for :contractor_login_button do
