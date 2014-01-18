@@ -21,7 +21,7 @@
         .project_show_main_image
           = @project.display_featured
         .project-social.well
-          = render "share_buttons"
+          = render 'share_buttons'
         .project-content.well
           = @project.page_message.html_safe
       = render "projects/tabs/tab_updates"

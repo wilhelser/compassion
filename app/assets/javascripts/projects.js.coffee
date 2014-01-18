@@ -1,4 +1,5 @@
 $ ->
+  Socialite.load()
   $("#project_category_ids_4").change ->
     if $(@).is(':checked')
       $("#new-project-trades-wrap").slideDown()

@@ -1,18 +1,16 @@
-.fb-share-button.share-btn{"data-href" => "#{root_url}projects/#{@project.slug}", "data-type" => "box_count"}
-.twitter-share-button.share-btn
-  %a.twitter-share-button{"data-count" => "vertical", "data-lang" => "en", "data-url" => "#{root_url}projects/#{@project.slug}", href: "https://twitter.com/share"} Tweet
-  :javascript
-    !function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src="https://platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");
-/ twitter-share-btn
-.linkedin-share-btn.share-btn
-  %script{src: "//platform.linkedin.com/in.js", type: "text/javascript"}
-    :cdata
-      lang: en_US
-  %script{"data-counter" => "top", "data-url" => "#{root_url}projects/#{@project.slug}", type: "IN/Share"}
-/ linkedin
-.pinterest-share-btn.share-btn
-  %a{"data-pin-color" => "red", "data-pin-config" => "above", "data-pin-do" => "buttonPin", "data-pin-height" => "28", href: "//www.pinterest.com/pin/create/button/?url=#{root_url}projects/#{@project.slug}&media=#{@project.image_url}&description=Next%20stop%3A%20Pinterest"}
-    %img{src: "//assets.pinterest.com/images/pidgets/pinit_fg_en_rect_red_28.png"}/
-  %script{async: "", src: "//assets.pinterest.com/js/pinit.js", type: "text/javascript"}
-= link_to raw("<i class='icon-white icon-print'></i> Print a Flyer").html_safe, project_path(@project, :format => "pdf"), target: "_blank", class: "btn btn-primary btn-large pull-right"
+%ul.social-buttons.cf
+  %li
+    %a.socialite.twitter-share{"data-count" => "vertical", "data-text" => "#{@project.page_title}", "data-url" => "#{@project.long_link}", href: "http://twitter.com/share", rel: "nofollow", target: "_blank"}
+      %span.vhidden Share on Twitter
+  %li
+    %a.socialite.facebook-like{"data-href" => "#{@project.long_link}", "data-layout" => "box_count", "data-send" => "false", "data-show-faces" => "false", "data-width" => "60", href: "http://www.facebook.com/sharer.php?u=#{@project.long_link}", rel: "nofollow", target: "_blank"}
+      %span.vhidden Share on Facebook
+  %li
+    %a.socialite.pinterest-pinit{"data-url" => "#{@project.long_link}", "data-pin-config" => "above", "data-pin-do" => "buttonPin", "data-pin-height" => "28", "data-pin-zero" => "true", href: "http://pinterest.com/pin/create/button/?url=#{@project.long_link}&amp;media=#{@project.key}", rel: "nofollow", target: "_blank"}
+      %span.vhidden Pin This
+  %li
+    %a.socialite.linkedin-share{"data-counter" => "top", "data-url" => "#{@project.long_link}", href: "http://www.linkedin.com/shareArticle?mini=true&url=#{@project.long_link}", rel: "nofollow", target: "_blank"}
+      %span.vhidden Share on LinkedIn
+
+= link_to raw("<i class='icon-white icon-print'></i> Print a Flyer").html_safe, project_path(@project, :format => "pdf"), target: "_blank", class: "btn btn-primary btn-large pull-right print-btn-show"
 .clearfix

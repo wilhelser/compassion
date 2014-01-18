@@ -20,6 +20,8 @@
 //= require gmaps4rails/gmaps4rails.googlemaps
 //= require_tree ./bootstrap-form-helpers
 //= require buttons
+//= require socialite
+//= require socialite.pinterest
 //= require raty
 //= require bootstrap-select
 //= require wizard
