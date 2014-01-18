@@ -1,29 +1,29 @@
-.profile-info
-  #profile-image-wrapper.span4
-    %img.thumbnail{alt: "#{@user.name}", height: "220", src: @user.facebook_image(220, 220), width: "220"}/
-  .span8.pull-right
-    .profile_top
-      %h2= @user.name
-      %p
-        Member since: #{@user.join_date}
-    .divider
-    .profile_bottom
-      %ul
-        %li
-          %i.icon-tag
-          Member of projects
-        %li
-          %i.icon-tag
-          Started #{@user.projects.size} projects
-        %li
-          %i.icon-tag
-          = @user.projects_in_progress.size
-          projects in progress
-  .clearfix
-.divider
-.span10.offset1
+.profile-info.span10.offset1
+  .row
+    #profile-image-wrapper.span4
+      %img.thumbnail{alt: "#{@user.name}", height: "220", src: @user.facebook_image(220, 220), width: "220"}/
+    .span6
+      .profile_top
+        %h2= @user.name
+        %p
+          Member since: #{@user.join_date}
+      .divider
+      .profile_bottom
+        %ul
+          %li
+            %i.icon-tag
+            Member of Actions
+          %li
+            %i.icon-tag
+            Started #{@user.projects.size} Actions
+          %li
+            %i.icon-tag
+            = @user.projects_in_progress.size
+            Actions in progress
+    .clearfix
+  .divider
   %h2
     = @user.name
-    's Projects
+    's Actions
   .divider
   = render @projects

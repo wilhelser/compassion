@@ -2,7 +2,11 @@ class UsersController < InheritedResources::Base
   before_filter :authenticate_user!, :only => [:edit, :dashboard]
 
   def show
-    @user = User.find(params[:id])
+    if user_signed_in?
+      @user = current_user
+    else
+      @user = User.friendly.find(params[:id])
+    end
     @page_title = "#{@user.name} - #{@user.city}, #{@user.state}"
     @projects = @user.projects
   end
