@@ -79,7 +79,7 @@ class Project < ActiveRecord::Base
   end
 
   def nearby_contractors
-    Contractor.near(self, 200)
+    Contractor.approved.near(self, 200)
   end
 
   def image_url
