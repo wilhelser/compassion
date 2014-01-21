@@ -69,11 +69,7 @@ class ProjectsController < InheritedResources::Base
 
   def show
     @project = Project.friendly.find(params[:id]).decorate
-    # @updates = @project.updates
     @page_title = @project.page_title
-    # @contributions = @project.contributions
-    # @recent_contributions = @project.recent_contributions
-    # @galleries = @project.galleries
     @contribution = Contribution.new
     # if @project.has_estimate?
     #   @estimates = @project.estimates

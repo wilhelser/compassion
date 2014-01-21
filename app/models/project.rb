@@ -135,7 +135,7 @@ class Project < ActiveRecord::Base
   end
 
   def has_video?
-    false if self.featured_video.blank? || self.featured_video.nil?
+    self.featured_video.present? ? true : false
   end
 
   auto_html_for :featured_video do
