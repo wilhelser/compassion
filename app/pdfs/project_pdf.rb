@@ -17,7 +17,8 @@ class ProjectPdf < Prawn::Document
 
   def project_image
     move_down 10
-    image open("#{@project.image_url}"), width: 550, height: 400 unless @project.featured_image.blank?
+    image open("#{@project.image_url}"), width: 300, height: 200 if @project.featured_image.present?
+    image open("#{@project.key}"), width: 300, height: 200 if @project.featured_video.present?
     move_down 10
     text "#{@project.long_link}", size: 14, style: :bold, align: :center
   end

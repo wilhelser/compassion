@@ -27,6 +27,5 @@
     %h5 Recent Contributors
   #recent_contr_wrap
     - if @project.recent_contributions.any?
-      - @project.recent_contributions.each do |c|
-        = render :partial => 'contributions/contribution', :locals => { :contribution => c }
+      = render @project.recent_contributions
 .clearfix

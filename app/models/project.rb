@@ -199,7 +199,7 @@ class Project < ActiveRecord::Base
   end
 
   def recent_contributions
-    self.public_contributions.last(10)
+    self.contributions.last(10)
   end
 
   def percent_funded

@@ -9,7 +9,10 @@
   .clearfix
   .fp-friend-wrap
     .fp-friend-left
-      %img.thumbnail{alt: "#{project.image_url}", height: "61", src: "#{project.image_url}", width: "61"}
+      - if project.has_video?
+        %img.thumbnail{src: "#{project.key}", alt: "#{project.page_title}", width: "61", height: "61"}
+      - elsif project.featured_image.present?
+        %img.thumbnail{src: "#{project.image_url}", alt: "#{project.page_title}", width: "61", height: "61"}
     .fp-friend-right
       = link_to "#{project.page_title}", project
   .clear
