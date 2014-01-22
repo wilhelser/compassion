@@ -4,7 +4,7 @@ module FriendsProjects
     @users =  get_my_friends(self.token)
     @projects = []
     @users.each do |u|
-      proj = u.projects
+      proj = u.projects.approved
       if proj.any?
         proj.each {|p| @projects << p }
       end
@@ -17,7 +17,7 @@ module FriendsProjects
     @users =  get_my_friends(token)
     @projects = []
     @users.each do |u|
-      proj = u.projects
+      proj = u.projects.approved
       if proj.any?
         proj.each {|p| @projects << p }
       end

@@ -28,6 +28,7 @@ class Project < ActiveRecord::Base
   accepts_nested_attributes_for :galleries
   accepts_nested_attributes_for :contributions
   before_save :set_key, :if => :featured_image_changed?
+  before_save :set_video_key, :if => lambda { self.featured_video.present? }
   # after_create :post_to_compassion
   after_create :send_new_project_email
   after_create :notify_empty_contractors
@@ -53,6 +54,16 @@ class Project < ActiveRecord::Base
     return ActionView::Base.full_sanitizer.sanitize(@body)
   end
 
+  def set_video_key
+    video_link = self.featured_video
+    if video_link.include?('youtu.be')
+      video_id = video_link.gsub('http://youtu.be/', '')
+    elsif video_link.include?('youtube.com')
+      video_id = video_link.gsub('http://youtube.com/', '')
+    end
+    video_key = "http://img.youtube.com/vi/#{video_id}/0.jpg"
+    self.key = video_key
+  end
 
   #
   # Determines whether Action is a construction project or not

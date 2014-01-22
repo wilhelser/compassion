@@ -42,7 +42,7 @@
       %fieldset.span8.np-section
         %legend Media
         %p
-          %small Here you can upload an image for your Action or add a YouTube or Vimeo video.
+          %small Here you can upload an image for your Action or add a YouTube video.
         %ul#media_select
           %li
             %input{name: "media", type: "radio", value: "image"}>/
@@ -57,7 +57,7 @@
         #upload_options_wrap
           #featured_upload
             = f.label :featured_image, "Upload Your Image:"
-            = f.filepicker_field :featured_image, :button_class => "btn btn-primary", store_location: "S3", store_access: "public", onchange: "updateLogoPreview(event);"
+            = f.filepicker_field :featured_image, :button_class => "btn btn-primary", store_location: "S3", store_access: "public", extensions: ".jpg,.png,.gif,.jpeg", onchange: "updateLogoPreview(event);"
           / featured_upload
           #youtube_add.hide
             %div

@@ -2,7 +2,9 @@
   = div_for(project, :class => "project-card") do
     .project-thumb-wrapper
       = link_to project do
-        - unless project.featured_image.blank?
+        - if project.has_video?
+          %img{src: "#{project.key}", alt: "#{project.page_title}", width: "200", height: "150"}
+        - elsif project.featured_image.present?
           %img{src: "#{project.image_url}", alt: "#{project.page_title}", width: "200", height: "150"}
     / project-thumb-wrapper
     .clearfix
