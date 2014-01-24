@@ -15,14 +15,25 @@ class Adjuster < ActiveRecord::Base
 
   scope :approved, -> { where(approved: true) }
 
+  #
+  # Full address of adjuster compiled from all address fields
+  #
+  # @return [String] full address of adjuster
   def address
     [street_address, city, state, zip_code].compact.join(', ')
   end
 
+  #
+  # Paramaterize for display of adjuster in dropdowns in admin panel
+  #
+  # @return [String] adjuster first_name and last_name concatenated
   def to_s
     "#{first_name} #{last_name}"
   end
 
+  #
+  # Sends email to Compassion when a new adjuster registers on the site
+  #
   def send_registration_notification
     AdjusterMailer.adjuster_signup_notification(self).deliver
   end

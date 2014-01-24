@@ -1,4 +1,8 @@
-$("#adjuster_estimates_wrap").html("<%= j render @estimates %>");
-$("#new_estimate_modal").modal('hide');
-$("#new-estimate-form-wrap").html("<%= j render 'estimates/form' %>");
-$('#assignments-wrap').html("<%= j render @assignments %>");
+<% if @estimate.errors.any? %>
+$("#estimate-errors-wrap").html('<%= escape_javascript(render("estimates/error_messages", :formats => [:html])) %>').removeClass('hide');
+<% else %>
+  $("#adjuster_estimates_wrap").html("<%= j render @estimates %>");
+  $("#new_estimate_modal").modal('hide');
+  $("#new-estimate-form-wrap").html("<%= j render 'estimates/form' %>");
+  $('#assignments-wrap').html("<%= j render @assignments %>");
+<%  end %>

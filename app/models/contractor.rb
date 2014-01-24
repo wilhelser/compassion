@@ -26,22 +26,44 @@ class Contractor < ActiveRecord::Base
   scope :approved, -> { where(status: 'Approved') }
   scope :not_submitted, -> { where(status: 'Not Submitted') }
 
+
+  #
+  # Full address of contractor
+  #
+  # @return [String] full address pulled from all address fields
   def address
     [street_address, city, state, zip_code].compact.join(', ')
   end
 
+  #
+  # Contractor address for mapping on Google maps
+  #
+  # @return [String] Contractor street_address and city concatenated
   def gmaps4rails_address
     "#{self.street_address}, #{self.city}"
   end
 
+  #
+  # Whether contractor is approved or not
+  #
+  # @return [Boolean] true if contractor is approved
   def approved
     self.status == "Approved"
   end
 
+  #
+  # Whether contractor has any reviews
+  #
+  # @return [Boolean] true if contractor has reviews
   def has_reviews?
     self.contractor_reviews.size > 0
   end
 
+  #
+  # If contractor can edit a gallery
+  # @param  gallery [Object] gallery object
+  #
+  # @return [Boolean] true if contractor can manage the gallery
   def can_manage_gallery?(gallery)
     @gallery = gallery
     if @gallery.contractor_id == self.id
@@ -51,34 +73,64 @@ class Contractor < ActiveRecord::Base
     end
   end
 
+  #
+  # Number of active projects for contractor
+  #
+  # @return [Integer] number of projects contractor has in progress
   def active_projects
     self.projects.in_progress
   end
 
+  #
+  # Number of completed projects for contractor
+  #
+  # @return [Integer] number of projects contractor has completed
   def completed_projects
     self.projects.complete
   end
 
+  #
+  # Number of reviews contractor has
+  #
+  # @return [Integer] number of contractor reviews
   def review_count
     self.contractor_reviews.size
   end
 
+  #
+  # Total stars contractor has received in reviews
+  #
+  # @return [Integer] total number of stars contractor has received
   def total_stars
     self.contractor_reviews.sum(:rating)
   end
 
+  #
+  # Contractor star rating
+  #
+  # @return [Integer] contractor average star rating for display on profile
   def rating
     self.has_reviews? ? self.total_stars / self.review_count : 0
   end
 
+
+  #
+  # @deprecated
+  #
   def business_references
     self.references.where(:reference_type => "Business")
   end
 
+  #
+  # @deprecated
+  #
   def customer_references
     self.references.where(:reference_type => "Customer")
   end
 
+  #
+  # Emails Compassion when new contractor registers on site
+  #
   def send_registration_notification
     ContractorMailer.contractor_signup_notification(self).deliver
   end

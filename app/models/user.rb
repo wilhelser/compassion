@@ -17,7 +17,11 @@ class User < ActiveRecord::Base
   # after_create :set_user_location_and_username
   after_create :set_username
 
-  # method to make the user show up nice in admin panel dropdowns
+
+  #
+  # Method to make the user show up nice in admin panel dropdowns
+  #
+  # @return [String] user's username
   def to_param
     username
   end
@@ -46,7 +50,9 @@ class User < ActiveRecord::Base
     location.split(', ')[0]
   end
 
+  #
   # set username from Oath token
+  #
   def set_username
     unless self.token.nil?
       @graph = Koala::Facebook::API.new(self.token)
@@ -60,20 +66,31 @@ class User < ActiveRecord::Base
     end
   end
 
+
+  #
   # sets user state from location returned from FB Oath params
+  # @param  location [String] FB Oauth params
+  #
   def set_state(location)
     @state_name = location.split(', ')[1]
     ModelUN.convert(@state_name)
   end
 
+  #
+  # Whether user can manage a project
+  # @param  project [Object] project object
+  #
+  # @return [Boolean] true if user can manage project
   def can_manage_project(project)
     @project = project
     @project.user_id == self.id ? true : false
   end
 
-  # authorization for user to edit a particular gallery
-  # takes gallery as an argument
-  # returns true or false
+  #
+  # Whether user can manage a gallery
+  # @param  gallery [Object] gallery object
+  #
+  # @return [Boolean] true if user can manage gallery
   def can_manage_gallery?(gallery)
     @project = gallery.project
     if @project.user_id == self.id
@@ -100,23 +117,44 @@ class User < ActiveRecord::Base
     end
   end
 
-  # method to query a user's join date from their profile page
+  #
+  # Method to query a user's join date from their profile page
+  #
+  # @return [String] user's created_at date prettified
   def join_date
     self.created_at.strftime("%B %d, %Y")
   end
 
+  #
+  # Number of projects user has in progress
+  #
+  # @return [Integer] number of in progress projects
   def projects_in_progress
     self.projects.where(:status => "In Progress")
   end
 
+  #
+  # Pulls first name from users name
+  #
+  # @return [String] user's first name
   def first_name
     self.name.split(" ")[0]
   end
 
+  #
+  # Pulls last name from users name
+  #
+  # @return [String] user's last name
   def last_name
     self.name.split(" ")[1]
   end
 
+  #
+  # User's FB image url
+  # @param  w [Integer] width of image
+  # @param  h [Integer] height of image
+  #
+  # @return [String] full FB image URL for user
   def facebook_image(w, h)
     "https://graph.facebook.com/#{self.uid}/picture?type=large"
   end

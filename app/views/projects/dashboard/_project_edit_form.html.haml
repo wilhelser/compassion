@@ -49,7 +49,7 @@
             I want to upload an image
           %li
             %input{name: "media", type: "radio", value: "video"}>/
-            YouTube/Vimeo Video
+            YouTube Video
         .clearfix
         - unless @project.featured_image.blank?
           .logo-preview{class: '("hide" unless @project.featured_image)'}
@@ -61,7 +61,7 @@
           / featured_upload
           #youtube_add.hide
             %div
-              = f.input :featured_video, :placeholder => "YouTube/Vimeo Link", :label => false
+              = f.input :featured_video, :placeholder => "YouTube Link", :label => false
       .clearfix
       .divider
       .span8.np-section

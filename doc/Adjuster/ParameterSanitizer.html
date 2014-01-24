@@ -1,0 +1,270 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>
+  Class: Adjuster::ParameterSanitizer
+  
+    &mdash; Documentation by YARD 0.8.7.3
+  
+</title>
+
+  <link rel="stylesheet" href="../css/style.css" type="text/css" charset="utf-8" />
+
+  <link rel="stylesheet" href="../css/common.css" type="text/css" charset="utf-8" />
+
+<script type="text/javascript" charset="utf-8">
+  hasFrames = window.top.frames.main ? true : false;
+  relpath = '../';
+  framesUrl = "../frames.html#!" + escape(window.location.href);
+</script>
+
+
+  <script type="text/javascript" charset="utf-8" src="../js/jquery.js"></script>
+
+  <script type="text/javascript" charset="utf-8" src="../js/app.js"></script>
+
+
+  </head>
+  <body>
+    <div id="header">
+      <div id="menu">
+  
+    <a href="../_index.html">Index (P)</a> &raquo;
+    <span class='title'><span class='object_link'><a href="../Adjuster.html" title="Adjuster (class)">Adjuster</a></span></span>
+     &raquo; 
+    <span class="title">ParameterSanitizer</span>
+  
+
+  <div class="noframes"><span class="title">(</span><a href="." target="_top">no frames</a><span class="title">)</span></div>
+</div>
+
+      <div id="search">
+  
+    <a class="full_list_link" id="class_list_link"
+        href="../class_list.html">
+      Class List
+    </a>
+  
+    <a class="full_list_link" id="method_list_link"
+        href="../method_list.html">
+      Method List
+    </a>
+  
+    <a class="full_list_link" id="file_list_link"
+        href="../file_list.html">
+      File List
+    </a>
+  
+</div>
+      <div class="clear"></div>
+    </div>
+
+    <iframe id="search_frame"></iframe>
+
+    <div id="content"><h1>Class: Adjuster::ParameterSanitizer
+  
+  
+  
+</h1>
+
+<dl class="box">
+  
+    <dt class="r1">Inherits:</dt>
+    <dd class="r1">
+      <span class="inheritName">Devise::ParameterSanitizer</span>
+      
+        <ul class="fullTree">
+          <li>Object</li>
+          
+            <li class="next">Devise::ParameterSanitizer</li>
+          
+            <li class="next">Adjuster::ParameterSanitizer</li>
+          
+        </ul>
+        <a href="#" class="inheritanceTree">show all</a>
+      
+      </dd>
+    
+  
+  
+    
+  
+    
+  
+  
+  
+    <dt class="r2 last">Defined in:</dt>
+    <dd class="r2 last">lib/adjuster_sanitizer.rb</dd>
+  
+</dl>
+<div class="clear"></div>
+
+
+
+
+
+
+
+
+  
+    <h2>
+      Instance Method Summary
+      <small>(<a href="#" class="summary_toggle">collapse</a>)</small>
+    </h2>
+
+    <ul class="summary">
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#account_update-instance_method" title="#account_update (instance method)">- (Object) <strong>account_update</strong> </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>Allowed parameters for updating Adjuster account.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#sign_up-instance_method" title="#sign_up (instance method)">- (Object) <strong>sign_up</strong> </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>Allowed parameters for creating Adjuster account.</p>
+</div></span>
+  
+</li>
+
+      
+    </ul>
+  
+
+
+  
+
+  <div id="instance_method_details" class="method_details_list">
+    <h2>Instance Method Details</h2>
+
+    
+      <div class="method_details first">
+  <h3 class="signature first" id="account_update-instance_method">
+  
+    - (<tt>Object</tt>) <strong>account_update</strong> 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    
+<p>Allowed parameters for updating Adjuster account</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+13
+14
+15</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/adjuster_sanitizer.rb', line 13</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_account_update'>account_update</span>
+  <span class='id identifier rubyid_default_params'>default_params</span><span class='period'>.</span><span class='id identifier rubyid_permit'>permit</span><span class='lparen'>(</span><span class='symbol'>:email</span><span class='comma'>,</span> <span class='symbol'>:password</span><span class='comma'>,</span> <span class='symbol'>:password_confirmation</span><span class='comma'>,</span> <span class='symbol'>:remember_me</span><span class='comma'>,</span> <span class='symbol'>:company</span><span class='comma'>,</span> <span class='symbol'>:first_name</span><span class='comma'>,</span> <span class='symbol'>:last_name</span><span class='comma'>,</span> <span class='symbol'>:phone</span><span class='comma'>,</span> <span class='symbol'>:street_address</span><span class='comma'>,</span> <span class='symbol'>:city</span><span class='comma'>,</span> <span class='symbol'>:state</span><span class='comma'>,</span> <span class='symbol'>:zip_code</span><span class='comma'>,</span> <span class='symbol'>:fax</span><span class='comma'>,</span> <span class='symbol'>:latitude</span><span class='comma'>,</span> <span class='symbol'>:longitude</span><span class='comma'>,</span> <span class='symbol'>:approved</span><span class='comma'>,</span> <span class='symbol'>:cell_phone</span><span class='comma'>,</span> <span class='symbol'>:state_licensed_in</span><span class='comma'>,</span> <span class='symbol'>:date_license_issued</span><span class='comma'>,</span> <span class='symbol'>:license_expiration_date</span><span class='comma'>,</span> <span class='symbol'>:license_number</span><span class='comma'>,</span> <span class='symbol'>:license</span><span class='rparen'>)</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="sign_up-instance_method">
+  
+    - (<tt>Object</tt>) <strong>sign_up</strong> 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    
+<p>Allowed parameters for creating Adjuster account</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+6
+7
+8</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/adjuster_sanitizer.rb', line 6</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_sign_up'>sign_up</span>
+  <span class='id identifier rubyid_default_params'>default_params</span><span class='period'>.</span><span class='id identifier rubyid_permit'>permit</span><span class='lparen'>(</span><span class='symbol'>:email</span><span class='comma'>,</span> <span class='symbol'>:password</span><span class='comma'>,</span> <span class='symbol'>:password_confirmation</span><span class='comma'>,</span> <span class='symbol'>:remember_me</span><span class='comma'>,</span> <span class='symbol'>:company</span><span class='comma'>,</span> <span class='symbol'>:first_name</span><span class='comma'>,</span> <span class='symbol'>:last_name</span><span class='comma'>,</span> <span class='symbol'>:phone</span><span class='comma'>,</span> <span class='symbol'>:street_address</span><span class='comma'>,</span> <span class='symbol'>:city</span><span class='comma'>,</span> <span class='symbol'>:state</span><span class='comma'>,</span> <span class='symbol'>:zip_code</span><span class='comma'>,</span> <span class='symbol'>:fax</span><span class='comma'>,</span> <span class='symbol'>:latitude</span><span class='comma'>,</span> <span class='symbol'>:longitude</span><span class='comma'>,</span> <span class='symbol'>:approved</span><span class='comma'>,</span> <span class='symbol'>:cell_phone</span><span class='comma'>,</span> <span class='symbol'>:state_licensed_in</span><span class='comma'>,</span> <span class='symbol'>:date_license_issued</span><span class='comma'>,</span> <span class='symbol'>:license_expiration_date</span><span class='comma'>,</span> <span class='symbol'>:license_number</span><span class='comma'>,</span> <span class='symbol'>:license</span><span class='rparen'>)</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+  </div>
+
+</div>
+
+    <div id="footer">
+  Generated on Wed Jan 22 17:08:03 2014 by
+  <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
+  0.8.7.3 (ruby-2.0.0).
+</div>
+
+  </body>
+</html>

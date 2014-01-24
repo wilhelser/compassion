@@ -1,0 +1,5 @@
+- if @vendor.errors.any?
+  #error_explanation
+    %ul
+      - @vendor.errors.full_messages.each do |msg|
+        %li= msg

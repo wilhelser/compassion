@@ -4,10 +4,18 @@ class Gallery < ActiveRecord::Base
   belongs_to :project, touch: true
   has_many :photos
 
+  #
+  # Determines if gallery belongs to a contractor
+  #
+  # @return [Boolean] true if contractor_id is present
   def is_contractor_gallery?
     self.gallery_type == "contractor" ? true : false
   end
 
+  #
+  # Determines if gallery is project gallery
+  #
+  # @return [Boolean] true if project_id is present
   def is_project_gallery?
     self.gallery_type == "project" ? true : false
   end

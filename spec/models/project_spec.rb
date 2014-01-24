@@ -19,5 +19,27 @@
 require 'spec_helper'
 
 describe Project do
-  pending "add some examples to (or delete) #{__FILE__}"
+  context 'without featured_image' do
+    before { subject.stub(:featured_image) { nil } }
+    it { should validate_presence_of(:featured_video) }
+  end
+
+  context 'without featured_video' do
+    before { subject.stub(:featured_video) { nil } }
+    it { should validate_presence_of(:featured_image) }
+  end
+
+  it { should validate_presence_of(:page_title) }
+  it { should validate_presence_of(:page_message) }
+  it { should validate_presence_of(:slug) }
+  it { should validate_presence_of(:street_address) }
+  it { should validate_presence_of(:city) }
+  it { should validate_presence_of(:state) }
+  it { should validate_presence_of(:zip_code) }
+  it { should validate_presence_of(:category_ids) }
+
+  it "should be approved if not a construction project" do
+    project = FactoryGirl.create :not_construction_project
+    expect { project.status}.to_be 'approved'
+  end
 end

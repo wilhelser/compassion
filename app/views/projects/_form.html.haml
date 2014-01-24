@@ -73,7 +73,7 @@
         I want to upload an image
       %li
         %input{name: "media", type: "radio", value: "video"}>/
-        YouTube/Vimeo Video
+        YouTube Video
     .clearfix
     #upload_options_wrap
       #featured_upload.hide
@@ -82,7 +82,7 @@
       / featured_upload
       #youtube_add.hide
         %div
-          = f.input :featured_video, :placeholder => "YouTube/Vimeo Link", :label => false
+          = f.input :featured_video, :placeholder => "YouTube Link", :label => false
       / youtube-add
     / upload_options_wrap
     .clearfix

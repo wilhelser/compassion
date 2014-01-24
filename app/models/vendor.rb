@@ -8,8 +8,11 @@ class Vendor < ActiveRecord::Base
   scope :verified, -> { where(verified: true) }
   scope :paid, -> { where(paid: true) }
 
+  #
+  # Total dollar amount of vendor items for project
+  #
+  # @return [Decimal] total dollar amount of vendor items for project
   def vendor_total
     project.vendors.sum(:amount)
   end
-
 end

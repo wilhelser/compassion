@@ -8,7 +8,7 @@ class Photo < ActiveRecord::Base
   #
   # Builds the photo image url for display on the site
   #
-  # @return String Full image URL
+  # @return [String] Full image URL
   def image_url
     "https://s3.amazonaws.com/c4humanity/#{self.key}"
   end

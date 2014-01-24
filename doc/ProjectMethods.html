@@ -1,0 +1,947 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>
+  Module: ProjectMethods
+  
+    &mdash; Documentation by YARD 0.8.7.3
+  
+</title>
+
+  <link rel="stylesheet" href="css/style.css" type="text/css" charset="utf-8" />
+
+  <link rel="stylesheet" href="css/common.css" type="text/css" charset="utf-8" />
+
+<script type="text/javascript" charset="utf-8">
+  hasFrames = window.top.frames.main ? true : false;
+  relpath = '';
+  framesUrl = "frames.html#!" + escape(window.location.href);
+</script>
+
+
+  <script type="text/javascript" charset="utf-8" src="js/jquery.js"></script>
+
+  <script type="text/javascript" charset="utf-8" src="js/app.js"></script>
+
+
+  </head>
+  <body>
+    <div id="header">
+      <div id="menu">
+  
+    <a href="_index.html">Index (P)</a> &raquo;
+    
+    
+    <span class="title">ProjectMethods</span>
+  
+
+  <div class="noframes"><span class="title">(</span><a href="." target="_top">no frames</a><span class="title">)</span></div>
+</div>
+
+      <div id="search">
+  
+    <a class="full_list_link" id="class_list_link"
+        href="class_list.html">
+      Class List
+    </a>
+  
+    <a class="full_list_link" id="method_list_link"
+        href="method_list.html">
+      Method List
+    </a>
+  
+    <a class="full_list_link" id="file_list_link"
+        href="file_list.html">
+      File List
+    </a>
+  
+</div>
+      <div class="clear"></div>
+    </div>
+
+    <iframe id="search_frame"></iframe>
+
+    <div id="content"><h1>Module: ProjectMethods
+  
+  
+  
+</h1>
+
+<dl class="box">
+  
+  
+    
+  
+    
+  
+  
+    <dt class="r1">Included in:</dt>
+    <dd class="r1"><span class='object_link'><a href="Project.html" title="Project (class)">Project</a></span></dd>
+    
+  
+  
+    <dt class="r2 last">Defined in:</dt>
+    <dd class="r2 last">lib/modules/project_methods.rb</dd>
+  
+</dl>
+<div class="clear"></div>
+
+
+
+
+
+
+
+
+  
+    <h2>
+      Instance Method Summary
+      <small>(<a href="#" class="summary_toggle">collapse</a>)</small>
+    </h2>
+
+    <ul class="summary">
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#campaign_extended%3F-instance_method" title="#campaign_extended? (instance method)">- (Boolean) <strong>campaign_extended?</strong> </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>Whether a campaign has been extended.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#check_funded_status-instance_method" title="#check_funded_status (instance method)">- (Object) <strong>check_funded_status</strong> </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>Checks if project needs to be set to funded and sets the project to funded
+if so.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#clean_page_message_content-instance_method" title="#clean_page_message_content (instance method)">- (String) <strong>clean_page_message_content</strong> </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>clean out any random div tags that may have made their way into the page
+message.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#email_inactive_projects-instance_method" title="#email_inactive_projects (instance method)">- (Object) <strong>email_inactive_projects</strong> </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>Checks for inactive actions and sends an email called from
+config/schedule.rb.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#end_campaign-instance_method" title="#end_campaign (instance method)">- (Object) <strong>end_campaign</strong> </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>Ends a campaign.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#extend_campaign-instance_method" title="#extend_campaign (instance method)">- (Object) <strong>extend_campaign</strong> </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>Extends a campaign that has been funded.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#funded_decision_made%3F-instance_method" title="#funded_decision_made? (instance method)">- (Boolean) <strong>funded_decision_made?</strong> </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>Checks if user has made a decision to continue or close a project after it
+has been funded.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#projects_not_funded-instance_method" title="#projects_not_funded (instance method)">- (Hash) <strong>projects_not_funded</strong>(number_of_days) </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>Method to find projects not funded in X number of days.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#send_funded_email-instance_method" title="#send_funded_email (instance method)">- (Object) <strong>send_funded_email</strong> </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>sends email to action creator when action is funded called from
+set_to_funded in Project model.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#set_to_funded-instance_method" title="#set_to_funded (instance method)">- (Object) <strong>set_to_funded</strong> </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>Sets a project&#39;s status to funded and sends a funded notification email
+out to user.</p>
+</div></span>
+  
+</li>
+
+      
+    </ul>
+  
+
+
+
+  <div id="instance_method_details" class="method_details_list">
+    <h2>Instance Method Details</h2>
+
+    
+      <div class="method_details first">
+  <h3 class="signature first" id="campaign_extended?-instance_method">
+  
+    - (<tt>Boolean</tt>) <strong>campaign_extended?</strong> 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    
+<p>Whether a campaign has been extended</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+<p class="tag_title">Returns:</p>
+<ul class="return">
+  
+    <li>
+      
+      
+        <span class='type'>(<tt>Boolean</tt>)</span>
+      
+      
+      
+        &mdash;
+        <div class='inline'>
+<p>true if campaign extended_date.present?</p>
+</div>
+      
+    </li>
+  
+</ul>
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+40
+41
+42</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/modules/project_methods.rb', line 40</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_campaign_extended?'>campaign_extended?</span>
+  <span class='kw'>self</span><span class='period'>.</span><span class='id identifier rubyid_campaign_extended_date'>campaign_extended_date</span><span class='period'>.</span><span class='id identifier rubyid_blank?'>blank?</span> <span class='op'>?</span> <span class='kw'>false</span> <span class='op'>:</span> <span class='kw'>true</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="check_funded_status-instance_method">
+  
+    - (<tt>Object</tt>) <strong>check_funded_status</strong> 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    
+<p>Checks if project needs to be set to funded and sets the project to funded
+if so</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+15
+16
+17
+18
+19
+20
+21</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/modules/project_methods.rb', line 15</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_check_funded_status'>check_funded_status</span>
+  <span class='kw'>if</span> <span class='kw'>self</span><span class='period'>.</span><span class='id identifier rubyid_total_contributions'>total_contributions</span> <span class='op'>&gt;=</span> <span class='kw'>self</span><span class='period'>.</span><span class='id identifier rubyid_goal_amount'>goal_amount</span>
+    <span class='id identifier rubyid_set_to_funded'>set_to_funded</span>
+  <span class='kw'>else</span>
+    <span class='const'>Rails</span><span class='period'>.</span><span class='id identifier rubyid_logger'>logger</span><span class='period'>.</span><span class='id identifier rubyid_info'>info</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>Not yet!</span><span class='tstring_end'>&quot;</span></span>
+  <span class='kw'>end</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="clean_page_message_content-instance_method">
+  
+    - (<tt>String</tt>) <strong>clean_page_message_content</strong> 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    
+<p>clean out any random div tags that may have made their way into the page
+message</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+<p class="tag_title">Returns:</p>
+<ul class="return">
+  
+    <li>
+      
+      
+        <span class='type'>(<tt>String</tt>)</span>
+      
+      
+      
+        &mdash;
+        <div class='inline'>
+<p>cleaned page_message</p>
+</div>
+      
+    </li>
+  
+</ul>
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+58
+59
+60
+61
+62
+63
+64</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/modules/project_methods.rb', line 58</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_clean_page_message_content'>clean_page_message_content</span>
+  <span class='ivar'>@body</span> <span class='op'>=</span> <span class='kw'>self</span><span class='period'>.</span><span class='id identifier rubyid_page_message'>page_message</span>
+  <span class='kw'>if</span> <span class='ivar'>@body</span><span class='period'>.</span><span class='id identifier rubyid_include?'>include?</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>&lt;div&gt;</span><span class='tstring_end'>&#39;</span></span><span class='rparen'>)</span>
+    <span class='ivar'>@newbody</span> <span class='op'>=</span> <span class='ivar'>@body</span><span class='period'>.</span><span class='id identifier rubyid_gsub'>gsub</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>&lt;div&gt;</span><span class='tstring_end'>&#39;</span></span><span class='comma'>,</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_end'>&#39;</span></span><span class='rparen'>)</span><span class='period'>.</span><span class='id identifier rubyid_gsub'>gsub</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>&lt;/div&gt;</span><span class='tstring_end'>&#39;</span></span><span class='comma'>,</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_end'>&#39;</span></span><span class='rparen'>)</span>
+    <span class='kw'>self</span><span class='period'>.</span><span class='id identifier rubyid_update_attribute'>update_attribute</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>page_message</span><span class='tstring_end'>&#39;</span></span><span class='comma'>,</span> <span class='ivar'>@newbody</span><span class='rparen'>)</span>
+  <span class='kw'>end</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="email_inactive_projects-instance_method">
+  
+    - (<tt>Object</tt>) <strong>email_inactive_projects</strong> 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    
+<p>Checks for inactive actions and sends an email called from
+config/schedule.rb</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+87
+88
+89
+90
+91
+92
+93
+94
+95
+96
+97
+98
+99
+100
+101
+102
+103
+104
+105
+106
+107
+108</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/modules/project_methods.rb', line 87</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_email_inactive_projects'>email_inactive_projects</span>
+  <span class='ivar'>@thirty_day_projects</span> <span class='op'>=</span> <span class='id identifier rubyid_projects_not_funded'>projects_not_funded</span><span class='lparen'>(</span><span class='int'>30</span><span class='rparen'>)</span>
+  <span class='ivar'>@forty_day_projects</span> <span class='op'>=</span> <span class='id identifier rubyid_projects_not_funded'>projects_not_funded</span><span class='lparen'>(</span><span class='int'>40</span><span class='rparen'>)</span>
+  <span class='ivar'>@fifty_day_projects</span> <span class='op'>=</span> <span class='id identifier rubyid_projects_not_funded'>projects_not_funded</span><span class='lparen'>(</span><span class='int'>50</span><span class='rparen'>)</span>
+  <span class='ivar'>@sixty_day_projects</span> <span class='op'>=</span> <span class='id identifier rubyid_projects_not_funded'>projects_not_funded</span><span class='lparen'>(</span><span class='int'>60</span><span class='rparen'>)</span>
+
+  <span class='ivar'>@thirty_day_projects</span><span class='period'>.</span><span class='id identifier rubyid_each'>each</span> <span class='kw'>do</span> <span class='op'>|</span><span class='id identifier rubyid_p'>p</span><span class='op'>|</span>
+    <span class='const'>ProjectMailer</span><span class='period'>.</span><span class='id identifier rubyid_project_not_funded_email'>project_not_funded_email</span><span class='lparen'>(</span><span class='id identifier rubyid_p'>p</span><span class='period'>.</span><span class='id identifier rubyid_user'>user</span><span class='comma'>,</span> <span class='id identifier rubyid_p'>p</span><span class='comma'>,</span> <span class='int'>30</span><span class='rparen'>)</span><span class='period'>.</span><span class='id identifier rubyid_deliver'>deliver</span>
+  <span class='kw'>end</span>
+
+  <span class='ivar'>@forty_day_projects</span><span class='period'>.</span><span class='id identifier rubyid_each'>each</span> <span class='kw'>do</span> <span class='op'>|</span><span class='id identifier rubyid_p'>p</span><span class='op'>|</span>
+    <span class='const'>ProjectMailer</span><span class='period'>.</span><span class='id identifier rubyid_project_not_funded_email'>project_not_funded_email</span><span class='lparen'>(</span><span class='id identifier rubyid_p'>p</span><span class='period'>.</span><span class='id identifier rubyid_user'>user</span><span class='comma'>,</span> <span class='id identifier rubyid_p'>p</span><span class='comma'>,</span> <span class='int'>40</span><span class='rparen'>)</span><span class='period'>.</span><span class='id identifier rubyid_deliver'>deliver</span>
+  <span class='kw'>end</span>
+
+  <span class='ivar'>@fifty_day_projects</span><span class='period'>.</span><span class='id identifier rubyid_each'>each</span> <span class='kw'>do</span> <span class='op'>|</span><span class='id identifier rubyid_p'>p</span><span class='op'>|</span>
+    <span class='const'>ProjectMailer</span><span class='period'>.</span><span class='id identifier rubyid_project_not_funded_email'>project_not_funded_email</span><span class='lparen'>(</span><span class='id identifier rubyid_p'>p</span><span class='period'>.</span><span class='id identifier rubyid_user'>user</span><span class='comma'>,</span> <span class='id identifier rubyid_p'>p</span><span class='comma'>,</span> <span class='int'>50</span><span class='rparen'>)</span><span class='period'>.</span><span class='id identifier rubyid_deliver'>deliver</span>
+  <span class='kw'>end</span>
+
+  <span class='ivar'>@sixty_day_projects</span><span class='period'>.</span><span class='id identifier rubyid_each'>each</span> <span class='kw'>do</span> <span class='op'>|</span><span class='id identifier rubyid_p'>p</span><span class='op'>|</span>
+    <span class='const'>ProjectMailer</span><span class='period'>.</span><span class='id identifier rubyid_project_not_funded_email'>project_not_funded_email</span><span class='lparen'>(</span><span class='id identifier rubyid_p'>p</span><span class='period'>.</span><span class='id identifier rubyid_user'>user</span><span class='comma'>,</span> <span class='id identifier rubyid_p'>p</span><span class='comma'>,</span> <span class='int'>60</span><span class='rparen'>)</span><span class='period'>.</span><span class='id identifier rubyid_deliver'>deliver</span>
+  <span class='kw'>end</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="end_campaign-instance_method">
+  
+    - (<tt>Object</tt>) <strong>end_campaign</strong> 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    
+<p>Ends a campaign. Set&#39;s the status to complete, approved to false and
+sets the campaign_ended_date to current date</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+70
+71
+72</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/modules/project_methods.rb', line 70</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_end_campaign'>end_campaign</span>
+  <span class='kw'>self</span><span class='period'>.</span><span class='id identifier rubyid_update_attributes'>update_attributes</span><span class='lparen'>(</span><span class='label'>campaign_ended:</span> <span class='kw'>true</span><span class='comma'>,</span> <span class='label'>status:</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>Complete</span><span class='tstring_end'>&quot;</span></span><span class='comma'>,</span> <span class='label'>approved:</span> <span class='kw'>false</span><span class='comma'>,</span> <span class='label'>campaign_ended_date:</span> <span class='const'>Date</span><span class='period'>.</span><span class='id identifier rubyid_today'>today</span><span class='rparen'>)</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="extend_campaign-instance_method">
+  
+    - (<tt>Object</tt>) <strong>extend_campaign</strong> 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    
+<p>Extends a campaign that has been funded. Sets campaign_ended to false
+status to &#39;In Progress&#39;, approved to true and
+campaign_extended_date to current date</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+79
+80
+81</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/modules/project_methods.rb', line 79</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_extend_campaign'>extend_campaign</span>
+  <span class='kw'>self</span><span class='period'>.</span><span class='id identifier rubyid_update_attributes'>update_attributes</span><span class='lparen'>(</span><span class='label'>campaign_ended:</span> <span class='kw'>false</span><span class='comma'>,</span> <span class='label'>status:</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>In Progress</span><span class='tstring_end'>&quot;</span></span><span class='comma'>,</span> <span class='label'>approved:</span> <span class='kw'>true</span><span class='comma'>,</span> <span class='label'>campaign_extended_date:</span> <span class='const'>Date</span><span class='period'>.</span><span class='id identifier rubyid_today'>today</span><span class='rparen'>)</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="funded_decision_made?-instance_method">
+  
+    - (<tt>Boolean</tt>) <strong>funded_decision_made?</strong> 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    
+<p>Checks if user has made a decision to continue or close a project after it
+has been funded</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+<p class="tag_title">Returns:</p>
+<ul class="return">
+  
+    <li>
+      
+      
+        <span class='type'>(<tt>Boolean</tt>)</span>
+      
+      
+      
+        &mdash;
+        <div class='inline'>
+<p>true if campaign_ended? or campaign_extended?</p>
+</div>
+      
+    </li>
+  
+</ul>
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+49
+50
+51</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/modules/project_methods.rb', line 49</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_funded_decision_made?'>funded_decision_made?</span>
+  <span class='kw'>true</span> <span class='kw'>if</span> <span class='id identifier rubyid_campaign_ended?'>campaign_ended?</span> <span class='op'>||</span> <span class='id identifier rubyid_campaign_extended?'>campaign_extended?</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="projects_not_funded-instance_method">
+  
+    - (<tt>Hash</tt>) <strong>projects_not_funded</strong>(number_of_days) 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    
+<p>Method to find projects not funded in X number of days</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  <p class="tag_title">Parameters:</p>
+<ul class="param">
+  
+    <li>
+      
+        <span class='name'>number_of_days</span>
+      
+      
+        <span class='type'>(<tt>Integer</tt>)</span>
+      
+      
+      
+        &mdash;
+        <div class='inline'>
+<p>number of days project has been active</p>
+</div>
+      
+    </li>
+  
+</ul>
+
+<p class="tag_title">Returns:</p>
+<ul class="return">
+  
+    <li>
+      
+      
+        <span class='type'>(<tt>Hash</tt>)</span>
+      
+      
+      
+        &mdash;
+        <div class='inline'>
+<p>hash of projects</p>
+</div>
+      
+    </li>
+  
+</ul>
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+115
+116
+117</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/modules/project_methods.rb', line 115</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_projects_not_funded'>projects_not_funded</span><span class='lparen'>(</span><span class='id identifier rubyid_number_of_days'>number_of_days</span><span class='rparen'>)</span>
+  <span class='const'>Project</span><span class='period'>.</span><span class='id identifier rubyid_in_progress'>in_progress</span><span class='period'>.</span><span class='id identifier rubyid_where'>where</span><span class='lparen'>(</span><span class='symbol'>:created_at</span> <span class='op'>=&gt;</span> <span class='const'>Date</span><span class='period'>.</span><span class='id identifier rubyid_today'>today</span> <span class='op'>-</span> <span class='id identifier rubyid_number_of_days'>number_of_days</span><span class='period'>.</span><span class='id identifier rubyid_days'>days</span><span class='rparen'>)</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="send_funded_email-instance_method">
+  
+    - (<tt>Object</tt>) <strong>send_funded_email</strong> 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    
+<p>sends email to action creator when action is funded called from
+set_to_funded in Project model</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+7
+8
+9</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/modules/project_methods.rb', line 7</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_send_funded_email'>send_funded_email</span>
+  <span class='const'>ProjectMailer</span><span class='period'>.</span><span class='id identifier rubyid_project_funded_email'>project_funded_email</span><span class='lparen'>(</span><span class='kw'>self</span><span class='period'>.</span><span class='id identifier rubyid_user'>user</span><span class='comma'>,</span> <span class='kw'>self</span><span class='rparen'>)</span><span class='period'>.</span><span class='id identifier rubyid_deliver'>deliver</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="set_to_funded-instance_method">
+  
+    - (<tt>Object</tt>) <strong>set_to_funded</strong> 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    
+<p>Sets a project&#39;s status to funded and sends a funded notification email
+out to user</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+27
+28
+29
+30
+31
+32
+33
+34</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/modules/project_methods.rb', line 27</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_set_to_funded'>set_to_funded</span>
+  <span class='kw'>self</span><span class='period'>.</span><span class='id identifier rubyid_update_attributes'>update_attributes</span><span class='lparen'>(</span><span class='label'>status:</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>Funded</span><span class='tstring_end'>&#39;</span></span><span class='comma'>,</span> <span class='label'>funded:</span> <span class='kw'>true</span><span class='comma'>,</span> <span class='label'>funded_date:</span> <span class='const'>Date</span><span class='period'>.</span><span class='id identifier rubyid_today'>today</span><span class='rparen'>)</span>
+  <span class='kw'>unless</span> <span class='kw'>self</span><span class='period'>.</span><span class='id identifier rubyid_construction_project?'>construction_project?</span>
+    <span class='id identifier rubyid_send_funded_email'>send_funded_email</span>
+  <span class='kw'>end</span>
+  <span class='comment'># @graph = Koala::Facebook::API.new(compassion_access_token)
+</span>  <span class='comment'># @graph.put_wall_post(&quot;Another Compassion project funded!&quot;, { :name =&gt; &quot;#{self.page_title}&quot;, :description =&gt; &quot;Funded!&quot;, :link =&gt; &quot;http://compassionforhumanity.org/projects/#{self.slug}&quot;})
+</span><span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+  </div>
+
+</div>
+
+    <div id="footer">
+  Generated on Wed Jan 22 17:08:01 2014 by
+  <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
+  0.8.7.3 (ruby-2.0.0).
+</div>
+
+  </body>
+</html>

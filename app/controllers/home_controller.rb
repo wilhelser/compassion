@@ -22,6 +22,11 @@ class HomeController < ApplicationController
     @projects = Project.approved.last(4)
   end
 
+  #
+  # Response to FB callback. Pulls authentication token from code
+  # sets the token to a session variable and redirects to the
+  # Home page
+  #
   def fb_callback
     @oauth = Koala::Facebook::OAuth.new(ENV['FB_APP_ID'],"#{ENV['FB_SECRET_KEY']}", "http://compassionforhumanity.org/home/fb_callback")
     if params[:code]
@@ -32,6 +37,11 @@ class HomeController < ApplicationController
     end
   end
 
+  #
+  # Parses coordinates from request parameters. First checks for a
+  # request.location param then falls back to IP based check
+  #
+  # @return [type] [description]
   def get_request_coordinates
     if request.location.nil?
       @ip = request.remote_ip
@@ -46,5 +56,4 @@ class HomeController < ApplicationController
       @location_country = request.location.country_code
     end
   end
-
 end
