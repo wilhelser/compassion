@@ -34,7 +34,7 @@
       %legend Licensing Information
       .one-half.pull-left
         = f.input :state_licensed_in, :as => :string, :label => "States licensed in"
-        = f.input :date_license_issued, :as => :date, :label => "Date license issued"
+        = f.input :date_license_issued, :as => :string, :label => "Date license issued", :input_html => { "data-behavior" => "datepicker" }
         = f.input :license, :label => "Please upload a copy of your license."
         #adjuster_license_display
           - unless @adjuster.license.blank?
@@ -43,7 +43,7 @@
         / adjuster_license_display
       .one-half.pull-right
         = f.input :license_number
-        = f.input :license_expiration_date, :as => :date, :label => "License Expiration Date"
+        = f.input :license_expiration_date, :as => :string, :label => "License Expiration Date", :input_html => { "data-behavior" => "datepicker" }
       .clearfix
     %hr/
     = f.button :submit, "Update Profile", :class => "btn btn-primary pull-right", "data-disable-with" => "Updating..."
