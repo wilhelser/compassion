@@ -10,7 +10,7 @@ class EstimatesController < InheritedResources::Base
   end
 
   def create
-    @adjuster.estimates.build(params[:estimate])
+    @estimate = @adjuster.estimates.build(params[:estimate])
     @project = Project.find(params[:estimate][:project_id])
 
     if @estimate.save
