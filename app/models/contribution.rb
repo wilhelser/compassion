@@ -4,6 +4,7 @@ class Contribution < ActiveRecord::Base
   validates :amount, :project_id, :email, :first_name, :last_name, :presence => true
   validates_numericality_of :amount, :message => "must not contain any punctuation"
   belongs_to :project, touch: true
+  after_create :send_donation_notification
 
   scope :public, -> { where(private: false) }
   scope :private, -> { where(private: true) }
@@ -53,6 +54,12 @@ class Contribution < ActiveRecord::Base
     logger.error "Stripe error while creating customer: #{e.message}"
     errors.add :base, "There was a problem with your credit card."
     false
+  end
+
+  def send_donation_notification
+    if self.project.notify_on_donate?
+      ProjectMailer.donation_notification_email(self.project.user, self.project, self).deliver
+    end
   end
 
 end

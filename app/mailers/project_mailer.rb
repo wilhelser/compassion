@@ -81,4 +81,18 @@ class ProjectMailer < ActionMailer::Base
     @project = project
     mail(to: @user.email, subject: "Your ACTION has been stopped!")
   end
+
+  #
+  # Emails user after their project receives a donation
+  # only sent if project settings have notify_on_donate set to true
+  # @param  user [Object] user
+  # @param  project [Object] project
+  # @param  contribution [Object] contribution
+  #
+  def donation_notification_email(user, project, contribution)
+    @user = user
+    @project = project
+    @contribution = contribution
+    mail(to: @user.email, subject: "#{@user.first_name}, your Action #{@project.page_title} has received a new contribution!")
+  end
 end
