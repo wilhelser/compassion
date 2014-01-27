@@ -37,9 +37,9 @@ class ProjectsController < InheritedResources::Base
     @project = @user.projects.build(params[:project])
 
     if @project.save
-      redirect_to dashboard_project_path(@project)
+      respond_with @project
     else
-      render :new
+      respond_with @project.errors.full_messages
     end
   end
 

@@ -1,0 +1,9 @@
+<% if @project.errors.any? %>
+$('html, body').animate({
+    scrollTop:0
+}, 200);
+$('#disclaimer_modal').modal('hide');
+$("#project-error-messages").html('<%= escape_javascript(render("projects/error_messages", :formats => [:html])) %>').removeClass('hide');
+<% else %>
+  <% redirect_to dashboard_project_path(@project) %>
+<% end %>
