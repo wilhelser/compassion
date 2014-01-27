@@ -8,6 +8,7 @@ $ ->
       $("input[name='project[trade_ids][]'").prop('checked', false)
 
   $(".needs-acceptance").click ->
+    $('#disclaimer-accept').prop('disabled', '')
     $("#disclaimer_modal").modal('show')
     false
 
@@ -16,6 +17,7 @@ $ ->
   # $(".project_show_main_image").imagefill()
 
   $("#disclaimer-accept").click ->
+    $(@).prop('disabled', 'disabled')
     $("#new_project").submit()
 
   $(document).delegate ".accepted-new-project", "click", ->
