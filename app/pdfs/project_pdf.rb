@@ -6,7 +6,8 @@ class ProjectPdf < Prawn::Document
     @view = view
     page_heading
     project_image
-    qrcode
+    project_text
+    # qrcode
   end
 
   def page_heading
@@ -17,10 +18,15 @@ class ProjectPdf < Prawn::Document
 
   def project_image
     move_down 10
-    image open("#{@project.image_url}"), width: 300, height: 200 if @project.featured_image.present?
+    image open("#{@project.image_url}"), width: 300, height: 200, position: :center if @project.featured_image.present?
     image open("#{@project.key}"), width: 300, position: :center, height: 200 if @project.featured_video.present?
+  end
+
+  def project_text
+    move_down 20
+    text "#{@project.page_message}", inline_format: true
     move_down 10
-    text "#{@project.long_link}", size: 14, style: :bold, align: :center
+    text "To help, or for more information please visit #{@project.long_link}", size: 14, style: :bold, align: :center
   end
 
   def qrcode
