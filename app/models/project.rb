@@ -57,6 +57,10 @@ class Project < ActiveRecord::Base
     notify_empty_contractors
   end
 
+  def no_paragraph_page_message
+    self.page_message.gsub('&nbsp;', ' ').gsub('<p>', '').gsub('</p>', '<br/><br/>')
+  end
+
   #
   # Strips HTML from page_message for truncation and display
   # on small project view

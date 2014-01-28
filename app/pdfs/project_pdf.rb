@@ -7,7 +7,7 @@ class ProjectPdf < Prawn::Document
     page_heading
     project_image
     project_text
-    # qrcode
+    qrcode
   end
 
   def page_heading
@@ -23,10 +23,11 @@ class ProjectPdf < Prawn::Document
   end
 
   def project_text
-    move_down 20
-    text "#{@project.page_message}", inline_format: true
+    move_down 30
+    text "#{@project.no_paragraph_page_message}", inline_format: true
     move_down 10
-    text "To help, or for more information please visit #{@project.long_link}", size: 14, style: :bold, align: :center
+    text "To help, or for more information please visit:", size: 14, style: :bold, align: :left
+    text "#{@project.long_link}", size: 14, style: :bold, align: :left
   end
 
   def qrcode
@@ -35,3 +36,5 @@ class ProjectPdf < Prawn::Document
   end
 
 end
+
+
