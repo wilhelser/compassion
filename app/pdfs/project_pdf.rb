@@ -24,8 +24,11 @@ class ProjectPdf < Prawn::Document
 
   def project_text
     move_down 30
-    text "#{@project.no_paragraph_page_message}", inline_format: true
-    move_down 10
+    @splits = split
+    @splits.each do |s|
+      text "#{s}", inline_format: true
+      move_down 10
+    end
     text "To help, or for more information please visit:", size: 14, style: :bold, align: :left
     text "#{@project.long_link}", size: 14, style: :bold, align: :left
   end
@@ -33,6 +36,10 @@ class ProjectPdf < Prawn::Document
   def qrcode
     move_down 20
     image open("#{@project.qrcode}"), width: 100, height: 100, align: :center
+  end
+
+  def split
+    @project.no_paragraph_page_message.split('\r\n')
   end
 
 end

@@ -58,7 +58,15 @@ class Project < ActiveRecord::Base
   end
 
   def no_paragraph_page_message
-    self.page_message.gsub('&nbsp;', ' ').gsub('<p>', '').gsub('</p>', '<br/><br/>')
+    @body = self.page_message.gsub('<br>', '\r\n')
+    return clean_and_strip(@body)
+  end
+
+  def clean_and_strip(string)
+    decoder = HTMLEntities.new
+    @string = string
+    @body = decoder.decode(@string)
+    return ActionView::Base.full_sanitizer.sanitize(@body)
   end
 
   #
@@ -67,10 +75,7 @@ class Project < ActiveRecord::Base
   #
   # @return [String] sanitized page_message
   def stripped_content
-    decoder = HTMLEntities.new
-    @string = self.page_message
-    @body = decoder.decode(@string)
-    return ActionView::Base.full_sanitizer.sanitize(@body)
+    clean_and_strip(self.page_message)
   end
 
   #
