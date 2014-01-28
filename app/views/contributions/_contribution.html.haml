@@ -1,7 +1,10 @@
 - cache contribution do
   = div_for(contribution) do |contribution|
     .contribution-left.pull-left
-      = image_tag (contribution.image.blank? ? 'profile-placeholder.png' : "#{contribution.image}"), class: "thumbnail", height: "100", width: "100"
+      - if contribution.private?
+        = image_tag 'profile-placeholder.png', class: "thumbnail", height: "100", width: "100"
+      - else
+        = image_tag (contribution.image.blank? ? 'profile-placeholder.png' : "#{contribution.image}"), class: "thumbnail", height: "100", width: "100"
     .contribution-right.pull-right
       %div{class: "donor-class-sm #{contribution.donor_class}"}
         = image_tag "donor-class-sm/#{contribution.donor_class}.png"
