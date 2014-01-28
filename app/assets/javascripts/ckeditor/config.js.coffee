@@ -9,12 +9,13 @@ CKEDITOR.editorConfig = (config) ->
   config.autoGrow_maxHeight = 545
   config.autoGrow_absoluteMax = 545
   config.scayt_autoStartup = false
+  config.ignoreEmptyParagraph = true
   config.enterMode = CKEDITOR.ENTER_P
   config.forceSimpleAmpersand = true
   config.disableNativeSpellChecker = true
   config.entities_greek = false
   config.entities = false
-  config.entities_latin = true
+  config.entities_latin = false
   config.entities_processNumerical = false
   config.toolbar = [
     name: "clipboard"
@@ -30,8 +31,8 @@ CKEDITOR.editorConfig = (config) ->
     items: ["Bold", "Italic", "Underline", "Strike", "-", "RemoveFormat"]
   ,
     name: "paragraph"
-    groups: ["list", "indent", "blocks", "align", "bidi"]
-    items: ["NumberedList", "BulletedList", "-", "Outdent", "Indent", "-", "Blockquote", "-", "JustifyLeft", "JustifyCenter", "JustifyRight", "JustifyBlock"]
+    groups: ["list", "indent", "align"]
+    items: ["NumberedList", "BulletedList", "-", "Outdent", "Indent", "-", "JustifyLeft", "JustifyCenter", "JustifyRight", "JustifyBlock"]
   ,
     name: "links"
     items: ["Link", "Unlink"]
