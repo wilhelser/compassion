@@ -67,7 +67,9 @@ class Project < ActiveRecord::Base
   #
   # @return [String] sanitized page_message
   def stripped_content
-    @body = self.page_message
+    decoder = HTMLEntities.new
+    @string = self.page_message
+    @body = decoder.decode(@string)
     return ActionView::Base.full_sanitizer.sanitize(@body)
   end
 

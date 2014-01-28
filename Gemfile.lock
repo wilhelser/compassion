@@ -207,6 +207,7 @@ GEM
     highline (1.6.20)
     hike (1.2.3)
     hirb (0.7.1)
+    htmlentities (4.3.1)
     httpauth (0.2.0)
     i18n (0.6.9)
     inherited_resources (1.4.1)
@@ -468,6 +469,7 @@ DEPENDENCIES
   gmaps4rails (~> 2.0.1)!
   haml
   hirb
+  htmlentities
   jasny_bootstrap_extension_rails
   jquery-rails
   jquery-ui-rails (~> 4.0.2)

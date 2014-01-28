@@ -36,5 +36,3 @@ class ProjectPdf < Prawn::Document
   end
 
 end
-
-
