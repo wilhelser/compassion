@@ -52,7 +52,7 @@ class Project < ActiveRecord::Base
   # Sets a construction project to unapproved pending upload
   # of estimate
   #
-  def set_to_unnaproved
+  def set_to_unapproved
     self.update_attribute('approved', false)
     notify_empty_contractors
   end
