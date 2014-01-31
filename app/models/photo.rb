@@ -2,7 +2,7 @@ class Photo < ActiveRecord::Base
   include ImageMethods
   attr_accessible :caption, :gallery_id, :image, :key
   validates_presence_of :image
-  belongs_to :gallery, dependent: :destroy
+  belongs_to :gallery
   after_create :set_key
 
   #
