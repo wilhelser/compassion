@@ -2,6 +2,9 @@
   = simple_form_for(@adjuster, :html => { :method => "put", :multipart => true, :autocomplete => "off" }, :remote => true) do |f|
     #adjuster_update_errors.alert.hide
     %fieldset
+      %legend Email Settings
+      = f.input :notify_on_assignment, label: "Notify me by email when I receive an assignment."
+    %fieldset
       %legend User Info
       .one-half.pull-left
         = f.input :email, :required => true, :autofocus => true

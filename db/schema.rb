@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140101224901) do
+ActiveRecord::Schema.define(version: 20140131044143) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -74,6 +74,7 @@ ActiveRecord::Schema.define(version: 20140101224901) do
     t.date     "date_license_issued"
     t.date     "license_expiration_date"
     t.string   "license"
+    t.boolean  "notify_on_assignment",              default: true
   end
 
   add_index "adjusters", ["email"], name: "index_adjusters_on_email", unique: true, using: :btree
