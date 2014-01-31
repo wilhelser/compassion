@@ -34,7 +34,7 @@ gem "quiet_assets", :group => :development
 gem "meta_request", :group => :development
 gem "figaro", ">= 0.6.3"
 gem "better_errors", ">= 0.7.2", :group => :development
-gem "binding_of_caller", :group => :development, :platforms => [:mri_19, :rbx]
+gem "binding_of_caller", :group => :development
 gem 'capistrano'
 gem "rvm-capistrano"
 gem 'rqrcode-rails3'
