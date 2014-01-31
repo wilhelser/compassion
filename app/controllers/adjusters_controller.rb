@@ -21,11 +21,6 @@ class AdjustersController < ApplicationController
     end
   end
 
-  def decline_assignment
-    @assignment = Assignment.find(params[:assignment_id])
-    @project = Project.find(@assignment.project_id)
-  end
-
   private
   def get_adjuster
     @adjuster = current_adjuster

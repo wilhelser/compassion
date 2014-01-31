@@ -1,9 +1,9 @@
 module ContractorMethods
 
-  def find_closest_adjuster(project)
+  def find_closest_adjuster(project, options={})
     @project = project
-    @adjuster_within_fifty = Adjuster.near(@project, 50)
-    @adjuster_within_hundred = Adjuster.near(@project, 100)
+    @adjuster_within_fifty = Adjuster.approved.near(@project, 50)
+    @adjuster_within_hundred = Adjuster.approved.near(@project, 100)
     if @adjuster_within_fifty.any?
       @adjuster = @adjuster_within_fifty.shuffle.each.first
     elsif @adjuster_within_hundred.any?
@@ -13,10 +13,37 @@ module ContractorMethods
       send_no_adjuster_mailer(@project)
       @adjuster = nil
     end
-    create_assignment(@project, @adjuster)
     return Adjuster.find(@adjuster)
   end
 
+  def reassign_adjuster(project, previous_adjuster)
+    @project = project
+    @previous_adjuster = previous_adjuster
+    @adjuster_within_fifty = Adjuster.approved.where.not(id: @previous_adjuster.id).near(@project, 50)
+    @adjuster_within_hundred = Adjuster.approved.where.not(id: @previous_adjuster.id).near(@project, 100)
+    if @adjuster_within_fifty.any?
+      @adjuster = @adjuster_within_fifty.shuffle.each.first
+      @has_adjuster = true
+    elsif @adjuster_within_hundred.any?
+      send_no_adjuster_mailer(@project)
+      @adjuster = @adjuster_within_hundred.shuffle.each.first
+      @has_adjuster = true
+    else
+      send_no_adjuster_mailer(@project)
+      @adjuster = nil
+      @has_adjuster = false
+    end
+    if @has_adjuster == true
+      create_assignment(@project, @adjuster)
+      send_contractor_reassignment_notification(@project, @adjuster)
+    end
+  end
+
+
+  def send_contractor_reassignment_notification(project, adjuster)
+    @adjuster = adjuster
+    ContractorMailer.new_adjuster_assigned_notification(@project, @project.contractors.first, @project.user, @adjuster).deliver
+  end
 
   def send_no_adjuster_mailer(project)
     AdjusterMailer.no_adjuster_found(@project, @project.contractors.first, @project.user).deliver

@@ -1,4 +1,5 @@
 Compassion::Application.routes.draw do
+  get "assignments/destroy"
   resources :pages
   ActiveAdmin.routes(self)
   resources :photos
@@ -15,6 +16,7 @@ Compassion::Application.routes.draw do
   resources :references
   resources :galleries
   resources :contractors
+  resources :assignments
 
   resources :contractors do
     resources :references
@@ -34,7 +36,6 @@ Compassion::Application.routes.draw do
   resources :adjusters do
     member do
       get "dashboard"
-      post "decline_assignment"
     end
   end
 

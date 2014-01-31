@@ -10,7 +10,6 @@
         %th Actions
     %tbody
       #assignments-wrap
-        - if @assignments.any?
-          = render @assignments
+        = render @assignments if @assignments.any?
 = render 'estimates/new_estimate_modal'
 = render 'estimates/edit_estimate_modal'

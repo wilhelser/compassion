@@ -15,7 +15,6 @@ class EstimatesController < InheritedResources::Base
 
     if @estimate.save
       @estimates = @adjuster.estimates
-      @assignments = @adjuster.assignments
       respond_with @estimate
     else
       respond_with @estimate.errors.full_messages

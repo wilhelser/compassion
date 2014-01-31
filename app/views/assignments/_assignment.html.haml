@@ -4,5 +4,5 @@
   %td= link_to "#{assignment.project.contractors.first.name}", contractor_path(assignment.project.contractors.first), :target => "_blank"
   %td
     .btn-group
-      = button_to "Decline", decline_assignment_adjuster_path(:assignment_id => assignment.id), :method => :post, :remote => true, :confirm => "Are you sure you want to decline this assignment?", :class => "btn btn-danger btn-mini"
+      = button_to "Decline", assignment, :method => :delete, :remote => true, :confirm => "Are you sure you want to decline this assignment?", :class => "btn btn-danger btn-mini"
       = link_to "Estimate", new_estimate_path(:project_id => assignment.project.id, :adjuster_id => @adjuster.id), :remote => true, :class => "btn btn-success btn-mini"

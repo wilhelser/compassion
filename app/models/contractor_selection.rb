@@ -15,6 +15,7 @@ class ContractorSelection < ActiveRecord::Base
       ContractorMailer.contractor_selected_no_adjuster_notification(@contractor, @project, @user).deliver
     else
       Rails.logger.info "Found an Adjuster!"
+      create_assignment(@project, @adjuster)
       if @adjuster.notify_on_assignment?
         AdjusterMailer.adjuster_selected_notification(@contractor, @project, @user, @adjuster).deliver
       end

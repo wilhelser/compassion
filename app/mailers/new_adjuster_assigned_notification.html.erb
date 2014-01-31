@@ -3,7 +3,7 @@
 <head>
   <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title><%= @contractor.owner_first_name %>, a new adjuster has been assigned to one of your Actions!</title>
+  <title><%= @contractor.owner_first_name %>, you've been selected for a project!</title>
   <style type="text/css">
     /* Based on The MailChimp Reset INLINE: Yes. */
     /* Client-specific Styles */
@@ -144,8 +144,8 @@
         <td width="700" valign="top">
           <!-- Gmail/Hotmail image display fix -->
           <img class="image_fix" src="http://compassionforhumanity.org/email-logo.png" alt="Compassion for Humanity" title="Compassion for Humanity" width="259" height="88" />
-            <p><strong><%= @contractor.owner_first_name %>, a new adjuster has been assigned to one of your Actions!!</strong></p>
-    <p><%= @contractor.owner_first_name %>, a new adjuster has been assigned to your Action, <%= @project.page_title %>!</p>
+            <p><strong><%= @contractor.owner_first_name %>, you have been selected for a new project!</strong></p>
+    <p><%= @contractor.owner_first_name %>, you have been selected by <%= @user.name %> as the contractor for their project <%= @project.page_title %>!</p>
     <h3>Adjuster Information:</h3>
     <hr>
     <p><strong>Adjuster Name: </strong><%= @adjuster.first_name %> <%= @adjuster.last_name %></p>

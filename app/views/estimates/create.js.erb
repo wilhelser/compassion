@@ -4,6 +4,6 @@ $("#estimate-errors-wrap").html('<%= escape_javascript(render("estimates/error_m
   $("#adjuster_estimates_wrap").html("<%= j render @estimates %>");
   $("#new_estimate_modal").modal('hide');
   $("#new-estimate-form-wrap").html("<%= j render 'estimates/form' %>");
-  $('#assignments-wrap').html("<%= j render @assignments %>");
+  $('#assignments-wrap').html("<%= j render @adjuster.assignments %>");
   $('#estimate-upload-success').removeClass('hide');
 <%  end %>
