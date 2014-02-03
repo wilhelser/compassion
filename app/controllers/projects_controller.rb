@@ -78,7 +78,7 @@ class ProjectsController < InheritedResources::Base
       format.html
       format.json { render json: @project }
       format.js
-      format.png { render :qrcode => request.url }
+      format.png { render :qrcode => @project.long_link }
       format.pdf do
         pdf = ProjectPdf.new(@project, view_context)
           send_data pdf.render, filename: "#{@project.slug}.pdf",

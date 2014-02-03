@@ -10,4 +10,5 @@ class Assignment < ActiveRecord::Base
     adjuster = self.adjuster
     reassign_adjuster(project, adjuster)
   end
+
 end
