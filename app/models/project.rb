@@ -357,7 +357,7 @@ class Project < ActiveRecord::Base
   # Access token to allow app to publish updates to Compassion's FB page
   #
   def compassion_page_access_token
-    "CAADSdvZCX9aEBAN1dkD6B78ZAG1iA8UTKuspwdU0WnH1cNGOahUvxxo8ExZALWcltF4MuwD3L8k43TXDkzrXv8i5M3ZCZB3bKN7BO6bQg6krjOd2WOUrOPBN173XuulUkF2lDanjpVLCv3uKs8hBvhvmGC70gTZCAjtq6ayZBCZCleLhmJS4iZCC1"
+    "CAACEdEose0cBAKRwavZCQD90Jm9ZCoMxcpHJyfpO3apm0T4YhOtPMO4UQRAxqAhfkcuDuIkJjYP3AFjAnmpicvMZBuzkasYHuacC34dBaHFWhLe1vZCWlQFwVdu08TyL4eOjOhd1km97pgMOS7QwXwAWs9NCSR8sOZCBjy9KHkH948MEVPLDZAWhE2RuaJImQZD"
   end
 
   #
