@@ -6,12 +6,12 @@ class GalleriesController < InheritedResources::Base
     if params[:gallery][:gallery_type] == "project"
       Rails.logger.info "Project id is there"
       @project = Project.find(params[:gallery][:project_id])
-      @gallery = @project.galleries.build(params[:gallery])
+      @gallery = Gallery.new(params[:gallery])
       @galleries = @project.galleries
     else
       Rails.logger.info "We have a contractor id"
       @contractor = Contractor.find(params[:gallery][:contractor_id])
-      @gallery = @contractor.galleries.build(params[:gallery])
+      @gallery = Gallery.new(params[:gallery])
       @galleries = @contractor.galleries
     end
 

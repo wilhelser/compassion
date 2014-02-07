@@ -1,5 +1,5 @@
 require 'spec_helper'
 
 describe Gallery do
-  pending "add some examples to (or delete) #{__FILE__}"
+  it "should increment project's gallery count by 1"
 end
