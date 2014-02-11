@@ -7,11 +7,11 @@ class ProjectPdf < Prawn::Document
     page_heading
     project_image
     project_text
-    qrcode
+    # qrcode
   end
 
   def page_heading
-    image "#{Rails.root}/public/email-logo.png"
+    image open("#{Rails.root}/public/pdf-logo.png"), width: 262, height: 71
     move_down 10
     text "#{@project.page_title}", size: 30, style: :bold, align: :center
   end
