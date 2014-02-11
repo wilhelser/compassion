@@ -14,9 +14,11 @@
       .span4
         = f.input :name, :required => true, :label => "Company Name"
         = f.input :state, :as => :select, :collection => us_states, :required => true
+        = f.input :owner_phone, as: :string, :required => true, :label => "Phone Number"
       .span4
         = f.input :street_address, :required => true, :label => "Primary Business Address"
         = f.input :zip_code, :as => :string, :required => true
+        = f.input :cell_phone, as: :string, :required => true, :label => "Cell Number"
       .span3
         = f.input :city, :required => true
         = f.input :coverage_radius, :as => :select, :collection => coverage_radius_options, :label => "Coverage Radius ( in miles )"

@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140131044143) do
+ActiveRecord::Schema.define(version: 20140211234807) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -141,17 +141,17 @@ ActiveRecord::Schema.define(version: 20140131044143) do
   end
 
   create_table "contractors", force: true do |t|
-    t.string   "name",                                                             null: false
-    t.string   "street_address",                                                   null: false
-    t.string   "city",                                                             null: false
-    t.string   "state",                                                            null: false
-    t.integer  "zip_code",                     limit: 8,                           null: false
+    t.string   "name",                                                              null: false
+    t.string   "street_address",                                                    null: false
+    t.string   "city",                                                              null: false
+    t.string   "state",                                                             null: false
+    t.integer  "zip_code",                     limit: 8,                            null: false
     t.float    "latitude"
     t.float    "longitude"
-    t.integer  "coverage_radius",                        default: 25
+    t.integer  "coverage_radius",                         default: 25
     t.string   "logo"
-    t.datetime "created_at",                                                       null: false
-    t.datetime "updated_at",                                                       null: false
+    t.datetime "created_at",                                                        null: false
+    t.datetime "updated_at",                                                        null: false
     t.string   "business_legal_name"
     t.string   "business_dba_name"
     t.date     "date_of_incorporation"
@@ -171,12 +171,12 @@ ActiveRecord::Schema.define(version: 20140131044143) do
     t.string   "contractor_license_number"
     t.string   "gross_annual_sales_last_year"
     t.text     "description"
-    t.string   "email",                                  default: "",              null: false
-    t.string   "encrypted_password",                     default: "",              null: false
+    t.string   "email",                                   default: "",              null: false
+    t.string   "encrypted_password",                      default: "",              null: false
     t.string   "reset_password_token"
     t.datetime "reset_password_sent_at"
     t.datetime "remember_created_at"
-    t.integer  "sign_in_count",                          default: 0
+    t.integer  "sign_in_count",                           default: 0
     t.datetime "current_sign_in_at"
     t.datetime "last_sign_in_at"
     t.string   "current_sign_in_ip"
@@ -187,14 +187,15 @@ ActiveRecord::Schema.define(version: 20140131044143) do
     t.datetime "confirmation_sent_at"
     t.string   "unconfirmed_email"
     t.string   "authentication_token"
-    t.string   "status",                                 default: "Not Submitted", null: false
+    t.string   "status",                                  default: "Not Submitted", null: false
     t.boolean  "terms"
-    t.boolean  "preferred",                              default: false
+    t.boolean  "preferred",                               default: false
     t.string   "website_url"
     t.string   "slug"
     t.boolean  "gmaps"
-    t.boolean  "notify_on_select",                       default: true
-    t.boolean  "notify_on_review",                       default: true
+    t.boolean  "notify_on_select",                        default: true
+    t.boolean  "notify_on_review",                        default: true
+    t.string   "cell_phone",                   limit: 30
   end
 
   add_index "contractors", ["slug"], name: "index_contractors_on_slug", unique: true, using: :btree
