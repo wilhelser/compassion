@@ -46,10 +46,10 @@
       %small Required for mailing checks
     .span4
       = f.input :street_address, :placeholder => "Street Address", :label => "Street Address"
-      = f.input :state, :as => :select, :collection => us_states, :placeholder => "State", :selected => @user.state, :input_html => { :value => "#{@user.state}" }
+      = f.input :state, :as => :select, :collection => us_states, :placeholder => "State"
     / span4
     .span4.pull-right
-      = f.input :city, :placeholder => "City", :input_html => { :value => "#{@user.city}" }
+      = f.input :city, :placeholder => "City"
       = f.input :zip_code, :as => :string, :placeholder => "Zip Code"
     / span4
     .clearfix

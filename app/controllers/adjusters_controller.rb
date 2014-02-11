@@ -9,6 +9,16 @@ class AdjustersController < ApplicationController
     @estimates = @adjuster.estimates
   end
 
+  def assignments
+    @page_title = "#{@adjuster.first_name} #{@adjuster.last_name} - Assignments"
+    @assignments = @adjuster.assignments
+  end
+
+  def estimates
+    @page_title = "#{@adjuster.first_name} #{@adjuster.last_name} - Estimates"
+    @estimates = @adjuster.estimates
+  end
+
   def update
     if params[:adjuster][:password].blank?
       params[:adjuster].delete(:password)
@@ -19,6 +29,10 @@ class AdjustersController < ApplicationController
     else
       respond_with @adjuster.errors.full_messages
     end
+  end
+
+  def edit_profile
+    @page_title = "#{@adjuster.first_name} #{@adjuster.last_name} - Edit Profile"
   end
 
   private

@@ -4,16 +4,26 @@
     #license-alert.alert.alert-error
       You need to complete your licensing information!
   %ul#adjuster-tabs.nav.nav-tabs
-    %li.active
-      = link_to "News", dashboard_adjuster_path(@adjuster)
     %li
+      = link_to "News", dashboard_adjuster_path(@adjuster)
+    %li.active
       = link_to "Assignments", assignments_adjuster_path(@adjuster)
     %li
       = link_to "Estimates", estimates_adjuster_path(@adjuster)
     %li
       = link_to "Edit Profile", edit_profile_adjuster_path(@adjuster)
   .tab-content
-    #news.tab-pane.active
-      %p
-        Assignments needing estimates: #{@assignments.size}
+    #assignments
+      %table#adjuster-dashboard-assignments.table.table-hover
+        %thead
+          %tr
+          %th Date
+          %th Project
+          %th Contractor
+          %th Actions
+        %tbody
+          #assignments-wrap
+            = render @assignments if @assignments.any?
+= render 'estimates/new_estimate_modal'
+= render 'estimates/edit_estimate_modal'
 = render 'sidebar'

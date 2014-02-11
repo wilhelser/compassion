@@ -15,7 +15,8 @@ class EstimatesController < InheritedResources::Base
 
     if @estimate.save
       @estimates = @adjuster.estimates
-      respond_with @estimate
+      flash[:notice] = "Successfully created Estimate!"
+      redirect_to estimates_adjuster_path(@adjuster)
     else
       respond_with @estimate.errors.full_messages
     end
@@ -23,7 +24,6 @@ class EstimatesController < InheritedResources::Base
 
   def edit
     @estimate = Estimate.find(params[:id])
-
     respond_with @estimate
   end
 

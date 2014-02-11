@@ -12,7 +12,7 @@
       %strong
         Website: #{link_to "#{@contractor.website_url}", "http://#{@contractor.website_url}", :target => "_blank"}
   #contractor_profile_description_wrap
-    = @contractor.description.html_safe
+    = @contractor.description.html_safe if @contractor.description.present?
   #contractor_profile_reviews_wrap
     - if @contractor.has_reviews?
       .title

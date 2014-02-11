@@ -36,12 +36,13 @@ Compassion::Application.routes.draw do
   resources :adjusters do
     member do
       get "dashboard"
+      get "assignments"
+      get "estimates"
+      get "edit_profile"
     end
   end
 
   resources :backers
-  # get "users/show"
-  # get "users/edit"
   resources :contributions
   resources :projects do
     member do
