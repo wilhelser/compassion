@@ -73,6 +73,7 @@
       - unless @contractor.website_url.blank?
         = link_to "#{@contractor.website_url}", "http://#{@contractor.website_url}", :target => "_blank"
     .clearfix
-    - content_for :select_contractor_button do
-      = link_to "Select Contractor", '/', :class => "btn btn-success pull-right contractor_subhead_button"
+    - if params[:fromdash]
+      - content_for :contractor_back_button do
+        %a#contractor-back-btn.btn.btn-success.pull-right.project-dashboard-link Back
 = render 'shared/filepickerjs'

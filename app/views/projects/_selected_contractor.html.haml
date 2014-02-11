@@ -20,7 +20,7 @@
         = trade.name + ","
   / ci_tradeslist
   .ci_button_wrap.pull-right
-    = link_to "Profile", contractor_path(@contractor), :class => "btn btn-success btn-block btn-top", :target => "_blank"
+    = link_to "Profile", contractor_path(@contractor, :fromdash => true), :class => "btn btn-success btn-block btn-top", :target => "_blank"
     .clearfix
     - unless @project.has_reviewed_contractor?
       %a.btn.btn-primary.btn-block{"data-toggle" => "modal", href: "#contractor_review_modal"} Review

@@ -1,6 +1,9 @@
 $ ->
   $("[data-behavior~=datepicker]").datepicker()
 
+  $('#contractor-back-btn').click ->
+    window.close()
+
   $(".contractor-rating").raty
     score: ->
       $(this).data "score"
