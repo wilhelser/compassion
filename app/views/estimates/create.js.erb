@@ -1,3 +1,0 @@
-<% if @estimate.errors.any? %>
-$("#estimate-errors-wrap").html('<%= escape_javascript(render("estimates/error_messages", :formats => [:html])) %>').removeClass('hide');
-<%  end %>

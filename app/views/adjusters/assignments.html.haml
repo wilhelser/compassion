@@ -14,16 +14,24 @@
       = link_to "Edit Profile", edit_profile_adjuster_path(@adjuster)
   .tab-content
     #assignments
-      %table#adjuster-dashboard-assignments.table.table-hover
-        %thead
-          %tr
-          %th Date
-          %th Project
-          %th Contractor
-          %th Actions
-        %tbody
-          #assignments-wrap
-            = render @assignments if @assignments.any?
+      %p Thank you for being Compassionate and making a difference in your community!
+      %p If for any reason, you cannot service an assigned project below, please press Decline next to the project you would like to decline. Also, please notify the Approved Contractor.
+      %p Please do not forget to include your adjuster service fees in the estimate. <strong>See the Adjusters section under "How it Works" page for pricing requirements.</strong>
+      %p Once, you have been assigned a new Action; please contact the Project Sponsor and the selected Approved Contractor as soon as possible to schedule an appointment to put together the Scope of Repairs needed. We would like the entire process to be completed within 3-10 days. Once you, the adjuster, has agreed upon the Scope of Repairs with both the Approved Contractor and the Beneficiary (the homeowner), please finalize your Xactimate estimate and upload it to the project it pertains to on CompassionForHumanity.org.
+      - if @assignments.any?
+        %table#adjuster-dashboard-assignments.table.table-hover
+          %thead
+            %tr
+            %th Date
+            %th Project
+            %th Contractor
+            %th Actions
+          %tbody
+            #assignments-wrap
+              = render @assignments
+      - else
+        %hr
+        %p You don't have any assignments yet.
 = render 'estimates/new_estimate_modal'
 = render 'estimates/edit_estimate_modal'
 = render 'sidebar'

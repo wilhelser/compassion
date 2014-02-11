@@ -1,9 +1,9 @@
-#disclaimer_modal.modal.hide.fade
-  .modal-header
-    %h3 Disclaimer
-  .modal-body
-    I certify that the money raised will be used for the stated intent...
-    .clearfix
-  / modal-body
-  .modal-footer
-    %button#disclaimer-accept.btn.btn-primary.pull-right{'data-disable-with' => 'Creating...'} Accept
+- content_for :disclaimer_modal do
+  #disclaimer_modal.modal.hide.fade
+    .modal-header
+      %h3 Disclaimer
+    .modal-body
+      %p By clicking accept, you agree to all terms of Compassion for Humanity, LLC.
+      %p You also certify that all monies donated will be used in connection for their stated intent.
+    .modal-footer
+      %button#disclaimer-accept.btn.btn-primary.pull-right{'data-disable-with' => 'Creating...'} Accept
