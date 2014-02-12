@@ -5,7 +5,8 @@
         %h3
           Project: #{link_to "#{project.page_title}", project}
         %hr/
-        %p
-          %strong Adjuster:
-          = project.adjusters.first.first_name
-          = project.adjusters.first.last_name
+        - if project.adjusters.any?
+          %p
+            %strong Adjuster:
+            = project.adjusters.first.first_name
+            = project.adjusters.first.last_name
