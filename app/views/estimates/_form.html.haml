@@ -1,6 +1,6 @@
 #estimate-errors-wrap.alert.alert-danger.hide
 = simple_form_for Estimate.new, :html => { :multipart => true, :method => "post" } do |f|
   = f.input :project_id, :as => :hidden, :input_html => { :value => @project.id}
-  = f.input :amount, :as => :string
-  = f.input :description, :input_html => { :rows => 3 }
-  = f.input :document
+  = f.input :amount, :as => :string, required: true
+  = f.input :description, :input_html => { :rows => 3 }, required: true
+  = f.input :document, required: true
