@@ -4,7 +4,7 @@ class ContractorsController < InheritedResources::Base
 
   def index
     if params[:query]
-      @contractors = Contractor.approved.search(params[:query]).page(params[:page]).per_page(5)
+      @contractors = Contractor.approved.search(params[:query].upcase).page(params[:page]).per_page(5)
     else
       @contractors = Contractor.approved.paginate(:page => params[:page], :per_page => 5)
     end
