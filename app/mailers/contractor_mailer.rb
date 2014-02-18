@@ -25,7 +25,7 @@ class ContractorMailer < ActionMailer::Base
     mail(to: @contractor.email, bcc: "wil@wilhelser.com", subject: "#{@contractor.owner_first_name}, you've been selected for a project!")
   end
 
-  def new_adjuster_assigned_notification(contractor, project, user, adjuster)
+  def new_adjuster_assigned_notification(project, contractor, user, adjuster)
     @user = user
     @project = project
     @contractor = contractor
@@ -41,7 +41,7 @@ class ContractorMailer < ActionMailer::Base
   # @param  project [Object] project
   # @param  user [Object] user
   #
-  def contractor_selected_no_adjuster_notification(contractor, project, user)
+  def contractor_selected_no_adjuster_notification(project, contractor, user)
     @user = user
     @project = project
     @contractor = contractor
