@@ -23,6 +23,10 @@
     - if @contribution.stripe_card_token.present?
       Credit card has been provided.
     - else
+      = f.input :address, as: :string, :input_html => { :placeholder => 'Your Address' , required: true}
+      = f.input :city, as: :string, :input_html => { :placeholder => 'City', required: true }
+      = f.input :state, as: :string, :input_html => { :placeholder => 'State' }
+      = f.input :zip_code, as: :string, :input_html => { :placeholder => 'Zip Code' }
       .control-group.string.card_number
         = label_tag :card_number, "Credit Card Number", :class => "string required control-label"
         .controls
