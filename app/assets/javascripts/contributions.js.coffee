@@ -1,6 +1,5 @@
 $ ->
   Stripe.setPublishableKey($('meta[name="stripe-key"]').attr('content'))
-  contribution.setupForm()
   $validator = $("#new_contribution").validate(
     rules:
       contribution_amount:
@@ -21,9 +20,27 @@ $ ->
         email: true
         minlength: 3
 
+      contribution_address:
+        required: true
+        minlength: 3
+
+      contribution_city:
+        required: true
+        minlength: 3
+
+      contribution_state:
+        required: true
+        minlength: 2
+
+      contribution_zip_code:
+        required: true
+        minlength: 3
+
       card_number:
         required: false
   )
+
+  contribution.setupForm()
 
   $("#new_contribution").easyWizard
     showSteps: false,
@@ -32,6 +49,10 @@ $ ->
 
   $("#contribution_next").bind "click", ->
     $("#card_number").rules("remove")
+    # $("#contribution_address").rules("remove")
+    # $("#contribution_city").rules("remove")
+    # $("#contribution_state").rules("remove")
+    # $("#contribution_zip_code").rules("remove")
     $valid = $("#new_contribution").valid()
     unless $valid
       errors = $validator.numberOfInvalids()
@@ -53,11 +74,16 @@ contribution =
   setupForm: ->
     $('#submit_contribution').click ->
       $(@).attr('disabled', true)
-      if $('#card_number').length
-        contribution.processCard()
+      $valid = $("#new_contribution").valid()
+      unless $valid
+        errors = $validator.numberOfInvalids()
+        message = (if errors is 1 then "You missed 1 field. It has been highlighted" else "You missed " + errors + " fields. They have been highlighted")
+        $("div.contribution-error span").html message
+        $("div.contribution-error").show()
         false
       else
-        true
+        contribution.processCard()
+        false
 
   processCard: ->
     card =
@@ -70,8 +96,18 @@ contribution =
   handleStripeResponse: (status, response) ->
     if status == 200
       $('#contribution_stripe_card_token').val(response.id)
-      $('#new_contribution')[0].submit()
+      contribution.validatePanelTwo()
     else
       $('#stripe_error').text(response.error.message).show()
       $('#submit_contribution').attr('disabled', false)
       false
+
+  validatePanelTwo: ->
+    $valid = $("#new_contribution").valid()
+    unless $valid
+      errors = $validator.numberOfInvalids()
+      message = (if errors is 1 then "You missed 1 field. It has been highlighted" else "You missed " + errors + " fields. They have been highlighted")
+      $("div.contribution-error span").html message
+      $("div.contribution-error").show()
+    else
+      $('#new_contribution')[0].submit()
