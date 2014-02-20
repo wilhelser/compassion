@@ -1,26 +1,28 @@
-%h2 Sign up
-%p Go to the <a href="http://compassionforhumanity.org/pages/how-it-works">How It Works</a> page for more information.
-= simple_form_for(resource, :as => resource_name, :url => registration_path(resource_name)) do |f|
-  = f.error_notification
-  %fieldset
-    %legend Adjuster Account Info
-    = f.input :email, :required => true, :autofocus => true
-    = f.input :password, :required => true
-    = f.input :password_confirmation, :required => true
-  %fieldset
-    %legend Contact Info
-    = f.input :company
-    = f.input :first_name
-    = f.input :last_name
-    = f.input :phone
-    = f.input :fax
-  %fieldset
-    %legend Address Information
-    %p
-      %small We need this information because you are assigned projects based on your geographic location.
-    = f.input :street_address
-    = f.input :city
-    = f.input :state, :as => :select, :collection => us_states, :required => true
-    = f.input :zip_code, :as => :string
-  .divider
-  = f.button :submit, "Sign up", class: 'btn btn-large btn-primary', 'data-disable-with' => 'Saving...'
+- @page_title = "Adjuster Sign Up"
+.span5
+  %h2 Sign up
+  %p Go to the <a href="http://compassionforhumanity.org/pages/how-it-works">How It Works</a> page for more information.
+  = simple_form_for(resource, :as => resource_name, :url => registration_path(resource_name)) do |f|
+    = f.error_notification
+    %fieldset
+      %legend Adjuster Account Info
+      = f.input :email, :required => true, :autofocus => true
+      = f.input :password, :required => true
+      = f.input :password_confirmation, :required => true
+    %fieldset
+      %legend Contact Info
+      = f.input :company
+      = f.input :first_name
+      = f.input :last_name
+      = f.input :phone
+      = f.input :fax
+    %fieldset
+      %legend Address Information
+      %p
+        %small We need this information because you are assigned projects based on your geographic location.
+      = f.input :street_address
+      = f.input :city
+      = f.input :state, :as => :select, :collection => us_states, :required => true
+      = f.input :zip_code, :as => :string
+    .divider
+    = f.button :submit, "Sign up", class: 'btn btn-large btn-primary', 'data-disable-with' => 'Saving...'
