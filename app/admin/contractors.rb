@@ -37,7 +37,6 @@ ActiveAdmin.register Contractor do
       f.input :number_of_employees
       f.input :contractor_license_number
       f.input :gross_annual_sales_last_year
-      f.input :trade_ids
       f.input :description
       f.input :website_url
       f.input :notify_on_select
