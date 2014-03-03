@@ -1,0 +1,11 @@
+.gallery-wrap
+  = render @photos
+  - if current_user
+    - if current_user.can_manage_gallery?(@gallery)
+      .clearfix
+      .gallery_edit
+        .divider
+        = link_to "Edit Gallery", edit_gallery_path(@gallery), class: "btn btn-success"
+/ gallery-wrap
+- content_for :back_to_project_button do
+  = link_to "Back", :back, :class => "btn btn-success project-dashboard-link pull-right"

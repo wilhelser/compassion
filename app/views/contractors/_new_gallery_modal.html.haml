@@ -1,0 +1,9 @@
+#new_gallery_modal.modal.hide.fade
+  .modal-header
+    %button.close{"aria-hidden" => "true", "data-dismiss" => "modal"} &#215;
+    %h3 New Gallery
+  .modal-body
+    #photo-errors-wrap.alert.hide
+    #new_contractor_gallery_form_wrap
+      = render 'galleries/contractor_form'
+    .clearfix

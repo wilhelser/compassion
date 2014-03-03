@@ -1,0 +1,10 @@
+#new_gallery_modal.modal.hide.fade
+  .modal-header
+    %button.close{"aria-hidden" => "true", "data-dismiss" => "modal"} &#215;
+    %h3 New Gallery
+  .modal-body
+    #new_gallery_form_wrap
+      = render 'galleries/form'
+    / new_project_gallery_form_wrap
+    .clearfix
+  / modal-body
