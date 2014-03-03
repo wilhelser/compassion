@@ -49,11 +49,11 @@ class HomeController < ApplicationController
     else
       @ip = request.ip
       @location_city = request.location.city
-    end
-    if request.location.country_code.blank?
-      @location_country = "US"
-    else
-      @location_country = request.location.country_code
+      if request.location.country_code.empty?
+        @location_country = "US"
+      else
+        @location_country = request.location.country_code
+      end
     end
   end
 end
