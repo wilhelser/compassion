@@ -7,87 +7,32 @@
     #need-vendor-alert.alert.alert-error
       You need to add some vendors!
 .span8
-  %ul#dash-tabs.nav.nav-tabs
-    %li.active
-      %a.btn.btn-success{"data-target" => "#home"} Home
-    %li
-      %a.btn.btn-success{"data-target" => "#edit"} Edit
-    %li
-      %a.btn.btn-success{"data-target" => "#share"} Share
-    %li
-      %a.btn.btn-success{"data-target" => "#settings"} Settings
-    %li
-      %a.btn.btn-success{"data-target" => "#galleries"}
-        Galleries (
-        %span#galleries-count>= @project.galleries.size
-        )
-    - if @project.needs_contractor
-      %li
-        %a.btn.btn-success{"data-target" => "#contractor"} Contractor
-    - if @project.needs_vendors
-      %li
-        %a.btn.btn-success{"data-target" => "#vendors"}
-          Vendors (
-          %span#vendors-count>= @vendors.size
-          )
-    - if @project.has_estimate?
-      %li
-        %a.btn.btn-success{"data-target" => "#estimates"} Estimates
-  .tab-content
-    #project_dashboard_response_box.alert.hide Your project has been updated!
-    #home.tab-pane.active
-      .divider
-      %h4 Your Project Updates
-      #update_response.alert.hide
-      #updates_formwrap
-        #dashboard_updates_wrap
-          = render @updates
-        #dashboard_updates_form_wrap
-          = render 'updates/form', :update => Update.new
-        / dashboard_updates_form_wrap
-        %a.btn.btn-success{"data-toggle" => "modal", href: "#new_update_modal"} Post a new Update
-    / home
-    = render "projects/dashboard/project_edit_form"
-    = render 'projects/dashboard/share_tab'
-    = render 'projects/dashboard/settings_tab'
-    = render 'projects/dashboard/galleries_tab'
-    - if @project.needs_contractor
-      #contractor.tab-pane
-        #contractor_review_response.alert.hide
-        - if @contractor
-          = render 'selected_contractor'
-        - else
-          #contractor_search
-            %p Looking for a specific Contractor that's not listed below? Use this form to search for them by company name:
-            = form_tag(contractors_search_path, :id => "contractor_search_form", :method => "post", :remote => true ) do
-              = label_tag :name, "Company Name"
-              = text_field_tag :name
-              = hidden_field_tag :project_id, @project.id
-              %button#contractor-search-btn.btn.btn-primary.btn-large{"data-disable-with" => "Searching..."} Search
-          / contractor_search
-          %hr/
-          #contractor_search_response.alert.hide
-          / contractor_search_response
-          #contractor_results_wrap
-            - if @contractors.any?
-              = render 'contractor_small'
-            - else
-              %p.alert Thank You for creating your construction related Action, however at this time there is not currently an Approved Contractor in your area. If you know of a quality contractor in your area, you can have them apply for approval. We will notify you when there is an Approved Contractor in your area. Sorry for any inconvenience.
-          / contractor_results_wrap
-    - if @project.needs_vendors
-      = render 'projects/dashboard/vendor_tab'
-    - if @project.has_estimate?
-      = render 'projects/dashboard/estimates_tab'
-  / tab content
-/ span8
-.span3.pull-right
-  .well.price_update
-    %p You've raised
-    %h3
-      $#{@project.total_contributions}
-    %p from
-    %h3= @project.backer_count
-    %p backers
+  = render 'projects/dashboard/dashboard_nav'
+  #project_dashboard_response_box.alert.hide Your project has been updated!
+  #home.tab-pane.active
+    .divider
+    %h4 Your Project Updates
+    #update_response.alert.hide
+    #updates_formwrap
+      #dashboard_updates_wrap
+        = render @updates
+      #dashboard_updates_form_wrap
+        = render 'updates/form', :update => Update.new
+      / dashboard_updates_form_wrap
+      %a.btn.btn-success{"data-toggle" => "modal", href: "#new_update_modal"} Post a new Update
+  / home
+  -# = render "projects/dashboard/project_edit_form"
+  -# = render 'projects/dashboard/share_tab'
+  -# = render 'projects/dashboard/settings_tab'
+  -# = render 'projects/dashboard/galleries_tab'
+  -# - if @project.needs_contractor
+
+  -# - if @project.needs_vendors
+  -#   = render 'projects/dashboard/vendor_tab'
+  -# - if @project.has_estimate?
+  -#   = render 'projects/dashboard/estimates_tab'
+/ tab content
+= render 'projects/dashboard/dashboard_sidebar'
 = render 'projects/modals/contractor_modal'
 #contractor_selected_modal_wrap
 / contractor_selected_modal_wrapper

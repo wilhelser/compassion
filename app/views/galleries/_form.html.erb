@@ -1,9 +1,0 @@
-<%= simple_form_for Gallery.new, :remote => true do |f| %>
-  <% unless @project.blank? %>
-    <%= f.input :project_id, :as => :hidden, :input_html => { :value => @project.id } %>
-    <%= f.input :gallery_type, :as => :hidden, :input_html => { :value => "project" } %>
-    <% end %>
-  <%= f.input :title %>
-  <%= f.input :description, :input_html => { :rows => 5 } %>
-  <button id="create_new_gallery" class="btn btn-primary" data-disable-with="Creating...">Create Gallery</button>
-<% end %>

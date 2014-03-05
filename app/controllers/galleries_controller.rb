@@ -11,24 +11,25 @@ class GalleriesController < InheritedResources::Base
       @project = Project.find(params[:project_id])
       @galleries = @project.galleries
       @project_gallery = true
+      @page_title = "Galleries - #{@project.page_title}"
     end
   end
 
   def create
-    if params[:gallery][:gallery_type] == "project"
+    if params[:project_id].present?
       @project_gallery = true
-      @project = Project.find(params[:gallery][:project_id])
-      @gallery = Gallery.new(params[:gallery])
+      @project = Project.friendly.find(params[:project_id])
+      @gallery = @project.galleries.build(params[:gallery])
       @galleries = @project.galleries
-    else
+    elsif params[:contractor_id].present?
       @contractor_gallery = true
       @contractor = Contractor.find(params[:gallery][:contractor_id])
-      @gallery = Gallery.new(params[:gallery])
+      @gallery = @contractor.galleries.build(params[:gallery])
       @galleries = @contractor.galleries
     end
 
     if @gallery.save
-      if @contractor_gallery = true
+      if @contractor_gallery == true
         redirect_to edit_contractor_gallery_path(@contractor, @gallery)
       else
         redirect_to edit_project_gallery_path(@project, @gallery)

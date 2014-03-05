@@ -43,11 +43,15 @@ class ProjectsController < InheritedResources::Base
     end
   end
 
+  def edit
+    @page_title = "Edit Your Action"
+  end
+
   def dashboard
     @project = Project.friendly.find(params[:id])
     @graph = Koala::Facebook::API.new(current_user.token)
     session[:project_id] = @project.id
-    @page_title = @project.page_title
+    @page_title = "Dashboard - #{@project.page_title}"
     @updates = @project.updates
     if @project.needs_vendors
       @vendor = Vendor.new
@@ -86,6 +90,18 @@ class ProjectsController < InheritedResources::Base
                                 disposition: "inline"
       end
     end
+  end
+
+  def contractor
+    @contractor = @project.contractor
+  end
+
+  def settings
+
+  end
+
+  def share
+    @page_title = "Share Your Action"
   end
 
   def destroy
