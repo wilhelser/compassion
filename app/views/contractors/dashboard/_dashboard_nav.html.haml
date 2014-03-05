@@ -4,6 +4,6 @@
   %li
     = link_to 'Company Info', company_info_contractor_path(current_contractor), class: "btn btn-success #{active_class?(company_info_contractor_path(current_contractor))}"
   %li
-    %a.btn.btn-success{"data-toggle" => "tab", href: "#profile"} Edit Profile
+    = link_to 'Edit Profile', edit_profile_contractor_path(current_contractor), class: "btn btn-success #{active_class?(edit_profile_contractor_path(current_contractor))}"
   %li
     = link_to 'Galleries', contractor_galleries_path(current_contractor), class: "btn btn-success #{active_class?(contractor_galleries_path(current_contractor))}"

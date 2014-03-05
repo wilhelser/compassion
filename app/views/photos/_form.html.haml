@@ -4,3 +4,5 @@
   = f.input :caption
   #photo_preview_thumb.thumbnail.hide
   = f.filepicker_field :image, :button_class => "btn btn-mini", store_location: "S3", store_access: "public"
+  .divider
+  =f.submit 'Add Photo', class: "btn btn-success pull-right", "data-disable-with" => "Saving..."
