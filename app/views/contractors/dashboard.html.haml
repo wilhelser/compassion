@@ -1,28 +1,13 @@
-%ul.nav.nav-tabs
-  %li
-    %a.active.btn.btn-success{"data-toggle" => "tab", href: "#home"} Home
-  %li
-    %a.btn.btn-success{"data-toggle" => "tab", href: "#company_info"} Company Info
-  %li
-    %a.btn.btn-success{"data-toggle" => "tab", href: "#projects"}
-      Projects ( #{@contractor.projects.size} )
-  %li
-    %a.btn.btn-success{"data-toggle" => "tab", href: "#profile"} Edit Profile
-  %li
-    %a.btn.btn-success{"data-toggle" => "tab", href: "#galleries"} Galleries <span id="#galleries-count"> ( #{@galleries.size} )</span>
-/ nav-tabs
+= render 'contractors/dashboard/dashboard_nav'
 #contractor_dashboard_update_message.alert.hide Successfully updated your information!
-.tab-content
-  = render "contractors/dashboard/tab_home"
-  = render "contractors/dashboard/tab_company_info"
-  = render "contractors/dashboard/tab_projects"
-  = render "contractors/dashboard/tab_profile"
-  = render "contractors/dashboard/tab_galleries"
-/ tab-content
-:javascript
-  $(document).ready(function() {
-    $("#add_new_dashboard_reference").click(function() {
-      $("#new_dashboard_reference").html("#{j render 'contractors/dashboard/reference_form'}").effect('highlight');
-    });
-  });
-= render 'shared/filepickerjs'
+#home
+  %p
+    Your current status is: #{@contractor.status}
+  - if @contractor.status == "Not Submitted"
+    %p Once you complete your entire application, it will be submitted. Please download an application using the button below:
+    = link_to "Contractor Application", image_path('ContractorApplication.pdf'), :target => "_blank", :class => "btn btn-primary"
+  .divider
+  %p
+    %strong Need a copy of Compassion for Humanity's Contractor Code of Business Practices &amp; Application Requirements?
+  = link_to "Download them Here", image_path('Compassion-for-Humanitys-Contractor-Code-of-Business-Practices-&-Application-Requirements-as-of-9-2013.pdf'), :target => "_blank", :class => "btn btn-primary"
+  .clearfix

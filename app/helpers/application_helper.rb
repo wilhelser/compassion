@@ -25,6 +25,11 @@ module ApplicationHelper
     ''
   end
 
+  def active_class?(test_path)
+    return 'active' if request.path == test_path
+    ''
+  end
+
   def urlize(string)
     string.gsub(" ", "-").downcase
   end

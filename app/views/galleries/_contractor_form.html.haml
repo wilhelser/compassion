@@ -1,4 +1,4 @@
-= simple_form_for Gallery.new, :url => contractor_galleries_path(@contractor), :remote => true do |f|
+= simple_form_for Gallery.new, :url => contractor_galleries_path(@contractor) do |f|
   = f.input :gallery_type, :as => :hidden, :input_html => { :value => "contractor" }
   = f.input :contractor_id, as: :hidden, :input_html => { :value => current_contractor.id }
   = f.input :title

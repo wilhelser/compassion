@@ -1,4 +1,4 @@
-#company_info.tab-pane
+#company_info
   = simple_form_for @contractor, :remote => true, :html => { :method => "put"} do |f|
     %fieldset
       %legend
@@ -8,7 +8,7 @@
         - unless @contractor.logo.blank?
           = filepicker_image_tag @contractor.logo, w: 200, h: 100, fit: 'clip', :class => "thumbnail", :id => "dashboard-logo"
         - else
-          %img#dashboard-logo.hide.thumbnail{alt: "", src: ""}/
+          %img#dashboard-logo.hide.thumbnail{alt: "", src: ""}
         = f.label :logo
         = f.filepicker_field :logo, :button_class => "btn btn-primary", store_location: "S3", store_access: "public", :input_html => { :tabindex => 1 }
         .divider

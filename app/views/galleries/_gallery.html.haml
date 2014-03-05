@@ -1,20 +1,18 @@
 = div_for(gallery, :class => "span2") do |gallery|
-  %p
-    = gallery.title
-    = "( #{gallery.photos.size} )" if gallery.photos.any?
-  .gallery_thumb
+  %p= gallery.title
+  .gallery_thumb.thumbnail
     - if gallery.is_project_gallery?
       = link_to project_gallery_path(@project,gallery) do
         - if gallery.photos.any?
-          %img.thumbnail{alt: "", src: gallery.photos.first.image}
+          %img{alt: "", src: gallery.photos.first.image, width: "150", height: "150"}
         - else
-          = image_tag "no-image.jpg", class: "thumbnail", width: "150", height: "150"
+          = image_tag "no-image.jpg", width: "150", height: "150"
     - elsif gallery.is_contractor_gallery?
       = link_to contractor_gallery_path(@contractor,gallery) do
         - if gallery.photos.any?
-          %img.thumbnail{alt: "", src: gallery.photos.first.image_url, width: "150", height: "150"}
+          %img{alt: "", src: gallery.photos.first.image_url, width: "150", height: "150"}
         - else
-          = image_tag "no-image.jpg", class: "thumbnail", width: "150", height: "150"
+          = image_tag "no-image.jpg", width: "150", height: "150"
   - if gallery.is_project_gallery?
     - if user_signed_in?
       - if current_user.can_manage_gallery?(gallery)

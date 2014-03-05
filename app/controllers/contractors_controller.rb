@@ -1,6 +1,6 @@
 class ContractorsController < InheritedResources::Base
   respond_to :html, :json, :js
-  before_filter :authenticate_contractor!, :only => [:dashboard, :update]
+  before_filter :authenticate_contractor!, :only => [:dashboard, :update, :company_info, :edit_profile ]
 
   def index
     if params[:query]
@@ -33,6 +33,16 @@ class ContractorsController < InheritedResources::Base
     @references = @contractor.references
     @projects = @contractor.projects
     @galleries = get_galleries(@contractor)
+  end
+
+  def company_info
+    @contractor = current_contractor
+    @page_title = "Company Info - #{@contractor.name}"
+  end
+
+  def edit_profile
+    @contractor = current_contractor
+    page_title = "Edit Profile - #{@contractor.name}"
   end
 
   def search

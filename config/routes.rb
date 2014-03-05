@@ -23,6 +23,8 @@ Compassion::Application.routes.draw do
     resources :galleries
     member do
       get "dashboard"
+      get "company_info"
+      get "edit_profile"
     end
   end
 
