@@ -15,10 +15,9 @@
       By #{project.user.name}
     .divider
     .project_excerpt
-      = truncate(project.stripped_content.html_safe, length: 100)
+      = truncate(project.stripped_content.html_safe, length: 80)
     / project_excerpt
     .clearfix
-    .divider
     .project_index_statswrap
       .clearfix
       .project-index-progress.progress.progress-striped.active.bar-green
