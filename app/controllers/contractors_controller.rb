@@ -46,10 +46,10 @@ class ContractorsController < InheritedResources::Base
   end
 
   def search
-    @contractors = Contractor.search_by_name(params[:name])
+    @results = Contractor.search_by_name(params[:name])
     @project = Project.find(params[:project_id])
-    if @contractors.any?
-      respond_with @contractors
+    if @results.any?
+      respond_with @results
     else
       respond_with "No Contractor Found"
     end

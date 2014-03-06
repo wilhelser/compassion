@@ -1,5 +1,8 @@
-<% if @contractors.any? %>
-  $("#contractor_results_wrap").prepend("<%= j render 'contractors/search_result', :contractors => @contractors %>");
+<% if @results.any? %>
+  $("#contractor_search_response").html("<%= @results.size %> results found: (click to clear results)").show();
+  $("#contractor_search_results").html("<%= j render 'contractors/search_result', :contractors => @results %>");
+  $("#contractor_results_wrap").hide();
 <% else %>
   $("#contractor_search_response").html("Sorry, no Contractor found by that name.").show();
+  $("#contractor_search_results").html("");
 <% end %>

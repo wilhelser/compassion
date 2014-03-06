@@ -11,11 +11,13 @@
           = label_tag :name, "Company Name"
           = text_field_tag :name
           = hidden_field_tag :project_id, @project.id
-          %button#contractor-search-btn.btn.btn-primary.btn-large{"data-disable-with" => "Searching..."} Search
+          = submit_tag "Search", class: 'btn btn-primary btn-large', data: { disable_with: "Searching..."}
       / contractor_search
       %hr/
-      #contractor_search_response.alert.hide
+      #contractor_search_response.alert.alert-dismissable.hide
+        %button.close{"aria-hidden" => "true", "data-dismiss" => "alert", type: "button"} &#215;
       / contractor_search_response
+      #contractor_search_results
       #contractor_results_wrap
         - if @contractors.any?
           = render 'contractor_small'
@@ -29,3 +31,10 @@
 #contractor_review_modal_wrap
   - if @contractor
     = render 'projects/modals/contractor_review_modal'
+
+:javascript
+  $(document).delegate('#contractor_search_response', 'click', function() {
+    $("#contractor_results_wrap").show();
+    $("#contractor_search_results").html("").hide();
+    $("#name").val('');
+  });
