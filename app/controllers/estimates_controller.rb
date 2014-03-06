@@ -1,7 +1,13 @@
 class EstimatesController < InheritedResources::Base
   respond_to :html, :js, :json
-  before_filter :authenticate_adjuster!
-  before_filter :set_adjuster
+  before_filter :authenticate_adjuster!, except: [:index]
+  before_filter :set_adjuster, except: [:index]
+
+  def index
+    @project = Project.friendly.find(params[:project_id])
+    @estimates = @project.estimates
+    @page_title = "Estimates"
+  end
 
   def new
     @project_id = request.GET[:project_id]

@@ -10,7 +10,7 @@
           = f.association :categories, :as => :check_boxes, :label => false
           .divider
         .clearfix
-        %fieldset.span8.np-section
+        %fieldset.np-section
           %legend Project Info
           #goal_amount_wrap.input-prepend.input-append
             %span#dollar-prepend.add-on $
@@ -26,22 +26,23 @@
             = f.check_box :private, :label => "Make this project private"
           .divider
         .clearfix
-        %fieldset#address_info_wrap.span8.np-section
+        %fieldset#address_info_wrap.np-section
           %legend
             Address Info
             %small Required for mailing checks
-          .span4
-            = f.input :street_address, :placeholder => "Street Address", :label => "Street Address"
-            = f.input :state, :as => :select, :collection => us_states, :placeholder => "State"
-          / span4
-          .span4
-            = f.input :city, :placeholder => "City"
-            = f.input :zip_code, :as => :string, :placeholder => "Zip Code"
-          / span4
+          .row
+            .span4
+              = f.input :street_address, :placeholder => "Street Address", :label => "Street Address"
+              = f.input :state, :as => :select, :collection => us_states, :placeholder => "State"
+            / span4
+            .span4
+              = f.input :city, :placeholder => "City"
+              = f.input :zip_code, :as => :string, :placeholder => "Zip Code"
+            / span4
           .clearfix
           .divider
         / address_info_wrap
-        %fieldset.span8.np-section
+        %fieldset.np-section
           %legend Media
           %p
             %small Here you can upload an image for your Action or add a YouTube video.

@@ -93,15 +93,21 @@ class ProjectsController < InheritedResources::Base
   end
 
   def contractor
-    @contractor = @project.contractor
+    @contractor = @project.contractors.first
+    @page_title = "Contractor"
   end
 
   def settings
-
+    @page_title = "Action Settings"
   end
 
   def share
     @page_title = "Share Your Action"
+  end
+
+  def action_galleries
+    @page_title = "Galleries"
+    @galleries = @project.galleries
   end
 
   def destroy

@@ -57,17 +57,17 @@ Compassion::Application.routes.draw do
       get "contractor"
       get "share"
       get "settings"
-    end
-    resources :galleries
-    resources :contractor_selections
-    resources :updates
-    resources :contributions
-    resources :vendors
-    member do
+      get "action_galleries"
       get "donate"
       get "dashboard"
       get "thank_you"
     end
+    resources :galleries
+    resources :estimates, only: [:index]
+    resources :contractor_selections
+    resources :updates
+    resources :contributions
+    resources :vendors
   end
 
   get 'home/fb_callback'

@@ -33,12 +33,6 @@
   -#   = render 'projects/dashboard/estimates_tab'
 / tab content
 = render 'projects/dashboard/dashboard_sidebar'
-= render 'projects/modals/contractor_modal'
-#contractor_selected_modal_wrap
-/ contractor_selected_modal_wrapper
-#contractor_review_modal_wrap
-  - if @contractor
-    = render 'projects/modals/contractor_review_modal'
 / contractor_review_modal_wrap
 - content_for :back_to_project_button do
   = link_to "Back to Project", project_path(@project), :class => "btn btn-success project-dashboard-link pull-right"

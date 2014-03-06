@@ -1,0 +1,16 @@
+.span8
+  = render 'projects/dashboard/dashboard_nav'
+  #estimates
+    %table.table.table-hover
+      %thead
+        %tr
+          %th Date
+          %th Amount
+        %tbody
+          - if @estimates.any?
+            - @estimates.each do |estimate|
+              %tr
+                %td= estimate.created_at.strftime('%b %d, %Y')
+                %td= number_to_currency(estimate.amount)
+                %td= link_to "View", estimate.document.url, class: 'btn btn-success pull-right', target: '_blank'
+= render 'projects/dashboard/dashboard_sidebar'

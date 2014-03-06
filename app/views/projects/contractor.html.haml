@@ -1,22 +1,31 @@
-#contractor
-  #contractor_review_response.alert.hide
+.span8
+  = render 'projects/dashboard/dashboard_nav'
+  #contractor
+    #contractor_review_response.alert.hide
+    - if @contractor
+      = render 'selected_contractor'
+    - else
+      #contractor_search
+        %p Looking for a specific Contractor that's not listed below? Use this form to search for them by company name:
+        = form_tag(contractors_search_path, :id => "contractor_search_form", :method => "post", :remote => true ) do
+          = label_tag :name, "Company Name"
+          = text_field_tag :name
+          = hidden_field_tag :project_id, @project.id
+          %button#contractor-search-btn.btn.btn-primary.btn-large{"data-disable-with" => "Searching..."} Search
+      / contractor_search
+      %hr/
+      #contractor_search_response.alert.hide
+      / contractor_search_response
+      #contractor_results_wrap
+        - if @contractors.any?
+          = render 'contractor_small'
+        - else
+          %p.alert Thank You for creating your construction related Action, however at this time there is not currently an Approved Contractor in your area. If you know of a quality contractor in your area, you can have them apply for approval. We will notify you when there is an Approved Contractor in your area. Sorry for any inconvenience.
+      / contractor_results_wrap
+= render 'projects/dashboard/dashboard_sidebar'
+= render 'projects/modals/contractor_modal'
+#contractor_selected_modal_wrap
+/ contractor_selected_modal_wrapper
+#contractor_review_modal_wrap
   - if @contractor
-    = render 'selected_contractor'
-  - else
-    #contractor_search
-      %p Looking for a specific Contractor that's not listed below? Use this form to search for them by company name:
-      = form_tag(contractors_search_path, :id => "contractor_search_form", :method => "post", :remote => true ) do
-        = label_tag :name, "Company Name"
-        = text_field_tag :name
-        = hidden_field_tag :project_id, @project.id
-        %button#contractor-search-btn.btn.btn-primary.btn-large{"data-disable-with" => "Searching..."} Search
-    / contractor_search
-    %hr/
-    #contractor_search_response.alert.hide
-    / contractor_search_response
-    #contractor_results_wrap
-      - if @contractors.any?
-        = render 'contractor_small'
-      - else
-        %p.alert Thank You for creating your construction related Action, however at this time there is not currently an Approved Contractor in your area. If you know of a quality contractor in your area, you can have them apply for approval. We will notify you when there is an Approved Contractor in your area. Sorry for any inconvenience.
-    / contractor_results_wrap
+    = render 'projects/modals/contractor_review_modal'

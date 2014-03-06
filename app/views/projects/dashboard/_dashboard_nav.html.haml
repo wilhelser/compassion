@@ -15,18 +15,15 @@
   %li
     = link_to "Share", share_project_path(@project), class: "#{active_class?(share_project_path(@project))} btn btn-success"
   %li
-    = link_to "Settings", settings_project_path(@project), class: "#{active_class?(share_project_path(@project))} btn btn-success"
+    = link_to "Settings", settings_project_path(@project), class: "#{active_class?(settings_project_path(@project))} btn btn-success"
   %li
-    = link_to "Galleries", project_galleries_path(@project), class: 'btn btn-success'
+    = link_to "Galleries", action_galleries_project_path(@project), class: 'btn btn-success'
   - if @project.needs_contractor
     %li
       = link_to "Contractor", contractor_project_path(@project), class: "#{active_class?(contractor_project_path(@project))} btn btn-success"
   - if @project.needs_vendors
     %li
-      %a.btn.btn-success{"data-target" => "#vendors"}
-        Vendors (
-        %span#vendors-count>= @vendors.size
-        )
+      = link_to "Vendors", project_vendors_path(@project), class: "#{active_class?(project_vendors_path(@project))} btn btn-success"
   - if @project.has_estimate?
     %li
-      %a.btn.btn-success{"data-target" => "#estimates"} Estimates
+      = link_to "Estimates", project_estimates_path(@project), class: "#{active_class?(project_estimates_path(@project))} btn btn-success"
