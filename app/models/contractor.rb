@@ -27,6 +27,13 @@ class Contractor < ActiveRecord::Base
   scope :approved, -> { where(status: 'Approved') }
   scope :not_submitted, -> { where(status: 'Not Submitted') }
 
+  def self.search(search)
+    if search
+      where('name LIKE ?', "%#{search.capitalize}%")
+    else
+      nil
+    end
+  end
 
   #
   # Full address of contractor

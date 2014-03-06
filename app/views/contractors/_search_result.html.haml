@@ -1,22 +1,23 @@
-.contractor_small
-  .ci_logo
-    .thumbnail
-      = filepicker_image_tag @contractor.logo, h: 75, fit: 'clip', cache: true,  :class => "thumbnail"
-  .ci_namelink
-    %h5
-      = @contractor.name
-      \- #{@contractor.city}, #{@contractor.state}
-    %p
-      = @contractor.address
-      %br/
-      Phone: #{@contractor.owner_phone}
-      %br/
-  .ci_tradeslist
-    %p
-      %strong Services:
-      - @contractor.trades.each do |trade|
-        = trade.name + ","
-  .ci_button_wrap.pull-right
-    = link_to "Profile", contractor_path(@contractor, :fromdash => true), :class => "btn btn-success btn-block btn-top", :target => "_blank"
-    .clearfix
-    = button_to "Select", project_contractor_selections_path(@project, :contractor_id => @contractor.id), :class => "btn btn-primary btn-block", :remote => true, :method => "post", :confirm => "btn-primary btn-block", :remote => true, :method => "post", :confirm => "You have selected #{@contractor.name} as you Approved Contractor. Once you select the OK button below, you will not be able to change contractors."
+- contractors.each do |c|
+  .contractor_small
+    .ci_logo
+      .thumbnail
+        = filepicker_image_tag c.logo, h: 75, fit: 'clip', cache: true,  :class => "thumbnail"
+    .ci_namelink
+      %h5
+        = c.name
+        \- #{c.city}, #{c.state}
+      %p
+        = c.address
+        %br/
+        Phone: #{c.owner_phone}
+        %br/
+    .ci_tradeslist
+      %p
+        %strong Services:
+        - c.trades.each do |trade|
+          = trade.name + ","
+    .ci_button_wrap.pull-right
+      = link_to "Profile", contractor_path(c, :fromdash => true), :class => "btn btn-success btn-block btn-top", :target => "_blank"
+      .clearfix
+      = button_to "Select", project_contractor_selections_path(@project, :contractor_id => c.id), :class => "btn btn-primary btn-block", :remote => true, :method => "post", :confirm => "btn-primary btn-block", :remote => true, :method => "post", :confirm => "You have selected #{c.name} as you Approved Contractor. Once you select the OK button below, you will not be able to change contractors."

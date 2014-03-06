@@ -53,21 +53,6 @@ class ProjectsController < InheritedResources::Base
     session[:project_id] = @project.id
     @page_title = "Dashboard - #{@project.page_title}"
     @updates = @project.updates
-    if @project.needs_vendors
-      @vendor = Vendor.new
-      @vendors = @project.vendors
-    end
-    if @project.has_galleries?
-      @galleries = @project.galleries
-    end
-    if @project.contractors.size > 0
-      @contractor = @project.contractors.last
-    else
-      @contractors = @project.nearby_contractors
-    end
-    if @project.has_estimate?
-      @estimates = @project.estimates
-    end
     @deletable = true
   end
 
@@ -93,7 +78,11 @@ class ProjectsController < InheritedResources::Base
   end
 
   def contractor
-    @contractor = @project.contractors.first
+    if @project.contractors.size > 0
+      @contractor = @project.contractors.last
+    else
+      @contractors = @project.nearby_contractors
+    end
     @page_title = "Contractor"
   end
 
