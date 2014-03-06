@@ -1,6 +1,6 @@
 class Contractor < ActiveRecord::Base
-  require 'textacular/searchable'
-  extend Searchable(:name, :city, :state, :zip_code)
+  include PgSearch
+  pg_search_scope :search_by_name, :against => :name
   acts_as_gmappable
   extend FriendlyId
   friendly_id :name, use: [:slugged, :finders]
@@ -26,14 +26,6 @@ class Contractor < ActiveRecord::Base
   scope :pending, -> { where(status: 'Pending') }
   scope :approved, -> { where(status: 'Approved') }
   scope :not_submitted, -> { where(status: 'Not Submitted') }
-
-  def self.search(search)
-    if search
-      where('name LIKE ?', "%#{search.capitalize}%")
-    else
-      nil
-    end
-  end
 
   #
   # Full address of contractor
