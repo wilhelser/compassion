@@ -44,6 +44,16 @@ class ApplicationController < ActionController::Base
     end
   end
 
+  def after_update_path_for(resource)
+    if resource.is_a?(Contractor)
+      edit_profile_contractor_path(resource)
+    elsif resource.is_a?(Adjuster)
+      dashboard_adjuster_path(resource.id)
+    else
+      super
+    end
+  end
+
   #
   # Sets the after_sign_in_path for users, contractors, adjusters to
   # their dashboards

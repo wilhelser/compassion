@@ -1,6 +1,6 @@
 = render 'contractors/dashboard/dashboard_nav'
 #profile
-  = simple_form_for @contractor, :remote => true, :html => { :method => "put"} do |f|
+  = simple_form_for @contractor, :html => { :method => "put"} do |f|
     = f.input :description, :class => "span8 ckeditor", :rows => "10", "data-ideal" => "required", :input_html => { :id => "contractor_description" }, :label => false
     .clearfix
     .divider

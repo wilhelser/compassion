@@ -26,6 +26,7 @@ gem "haml"
 gem 'rails4_upgrade'
 gem 'filepicker-rails'
 gem "cancan", ">= 1.6.9"
+gem "pry", group: :development
 gem 'mini_magick'
 gem "rolify", ">= 3.2.0"
 gem "simple_form", ">=  3.0.0"
@@ -86,3 +87,4 @@ gem 'sextant', :group => :development
 gem 'rails-erd', :group => :development
 gem 'htmlentities'
 gem "pg_search"
+gem 'zeus', group: :development

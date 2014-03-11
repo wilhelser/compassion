@@ -33,6 +33,16 @@ module Compassion
     config.autoload_paths += Dir["#{config.root}/lib/**/"]
     config.autoload_paths += Dir["#{config.root}/app/controllers/concerns", "#{config.root}/app/models/concerns"]
 
+    console do
+      require "pry"
+      config.console = Pry
+      unless defined? Pry::ExtendCommandBundle
+        Pry::ExtendCommandBundle = Module.new
+      end
+      require "rails/console/app"
+      require "rails/console/helpers"
+      TOPLEVEL_BINDING.eval('self').extend ::Rails::ConsoleMethods
+    end
 
     # Only load the plugins named here, in the order given (default is alphabetical).
     # :all can be used as a placeholder for all plugins not explicitly named.
