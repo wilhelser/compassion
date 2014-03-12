@@ -15,9 +15,11 @@ ActiveAdmin.register Project do
   end
 
   sidebar "Estimates", only: [:show, :edit] do
-    if project.estimates.any?
+    ul do
       project.estimates.each do |e|
-        link_to "View", admin_estimate_path(e.id)
+        li do
+          link_to "#{number_to_currency(e.amount)}", e.document.url
+        end
       end
     end
   end
