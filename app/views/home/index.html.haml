@@ -25,11 +25,11 @@
 .span9
   .home-projects-wrap
     .title
-      %h4 Featured Projects
+      %h4 Featured Actions
     - if @projects.any?
       = render @projects
     - else
-      %p Sorry, there are no projects in this category yet...
+      %p Sorry, there are no actions in this category yet...
     .clearfix
     .divider
     = link_to "See All", category_path(:id => "all"), :class => "btn btn-success btn-mini pull-right"
