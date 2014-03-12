@@ -6,6 +6,7 @@ gem 'coffee-rails'
 gem 'uglifier', '>= 1.0.3'
 gem 'compass-rails'
 gem 'protected_attributes'
+gem 'turbolinks'
 gem "devise"
 gem 'angular-rails'
 gem 'jquery-rails'
@@ -57,7 +58,6 @@ gem "friendly_id", ">= 5.0"
 gem 'jasny_bootstrap_extension_rails'
 gem 'stripe', :git => 'https://github.com/stripe/stripe-ruby'
 gem 'awesome_print', :group => :console
-gem 'rails-footnotes', '>= 3.7.9', :group => :development
 gem 'rails-console-tweaks'
 gem 'wirb', :group => :console
 gem 'hirb', :group => :console
@@ -83,7 +83,7 @@ gem 'will_paginate-bootstrap', '0.2.5'
 gem "ransack"
 gem 'ckeditor_rails'
 gem 'rails_db_info', :group => :development
-gem 'sextant', :group => :development
+# gem 'sextant', :group => :development
 gem 'rails-erd', :group => :development
 gem 'htmlentities'
 gem "pg_search"

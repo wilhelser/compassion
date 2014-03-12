@@ -28,7 +28,7 @@ class Project < ActiveRecord::Base
   accepts_nested_attributes_for :contributions
   before_save :set_key, :if => :featured_image_changed?
   before_save :set_video_key, :if => lambda { self.featured_video.present? }
-  # after_create :post_to_compassion
+  after_create :post_to_compassion
   after_create :send_new_project_email
   after_create :set_to_unapproved, :if => lambda { self.category_ids.include?(4) }
 
@@ -357,7 +357,7 @@ class Project < ActiveRecord::Base
   # Access token to allow app to publish updates to Compassion's FB page
   #
   def compassion_page_access_token
-    "CAACEdEose0cBAKRwavZCQD90Jm9ZCoMxcpHJyfpO3apm0T4YhOtPMO4UQRAxqAhfkcuDuIkJjYP3AFjAnmpicvMZBuzkasYHuacC34dBaHFWhLe1vZCWlQFwVdu08TyL4eOjOhd1km97pgMOS7QwXwAWs9NCSR8sOZCBjy9KHkH948MEVPLDZAWhE2RuaJImQZD"
+    "CAADSdvZCX9aEBAOCEjCwzQqyIoaDCetcSRZA9RDXOh7ZAbVQxtP9uOFgCHjQddMytI4wpK3ZAR4BhtxxVGZCcU9gZAO10lOAma2KZBCXX9P4tCZA2pYYZAk2UukYWUQLkWsNnzluDpN44iwlfcWltbmLon01o4Kjw9pGw2GW3bbpBbtmno5VZAdZCrJ"
   end
 
   #
