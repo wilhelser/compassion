@@ -56,6 +56,7 @@ ActiveAdmin.register Project do
   filter :created_at
   filter :funded_date
   filter :project_deadline
+  filter :vendors_paid
 
   # Index
   index do
@@ -82,6 +83,7 @@ ActiveAdmin.register Project do
       f.input :project_deadline, :as => :date_picker
       f.input :funded
       f.input :funded_date, :as => :date_picker
+      f.input :vendors_paid
     end
     f.actions
   end
@@ -106,6 +108,7 @@ ActiveAdmin.register Project do
       row :funded
       row :funded_date
       row :status
+      row :vendors_paid
     end
   end
 end
