@@ -17,7 +17,7 @@ ActiveAdmin.register Contribution do
     selectable_column
     column :id
     column :project
-    column :private
+    column :amount
     column :first_name
     column :last_name
     default_actions

@@ -42,10 +42,3 @@
 //= require adjusters
 //= require scroll
 //= require cocoon
-//= require angular
-//= require angular-resource
-//= require ./angular/main
-//= require_tree ./angular/services
-//= require_tree ./angular/controllers
-//= require_tree ./angular/filters
-//= require_tree ./angular/widgets
