@@ -6,9 +6,8 @@ gem 'coffee-rails'
 gem 'uglifier', '>= 1.0.3'
 gem 'compass-rails'
 gem 'protected_attributes'
-gem 'turbolinks'
+# gem 'turbolinks'
 gem "devise"
-gem 'angular-rails'
 gem 'jquery-rails'
 gem 'jquery-ui-rails', '~> 4.0.2'
 gem "thin", ">= 1.5.0"
