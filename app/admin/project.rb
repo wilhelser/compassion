@@ -10,6 +10,18 @@ ActiveAdmin.register Project do
     link_to "#{project.contractors.first.name}", admin_contractor_path(project.contractors.first) if project.contractors.any?
   end
 
+  sidebar "Adjuster", only: [:show, :edit] do
+    link_to "#{project.adjusters.last.first_name} #{project.adjusters.last.last_name}", admin_adjuster_path(project.adjusters.last) if project.adjusters.any?
+  end
+
+  sidebar "Estimates", only: [:show, :edit] do
+    if project.estimates.any?
+      project.estimates.each do |e|
+        link_to "View", admin_estimate_path(e.id)
+      end
+    end
+  end
+
   sidebar "Contributions", only: [:show, :edit] do
     ul do
       project.contributions.each do |c|
