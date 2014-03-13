@@ -14,10 +14,6 @@ class Contractor < ActiveRecord::Base
   has_many :projects, :through => :contractor_selections
   has_and_belongs_to_many :trades
   has_many :galleries, dependent: :destroy
-  has_many :references, :dependent => :destroy
-  has_many :addresses, :dependent => :destroy
-  accepts_nested_attributes_for :references, :allow_destroy => true
-  accepts_nested_attributes_for :addresses, :allow_destroy => true
   after_create :send_registration_notification
 
   geocoded_by :address
@@ -111,21 +107,6 @@ class Contractor < ActiveRecord::Base
   # @return [Integer] contractor average star rating for display on profile
   def rating
     self.has_reviews? ? self.total_stars / self.review_count : 0
-  end
-
-
-  #
-  # @deprecated
-  #
-  def business_references
-    self.references.where(:reference_type => "Business")
-  end
-
-  #
-  # @deprecated
-  #
-  def customer_references
-    self.references.where(:reference_type => "Customer")
   end
 
   #
