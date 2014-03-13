@@ -26,7 +26,7 @@ gem "haml"
 gem 'rails4_upgrade'
 gem 'filepicker-rails'
 gem "cancan", ">= 1.6.9"
-gem "pry", group: :development
+gem "pry"
 gem 'mini_magick'
 gem "rolify", ">= 3.2.0"
 gem "simple_form", ">=  3.0.0"

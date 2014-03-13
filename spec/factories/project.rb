@@ -14,7 +14,7 @@ FactoryGirl.define do
     end
 
     factory :construction_project do
-      category_ids [4,8]
+      category_ids [8]
     end
   end
 end

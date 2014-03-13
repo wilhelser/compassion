@@ -2,7 +2,7 @@ class Gallery < ActiveRecord::Base
   attr_accessible :description, :project_id, :contractor_id, :title, :gallery_type
   belongs_to :contractor, touch: true
   belongs_to :project, touch: true
-  has_many :photos
+  has_many :photos, dependent: :destroy
 
   #
   # Determines if gallery belongs to a contractor

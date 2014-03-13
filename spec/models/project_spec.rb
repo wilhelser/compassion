@@ -19,6 +19,7 @@
 require 'spec_helper'
 
 describe Project do
+
   context 'without featured_image' do
     before { subject.stub(:featured_image) { nil } }
     it { should validate_presence_of(:featured_video) }
@@ -27,6 +28,35 @@ describe Project do
   context 'without featured_video' do
     before { subject.stub(:featured_video) { nil } }
     it { should validate_presence_of(:featured_image) }
+  end
+
+  context 'construction project' do
+    before(:each) do
+      project = Project.new(:category_ids => ['4'])
+    end
+
+    it "should be classified construction" do
+      expect { project.construction_project? to be_false }
+    end
+
+    it "should have a zero goal_amount without an estimate" do
+      project = Project.new(:category_ids => ['4'])
+      expect { project.goal_amount.to_be 0 }
+    end
+  end
+
+  context 'non-construction project' do
+    before(:each) do
+      project = Project.new(:category_ids => ['1,2'])
+    end
+
+    it "should not be classified construction" do
+      expect { project.construction_project? to be_true }
+    end
+
+    it "should have a zero goal_amount without at least one vendor" do
+      expect { project.goal_amount.to_be 0 }
+    end
   end
 
   it { should validate_presence_of(:page_title) }
@@ -39,7 +69,12 @@ describe Project do
   it { should validate_presence_of(:category_ids) }
 
   it "should be approved if not a construction project" do
-    project = FactoryGirl.create :not_construction_project
-    expect { project.status}.to_be 'approved'
+    project = Project.new(:category_ids => [1, 2])
+    expect { project.approved.to be_true }
+  end
+
+  it "should not be approved if a construction project" do
+    project = Project.new(:category_ids => [4])
+    expect { project.approved.to be_false }
   end
 end
