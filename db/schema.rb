@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140312201705) do
+ActiveRecord::Schema.define(version: 20140313215738) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -32,18 +32,6 @@ ActiveRecord::Schema.define(version: 20140312201705) do
   add_index "active_admin_comments", ["author_type", "author_id"], name: "index_active_admin_comments_on_author_type_and_author_id", using: :btree
   add_index "active_admin_comments", ["namespace"], name: "index_active_admin_comments_on_namespace", using: :btree
   add_index "active_admin_comments", ["resource_type", "resource_id"], name: "index_admin_notes_on_resource_type_and_resource_id", using: :btree
-
-  create_table "addresses", force: true do |t|
-    t.integer  "contractor_id", null: false
-    t.string   "address"
-    t.string   "addres2"
-    t.string   "city"
-    t.string   "state"
-    t.string   "zip_code"
-    t.string   "address_type"
-    t.datetime "created_at",    null: false
-    t.datetime "updated_at",    null: false
-  end
 
   create_table "adjusters", force: true do |t|
     t.string   "email",                             default: "",    null: false
@@ -336,24 +324,6 @@ ActiveRecord::Schema.define(version: 20140312201705) do
   create_table "projects_trades", id: false, force: true do |t|
     t.integer "project_id", null: false
     t.integer "trade_id",   null: false
-  end
-
-  create_table "references", force: true do |t|
-    t.integer  "contractor_id",      null: false
-    t.string   "reference_type",     null: false
-    t.string   "company_name"
-    t.string   "time_affiliated"
-    t.string   "contact_first_name", null: false
-    t.string   "contact_last_name",  null: false
-    t.string   "address"
-    t.string   "address2"
-    t.string   "city",               null: false
-    t.string   "state",              null: false
-    t.integer  "zip_code"
-    t.string   "phone_number"
-    t.string   "email"
-    t.datetime "created_at",         null: false
-    t.datetime "updated_at",         null: false
   end
 
   create_table "roles", force: true do |t|
