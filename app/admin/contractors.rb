@@ -20,7 +20,7 @@ ActiveAdmin.register Contractor do
       f.input :logo
       f.input :business_legal_name
       f.input :business_dba_name
-      f.input :date_of_incorporation
+      f.input :date_of_incorporation, as: :datepicker
       f.input :owner_first_name
       f.input :owner_last_name
       f.input :owner_phone
@@ -53,5 +53,43 @@ ActiveAdmin.register Contractor do
     column :state
     column :created_at
     actions
+  end
+
+  # Show
+  show do |contractor|
+    attributes_table do
+      row :id
+      row :email
+      row :name
+      row :street_address
+      row :city
+      row :state
+      row :zip_code
+      row :coverage_radius
+      row :logo
+      row :business_legal_name
+      row :business_dba_name
+      row :date_of_incorporation, as: :datepicker
+      row :owner_first_name
+      row :owner_last_name
+      row :owner_phone
+      row :owner_email
+      row :mailing_address
+      row :mailing_address2
+      row :mailing_zip_code
+      row :mailing_city
+      row :mailing_state
+      row :mailing_same
+      row :business_tax_id_no
+      row :ein
+      row :cell_phone
+      row :number_of_employees
+      row :contractor_license_number
+      row :gross_annual_sales_last_year
+      row :description
+      row :website_url
+      row :notify_on_select
+      row :notify_on_review
+    end
   end
 end

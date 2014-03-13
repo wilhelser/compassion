@@ -2,9 +2,9 @@
   .divider
   #action-slug.pull-left
   - if user_signed_in?
-    = link_to "Create an Action!", new_user_project_path(current_user), :class => "pull-right", :id => "home-create-action-btn"
+    = link_to "Get Started", new_user_project_path(current_user), :class => "pull-right btn btn-large btn-success", :id => "home-create-action-btn"
   - else
-    = link_to "Create an Action!", new_user_registration_path, :class => "pull-right", :id => "home-create-action-btn"
+    = link_to "Get Started", new_user_registration_path, :class => "pull-right btn btn-large btn-success", :id => "home-create-action-btn"
   .clearfix
   #request-debugger.hide
     %p Request Location:

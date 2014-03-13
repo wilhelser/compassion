@@ -30,7 +30,6 @@ class ContractorsController < InheritedResources::Base
   def dashboard
     @contractor = current_contractor
     @page_title = "Dashboard - #{@contractor.name}"
-    @references = @contractor.references
     @projects = @contractor.projects
     @galleries = get_galleries(@contractor)
   end
@@ -61,6 +60,6 @@ class ContractorsController < InheritedResources::Base
 
   private
   def contractor_params
-    params.require(:email, :password, :password_confirmation, :street_address, :city, :state, :zip_code, :name).permit(:street_address, :city, :coverage_radius, :latitude, :logo, :longitude, :name, :state, :zip_code, :business_legal_name, :business_dba_name, :date_of_incorporation, :owner_first_name, :owner_last_name, :owner_phone, :owner_email, :mailing_address, :mailing_address2, :mailing_zip_code, :mailing_city, :mailing_state, :mailing_same, :business_tax_id_no, :ein, :number_of_employees, :contractor_license_number, :gross_annual_sales_last_year, :trade_ids, :references_attributes, :description, :addresses_attributes, :email, :password, :password_confirmation, :remember_me, :terms, :website_url, :slug, :gmaps, :notify_on_select, :notify_on_review)
+    params.require(:contractor).permit(:email, :street_address, :city, :coverage_radius, :latitude, :logo, :longitude, :name, :state, :zip_code, :business_legal_name, :business_dba_name, :date_of_incorporation, :owner_first_name, :owner_last_name, :owner_phone, :owner_email, :mailing_address, :mailing_address2, :mailing_zip_code, :mailing_city, :mailing_state, :mailing_same, :business_tax_id_no, :ein, :number_of_employees, :contractor_license_number, :gross_annual_sales_last_year, :trade_ids, :references_attributes, :description, :addresses_attributes, :email, :password, :password_confirmation, :remember_me, :terms, :website_url, :slug, :gmaps, :notify_on_select, :notify_on_review)
   end
 end

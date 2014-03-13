@@ -1,1 +1,25 @@
 -- Google Apps stuff
+- 1. When a Construction based action is created, it needs to email the Contractor and Adjuster, both need to have the beneficiary contact information, Contractor contact information, Adjuster contact information and link to their respective log in site. #2. The adjuster needs to either accept or decline each assigned Action. If the adjuster declines, the app needs to update the admin side with "No adjuster accepted" until an adjuster Accepts the Action. If an adjuster declines, the app needs to assign it to another Adjuster and a Decline email needs to be sent to the Contractor. This process should continue until an Adjuster "Accepts" the Action. ***note: we need to put a time constraint to the adjuster to click "Accept", ideal constraint would be "end of the next business day"*** and if they do not click "Accept" by the end of the next business day, Action needs to be reassigned to a new Adjuster, and an email needs to be sent to previous Adjuster (Text to come to you later for that email). Once an adjuster clicks "Accept" it needs to populate the admin side with new Adjuster information. #3. Once an Adjuster has accepted an assignment, the app should notify the Adjuster once a day, by email, reminding them that they still have an accepted Action in process. This will cease once they have uploaded their estimate. #4. Any Actions that have been accepted and are more than 10 days old, need to notify Admin group by email with all contact information for Adjuster, contractor and beneficiary. ***In addition to emails sent, Notifications should be sent using Amazon Simple Notification Service (SNS)-Amazon SNS should already be under the existing AWS Account. ***
+
+- In order to move into a closed Beta testing period, we need to password protect the green 'Create Action' button. A dialog box will need to pop up and explain that Compassion for Humanity is in a closed beta testing period temporarily. A password should be requested (the password we can give people who are allowed to access the site and create Actions can be "create!907"). A first name and email address should also be collected so that CFH can email them later and let them know that the site is live. We would like to implement this as soon as possible so that once remaining issues with site are resolved, the closed beta can begin. Thanks!
+
+- I feel that these buttons should line up better 2 comments
+
+- Create Admin group in Google Apps, with users Corey and Stefanie as members
+
+- Create an email once a project has been ended by creator, sent to the Admin group in Google Apps
+- Create Google apps account stand alone
+- Replace "create action" button with a bootstrap button named "Get Started" ; color of button is green to match "search" and "see all"
+- Turn back on "mobile mode"/ alternative view for mobile devices with WordPress
+- Created a new construction action; selected Contractor, Corey is the only adjuster approved currently, he did not receive an Contractor email.
+- Under project "Help us with our leaky roof"; I set a deadline, however the deadline is not showing up on the backside 2 comments
+- In the Adjuster email, please include the Selected Approved Contractors contact information, and the Action Creators contact information. In the Contractors email, the Adjusters contact information and the Action Creators should be in the email. These are no longer working correctly.
+- When creating a new action, Facebook is not creating the post on CompassionForHumanity fan page. The post that it used to be creating, after Jan 22, it was not including the profile pic of the Action on Facebook post.
+- On the backside of "Help us fix our leaky roof" is not showing the current adjuster 2 comments
+
+- Help us fix our leaky roof: An email was sent to Corey (as COntractor) at 3:37 stating that there was "No Adjuster found for the following project" although he was already the selected Adjuster. Corey is forwarding you the email now. Sent right after he uploaded his estimate as Adjuster. Wil Helser
+- Help us fix our leaky roof - Print Flyer gave me the screen 2 comments  Wil Helser
+
+- Help us fix our leaky roof - Please include a hot link back to the Contributor's page for additional information. 1 comment  Wil Helser
+- Help us fix our leaky roof - Tried to share with link in email to Facebook and got this message. 1 comment Wil Helser
+- Donation problems~ after I tried to submit a donation this is what came up! see jpg
