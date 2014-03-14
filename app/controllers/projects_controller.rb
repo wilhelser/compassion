@@ -57,7 +57,8 @@ class ProjectsController < InheritedResources::Base
   end
 
   def show
-    @project = Project.friendly.find(params[:id]).decorate
+    @the_project = Project.friendly.find(params[:id])
+    @project = @the_project.decorate
     @page_title = @project.page_title
     @contribution = Contribution.new
     # if @project.has_estimate?
@@ -65,12 +66,12 @@ class ProjectsController < InheritedResources::Base
     # end
     respond_to do |format|
       format.html
-      format.json { render json: @project }
+      format.json { render json: @the_project}
       format.js
       format.png { render :qrcode => @project.long_link }
       format.pdf do
-        pdf = ProjectPdf.new(@project, view_context)
-          send_data pdf.render, filename: "#{@project.slug}.pdf",
+        pdf = ProjectPdf.new(@the_project, view_context)
+          send_data pdf.render, filename: "#{@the_project.slug}.pdf",
                                 type: "application/pdf",
                                 disposition: "inline"
       end

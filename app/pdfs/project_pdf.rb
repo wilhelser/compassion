@@ -7,7 +7,7 @@ class ProjectPdf < Prawn::Document
     page_heading
     project_image
     project_text
-    qrcode
+    qrcode unless Rails.env.development?
   end
 
   def page_heading
