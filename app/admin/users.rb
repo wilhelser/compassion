@@ -1,8 +1,5 @@
 ActiveAdmin.register User do
   menu :parent => "User Accounts"
-  before_filter :only => [:show] do
-    @user = User.friendly.find(params[:id])
-  end
 
   index do
     column :email
@@ -25,6 +22,12 @@ ActiveAdmin.register User do
       row :zip_code
       row :current_sign_in_ip
       row :last_sign_in_ip
+    end
+  end
+
+  controller do
+    def find_resource
+      scoped_collection.where(slug: params[:id]).first!
     end
   end
 
