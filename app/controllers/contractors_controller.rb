@@ -42,7 +42,20 @@ class ContractorsController < InheritedResources::Base
   def edit_profile
     @contractor = current_contractor
     page_title = "Edit Profile - #{@contractor.name}"
+  end
 
+  def update
+    @contractor = current_contractor
+
+    if params[:contractor][:password].blank?
+      params[:contractor].delete(:password)
+      params[:contractor].delete(:password_confirmation)
+    end
+    if @contractor.update_attributes(params[:contractor])
+      respond_with @contractor
+    else
+      respond_with @contractor.errors.full_messages
+    end
   end
 
   def search

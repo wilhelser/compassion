@@ -7,7 +7,7 @@ Compassion::Application.routes.draw do
   devise_for :adjusters, :path_prefix => 'my'
   devise_for :admin_users, ActiveAdmin::Devise.config
   devise_for :users, :controllers => { :omniauth_callbacks => "omniauth_callbacks" }
-  devise_for :contractors, :path_prefix => 'ch', :controllers => { :registrations => 'contractors/registrations'}
+  devise_for :contractors, :path_prefix => 'ch'
   resources :contractor_reviews
   resources :donations
   resources :vendors

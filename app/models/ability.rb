@@ -12,7 +12,5 @@ class Ability
     alias_action :create, :read, :update, :destroy, :to => :crud
     can :manage, Gallery, :contractor_id => contractor.id
     can :manage, ContractorSelection, :contractor_id => contractor.id
-    can :manage, Reference, :contractor_id => contractor.id
-    can :manage, Address, :contractor_id => contractor.id
   end
 end
