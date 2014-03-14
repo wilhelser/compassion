@@ -1,4 +1,4 @@
-#home_categories_select_wrap.span3.alpha
+#home_categories_select_wrap.span3
   = render 'home/project_nav_search'
   .inner
     %ul#home_categories_select
@@ -8,7 +8,7 @@
 - if @no_paginate == true
   = render 'show_no_pagination'
 -else
-  .span9.omega{id: ""}
+  .span9{id: ""}
     - if @projects.any?
       = render @projects
       = will_paginate @projects, renderer: BootstrapPagination::Rails

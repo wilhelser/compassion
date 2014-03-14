@@ -28,7 +28,7 @@ class ProjectsController < InheritedResources::Base
 
   def new
     @user = current_user
-    @project = @user.projects.build
+    @project = Project.new
     @page_title = "Create an Action"
   end
 

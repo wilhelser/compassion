@@ -45,7 +45,7 @@ class ContractorMailer < ActionMailer::Base
     @user = user
     @project = project
     @contractor = contractor
-    mail(to: @contractor.email, bcc: "wil@wilhelser.com", subject: "#{@contractor.owner_first_name}, you've been selected for a project!")
+    mail(to: @contractor.email, bcc: "corey@compassionforhumanity.org,wil@wilhelser.com", subject: "#{@contractor.owner_first_name}, you've been selected for a project!")
   end
 
   #

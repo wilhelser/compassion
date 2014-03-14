@@ -111,4 +111,10 @@ ActiveAdmin.register Project do
       row :vendors_paid
     end
   end
+
+  controller do
+    def find_resource
+      scoped_collection.where(slug: params[:id]).first!
+    end
+  end
 end

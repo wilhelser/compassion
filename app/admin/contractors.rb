@@ -92,4 +92,10 @@ ActiveAdmin.register Contractor do
       row :notify_on_review
     end
   end
+
+  controller do
+    def find_resource
+      scoped_collection.where(slug: params[:id]).first!
+    end
+  end
 end
