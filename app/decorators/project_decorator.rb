@@ -45,8 +45,8 @@ class ProjectDecorator < Draper::Decorator
   def display_featured
     if model.has_video?
       model.featured_video_html
-    elsif model.featured_image
-      filepicker_image_tag model.featured_image, w: 758, h: 288, fit: 'crop', align: 'faces', cache: true
+    elsif model.featured_image?
+      h.filepicker_image_tag model.featured_image, w: 758, h: 288, fit: 'crop', align: 'faces', cache: true
     else
       return
     end
