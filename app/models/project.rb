@@ -413,7 +413,7 @@ class Project < ActiveRecord::Base
   def post_to_compassion
     unless self.private?
       @graph = Koala::Facebook::API.new(compassion_page_access_token)
-      @graph.put_wall_post("New Action posted!", { :name => "#{self.page_title}", :description => "Description here", :link => "http://compassionforhumanity.org/projects/#{self.slug}"})
+      @graph.put_wall_post("New Action posted!", { :name => "#{self.page_title}", :description => "#{self.stripped_content}", :link => "http://compassionforhumanity.org/projects/#{self.slug}"})
     end
   end
 
