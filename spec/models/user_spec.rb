@@ -18,6 +18,13 @@
 #  name                   :string(255)
 #  provider               :string(255)
 #  uid                    :string(255)
+#  token                  :string(255)
+#  username               :string(255)
+#  slug                   :string(255)
+#  profile_image          :string(255)
+#  city                   :string(255)
+#  state                  :string(2)
+#  zip_code               :integer
 #
 
 require 'spec_helper'

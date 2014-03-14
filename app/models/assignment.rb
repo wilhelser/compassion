@@ -1,3 +1,14 @@
+# == Schema Information
+#
+# Table name: assignments
+#
+#  id          :integer          not null, primary key
+#  project_id  :integer          not null
+#  adjuster_id :integer          not null
+#  created_at  :datetime         not null
+#  updated_at  :datetime         not null
+#
+
 class Assignment < ActiveRecord::Base
   include ContractorMethods
   attr_accessible :adjuster_id, :project_id

@@ -1,3 +1,12 @@
+# == Schema Information
+#
+# Table name: contractor_selections
+#
+#  contractor_id :integer
+#  project_id    :integer
+#  id            :integer          not null, primary key
+#
+
 class ContractorSelection < ActiveRecord::Base
   include ContractorMethods
   belongs_to :project

@@ -1,3 +1,42 @@
+# == Schema Information
+#
+# Table name: projects
+#
+#  id                      :integer          not null, primary key
+#  user_id                 :integer
+#  goal_amount             :decimal(, )
+#  page_title              :string(60)       not null
+#  zip_code                :integer          not null
+#  page_message            :text             not null
+#  slug                    :string(255)
+#  approved                :boolean          default(TRUE), not null
+#  created_at              :datetime         not null
+#  updated_at              :datetime         not null
+#  featured_image          :string(255)
+#  featured_video          :string(255)
+#  project_category_id     :integer
+#  status                  :string(255)      default("In Progress")
+#  street_address          :string(255)
+#  city                    :string(255)
+#  state                   :string(255)
+#  latitude                :float
+#  longitude               :float
+#  notify_on_donate        :boolean
+#  private                 :boolean          default(FALSE)
+#  has_reviewed_contractor :boolean          default(FALSE)
+#  backer_count            :integer          default(0)
+#  project_deadline        :date
+#  reason_for_deadline     :text
+#  funded                  :boolean          default(FALSE)
+#  funded_date             :date
+#  funded_confirm          :boolean          default(FALSE)
+#  campaign_ended          :boolean          default(FALSE)
+#  key                     :string(255)
+#  campaign_ended_date     :date
+#  campaign_extended_date  :date
+#  vendors_paid            :boolean          default(FALSE)
+#
+
 class Project < ActiveRecord::Base
   include Koala
   extend FriendlyId

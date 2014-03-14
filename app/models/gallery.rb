@@ -1,3 +1,17 @@
+# == Schema Information
+#
+# Table name: galleries
+#
+#  id            :integer          not null, primary key
+#  project_id    :integer
+#  title         :string(255)      not null
+#  description   :text
+#  created_at    :datetime         not null
+#  updated_at    :datetime         not null
+#  contractor_id :integer
+#  gallery_type  :string(255)
+#
+
 class Gallery < ActiveRecord::Base
   attr_accessible :description, :project_id, :contractor_id, :title, :gallery_type
   belongs_to :contractor, touch: true

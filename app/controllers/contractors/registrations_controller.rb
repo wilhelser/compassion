@@ -1,4 +1,4 @@
-class RegistrationsController < Devise::RegistrationsController
+class Contractors::RegistrationsController < Devise::RegistrationsController
   before_filter :authenticate_contractor!, only: [:update]
 
   def update
