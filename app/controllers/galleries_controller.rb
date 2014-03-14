@@ -3,12 +3,12 @@ class GalleriesController < InheritedResources::Base
 
   def index
     if params[:contractor_id].present?
-      @contractor = Contractor.find(params[:contractor_id])
+      @contractor = Contractor.friendly.find(params[:contractor_id])
       @galleries = @contractor.galleries
       @contractor_gallery = true
       @page_title = "Galleries - #{@contractor.name}"
     elsif params[:project_id].present?
-      @project = Project.find(params[:project_id])
+      @project = Project.friendly.find(params[:project_id])
       @galleries = @project.galleries
       @project_gallery = true
       @page_title = "Galleries - #{@project.page_title}"
@@ -23,7 +23,7 @@ class GalleriesController < InheritedResources::Base
       @galleries = @project.galleries
     elsif params[:contractor_id].present?
       @contractor_gallery = true
-      @contractor = Contractor.find(params[:gallery][:contractor_id])
+      @contractor = Contractor.friendly.find(params[:gallery][:contractor_id])
       @gallery = @contractor.galleries.build(params[:gallery])
       @galleries = @contractor.galleries
     end
