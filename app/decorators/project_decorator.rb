@@ -64,7 +64,7 @@ class ProjectDecorator < Draper::Decorator
   end
 
   def page_message
-    model.page_message
+    model.page_message.html_safe
   end
 
   def percent_funded

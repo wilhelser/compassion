@@ -2,10 +2,10 @@
   .project-info-wrapper.well
     .project-info
       %h3
-        $#{@project.total_contributions.to_i}.00
+        #{@project.total_contributions}
         %br/
         %span
-          raised of  $#{@project.goal_amount.to_i}.00
+          raised of  #{@project.goal_amount}
       .progress.progress-striped.active.bar-green
         .bar{style: "width: #{@project.percent_funded.to_i}%"}
       .funding-info

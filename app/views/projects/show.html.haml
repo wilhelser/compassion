@@ -23,7 +23,7 @@
         .project-social.well
           = render 'share_buttons'
         .project-content.well
-          = @project.page_message.html_safe
+          = @project.page_message
       = render "projects/tabs/tab_updates"
       = render "projects/tabs/tab_backers"
       = render "projects/tabs/tab_comments"
@@ -44,8 +44,8 @@
   - unless @project.featured_image.blank?
     %meta{content: @project.image_url, property: "og:image"}/
 - if user_signed_in?
-  - if current_user.can_manage_project(@project)
+  - if current_user.can_manage_project(@project.model)
     = content_for :action_buttons do
-      = link_to "Project Dashboard", dashboard_project_path(@project), :class => "project-dashboard-link btn btn-success visible-desktop"
+      = link_to "Project Dashboard", dashboard_project_path(@project.model), :class => "project-dashboard-link btn btn-success visible-desktop"
 = render 'contributions/contribution_modal'
 = render 'shared/filepickerjs'
