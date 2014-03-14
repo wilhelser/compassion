@@ -188,7 +188,6 @@ ActiveRecord::Schema.define(version: 20140313215738) do
     t.string   "cell_phone",                   limit: 30
   end
 
-  add_index "contractors", ["slug"], name: "index_contractors_on_slug", unique: true, using: :btree
 
   create_table "contractors_trades", id: false, force: true do |t|
     t.integer "contractor_id"
