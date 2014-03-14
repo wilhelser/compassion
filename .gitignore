@@ -15,7 +15,6 @@
 /vendor/bundle/
 /vendor/ruby/
 .powrc
-
 # minimal Rails specific artifacts
 db/*.sqlite3
 /log/*

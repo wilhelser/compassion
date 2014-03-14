@@ -87,3 +87,4 @@ gem 'rails-erd', :group => :development
 gem 'htmlentities'
 gem "pg_search"
 gem 'zeus', group: :development
+gem 'coco'
