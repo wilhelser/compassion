@@ -2,5 +2,4 @@
   = f.input :gallery_type, :as => :hidden, :input_html => { :value => "contractor" }
   = f.input :contractor_id, as: :hidden, :input_html => { :value => current_contractor.id }
   = f.input :title
-  = f.input :description, :input_html => { :rows => 5 }
   %button#create_new_gallery.btn.btn-primary{"data-disable-with" => "Creating..."} Create Gallery

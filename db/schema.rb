@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140313215738) do
+ActiveRecord::Schema.define(version: 20140314194422) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -188,8 +188,6 @@ ActiveRecord::Schema.define(version: 20140313215738) do
     t.string   "cell_phone",                   limit: 30
   end
 
-  add_index "contractors", ["slug"], name: "index_contractors_on_slug", unique: true, using: :btree
-
   create_table "contractors_trades", id: false, force: true do |t|
     t.integer "contractor_id"
     t.integer "trade_id"
@@ -242,7 +240,6 @@ ActiveRecord::Schema.define(version: 20140313215738) do
   create_table "galleries", force: true do |t|
     t.integer  "project_id"
     t.string   "title",         null: false
-    t.text     "description"
     t.datetime "created_at",    null: false
     t.datetime "updated_at",    null: false
     t.integer  "contractor_id"

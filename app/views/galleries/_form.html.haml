@@ -1,6 +1,5 @@
 = simple_form_for Gallery.new, url: project_galleries_path(@project) do |f|
   = f.input :gallery_type, :as => :hidden, :input_html => { :value => "project" }
   = f.input :title
-  = f.input :description, :input_html => { :rows => 5 }
   .divider
   = f.submit 'Create Gallery', class: "btn btn-primary", "data-disable-with" => "Creating..."
