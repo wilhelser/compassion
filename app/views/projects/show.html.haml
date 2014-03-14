@@ -39,7 +39,7 @@
   %meta{content: "comphuman:project", property: "og:type"}/
   %meta{content: @project.long_link, property: "og:url"}/
   %meta{content: @project.page_title, property: "og:title"}/
-  %meta{content: @project.page_message.html_safe, property: "og:description"}/
+  %meta{content: @project.page_message, property: "og:description"}/
   %meta{content: "CompassionForHumanity.org", property: "og:site_name"}/
   - unless @project.featured_image.blank?
     %meta{content: @project.image_url, property: "og:image"}/

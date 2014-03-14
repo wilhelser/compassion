@@ -7,6 +7,7 @@ gem 'uglifier', '>= 1.0.3'
 gem 'compass-rails'
 gem 'protected_attributes'
 # gem 'turbolinks'
+gem 'sprockets', '~> 2.11.0'
 gem "devise"
 gem 'jquery-rails'
 gem 'jquery-ui-rails', '~> 4.0.2'
