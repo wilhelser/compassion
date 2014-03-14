@@ -48,7 +48,6 @@ gem 'omniauth-facebook'
 gem 'certified'
 gem 'carrierwave'
 gem 'draper'
-# gem 'masked_input-rails'
 gem "squeel"
 gem "koala"
 gem "auto_html"
