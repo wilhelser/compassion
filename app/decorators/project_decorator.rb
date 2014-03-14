@@ -1,6 +1,7 @@
 class ProjectDecorator < Draper::Decorator
-  include Draper::LazyHelpers
-  delegate_all
+  decorates :project
+  # include Draper::LazyHelpers
+  # delegate_all
 
   def page_title
     model.page_title
@@ -42,6 +43,42 @@ class ProjectDecorator < Draper::Decorator
     model.long_link
   end
 
+  def has_estimate?
+    model.has_estimate?
+  end
+
+  def key
+    model.key
+  end
+
+  def page_message
+    model.page_message
+  end
+
+  def percent_funded
+    model.percent_funded
+  end
+
+  def can_accept_donations
+    model.can_accept_donations
+  end
+
+  def total_contributions
+    h.number_to_currency(model.total_contributions)
+  end
+
+  def goal_amount
+    h.number_to_currency(model.goal_amount)
+  end
+
+  def featured_image
+    model.featured_image
+  end
+
+  def image_url
+    model.image_url
+  end
+
   def display_featured
     if model.has_video?
       model.featured_video_html
@@ -53,7 +90,7 @@ class ProjectDecorator < Draper::Decorator
   end
 
   def user_link
-    link_to user.name, user_path(user)
+    h.link_to user.name, h.user_path(user)
   end
 
 end

@@ -12,6 +12,7 @@ gem 'jquery-rails'
 gem 'jquery-ui-rails', '~> 4.0.2'
 gem "thin", ">= 1.5.0"
 gem "pg", ">= 0.15.0"
+gem 'filepicker-rails'
 gem "rspec-rails", ">= 2.12.2", :group => [:development, :test]
 gem "shoulda-matchers", :group => :test
 gem "factory_girl_rails"
@@ -24,7 +25,6 @@ gem 'activeadmin', github: 'gregbell/active_admin'
 gem "haml"
 # gem 'haml-rails', :group => :development
 gem 'rails4_upgrade'
-gem 'filepicker-rails'
 gem "cancan", ">= 1.6.9"
 gem "pry"
 gem 'mini_magick'

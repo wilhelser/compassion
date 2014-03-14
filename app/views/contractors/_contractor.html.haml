@@ -23,7 +23,7 @@
           - contractor.trades.each do |trade|
             = trade.name + ","
       .ci_button_wrap.pull-right
-        = link_to "View Profile", contractor_path(contractor, :fromdash => true), :class => "btn btn-success"
+        = link_to "View Profile", contractor_path(contractor), :class => "btn btn-success"
       .clearfix
       .divider
       .contractor_index_rating
