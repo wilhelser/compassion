@@ -47,6 +47,18 @@ class ProjectDecorator < Draper::Decorator
     model.has_estimate?
   end
 
+  def featured_video
+    model.featured_video
+  end
+
+  def no_paragraph_page_message
+    model.no_paragraph_page_message
+  end
+
+  def qrcode
+    model.qrcode
+  end
+
   def key
     model.key
   end
