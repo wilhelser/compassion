@@ -3,8 +3,8 @@ class ContractorSelectionsController < ApplicationController
   respond_to :html, :js, :json
 
   def create
-    @project = Project.find(params[:project_id])
-    @contractor = Contractor.find(params[:contractor_id])
+    @project = Project.friendly.find(params[:project_id])
+    @contractor = Contractor.friendly.find(params[:contractor_id])
     @contractor_selection = ContractorSelection.create(:project_id => @project.id, :contractor_id => @contractor.id)
 
     if @project.contractors.size > 0
