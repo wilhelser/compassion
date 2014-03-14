@@ -19,7 +19,10 @@
     .tab-content
       #tab1.tab-pane.active
         .project_show_main_image
-          = @project.display_featured
+          - if @project.featured_image?
+            = filepicker_image_tag @project.featured_image, w: 758, h: 288, fit: 'crop', align: 'faces', cache: true
+          - else
+            = @project.display_featured
         .project-social.well
           = render 'share_buttons'
         .project-content.well
