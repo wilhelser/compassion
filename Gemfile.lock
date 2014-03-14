@@ -191,8 +191,9 @@ GEM
     figaro (0.7.0)
       bundler (~> 1.0)
       rails (>= 3, < 5)
-    filepicker-rails (1.0.0)
-      rails (>= 3.2)
+    filepicker-rails (0.1)
+      multi_json (~> 1.6)
+      railties (>= 3.1.0, < 5.0)
     formtastic (2.3.0.rc2)
       actionpack (>= 3.0)
     friendly_id (5.0.3)
@@ -467,7 +468,7 @@ DEPENDENCIES
   email_spec (>= 1.4.0)
   factory_girl_rails
   figaro (>= 0.6.3)
-  filepicker-rails
+  filepicker-rails (~> 0.1)
   friendly_id (>= 5.0)
   geocoder
   gmaps4rails (~> 2.0.1)!
