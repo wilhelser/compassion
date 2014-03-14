@@ -7,13 +7,12 @@ gem 'uglifier', '>= 1.0.3'
 gem 'compass-rails'
 gem 'protected_attributes'
 # gem 'turbolinks'
-gem 'sprockets', '~> 2.11.0'
 gem "devise"
 gem 'jquery-rails'
 gem 'jquery-ui-rails', '~> 4.0.2'
 gem "thin", ">= 1.5.0"
 gem "pg", ">= 0.15.0"
-gem 'filepicker-rails', "~> 0.1"
+gem 'filepicker-rails'
 gem "rspec-rails", ">= 2.12.2", :group => [:development, :test]
 gem "shoulda-matchers", :group => :test
 gem "factory_girl_rails"
@@ -48,6 +47,7 @@ gem 'omniauth-facebook'
 gem 'certified'
 gem 'carrierwave'
 gem 'draper'
+# gem 'masked_input-rails'
 gem "squeel"
 gem "koala"
 gem "auto_html"
@@ -82,8 +82,8 @@ gem 'will_paginate-bootstrap', '0.2.5'
 gem "ransack"
 gem 'ckeditor_rails'
 gem 'rails_db_info', :group => :development
+# gem 'sextant', :group => :development
 gem 'rails-erd', :group => :development
 gem 'htmlentities'
 gem "pg_search"
 gem 'zeus', group: :development
-gem 'coco'
