@@ -27,7 +27,9 @@ ActiveAdmin.register Project do
   sidebar "Contributions", only: [:show, :edit] do
     ul do
       project.contributions.each do |c|
-        li "#{c.amount} - #{c.first_name} #{c.last_name}"
+        li do
+          link_to "#{c.amount} - #{c.first_name} #{c.last_name}", admin_contribution_path(c)
+        end
       end
     end
   end

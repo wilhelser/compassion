@@ -4,11 +4,14 @@
 -- Add function to
 ---- Adjuster Stuff
 
+-- add created_at to project show screen in admin panel
+
 - Validate geocoded for construction projects
 --- Keep back to project button for all project dashboard pages
 
 --- Hide Contractor log in button on Contractors page for all logged in users
 
+-- Add default value of false to contributions private column
 
 -- Add preview of uploaded featured_image
 
