@@ -18,7 +18,9 @@ ActiveAdmin.register Vendor do
     selectable_column
     column :project
     column :name
-    column :amount
+    column :amount do |vendor|
+      number_to_currency(vendor.amount)
+    end
     column :due_date
     column "Document" do |vendor|
       unless vendor.documentation.url.nil?
@@ -55,7 +57,9 @@ ActiveAdmin.register Vendor do
     attributes_table do
       row :project
       row :name
-      row :amount, :as => :string
+      row :amount do
+        number_to_currency(vendor.amount)
+      end
       row :verified
       row :address
       row :city

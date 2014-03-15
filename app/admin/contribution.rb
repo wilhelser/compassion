@@ -17,7 +17,9 @@ ActiveAdmin.register Contribution do
     selectable_column
     column :id
     column :project
-    column :amount
+    column :amount do |contribution|
+      number_to_currency(contribution.amount)
+    end
     column :first_name
     column :last_name
     default_actions
@@ -28,7 +30,9 @@ ActiveAdmin.register Contribution do
     attributes_table do
       row :id
       row :project
-      row :amount
+      row :amount do
+        number_to_currency(contribution.amount)
+      end
       row :first_name
       row :last_name
       row :email

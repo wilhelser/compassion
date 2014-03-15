@@ -1,6 +1,8 @@
 ActiveAdmin.register Donation do
   index do
-    column :amount
+    column :amount do |donation|
+      number_to_currency(donation.amount)
+    end
     column :name
     column :created_at
     column :email

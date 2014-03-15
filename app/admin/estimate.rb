@@ -23,7 +23,9 @@ ActiveAdmin.register Estimate do
     column :id
     column :adjuster
     column :project
-    column :amount
+    column :amount do |estimate|
+      number_to_currency(estimate.amount)
+    end
     column :description
     column "Document" do |estimate|
       link_to "Estimate", estimate.document.url unless estimate.document.url.nil?
@@ -37,7 +39,9 @@ ActiveAdmin.register Estimate do
       row :id
       row :adjuster
       row :project
-      row :amount
+      row :amount do
+        number_to_currency(estimate.amount)
+      end
       row :description
       row :document do
         link_to "Estimate", estimate.document.url unless estimate.document.url.nil?

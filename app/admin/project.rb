@@ -28,7 +28,7 @@ ActiveAdmin.register Project do
     ul do
       project.contributions.each do |c|
         li do
-          link_to "#{c.amount} - #{c.first_name} #{c.last_name}", admin_contribution_path(c)
+          link_to "#{number_to_currency(c.amount)} - #{c.first_name} #{c.last_name}", admin_contribution_path(c)
         end
       end
     end
@@ -37,7 +37,7 @@ ActiveAdmin.register Project do
   sidebar "Vendors", only: [:show, :edit], :if => proc{ project.needs_vendors? } do
     ul do
       project.vendors.each do |v|
-        li link_to "#{v.name} - $ #{v.amount}", admin_vendor_path(v)
+        li link_to "#{v.name} - $ #{number_to_currency(v.amount)}", admin_vendor_path(v)
       end
     end
   end
@@ -65,8 +65,12 @@ ActiveAdmin.register Project do
     selectable_column
     column :id
     column :user
-    column :goal_amount
-    column :total_contributions
+    column :goal_amount do |project|
+      number_to_currency(project.goal_amount)
+    end
+    column :total_contributions do |project|
+      number_to_currency(project.total_contributions)
+    end
     column :page_title
     column :status
     column :city
@@ -95,7 +99,9 @@ ActiveAdmin.register Project do
     attributes_table do
       row :id
       row :categories
-      row :goal_amount
+      row :goal_amount do
+        number_to_currency(project.goal_amount)
+      end
       row :page_title
       row :page_message do
         project.page_message.html_safe
