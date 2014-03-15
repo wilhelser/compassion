@@ -4,6 +4,14 @@
 -- Add function to
 ---- Adjuster Stuff
 
+- Validate geocoded for construction projects
+--- Keep back to project button for all project dashboard pages
+
+--- Hide Contractor log in button on Contractors page for all logged in users
+
+
+-- Add preview of uploaded featured_image
+
 -- 1. When a Construction based action is created, it needs to email the Contractor and Adjuster, both need to have the beneficiary contact information, Contractor contact information, Adjuster contact information and link to their respective log in site.
 
 -- #2. The adjuster needs to either accept or decline each assigned Action. If the adjuster declines, the app needs to update the admin side with "No adjuster accepted" until an adjuster Accepts the Action.

@@ -11,7 +11,7 @@ class ProjectPdf < Prawn::Document
   end
 
   def page_heading
-    image open("#{Rails.root}/public/pdf-logo.png"), width: 262, height: 71
+    image open("#{Rails.root}/public/pdf-logo.jpg"), width: 259, height: 71
     move_down 10
     text "#{@project.page_title}", size: 30, style: :bold, align: :center
   end
