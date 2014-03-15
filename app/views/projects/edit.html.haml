@@ -43,6 +43,14 @@
           .divider
         / address_info_wrap
         %fieldset.np-section
+          %legend
+            Action Deadline
+            %small Set a funding deadline for your Action if you want.
+          .span4.pull-left
+            = f.input :project_deadline, :as => :string, :input_html => { "data-behavior" => "datepicker" }
+          .span4.pull-right
+            = f.input :reason_for_deadline, :input_html => { :rows => 3 }
+        %fieldset.np-section
           %legend Media
           %p
             %small Here you can upload an image for your Action or add a YouTube video.

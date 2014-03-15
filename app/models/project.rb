@@ -298,7 +298,7 @@ class Project < ActiveRecord::Base
   # Determines if project needs vendors ( not construction project )
   #
   # @return [Boolean] true unless project is construction project
-  def needs_vendors
+  def needs_vendors?
     true unless self.category_ids.include?(4)
   end
 

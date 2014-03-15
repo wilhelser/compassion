@@ -12,6 +12,7 @@
 --- Hide Contractor log in button on Contractors page for all logged in users
 
 -- Add default value of false to contributions private column
+	- also project vendors_paid and funded need default values of false
 
 -- Add preview of uploaded featured_image
 

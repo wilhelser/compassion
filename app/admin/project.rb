@@ -6,15 +6,15 @@ ActiveAdmin.register Project do
   scope :funded
   scope :inactive
 
-  sidebar "Contractor", only: [:show, :edit] do
+  sidebar "Contractor", only: [:show, :edit], :if => proc{ project.construction_project? } do
     link_to "#{project.contractors.first.name}", admin_contractor_path(project.contractors.first) if project.contractors.any?
   end
 
-  sidebar "Adjuster", only: [:show, :edit] do
+  sidebar "Adjuster", only: [:show, :edit], :if => proc{ project.construction_project? } do
     link_to "#{project.adjusters.last.first_name} #{project.adjusters.last.last_name}", admin_adjuster_path(project.adjusters.last) if project.adjusters.any?
   end
 
-  sidebar "Estimates", only: [:show, :edit] do
+  sidebar "Estimates", only: [:show, :edit], :if => proc{ project.construction_project? } do
     ul do
       project.estimates.each do |e|
         li do
@@ -34,7 +34,7 @@ ActiveAdmin.register Project do
     end
   end
 
-  sidebar "Vendors", only: [:show, :edit] do
+  sidebar "Vendors", only: [:show, :edit], :if => proc{ project.needs_vendors? } do
     ul do
       project.vendors.each do |v|
         li link_to "#{v.name} - $ #{v.amount}", admin_vendor_path(v)
@@ -105,7 +105,9 @@ ActiveAdmin.register Project do
       row :city
       row :state
       row :zip_code
-      row :project_deadline
+      row :project_deadline do
+        project.project_deadline
+      end
       row :reason_for_deadline
       row :funded
       row :funded_date

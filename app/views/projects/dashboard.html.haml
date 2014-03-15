@@ -2,7 +2,7 @@
   - unless @project.has_contractor
     .alert.alert-error
       You need to select a contractor!
-- if @project.needs_vendors
+- if @project.needs_vendors?
   - if @project.vendors.blank? || @project.has_excess_funds
     #need-vendor-alert.alert.alert-error
       You need to add some vendors!
@@ -27,7 +27,7 @@
   -# = render 'projects/dashboard/galleries_tab'
   -# - if @project.needs_contractor
 
-  -# - if @project.needs_vendors
+  -# - if @project.needs_vendors?
   -#   = render 'projects/dashboard/vendor_tab'
   -# - if @project.has_estimate?
   -#   = render 'projects/dashboard/estimates_tab'
