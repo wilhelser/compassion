@@ -6,7 +6,7 @@
           = image_tag 'profile-placeholder.png', width: "150", height: "75", class: "thumbnail"
         - else
           .thumbnail
-            = filepicker_image_tag contractor.logo, w: 150, h: 75, fit: 'clip', cache: true
+            = filepicker_image_tag contractor.logo, width: 150, height: 75, fit: 'clip'
       .ci_namelink
         %h5
           = contractor.name

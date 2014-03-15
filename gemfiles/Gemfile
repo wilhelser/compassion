@@ -1,19 +1,17 @@
 source 'https://rubygems.org'
 gem 'rails', '4.0.2'
-gem 'sprockets', '~> 2.11.0'
 gem 'sass-rails'
 gem 'bootstrap-sass', '~> 2.3.2.0'
 gem 'coffee-rails'
 gem 'uglifier', '>= 1.0.3'
 gem 'compass-rails'
-gem 'protected_attributes', '~> 1.0.6'
+gem 'protected_attributes'
 # gem 'turbolinks'
 gem "devise"
 gem 'jquery-rails'
 gem 'jquery-ui-rails', '~> 4.0.2'
 gem "thin", ">= 1.5.0"
 gem "pg", ">= 0.15.0"
-gem 'filepicker-rails'
 gem "rspec-rails", ">= 2.12.2", :group => [:development, :test]
 gem "shoulda-matchers", :group => :test
 gem "factory_girl_rails"
@@ -26,6 +24,7 @@ gem 'activeadmin', github: 'gregbell/active_admin'
 gem "haml"
 # gem 'haml-rails', :group => :development
 gem 'rails4_upgrade'
+gem 'filepicker-rails'
 gem "cancan", ">= 1.6.9"
 gem "pry"
 gem 'mini_magick'
@@ -48,6 +47,7 @@ gem 'omniauth-facebook'
 gem 'certified'
 gem 'carrierwave'
 gem 'draper'
+# gem 'masked_input-rails'
 gem "squeel"
 gem "koala"
 gem "auto_html"
@@ -87,4 +87,3 @@ gem 'rails-erd', :group => :development
 gem 'htmlentities'
 gem "pg_search"
 gem 'zeus', group: :development
-#gem 'coco'

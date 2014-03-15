@@ -55,7 +55,7 @@
               YouTube Video
           .clearfix
           - unless @project.featured_image.blank?
-            .logo-preview{class: '("hide" unless @project.featured_image)'}
+            .logo-preview{class: ("hide" unless @project.featured_image)}
               = filepicker_image_tag @project.featured_image, w: 150, h: 150, fit: 'crop', align: 'faces', cache: true, class: 'thumbnail'
           #upload_options_wrap
             #featured_upload
@@ -70,4 +70,4 @@
         .span8.np-section
           = f.submit "Update", :class => "btn btn-primary", "data-disable-with" => "Updating..."
 = render 'projects/dashboard/dashboard_sidebar'
-= render 'shared/filepickerjs'
+

@@ -1,6 +1,7 @@
 require File.expand_path('../boot', __FILE__)
 
 require 'rails/all'
+require "filepicker-rails"
 
 if defined?(Bundler)
   # If you precompile assets before deploying to production, use this line
@@ -11,6 +12,7 @@ end
 
 module Compassion
   class Application < Rails::Application
+
 
     # don't generate RSpec tests for views and helpers
     config.generators do |g|

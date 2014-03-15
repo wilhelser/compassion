@@ -6,6 +6,7 @@
     <%= yield :open_graph_tags %>
     <%= stylesheet_link_tag "application", :media => "all" %>
     <%= javascript_include_tag "https://js.stripe.com/v1/", "application" %>
+    <%= render 'shared/filepickerjs' %>
     <%= favicon_link_tag %>
     <%= gmaps4rails_api_script_tags %>
     <%= tag :meta, :name => "stripe-key", :content => Rails.configuration.stripe[:publishable_key] %>
@@ -44,7 +45,7 @@
         <%= render "shared/footer" %>
         <%= render "shared/sign_in_modal" %>
         <%= render "shared/registration_modal" %>
-        <%= yield :filepicker_javascript %>
+
         <% if Rails.env.production?  %>
           <%= render "shared/analytics" %>
         <% end %>

@@ -5,6 +5,8 @@ class ApplicationController < ActionController::Base
     redirect_to root_path, :alert => exception.message
   end
 
+  helper FilepickerRails::Engine.helpers
+
   #
   # Custom parameter sanitizer for Devise. Users, contractors
   # and vendors
