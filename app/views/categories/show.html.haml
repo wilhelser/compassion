@@ -8,7 +8,7 @@
 - if @no_paginate == true
   = render 'show_no_pagination'
 -else
-  .span9{id: ""}
+  .span9
     - if @projects.any?
       = render @projects
       = will_paginate @projects, renderer: BootstrapPagination::Rails
