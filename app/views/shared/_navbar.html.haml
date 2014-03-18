@@ -18,6 +18,9 @@
                     = link_to "Purpose of CFH", page_path('the-purpose-of-compassion-for-humanity')
               %li
                 = link_to "How it Works", page_path('how-it-works'), :class => current_class?(page_path('how-it-works'))
+                %ul.sub-menu.dropdown-menu
+                  %li
+                    = link_to "Informational Videos", page_path('informational-videos')
               %li
                 = link_to "Contractors", contractors_path, :class => current_class?(contractors_path)
                 %ul.sub-menu.dropdown-menu
