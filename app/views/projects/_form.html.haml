@@ -64,27 +64,30 @@
     .span4.pull-right
       = f.input :reason_for_deadline, :input_html => { :rows => 3 }
   %fieldset.span9.offset1.np-section
-    %legend Media
-    %p
-      %small Here you can upload an image for your Action or add a YouTube video.
-    %ul#media_select
-      %li
-        %input{name: "media", type: "radio", value: "image"}>/
-        I want to upload an image
-      %li
-        %input{name: "media", type: "radio", value: "video"}>/
-        YouTube Video
-    .clearfix
-    #upload_options_wrap
+    %legend
+      Media
+      %small Upload an image for your Action or add a YouTube video.
+    .fu-left
+      %ul#media_select
+        %li
+          %input{name: "media", type: "radio", value: "image"}>/
+          I want to upload an image
+        %li
+          %input{name: "media", type: "radio", value: "video"}>/
+          YouTube Video
+      .clearfix
+      %small.image-size-text Recommended image size is 760px by 290px or larger
+    .fu-middle
       #featured_upload.hide
         = f.label :featured_image, "Upload Your Image:"
-        = f.filepicker_field :featured_image, :button_class => "btn btn-primary", store_location: "S3", store_access: "public", extensions: ".jpg,.png,.gif,.jpeg"
-      / featured_upload
+        = f.filepicker_field :featured_image, :button_class => "btn btn-primary", store_location: "S3", store_access: "public", extensions: ".jpg,.png,.gif,.jpeg", onchange: "updateProjectPreview(event);"
+      .clearfix
       #youtube_add.hide
         %div
           = f.input :featured_video, :placeholder => "YouTube Link", :label => false
-      / youtube-add
-    / upload_options_wrap
+      .clearfix
+    .fu-right
+      #new_project_image_preview.hide
     .clearfix
     .divider
   .span9.offset1.np-section.well
