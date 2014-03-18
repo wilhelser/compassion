@@ -98,6 +98,9 @@ ActiveAdmin.register Project do
   show do |project|
     attributes_table do
       row :id
+      row :created_at do
+        project.created_at
+      end
       row :categories
       row :goal_amount do
         number_to_currency(project.goal_amount)
