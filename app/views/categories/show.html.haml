@@ -1,10 +1,11 @@
-#home_categories_select_wrap.span3
-  = render 'home/project_nav_search'
-  .inner
-    %ul#home_categories_select
-      - @categories.each do |category|
-        %li{class: current_class?(category_path(category))}
-          = link_to "#{category.name}", category
+.span3
+  #home_categories_select_wrap
+    = render 'home/project_nav_search'
+    .inner
+      %ul#home_categories_select
+        - @categories.each do |category|
+          %li{class: current_class?(category_path(category))}
+            = link_to "#{category.name}", category
 - if @no_paginate == true
   = render 'show_no_pagination'
 -else
