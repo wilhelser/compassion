@@ -51,29 +51,34 @@
           .span4.pull-right
             = f.input :reason_for_deadline, :input_html => { :rows => 3 }
         %fieldset.np-section
-          %legend Media
-          %p
-            %small Here you can upload an image for your Action or add a YouTube video.
-          %ul#media_select
-            %li
-              %input{name: "media", type: "radio", value: "image"}>/
-              I want to upload an image
-            %li
-              %input{name: "media", type: "radio", value: "video"}>/
-              YouTube Video
-          .clearfix
-          - unless @project.featured_image.blank?
-            .logo-preview{class: ("hide" unless @project.featured_image)}
-              = filepicker_image_tag @project.featured_image, w: 150, h: 150, fit: 'crop', align: 'faces', cache: true, class: 'thumbnail'
-          #upload_options_wrap
-            #featured_upload
+          %legend
+            Media
+            %small Upload an image for your Action or add a YouTube video.
+          .fu-left
+            %ul#media_select
+              %li
+                %input{name: "media", type: "radio", value: "image"}>/
+                I want to upload an image
+              %li
+                %input{name: "media", type: "radio", value: "video"}>/
+                YouTube Video
+            .clearfix
+            %small.image-size-text Recommended image size is 760px by 290px or larger
+          .fu-middle
+            #featured_upload.hide
               = f.label :featured_image, "Upload Your Image:"
-              = f.filepicker_field :featured_image, :button_class => "btn btn-primary", store_location: "S3", store_access: "public", extensions: ".jpg,.png,.gif,.jpeg", onchange: "updateLogoPreview(event);"
-            / featured_upload
+              = f.filepicker_field :featured_image, :button_class => "btn btn-primary", store_location: "S3", store_access: "public", extensions: ".jpg,.png,.gif,.jpeg", onchange: "updateProjectPreview(event);"
+            .clearfix
             #youtube_add.hide
               %div
                 = f.input :featured_video, :placeholder => "YouTube Link", :label => false
-        .clearfix
+            .clearfix
+          .fu-right
+            #new_project_image_preview{class: ("hide" unless @project.featured_image)}
+              - unless @project.featured_image.blank?
+                = filepicker_image_tag @project.featured_image, w: 150, h: 150, fit: 'crop', align: 'faces', cache: true, class: 'thumbnail'
+          .clearfix
+          .divider
         .divider
         .span8.np-section
           = f.submit "Update", :class => "btn btn-primary", "data-disable-with" => "Updating..."
