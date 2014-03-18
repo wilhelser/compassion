@@ -10,6 +10,7 @@ ActiveAdmin.register Contractor do
   # Form
   form do |f|
     f.inputs "Contractor Details" do
+      f.input :status, :as => :select, :collection => ContractorStatus.all.map{|c| ["#{c.text}", "#{c.text}"]}
       f.input :email
       f.input :name
       f.input :street_address
