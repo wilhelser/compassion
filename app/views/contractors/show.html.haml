@@ -52,7 +52,7 @@
     - if @galleries.any?
       %ul
         = list_of(@galleries) do |gallery|
-          %li= link_to gallery.title, contractor_gallery_path(@contractor, gallery)
+          = link_to gallery.title, contractor_gallery_path(@contractor, gallery)
     - else
       %p No galleries yet!
 
