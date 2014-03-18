@@ -1,17 +1,18 @@
-#gallery-images-wrap
-  - if @photos.any?
-    = render partial: 'photos/photo', :collection => @photos
-  - else
-    %p This gallery doesn't have any photos.
-/ gallery-images-wrap
-.clearfix
-%hr/
-%a.btn.btn-success{"data-toggle" => "modal", href: "#new_photo_modal"} Add Photo
-= render 'photos/new_modal'
-- if @gallery.is_project_gallery?
-  - content_for :back_to_project_button do
-    = link_to "Back to Dashboard", project_galleries_path(@gallery.project), :class => "btn btn-success project-dashboard-link pull-right"
-- elsif @gallery.is_contractor_gallery?
-  - content_for :back_to_project_button do
-    = link_to "Back to Dashboard", dashboard_contractor_path(current_contractor), :class => "btn btn-success project-dashboard-link pull-right"
+.span12
+  #gallery-images-wrap
+    - if @photos.any?
+      = render partial: 'photos/photo', :collection => @photos
+    - else
+      %p This gallery doesn't have any photos.
+  / gallery-images-wrap
+  .clearfix
+  %hr/
+  %a.btn.btn-success{"data-toggle" => "modal", href: "#new_photo_modal"} Add Photo
+  = render 'photos/new_modal'
+  - if @gallery.is_project_gallery?
+    - content_for :back_to_project_button do
+      = link_to "Back to Dashboard", project_galleries_path(@gallery.project), :class => "btn btn-success project-dashboard-link pull-right"
+  - elsif @gallery.is_contractor_gallery?
+    - content_for :back_to_project_button do
+      = link_to "Back to Dashboard", dashboard_contractor_path(current_contractor), :class => "btn btn-success project-dashboard-link pull-right"
 

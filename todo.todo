@@ -2,8 +2,6 @@
 
 ---- Adjuster Stuff
 
--- add created_at to project show screen in admin panel
-
 - Validate geocoded for construction projects
 --- Keep back to project button for all project dashboard pages
 
@@ -12,7 +10,6 @@
 -- Add default value of false to contributions private column
 	- also project vendors_paid and funded need default values of false
 
--- Add preview of uploaded featured_image
 
 -- 1. When a Construction based action is created, it needs to email the Contractor and Adjuster, both need to have the beneficiary contact information, Contractor contact information, Adjuster contact information and link to their respective log in site.
 
@@ -43,18 +40,12 @@
 - Create Admin group in Google Apps, with users Corey and Stefanie as members
 
 - Create an email once a project has been ended by creator, sent to the Admin group in Google Apps
-- Create Google apps account stand alone
 - Replace "create action" button with a bootstrap button named "Get Started" ; color of button is green to match "search" and "see all"
-- Turn back on "mobile mode"/ alternative view for mobile devices with WordPress
-- Created a new construction action; selected Contractor, Corey is the only adjuster approved currently, he did not receive an Contractor email.
-- Under project "Help us with our leaky roof"; I set a deadline, however the deadline is not showing up on the backside 2 comments
 - In the Adjuster email, please include the Selected Approved Contractors contact information, and the Action Creators contact information. In the Contractors email, the Adjusters contact information and the Action Creators should be in the email. These are no longer working correctly.
-- When creating a new action, Facebook is not creating the post on CompassionForHumanity fan page. The post that it used to be creating, after Jan 22, it was not including the profile pic of the Action on Facebook post.
 - On the backside of "Help us fix our leaky roof" is not showing the current adjuster 2 comments
 
 - Help us fix our leaky roof: An email was sent to Corey (as COntractor) at 3:37 stating that there was "No Adjuster found for the following project" although he was already the selected Adjuster. Corey is forwarding you the email now. Sent right after he uploaded his estimate as Adjuster. Wil Helser
 - Help us fix our leaky roof - Print Flyer gave me the screen 2 comments  Wil Helser
 
-- Help us fix our leaky roof - Please include a hot link back to the Contributor's page for additional information. 1 comment  Wil Helser
 - Help us fix our leaky roof - Tried to share with link in email to Facebook and got this message. 1 comment Wil Helser
 - Donation problems~ after I tried to submit a donation this is what came up! see jpg

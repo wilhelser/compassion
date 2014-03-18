@@ -1,7 +1,8 @@
-= render 'contractors/dashboard/dashboard_nav'
-#profile
-  = simple_form_for(@contractor, :html => { :method => "put", :multipart => true, :autocomplete => "off" }, :remote => true) do |f|
-    = f.input :description, :class => "span8 ckeditor", :rows => "10", "data-ideal" => "required", :input_html => { :id => "contractor_description" }, :label => false
-    .clearfix
-    .divider
-    = f.submit 'Update Profile', :class => "btn btn-primary"
+.span12
+  = render 'contractors/dashboard/dashboard_nav'
+  #profile
+    = simple_form_for(@contractor, :html => { :method => "put", :multipart => true, :autocomplete => "off" }, :remote => true) do |f|
+      = f.input :description, :class => "span8 ckeditor", :rows => "10", "data-ideal" => "required", :input_html => { :id => "contractor_description" }, :label => false
+      .clearfix
+      .divider
+      = f.submit 'Update Profile', :class => "btn btn-primary"

@@ -1,18 +1,19 @@
-- if @contractor_gallery == true
-  = render 'contractors/dashboard/dashboard_nav'
-- elsif @project_gallery == true
-  = render 'projects/dashboard/dashboard_nav'
-#galleries
-  #project_galleries_wrap
-    - if @galleries.any?
-      = render @galleries
-    - else
-      %p No Galleries yet. Why don't you add one?
-  .clearfix
-  .divider
-  %a.btn.btn-primary.btn-large{"data-toggle" => "modal", :href => "#new_gallery_modal"} Create Gallery
+.span12
+  - if @contractor_gallery == true
+    = render 'contractors/dashboard/dashboard_nav'
+  - elsif @project_gallery == true
+    = render 'projects/dashboard/dashboard_nav'
+  #galleries
+    #project_galleries_wrap
+      - if @galleries.any?
+        = render @galleries
+      - else
+        %p No Galleries yet. Why don't you add one?
+    .clearfix
+    .divider
+    %a.btn.btn-primary.btn-large{"data-toggle" => "modal", :href => "#new_gallery_modal"} Create Gallery
 
-- if @contractor_gallery == true
-  = render 'contractors/new_gallery_modal'
-- elsif @project_gallery == true
-  = render partial: 'galleries/new_gallery_modal', :project => @project
+  - if @contractor_gallery == true
+    = render 'contractors/new_gallery_modal'
+  - elsif @project_gallery == true
+    = render partial: 'galleries/new_gallery_modal', :project => @project

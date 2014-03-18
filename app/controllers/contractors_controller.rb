@@ -41,7 +41,7 @@ class ContractorsController < InheritedResources::Base
 
   def edit_profile
     @contractor = current_contractor
-    page_title = "Edit Profile - #{@contractor.name}"
+    @page_title = "Edit Profile - #{@contractor.name}"
   end
 
   def update
