@@ -1,5 +1,7 @@
 $ ->
-  $("[data-behavior~=datepicker]").datepicker()
+  $("[data-behavior~=datepicker]").datepicker(
+    format: "yyyy-mm-dd"
+    )
 
   $('#contractor-back-btn').click ->
     window.close()
