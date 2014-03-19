@@ -17,8 +17,6 @@
 
 -- If an adjuster declines, the app needs to assign it to another Adjuster and a Decline email needs to be sent to the Contractor.
 
--- add message to photo uploads about pixel sizes for proper display
-
 -- This process should continue until an Adjuster "Accepts" the Action. ***note: we need to put a time constraint to the adjuster to click "Accept", ideal constraint would be "end of the next business day"*** and if they do not click "Accept" by the end of the next business day, Action needs to be reassigned to a new Adjuster, and an email needs to be sent to previous Adjuster (Text to come to you later for that email).
 
 -- Once an adjuster clicks "Accept" it needs to populate the admin side with new Adjuster information.
@@ -32,7 +30,7 @@
 - In order to move into a closed Beta testing period, we need to password protect the green 'Create Action' button. A dialog box will need to pop up and explain that Compassion for Humanity is in a closed beta testing period temporarily. A password should be requested (the password we can give people who are allowed to access the site and create Actions can be "create!907"). A first name and email address should also be collected so that CFH can email them later and let them know that the site is live. We would like to implement this as soon as possible so that once remaining issues with site are resolved, the closed beta can begin. Thanks!
 
 
--- change estimate button to accept, add date_accepted to projects, adjuster_accepted?
+-- add date_accepted to projects, adjuster_accepted?
 
 
 - I feel that these buttons should line up better 2 comments

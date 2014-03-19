@@ -16,6 +16,8 @@ class Assignment < ActiveRecord::Base
   belongs_to :adjuster
   before_destroy :create_new_assignment
 
+  scope :accepted, -> { where(accepted: true) }
+
   def create_new_assignment
     project = self.project
     adjuster = self.adjuster
