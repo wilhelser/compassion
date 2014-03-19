@@ -4,7 +4,7 @@ class Contractor::ParameterSanitizer < Devise::ParameterSanitizer
   # Allowed parameters for creating Contractor account
   #
   def sign_up
-    default_params.permit(:email, :password, :password_confirmation, :street_address, :city, :state, :zip_code, :name, :owner_phone, :cell_phone, :latitude, :longitude, :slug)
+    default_params.permit(:email, :password, :password_confirmation, :street_address, :city, :state, :zip_code, :name, :owner_phone, :cell_phone, :latitude, :longitude, :slug, :terms)
   end
 
   #
