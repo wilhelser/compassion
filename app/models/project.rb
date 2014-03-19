@@ -80,8 +80,21 @@ class Project < ActiveRecord::Base
   scope :donatable, -> { where('goal_amount > ?', 0) }
   scope :extended, -> { where('campaign_extended_date != ?', nil) }
 
-  def slugify
+  def random_string
+    8.times.map { [*'0'..'9', *'a'..'z', *'A'..'Z'].sample }.join
+  end
 
+  def slugify
+    @slug = random_string.concat(self.id.to_s)
+    self.slug = @slug
+  end
+
+  def to_param
+    self.slug
+  end
+
+  def self.find(input)
+    input.to_i == 0 ? find_by_slug(input) : super
   end
 
   #

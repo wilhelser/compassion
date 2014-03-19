@@ -87,4 +87,6 @@ Compassion::Application.routes.draw do
       end
     end
   end
+
+  get "/:id", to: 'projects#show', as: 'project_show'
 end
