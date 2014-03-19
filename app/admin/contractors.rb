@@ -60,6 +60,7 @@ ActiveAdmin.register Contractor do
   show do |contractor|
     attributes_table do
       row :id
+      row :status
       row :email
       row :name
       row :street_address
