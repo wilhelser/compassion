@@ -26,7 +26,7 @@ class Estimate < ActiveRecord::Base
   #
   def destroy_assignment
     @project = Project.find(self.project_id)
-    @assignment = @project.assignments.first
+    @assignment = @project.assignment
     @assignment.destroy
     AdjusterMailer.new_estimate_uploaded(@project, @project.contractors.first, self.adjuster).deliver
     set_project_to_approved(@project)
