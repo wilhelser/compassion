@@ -57,7 +57,7 @@ class ProjectsController < InheritedResources::Base
   end
 
   def show
-    @the_project = Project.friendly.find(params[:id])
+    @the_project = Project.find_by_slug(params[:id])
     @project = @the_project.decorate
     @page_title = @project.page_title
     @contribution = Contribution.new
@@ -161,7 +161,7 @@ class ProjectsController < InheritedResources::Base
   end
 
   def get_project
-    @project = Project.friendly.find(params[:id])
+    @project = Project.find(params[:id])
   end
 
   def get_categories
