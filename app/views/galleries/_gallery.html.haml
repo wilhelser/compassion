@@ -18,13 +18,15 @@
     - if user_signed_in?
       - if current_user.can_manage_gallery?(gallery)
         .gallery_actions.btn-group.visible-desktop
-          = link_to "Edit", edit_project_gallery_path(@project,gallery), :class => "btn btn-mini btn-success"
-          = button_to "Delete", gallery, :method => :delete, :confirm => "Are you sure you want to delete this gallery?", :remote => true, :class => "btn btn-mini btn-danger"
+          = link_to "<i class='icon icon-plus icon-white'></i> Photos".html_safe, edit_project_gallery_path(@project,gallery), :class => "btn btn-mini btn-success"
+          = button_to gallery, :method => :delete, :confirm => "Are you sure you want to delete this gallery?", :remote => true, :class => "btn btn-mini btn-danger" do
+            <i class='icon icon-trash icon-white'></i>
           .clearfix
   - elsif gallery.is_contractor_gallery?
     - if contractor_signed_in?
       - if current_contractor.can_manage_gallery?(gallery)
         .gallery_actions.btn-group.visible-desktop
-          = link_to "Edit", edit_contractor_gallery_path(@contractor,gallery), :class => "btn btn-mini btn-success"
-          = button_to "Delete", gallery, :method => :delete, :confirm => "Are you sure you want to delete this gallery?", :remote => true, :class => "btn btn-mini btn-danger"
+          = link_to "<i class='icon icon-plus icon-white'></i> Photos".html_safe, edit_contractor_gallery_path(@contractor,gallery), :class => "btn btn-mini btn-success"
+          = button_to gallery, :method => :delete, :confirm => "Are you sure you want to delete this gallery?", :remote => true, :class => "btn btn-mini btn-danger" do
+            <i class='icon icon-trash icon-white'></i>
           .clearfix
