@@ -12,9 +12,22 @@
 #
 
 class Page < ActiveRecord::Base
-  extend FriendlyId
-  friendly_id :title, use: :slugged
   attr_accessible :content, :title, :slug, :title_override
   validates :title, :content, presence: true
   validates_uniqueness_of :slug
+  before_create :slugify
+
+  def slugify
+    @slug = self.title.downcase.gsub(' ', '-')
+    self.slug = @slug
+  end
+
+  def to_param
+    self.slug
+  end
+
+  def self.find(input)
+    input.to_i == 0 ? find_by_slug(input) : super
+  end
+
 end

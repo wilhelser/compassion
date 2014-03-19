@@ -39,11 +39,9 @@
 
 class Project < ActiveRecord::Base
   include Koala
-  extend FriendlyId
   include AutoHtml
   include ProjectMethods
   include ImageMethods
-  friendly_id :page_title, use: :slugged
   has_and_belongs_to_many :categories
   has_and_belongs_to_many :trades
   attr_accessible :approved, :goal_amount, :page_message, :page_title, :slug, :zip_code, :featured_image, :featured_video, :category_ids, :street_address, :city, :state, :latitude, :longitude, :user_id, :notify_on_donate, :private, :contractor_selection_attributes, :has_reviewed_contractor, :backer_count, :project_deadline, :reason_for_deadline, :funded, :funded_date, :galleries_attributes, :contributions_attributes, :funded_confirm, :campaign_ended, :key, :trade_ids, :status, :campaign_ended_date, :campaign_extended_date, :vendors_paid

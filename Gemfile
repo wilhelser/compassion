@@ -53,7 +53,6 @@ gem "koala"
 gem "auto_html"
 gem 'remotipart', '~> 1.2'
 gem "bootstrap-wysihtml5-rails"
-gem "friendly_id", ">= 5.0"
 gem 'jasny_bootstrap_extension_rails'
 gem 'stripe', :git => 'https://github.com/stripe/stripe-ruby'
 gem 'awesome_print', :group => :console
