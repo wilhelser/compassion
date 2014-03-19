@@ -67,6 +67,7 @@ class Project < ActiveRecord::Base
   accepts_nested_attributes_for :contributions
   before_save :set_key, :if => :featured_image_changed?
   before_save :set_video_key, :if => lambda { self.featured_video.present? }
+  before_create :slugify
   after_create :post_to_compassion
   after_create :send_new_project_email
   after_create :set_to_unapproved, :if => lambda { self.category_ids.include?(4) }
@@ -78,6 +79,10 @@ class Project < ActiveRecord::Base
   scope :complete, -> { where(campaign_ended: true) }
   scope :donatable, -> { where('goal_amount > ?', 0) }
   scope :extended, -> { where('campaign_extended_date != ?', nil) }
+
+  def slugify
+
+  end
 
   #
   # Builds full address from project address fields
