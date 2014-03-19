@@ -26,9 +26,8 @@
             %th Project
             %th Contractor
             %th Actions
-          %tbody
-            #assignments-wrap
-              = render @assignments
+          %tbody#assignments-wrap
+            = render @assignments
       - else
         %hr
         %p You don't have any assignments yet.

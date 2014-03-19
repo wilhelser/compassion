@@ -52,15 +52,15 @@ class Project < ActiveRecord::Base
   validates_presence_of :featured_image, :if => lambda { self.featured_video.blank? }
   validates_presence_of :featured_video, :if => lambda { self.featured_image.blank? }
   belongs_to :user, touch: true
-  has_many :updates
+  has_many :updates, dependent: :destroy
   has_many :contributions
-  has_many :galleries
+  has_many :galleries, dependent: :destroy
   has_many :contractor_selections
   has_many :contractors, :through => :contractor_selections
   has_many :vendors
-  has_many :assignments
+  has_one :assignment
+  has_one :adjuster, through: :assignment
   has_many :estimates
-  has_many :adjusters, :through => :estimates
   geocoded_by :address
   after_validation :geocode
   accepts_nested_attributes_for :galleries

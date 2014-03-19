@@ -16,7 +16,11 @@ Compassion::Application.routes.draw do
   resources :references
   resources :galleries
   resources :contractors
-  resources :assignments
+  resources :assignments do
+    member do
+      put 'accept'
+    end
+  end
 
   resources :contractors do
     resources :references

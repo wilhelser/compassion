@@ -11,7 +11,7 @@
 
 class Assignment < ActiveRecord::Base
   include ContractorMethods
-  attr_accessible :adjuster_id, :project_id
+  attr_accessible :adjuster_id, :project_id, :accepted
   belongs_to :project
   belongs_to :adjuster
   before_destroy :create_new_assignment
