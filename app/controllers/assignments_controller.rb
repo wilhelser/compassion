@@ -6,7 +6,7 @@ class AssignmentsController < InheritedResources::Base
     @assignment = Assignment.find(params[:id])
     @adjuster = @assignment.adjuster
     @assignments = @adjuster.assignments
-    @assignment.update_attribute('accepted', true)
+    @assignment.accept
     respond_with @assignment
   end
 

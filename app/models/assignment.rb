@@ -11,7 +11,7 @@
 
 class Assignment < ActiveRecord::Base
   include ContractorMethods
-  attr_accessible :adjuster_id, :project_id, :accepted
+  attr_accessible :adjuster_id, :project_id, :accepted, :date_accepted
   belongs_to :project
   belongs_to :adjuster
   before_destroy :create_new_assignment
@@ -22,6 +22,17 @@ class Assignment < ActiveRecord::Base
     project = self.project
     adjuster = self.adjuster
     reassign_adjuster(project, adjuster)
+  end
+
+  def accept
+    self.update_attribute('accepted', true)
+    set_date_accepted
+  end
+
+  private
+
+  def set_date_accepted
+    self.date_accepted = Date.today
   end
 
 end
