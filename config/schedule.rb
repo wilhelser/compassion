@@ -1,10 +1,7 @@
 # Use this file to easily define all of your cron jobs.
 #
-# It's helpful, but not entirely necessary to understand cron before proceeding.
-# http://en.wikipedia.org/wiki/Cron
-# Example:
 #
-# set :output, "/path/to/my/cron_log.log"
+set :output, "/var/log/cron.log"
 #
 # every 2.hours do
 #   command "/usr/bin/some_great_command"
@@ -16,8 +13,8 @@
 #   runner "AnotherModel.prune_old_records"
 # end
 
-  every 24.hours do
-    runner "Project.email_inactive_projects"
-  end
+every 24.hours do
+  runner "Project.email_inactive_projects"
+end
 
 # Learn more: http://github.com/javan/whenever
