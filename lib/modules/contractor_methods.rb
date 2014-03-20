@@ -7,7 +7,7 @@ module ContractorMethods
     if @adjuster_within_fifty.any?
       @adjuster = @adjuster_within_fifty.shuffle.each.first
     elsif @adjuster_within_hundred.any?
-      send_no_adjuster_mailer(@project)
+      send_no_adjuster_within_fifty_mailer(@project)
       @adjuster = @adjuster_within_hundred.shuffle.each.first
     else
       send_no_adjuster_mailer(@project)
@@ -43,6 +43,10 @@ module ContractorMethods
   def send_contractor_reassignment_notification(project, adjuster)
     @adjuster = adjuster
     ContractorMailer.new_adjuster_assigned_notification(@project, @project.contractors.first, @project.user, @adjuster).deliver
+  end
+
+  def send_no_adjuster_within_fifty_mailer(project)
+    AdjusterMailer.no_adjuster_found_within_fifty(@project, @project.contractors.first, @project.user).deliver
   end
 
   def send_no_adjuster_mailer(project)
