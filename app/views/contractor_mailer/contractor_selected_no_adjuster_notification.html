@@ -4,11 +4,12 @@
     <meta content='text/html; charset=UTF-8' http-equiv='Content-Type' />
   </head>
   <body>
-    <h1>You have been selected for a new project!</h1>
-    <p><%= @contractor.owner_first_name %>, you have been selected by <%= @user.name %> as the contractor for their project <%= @project.page_title %>!</p>
+    <h1>You have been selected for a new Action!</h1>
+    <p><%= @contractor.owner_first_name %>, you have been selected by <%= @user.name %> as the contractor for their Action <%= @project.page_title %>!</p>
     <p>
       An adjuster has not been assigned to this project yet.
     </p>
+    <p>You can contact the Action's creator with the following information:<br/>Email: <%= @user.email %>.</p>
     <p>
       To view the project, just follow <a href="http://compassionforhumanity.org/projects/<%= @project.slug %>">this link</a>.
     </p>
