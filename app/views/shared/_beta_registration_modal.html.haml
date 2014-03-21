@@ -5,5 +5,9 @@
       %h3 Sign Up with Facebook!
     .modal-body
       %p We are currently in close beta. If you have an invite code, you can register now. Or sign up for our invite list.
+      #beta-invite-code-container.hide
+      #beta-form-container.hide
+        = render 'beta_requests/form'
     .modal-footer
-      = link_to "I have a beta invite code", new_user_registration_path, class: 'btn btn-success'
+      #beta-signup.btn.btn-primary.pull-left Sign me Up!
+      #beta-havecode.btn.btn-success.pull-right I have a beta invite code

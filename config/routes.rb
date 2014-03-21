@@ -1,4 +1,6 @@
 Compassion::Application.routes.draw do
+  resources :beta_requests
+
   get "assignments/destroy"
   resources :pages
   ActiveAdmin.routes(self)

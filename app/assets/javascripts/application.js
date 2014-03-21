@@ -33,6 +33,7 @@
 //= require galleries
 //= require estimates
 //= require init
+//= require beta_requests
 //= require photos
 //= require dashboard
 //= require contributions
