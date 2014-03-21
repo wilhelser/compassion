@@ -39,19 +39,19 @@ class Runner
     @sixty_day_projects = projects_not_funded(60)
 
     @thirty_day_projects.each do |p|
-      ProjectMailer.project_not_funded(p.user, p, 30).deliver
+      ProjectMailer.delay(run_at: 2.minutes.from_now).project_not_funded(p.user, p, 30)
     end
 
     @forty_day_projects.each do |p|
-      ProjectMailer.project_not_funded(p.user, p, 40).deliver
+      ProjectMailer.delay(run_at: 3.minutes.from_now).project_not_funded(p.user, p, 40)
     end
 
     @fifty_day_projects.each do |p|
-      ProjectMailer.project_not_funded(p.user, p, 50).deliver
+      ProjectMailer.delay(run_at: 4.minutes.from_now).project_not_funded(p.user, p, 50)
     end
 
     @sixty_day_projects.each do |p|
-      ProjectMailer.project_not_funded_email(p.user, p, 60).deliver
+      ProjectMailer.delay(run_at: 5.minutes.from_now).project_not_funded_email(p.user, p, 60)
     end
   end
 
