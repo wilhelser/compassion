@@ -15,4 +15,6 @@
 
 class BetaRequest < ActiveRecord::Base
   attr_accessible :name, :email, :oops
+
+  scope :invited, -> { where(invited: true) }
 end
