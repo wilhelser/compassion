@@ -1,4 +1,5 @@
 class Runner
+  include ContractorMethods
 
   def execute
     run_adjuster_tasks
@@ -15,7 +16,7 @@ class Runner
 
 
   def find_assignments_needing_accepted
-    Assignment.needs_accepted.where('created_at' < Date.today)
+    Assignment.needs_accepted.created(Date.today - 1)
   end
 
   def find_assignments_needing_estimate

@@ -32,6 +32,19 @@ class Assignment < ActiveRecord::Base
     set_date_accepted
   end
 
+  def self.created(a_date)
+    return Assignment.where(created_at: to_timerange(a_date))
+  end
+
+  private
+
+  def self.to_timerange(a_date)
+    raise ArgumentError, "expected 'a_date' to be a Date" unless a_date.is_a? Date
+    dts = Time.new(a_date.year, a_date.month, a_date.day, 0, 0, 0).utc
+    dte = dts + (24 * 60 * 60) - 1
+    return (dts...dte)
+  end
+
   private
 
   def set_date_accepted

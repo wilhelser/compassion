@@ -20,9 +20,9 @@
 
 -- If an adjuster declines, the app needs to assign it to another Adjuster and a Decline email needs to be sent to the Contractor.
 
--- This process should continue until an Adjuster "Accepts" the Action. ***note: we need to put a time constraint to the adjuster to click "Accept", ideal constraint would be "end of the next business day"*** and if they do not click "Accept" by the end of the next business day, Action needs to be reassigned to a new Adjuster, and an email needs to be sent to previous Adjuster (Text to come to you later for that email).
+-- This process should continue until an Adjuster "Accepts" the Action.note: we need to put a time constraint to the adjuster to click "Accept", ideal constraint would be "end of the next business day"*** and if they do not click "Accept" by the end of the next business day, Action needs to be reassigned to a new Adjuster, and an email needs to be sent to previous Adjuster (Text to come to you later for that email).
 
--- Once an adjuster clicks "Accept" it needs to populate the admin side with new Adjuster information.
++-- Once an adjuster clicks "Accept" it needs to populate the admin side with new Adjuster information.
 
 -- #3. Once an Adjuster has accepted an assignment, the app should notify the Adjuster once a day, by email, reminding them that they still have an accepted Action in process. This will cease once they have uploaded their estimate.
 	--- query for assignments not_accepted where accepted
