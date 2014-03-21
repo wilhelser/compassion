@@ -83,7 +83,7 @@ class Project < ActiveRecord::Base
   end
 
   def slugify
-    @slug = random_string.concat(self.id.to_s)
+    @slug = "cfh" + random_string.concat(self.id.to_s)
     self.slug = @slug
   end
 

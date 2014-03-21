@@ -48,7 +48,7 @@ class ProjectsController < InheritedResources::Base
   end
 
   def dashboard
-    @project = Project.friendly.find(params[:id])
+    @project = Project.find(params[:id])
     @graph = Koala::Facebook::API.new(current_user.token)
     session[:project_id] = @project.id
     @page_title = "Dashboard - #{@project.page_title}"
