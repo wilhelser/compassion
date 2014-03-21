@@ -13,8 +13,12 @@ set :output, "/var/log/cron.log"
 #   runner "AnotherModel.prune_old_records"
 # end
 
-every 24.hours do
-  runner "Project.email_inactive_projects"
+every 1.day, :at => '4:30 am' do
+  runner "Runner.new.run_action_tasks"
+end
+
+every 1.day, :at => '7:00 pm' do
+  runner "Runner.new.run_adjuster_tasks"
 end
 
 # Learn more: http://github.com/javan/whenever

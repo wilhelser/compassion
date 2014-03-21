@@ -1,4 +1,32 @@
-module RunnerMethods
+class Runner
+
+  def execute
+    run_adjuster_tasks
+  end
+
+  def run_adjuster_tasks
+    @assignments_needing_accepted = find_assignments_needing_accepted
+    @assignments_needing_estimate = find_assignments_needing_estimate
+  end
+
+  def run_action_tasks
+    email_inactive_projects
+  end
+
+
+  def find_assignments_needing_accepted
+    Assignment.needs_accepted.where('created_at' < Date.today)
+  end
+
+  def find_assignments_needing_estimate
+    @assignments = []
+    Assignment.accepted.each do |a|
+      if a.project.estimates.size < 1
+        @assignments << a
+      end
+    end
+    return @assignments
+  end
 
   #
   # Checks for inactive actions and sends an email
@@ -34,9 +62,5 @@ module RunnerMethods
   # @return [Hash] projects not funded
   def projects_not_funded(number_of_days)
     Project.where(:created_at => Date.today - number_of_days.days)
-  end
-
-  def find_assignments_needing_accepted
-    Assignment.needs_accepted.where('created_at' < Time.now - 24.hours )
   end
 end

@@ -19,6 +19,7 @@ class Assignment < ActiveRecord::Base
   before_destroy :create_new_assignment
 
   scope :accepted, -> { where(accepted: true) }
+  scope :needs_accepted, -> { where(accepted: false)}
 
   def create_new_assignment
     project = self.project
