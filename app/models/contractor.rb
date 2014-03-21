@@ -74,6 +74,7 @@ class Contractor < ActiveRecord::Base
   has_many :projects, :through => :contractor_selections
   has_and_belongs_to_many :trades
   has_many :galleries, dependent: :destroy
+  before_create :slugify
   after_create :send_registration_notification
 
   geocoded_by :address
@@ -89,6 +90,10 @@ class Contractor < ActiveRecord::Base
 
   def self.find(input)
     input.to_i == 0 ? find_by_slug(input) : super
+  end
+
+  def slugify
+    self.slug = self.name.gsub!(' ', '-').downcase
   end
 
   #
