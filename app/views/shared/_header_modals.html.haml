@@ -18,5 +18,9 @@
         = link_to raw("<i class='icon-white icon-briefcase'></i> Dashboard").html_safe, dashboard_adjuster_path(current_adjuster), :class => "account-top #{current_class?(dashboard_adjuster_path(current_adjuster))}"
       - else
         = render 'shared/social_media'
-        %a.login-top{"data-toggle" => "modal", href: "#sign_in_modal"} Sign In
-        %a.register-top{"data-toggle" => "modal", href: "#register_modal"} Get Started
+        - if cookies[:beta_access]
+          %a.login-top{"data-toggle" => "modal", href: "#sign_in_modal"} Sign In
+          %a.register-top{"data-toggle" => "modal", href: "#register_modal"} Get Started
+        - else
+          %a.login-top{"data-toggle" => "modal", href: "#register_modal"} Sign In
+          %a.register-top{"data-toggle" => "modal", href: "#register_modal"} Get Started

@@ -4,7 +4,7 @@
   - if user_signed_in?
     = link_to "Get Started", new_user_project_path(current_user), :class => "pull-right btn btn-large btn-success", :id => "home-create-action-btn"
   - else
-    = link_to "Get Started", new_user_registration_path, :class => "pull-right btn btn-large btn-success", :id => "home-create-action-btn"
+    %a#home-create-action-btn.pull-right.btn.btn-large.btn-success{"data-toggle" => "modal", href: "#register_modal"} Get Started
   .clearfix
   #request-debugger.hide
     %p Request Location:
