@@ -8,4 +8,4 @@
         = link_to "Estimate", new_estimate_path(:project_id => assignment.project.id, :adjuster_id => @adjuster.id), :remote => true, :class => "btn btn-success btn-mini"
       - else
         = button_to "Accept", accept_assignment_path(assignment), :method => :put, :remote => true, :confirm => "Are you sure you want to accept this assignment?", :class => "btn btn-success btn-mini"
-      = button_to "Decline", assignment, :method => :delete, :remote => true, :confirm => "Are you sure you want to decline this assignment?", :class => "btn btn-danger btn-mini"
+      = button_to "Decline", decline_assignment_path(assignment), :method => :put, :remote => true, :confirm => "Are you sure you want to decline this assignment?", :class => "btn btn-danger btn-mini"

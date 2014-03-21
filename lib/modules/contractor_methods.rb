@@ -16,7 +16,8 @@ module ContractorMethods
     return Adjuster.find(@adjuster)
   end
 
-  def reassign_adjuster(project, previous_adjuster)
+  def reassign_adjuster(assignment, project, previous_adjuster)
+    @assignment = assignment
     @project = project
     @previous_adjuster = previous_adjuster
     @adjuster_within_fifty = Adjuster.approved.where.not(id: @previous_adjuster.id).near(@project, 50)
@@ -34,7 +35,7 @@ module ContractorMethods
       @has_adjuster = false
     end
     if @has_adjuster == true
-      create_assignment(@project, @adjuster)
+      @assignment.update_attribute('adjuster_id', @adjuster.id)
       send_contractor_reassignment_notification(@project, @adjuster)
     end
   end

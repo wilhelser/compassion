@@ -42,6 +42,6 @@ class AdjustersController < ApplicationController
 
   private
   def adjuster_params
-    params.require(:email, :first_name, :last_name, :phone, :street_address, :city, :state, :zip_code).permit(:remember_me, :company, :fax, :latitude, :longitude, :approved, :cell_phone, :state_licensed_in, :date_license_issued, :license_expiration_date, :license_number, :license)
+    params.require(:adjuster).permit(:email, :first_name, :last_name, :phone, :street_address, :city, :state, :zip_code ,:remember_me, :company, :fax, :latitude, :longitude, :approved, :cell_phone, :state_licensed_in, :date_license_issued, :license_expiration_date, :license_number, :license)
   end
 end

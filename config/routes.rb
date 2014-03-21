@@ -19,6 +19,7 @@ Compassion::Application.routes.draw do
   resources :assignments do
     member do
       put 'accept'
+      put 'decline'
     end
   end
 

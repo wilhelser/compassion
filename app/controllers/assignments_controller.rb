@@ -10,4 +10,9 @@ class AssignmentsController < InheritedResources::Base
     respond_with @assignment
   end
 
+  def decline
+    @assignment = Assignment.find(params[:id])
+    @assignment.create_new_assignment
+  end
+
 end

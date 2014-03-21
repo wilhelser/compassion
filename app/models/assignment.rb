@@ -24,7 +24,7 @@ class Assignment < ActiveRecord::Base
   def create_new_assignment
     project = self.project
     adjuster = self.adjuster
-    reassign_adjuster(project, adjuster)
+    reassign_adjuster(self, project, adjuster)
   end
 
   def accept
