@@ -1,4 +1,5 @@
 Compassion::Application.routes.draw do
+  get "invite_codes/validate"
   resources :beta_requests
 
   get "assignments/destroy"
@@ -8,7 +9,7 @@ Compassion::Application.routes.draw do
   resources :estimates
   devise_for :adjusters, :path_prefix => 'my'
   devise_for :admin_users, ActiveAdmin::Devise.config
-  devise_for :users, :controllers => { :omniauth_callbacks => "omniauth_callbacks" }
+  devise_for :users, :controllers => { :omniauth_callbacks => "omniauth_callbacks"}
   devise_for :contractors, :path_prefix => 'ch'
   resources :contractor_reviews
   resources :donations

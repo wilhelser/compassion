@@ -14,4 +14,5 @@
 #
 
 class BetaRequest < ActiveRecord::Base
+  attr_accessible :name, :email, :oops
 end
