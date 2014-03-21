@@ -1,6 +1,6 @@
 .span8
   #estimate-upload-success.alert.alert-success.hide Estimate successfully uploaded!
-  - if @adjuster.license.url.blank?
+  - if @adjuster.license.blank?
     #license-alert.alert.alert-error
       You need to complete your licensing information!
   %ul#adjuster-tabs.nav.nav-tabs
