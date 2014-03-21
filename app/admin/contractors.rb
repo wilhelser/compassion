@@ -95,9 +95,4 @@ ActiveAdmin.register Contractor do
     end
   end
 
-  controller do
-    def find_resource
-      scoped_collection.where(slug: params[:id]).first!
-    end
-  end
 end

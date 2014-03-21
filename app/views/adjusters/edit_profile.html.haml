@@ -53,6 +53,7 @@
             = f.input :state_licensed_in, :as => :string, :label => "States licensed in"
             = f.input :date_license_issued, :as => :string, :label => "Date license issued", :input_html => { "data-behavior" => "datepicker" }
             = f.input :license, :label => "Please upload a copy of your license."
+            = f.filepicker_field :license, :button_class => "btn btn-primary", store_location: "S3", store_access: "public", services: "COMPUTER", extensions: ".pdf,.doc,.docx,.jpg,.png,.gif,.jpeg", onchange: ";"
             #adjuster_license_display
               - unless @adjuster.license.blank?
                 %p

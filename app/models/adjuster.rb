@@ -45,7 +45,6 @@ class Adjuster < ActiveRecord::Base
   has_many :assignments
   has_many :estimates
   has_many :projects, :through => :estimates
-  mount_uploader :license, AdjusterLicenseUploader
   after_create :send_registration_notification
 
   geocoded_by :address
