@@ -14,7 +14,13 @@
 #
 
 class BetaRequest < ActiveRecord::Base
-  attr_accessible :name, :email, :oops
+  attr_accessible :name, :email, :oops, :invited
+  before_save :send_invitation, :if => lambda { self.invited? }
 
   scope :invited, -> { where(invited: true) }
+
+  def send_invitation
+    self.invited_date = Date.today
+    Rails.logger.info "Invited tha nigga"
+  end
 end
