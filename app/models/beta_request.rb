@@ -21,6 +21,6 @@ class BetaRequest < ActiveRecord::Base
 
   def send_invitation
     self.invited_date = Date.today
-    Rails.logger.info "Invited tha nigga"
+    BetaRequestNotifier.invitation_notifier(self).deliver
   end
 end
