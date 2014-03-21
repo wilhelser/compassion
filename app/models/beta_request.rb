@@ -15,6 +15,7 @@
 
 class BetaRequest < ActiveRecord::Base
   attr_accessible :name, :email, :oops, :invited
+  after_create :send_request_notification
   before_save :send_invitation, :if => lambda { self.invited? }
 
   scope :invited, -> { where(invited: true) }
@@ -22,5 +23,9 @@ class BetaRequest < ActiveRecord::Base
   def send_invitation
     self.invited_date = Date.today
     BetaRequestNotifier.invitation_notifier(self).deliver
+  end
+
+  def send_request_notification
+    BetaRequestNotifier.new_request_notifier(self).deliver
   end
 end

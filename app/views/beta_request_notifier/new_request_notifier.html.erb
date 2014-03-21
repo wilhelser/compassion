@@ -3,7 +3,7 @@
 <head>
   <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title><%= @request.name %>, you have been invited to Compassion for Humanity!</title>
+  <title>New Beta Request for Compassion for Humanity!</title>
   <style type="text/css">
     /* Based on The MailChimp Reset INLINE: Yes. */
     /* Client-specific Styles */
@@ -144,12 +144,9 @@
         <td width="700" valign="top">
           <!-- Gmail/Hotmail image display fix -->
           <img class="image_fix" src="http://compassionforhumanity.org/email-logo.png" alt="Compassion for Humanity" title="Compassion for Humanity" width="259" height="88" />
-            <p><strong><%= @request.name %>, you have been invited to Compassion for Humanity!</strong></p>
-    <p>
-      To accept this invitation, either follow this link or paste it in to your browser: <a href="http://compassionforhumanity.org/invite_codes/validate?access_code=create!907">http://compassionforhumanity.org/invite_codes/validate?access_code=create!907</a>.
-    </p>
-    <p><strong>Please note:</strong> you will need to use this invite code one time <strong>per device</strong> that you visit CFH with. After that, the system will remember your device.</p>
-    <p>Thanks for trying Compassion for Humanity and have a great day!</p>
+            <p><strong>New Beta Request for Compassion for Humanity!</strong></p>
+            <p><strong>Name: </strong> <%= @request.name %></p>
+            <p><strong>Email: </strong> <%= @request.email %></p>
           </td>
       </tr>
     </table>
