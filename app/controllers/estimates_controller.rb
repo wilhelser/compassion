@@ -4,7 +4,7 @@ class EstimatesController < InheritedResources::Base
   before_filter :set_adjuster, except: [:index]
 
   def index
-    @project = Project.friendly.find(params[:project_id])
+    @project = Project.find(params[:project_id])
     @estimates = @project.estimates
     @page_title = "Estimates"
   end

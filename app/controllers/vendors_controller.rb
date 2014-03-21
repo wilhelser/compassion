@@ -2,7 +2,7 @@ class VendorsController < InheritedResources::Base
   respond_to :html, :js, :json
 
   def index
-    @project = Project.friendly.find(params[:project_id])
+    @project = Project.find(params[:project_id])
     @vendors = @project.vendors
     @page_title = "Vendors"
   end
