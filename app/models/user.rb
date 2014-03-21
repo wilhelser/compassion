@@ -53,6 +53,14 @@ class User < ActiveRecord::Base
     username
   end
 
+  def to_s
+    username
+  end
+
+  def self.find(input)
+    input.to_i == 0 ? find_by_username(input) : super
+  end
+
   def self.find_for_facebook_oauth(auth, signed_in_resource=nil)
     user = User.where(:provider => auth.provider, :uid => auth.uid).first
     Rails.logger.info auth

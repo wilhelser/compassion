@@ -11,7 +11,7 @@ ActiveAdmin.register Project do
   end
 
   sidebar "Adjuster", only: [:show, :edit], :if => proc{ project.construction_project? } do
-    link_to "#{project.adjusters.last.first_name} #{project.adjusters.last.last_name}", admin_adjuster_path(project.adjusters.last) if project.adjusters.any?
+    link_to "#{project.adjuster.first_name} #{project.adjuster.last_name}", admin_adjuster_path(project.adjuster) if project.adjuster.present?
   end
 
   sidebar "Estimates", only: [:show, :edit], :if => proc{ project.construction_project? } do

@@ -43,9 +43,10 @@ class AdjusterMailer < ActionMailer::Base
   # @param  contractor [Object] contractor
   # @param  user [Object] user
   #
-  def no_adjuster_found_within_fifty(project, contractor, user)
+  def no_adjuster_found_within_fifty(project, contractor, user, adjuster)
     @project = project
     @contractor = contractor
+    @adjuster = adjuster
     mail(to: "admin@compassionforhumanity.org", bcc: "wil@wilhelser.com", subject: "No Adjuster within 50 miles found for project!")
   end
 

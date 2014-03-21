@@ -25,7 +25,7 @@ module ContractorMethods
       @adjuster = @adjuster_within_fifty.shuffle.each.first
       @has_adjuster = true
     elsif @adjuster_within_hundred.any?
-      send_no_adjuster_mailer(@project)
+      send_no_adjuster_within_fifty_mailer(@project)
       @adjuster = @adjuster_within_hundred.shuffle.each.first
       @has_adjuster = true
     else
