@@ -14,6 +14,10 @@ $ ->
 
   $('#project_page_message').ckeditor()
 
+  $('#project_page_title').change ->
+    value = $(@).val()
+    $('.bbcard_name').text(value)
+
   # $(".project_show_main_image").imagefill()
 
   $("#disclaimer-accept").click ->

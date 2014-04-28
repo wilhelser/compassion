@@ -1,0 +1,28 @@
+.project-preview
+  .project.project-card
+    #new_project_image_preview.project-thumb-wrapper
+    .clearfix
+    %h5.bbcard_name
+    %span.project-byline
+      By #{current_user.name}
+    .divider
+    .project_excerpt
+      %p Your page content will appear here...
+    .clearfix
+    .project_index_statswrap
+      .clearfix
+      .project-index-progress.progress.progress-striped.active.bar-green
+        .bar{style: "width: 0%"}
+      .clearfix
+      %ul.project-stats
+        %li.first.funded
+          %strong>
+            0%
+          funded
+        %li.pledged
+          %strong>
+            $0.00
+          target
+        %li.last.ksr_page_timer
+          %strong 0
+    .clear
