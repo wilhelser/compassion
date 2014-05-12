@@ -1,4 +1,7 @@
 - if @project.needs_contractor
+  .alert.alert-success
+    %button.close{"aria-hidden" => "true", "data-dismiss" => "alert", type: "button"} &#215;
+    Please note: Your Action will not be seen publicly until the Adjuster and Contractor have agreed upon the scope of repairs and the estimate has been uploaded
   - unless @project.has_contractor
     .alert.alert-error
       You need to select a contractor!

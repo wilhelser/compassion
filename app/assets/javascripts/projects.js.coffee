@@ -40,6 +40,11 @@ $ ->
   # $(".wysihtml5").each (i, elem) ->
   #   $(elem).wysihtml5()
 
+  $('.modal-dont-close').modal(
+    backdrop: 'static',
+    keyboard: false
+    )
+
   $("input[maxlength]").maxlength({
     alwaysShow: true
     threshold: 30
