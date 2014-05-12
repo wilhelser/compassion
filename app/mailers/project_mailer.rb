@@ -95,4 +95,10 @@ class ProjectMailer < ActionMailer::Base
     @contribution = contribution
     mail(to: @user.email, subject: "#{@user.first_name}, your Action #{@project.page_title} has received a new contribution!")
   end
+
+  def admin_project_closed_email(user, project)
+    @user = user
+    @project = project
+    mail(to: 'info@compassionforhumanity.org', subject: "#{@project.page_title} has been ended.")
+  end
 end

@@ -69,6 +69,7 @@ module ProjectMethods
   #
   def end_campaign
     self.update_attributes(campaign_ended: true, status: "Complete", approved: false, campaign_ended_date: Date.today)
+    ProjectMailer.admin_project_closed_email(p.self.user, self).deliver
   end
 
   #
