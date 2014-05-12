@@ -99,6 +99,6 @@ class ProjectMailer < ActionMailer::Base
   def admin_project_closed_email(user, project)
     @user = user
     @project = project
-    mail(to: 'info@compassionforhumanity.org', subject: "#{@project.page_title} has been ended.")
+    mail(to: 'admin@compassionforhumanity.org', subject: "#{@project.page_title} has been ended.")
   end
 end
