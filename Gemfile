@@ -89,3 +89,4 @@ gem "pg_search"
 gem 'zeus', group: :development
 #gem 'coco'
 gem 'railroady', group: [:development, :test]
+gem 'gibbon'
