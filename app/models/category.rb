@@ -32,7 +32,7 @@ class Category < ActiveRecord::Base
     self.slug
   end
 
-  def self.find(input)
-    input.to_i == 0 ? find_by_slug(input) : super
-  end
+  # def self.find(input)
+  #   input.to_i == 0 ? find_by_slug(input) : super
+  # end
 end
