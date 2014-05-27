@@ -1,7 +1,7 @@
 - cache project do
   = div_for(project, :class => "project-card") do
     .project-thumb-wrapper
-      = link_to project_show_path(project) do
+      = link_to project do
         - if project.has_video?
           %img{src: "#{project.key}", alt: "#{project.page_title}", width: "200", height: "150"}
         - elsif project.featured_image.present?
@@ -9,7 +9,7 @@
     / project-thumb-wrapper
     .clearfix
     %h5.bbcard_name
-      = link_to project_show_path(project) do
+      = link_to project do
         = project.page_title
     %span.project-byline
       By #{project.user.name}
