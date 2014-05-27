@@ -42,10 +42,10 @@ $ ->
 
   contribution.setupForm()
 
-  $("#new_contribution").easyWizard
-    showSteps: false,
-    showButtons: false,
-    submitButton: false
+  # $("#new_contribution").easyWizard
+  #   showSteps: false,
+  #   showButtons: false,
+  #   submitButton: false
 
   $("#contribution_next").bind "click", ->
     $("#card_number").rules("remove")
@@ -65,10 +65,6 @@ $ ->
       $("#submit_contribution").show()
       $("#new_contribution").easyWizard "nextStep"
       false
-
-  $(".sb_main_donate").click ->
-    $("#contribution_modal").modal('show')
-
 
 contribution =
   setupForm: ->

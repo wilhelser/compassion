@@ -1,5 +1,5 @@
 = simple_form_for(@contribution, :url => project_contributions_path(@project, @contribution), :html => { :class => "form-horizontal"}, :remote => true) do |f|
-  %section.step{"data-step-title" => "Your Information"}
+  %section
     .contribution-error.hide.alert
       %span
     = f.input :amount, :as => :string, :input_html => { :placeholder => "0.00" }
@@ -17,7 +17,7 @@
     .clearfix
     = f.input :private
   / second panel
-  %section.step{"data-step-title" => "Payment Information"}
+  %section
     #stripe_error.alert.danger.hide
     = f.hidden_field :stripe_card_token
     - if @contribution.stripe_card_token.present?
@@ -47,3 +47,4 @@
     .clearfix
     #stripe_error
       %noscript JavaScript is not enabled and is required for this form. First enable it in your web browser settings.
+  %button#submit_contribution.btn.btn-primary.pull-left{"data-disable-with" => "Processing..."} Submit

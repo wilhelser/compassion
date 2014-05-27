@@ -12,7 +12,7 @@
       .divider
       .funding-minimum
         - if @project.can_accept_donations
-          %button#contribute_btn.btn.btn-large.btn-success.sb_main_donate Donate
+          = link_to "Donate", donate_project_path(@project), class: 'btn btn-large btn-success sb_main_donate'
           .project-deductible-wrap
             %p <strong>* ALL GIFTS ARE TAX DEDUCTIBLE</strong>
     .clear
